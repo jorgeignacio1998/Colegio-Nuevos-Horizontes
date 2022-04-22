@@ -1,20 +1,19 @@
 <?php
-require 'connect.php';
+require 'connect.php';  //coneccion BD
 session_start(); //Paso 1 para utilizar sesiones
-
 //manejar los datos del usuario
 $usuario_logueado = $_SESSION['usuario'];
 $datos_usuario = $mysqli->query("SELECT * FROM datos_usuarios WHERE EMAIL LIKE '{$usuario_logueado}' LIMIT 1");
 $row = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC); 
-
-
-$error = array();
-
-
-
 #print_r($_POST);
+$error = array();
+$ruta = 'D:/XAMPP/htdocs/images/';
 
 
+
+
+
+//Editar nombre
 if(isset($_POST['nombre'])){
 
     //validacion campo nombre no este vacio
@@ -24,25 +23,22 @@ if(isset($_POST['nombre'])){
     <script> 
           alert("El nombre de usuario no puede estar vacío");
           window.location = "../vistas/perfil.php";
-    </script>
-';
+    </script> ';
+                
     }
-
-    
     if (count($error)==0){ 
         $username = $_POST["nombre"];
         $mysqli->query("UPDATE datos_usuarios SET USERNAME = '{$username}' WHERE ID = $row[ID]");
-        // Editando nombre de usuario desde la vista
-        
+        // Editando nombre de usuario desde la vista 
     }
 }
 
 
 
-
+// editar la contraseña
 if(isset($_POST['contraseña1']) &&
-   isset($_POST['contraseña2']))
-{
+   isset($_POST['contraseña2'])){
+
 
     $contraseña1 = $_POST["contraseña1"];
     $contraseña2 = $_POST["contraseña2"];
@@ -70,29 +66,27 @@ if(isset($_POST['contraseña1']) &&
     } // Cambiando la contraseña
 };
 
+
+
+// Cambiando el telefono
 if(isset($_POST['telefono'])){
     $telefono = $_POST["telefono"];
 
     $mysqli->query("UPDATE datos_usuarios SET TELEFONO = '{$telefono}' WHERE ID = $row[ID]");
    
-}  // Cambiando el telefono
+}  
 
 
 
 
 
 
-                                            // tratando de poner foto
+//subiendo imagen
+if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])){
 
-$ruta = 'D:/XAMPP/htdocs/images/';
-
-
-if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])) 
-{
     echo 'No upload';
-}
-else
-{   echo 'uploaded ';
+}else{
+        echo 'uploaded ';
     
    
    
@@ -128,5 +122,27 @@ else
         } 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
