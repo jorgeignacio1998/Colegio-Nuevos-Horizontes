@@ -1,0 +1,73 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+
+
+:root{
+    --colorTextos: #49454567;
+
+}
+
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing:  border-box;
+}
+
+body{
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    background: #ef32d9;  
+    background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+ /* flex-direction: column;*/
+.home{
+    display: flex; /* separara cada div en cajas hacia la derecha */
+    flex-wrap: wrap;  /* PASO 1 RESPONSIVE, Los divs los mete pa abajo (leer desde celular)*/
+
+
+}
+
+
+
+.in-flex{
+    flex: 1;               /* espacio entre cada caja (los separa aun mas dejan de estar pegados) */
+    padding: 25px;              /*despega los divs de las esquinas) */
+    background-color: aliceblue;
+    margin: 20px;                /*genera espacios entre cajas dejando vacios entre ellas) */
+    min-width: 400px;            /*tamaño minimo de cada caja horizontal) */
+    margin-bottom: 0px;           /*cantidad de espacio entre cajas de arriba a abajo) */
+
+}
+
+.in-flex:first-child{          /* el primer div ocupara el espacio de 2  divs (horizontal), y los demas tendran 1) */
+    flex: 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
