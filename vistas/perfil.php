@@ -157,7 +157,14 @@ if(!isset($_SESSION['usuario'])){
                      
                      <div class="circle">
                         <div class="avatar">
-                           <img class="thumb" id="thumb" src="https://mox.cl/thumb/250-anonymous.png" alt="avatar">
+                           <?php
+                              if(file_exists('../images/'.$row['FOTO'])){ 
+                                 echo '<img class="thumb" id="thumb" src="/images/'.$row['FOTO'].'" style="max-width:100%;" alt="avatar">'; 
+                              } else{
+                                 echo '<img class="thumb" id="thumb" src="https://mox.cl/thumb/250-anonymous.png" alt="avatar">';
+
+                              }
+                           ?>
                         </div>
                         
                         <i class="fas fa-camera"></i>
@@ -266,6 +273,8 @@ if(!isset($_SESSION['usuario'])){
 
 
 
+
+ 
 
 
 

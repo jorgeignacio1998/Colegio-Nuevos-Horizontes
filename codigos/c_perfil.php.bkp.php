@@ -79,11 +79,8 @@ if(isset($_POST['telefono'])){
 
     
     $nombre_img = $_FILES['imagen']['name'];
-    if(!empty($nombre_img)){
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../images/{$nombre_img}")){ 
-            $mysqli->query("UPDATE datos_usuarios SET FOTO = '{$nombre_img}' WHERE ID = $row[ID]");
-        }
-    }
+    move_uploaded_file($_FILES['imagen']['tmp_name'],"images/{$nombre_img}"); //envio de datos al servidor
+
 
 
 /*
