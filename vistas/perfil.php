@@ -41,7 +41,7 @@ if(!isset($_SESSION['usuario'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Mi perfil</title>
-
+   
    <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
 
   
@@ -106,7 +106,6 @@ if(!isset($_SESSION['usuario'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
  <!-- Inicio del Navbar -->
 
- <div class="container-fluid ">
       <nav class="navbar navbar-dark bg-primary navbar-expand-md border-primary">
          <div class="container-fluid">
                <a href="welcome.php" class="navbar-brand">Inicio</a>
@@ -124,7 +123,7 @@ if(!isset($_SESSION['usuario'])){
                         </a>
                         <ul class="dropdown-menu">
                         <li> <a class="dropdown-item" href="perfil.php">Perfíl</a></li>
-                        <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
+                        <li> <a class="dropdown-item" href="usuarios.php">Gestionar usuarios</a></li>
                         <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
                         <li> <a class="dropdown-item" href="../codigos/logout.php">Cerrar sesión</a></li>
                         </ul>
@@ -135,146 +134,181 @@ if(!isset($_SESSION['usuario'])){
                </div>
          </div>
       </nav>
-   </div> 
+
    <!-- Termino del Navbar  -->
-  <div class="d-flex flex-wrap " style="">      
-        <div class="container ">
 
+<div class=" mt-5 container-fluid">
 
-
-
-
-
-
-
-                <!-- formulario  -->
-               <form action="../codigos/c_perfil.php"  enctype="multipart/form-data" method="POST"  class="row g-3 p-2 mt-4">
-
-
-                  <div class="col-md-3 p-4 mt-3 container-avatar">
-                     <label for="file" style="position:relative;float:left;cursor:pointer;"></label>
-                     <input type="file" id="file" name="imagen">           <!------------------ INPUT FILE -->
-                     
-                     <div class="circle">
-                        <div class="avatar">
-                           <?php
-                              if(file_exists('../images/'.$row['FOTO'])){ 
-                                 echo '<img class="thumb" id="thumb" src="/images/'.$row['FOTO'].'" style="max-width:100%;" alt="avatar">'; 
-                              } else{
-                                 echo '<img class="thumb" id="thumb" src="https://mox.cl/thumb/250-anonymous.png" alt="avatar">';
-
-                              }
-                           ?>
-                        </div>
+      <div class="d-flex flex-wrap " >      
+            <div class="container ">
+      
+      
+      
+      
+      
+      
+      
+      
+                  <!-- formulario  -->
+                  <form action="../codigos/c_perfil.php"  enctype="multipart/form-data" method="POST"  class="row g-3 p-2 mt-4">
+      
+      
+                     <div class="col-md-3 p-4 mt-3 container-avatar">
                         
-                        <i class="fas fa-camera"></i>
-                     </div>   
-                  </div>    <!-- Termino primer col 3 -->
+                        
+                        <div class="circle">
+                           <div class="avatar">
+                              <?php
+                                 if(file_exists('../images/'.$row['FOTO'])){ 
+                                    echo '<img class="thumb" id="thumb" src="/images/'.$row['FOTO'].'" style="max-width:100%; min-width:100% " alt="avatar">'; 
+                                 } else{
+                                    echo '<img class="thumb" id="thumb" src="https://mox.cl/thumb/250-anonymous.png" alt="avatar">';
+      
+                                 }
+                              ?>
+                           </div>
+                           
+                           <i class="fas fa-camera"></i>
+                        </div>  
+                        <label for="file" style="position:relative;float:left;cursor:pointer;"></label>
+                        <input type="file" id="file" name="imagen">           <!------------------ INPUT FILE -->
+      
+                        
+                     </div>    <!-- Termino primer col 3 -->
 
 
 
-                  <div class="col-md-4 p-4">
-
-                     <h4>Informacion Personal</h4>
-                     <br>
-                     <label class="form-label lab" for="inp1">NOMBRE COMPLETO</label>
-                     <input class="form-control p-2" type="text" name="nombre" value="<?php echo  $row['USERNAME']; ?>" id="inp1"><br>
-                     
 
 
-                        <div class="row">
-                           <div class="col-8">
+
+      
+      
+      
+                     <div class="col-md-5 p-4">
+                        <h4>Informacion Personal</h4>
+                        <br>
+                           <div class="row">
+                              <div class="col-7">
+                                 <label class="form-label lab" for="inp1">NOMBRE COMPLETO</label>
+                                 <input class="form-control p-2" type="text" name="nombre" value="<?php echo  $row['USERNAME']; ?>"       id="inp1"><br>
+                              </div>
+                              <div class="col-5">
+                                 <label class="form-label lab"    for="inp8">SITIO WEB</label>
+                                 <input class="form-control p-2" type="text" name="sitioweb" id="inp8" value="<?php echo  $row['SITIO_WEB']; ?>"><br>
+                              </div>
+                            
+                              
+                              
+
+                           </div>
+      
+      
+                           <div class="row">
+                              <div class="col-7">
+                                       
+                                 <label class="form-label lab" for="inp2">CORREO ELECTRÓNICO</label>
+                                 <input class="form-control p-2 " type="text" name="email" value="<?php echo $row['EMAIL']; ?>"id="inp2">
+                              </div>
+                              <div class="col-5 ">
+                                 <label class="form-label lab" for="inp3">TELÉFONO</label>
+                                 <input class="form-control p-2" type="text" name="telefono" value="<?php echo  $row['TELEFONO']; ?>" id="inp3">  
+                                 <br>
+                              </div>
+                           </div>
+      
+      
+                           <div class="row">
+                              <div class="col-6">
                                     
-                              <label class="form-label lab" for="inp2">CORREO ELECTRÓNICO</label>
-                              <input class="form-control p-2 " type="text" name="email" value="<?php echo $row['EMAIL']; ?>"id="inp2">
+                                 <label class="form-label lab" for="inp4">CAMBIAR CONTRASEÑA</label>
+                                 <input class="form-control p-2" type="password" name="contraseña1" id="inp4">
+                              </div>
+                              <div class="col-6 ">
+                                 <label class="form-label lab" for="inp4">REPETIR CONTRASEÑA</label>
+                                 <input class="form-control p-2" type="password" name="contraseña2" id="inp4">
+                              </div>
+      
+                            
                            </div>
-                           <div class="col-4 ">
-                              <label class="form-label lab" for="inp3">TELÉFONO</label>
-                              <input class="form-control p-2" type="text" name="telefono" value="<?php echo  $row['TELEFONO']; ?>" id="inp3">  
-                              <br>
-                           </div>
-                        </div>
-
-
-                        <div class="row">
-                           <div class="col-6">
-                                 
-                           <label class="form-label lab lab" for="inp4">RESTABLECER CONTRASEÑA</label>
-                           <input class="form-control p-2" type="password" name="contraseña1" id="inp4">
-                           </div>
-                           <div class="col-6 ">
-                               <label class="form-label lab" for="inp4">REPETIR CONTRASEÑA</label>
-                               <input class="form-control p-2" type="password" name="contraseña2" id="inp4">
-                               <br>
-                           </div>
-                        </div>
+                           
                         
-                     
+      
 
-                  </div>  <!-- Termino segunda col 4 -->
 
-                  <div class="col-md-4 p-4">
-                     <h4>Informacion Laboral</h4>
-                     <br>
-                     <label class="form-label lab"         for="inp5">DIRECCIÓN</label>
-                     <input class="form-control p-2" type="text" name="direccion" id="inp5"><br>
-                     
 
-                        <div class="row">
-                           <div class="col-6">
-                                 
-                              <label class="form-label lab" for="inp6">BANCO</label>
-                              <input class="form-control p-2 " type="text" name="banco" id="inp6">
+
+
+
+
+                     </div>  <!-- Termino segunda col 4 -->
+      
+                     <div class="col-md-4 p-4">
+                        <h4>Informacion Laboral</h4>
+                        <br>
+                        <label class="form-label lab"         for="inp5">DIRECCIÓN</label>
+                        <input class="form-control p-2" type="text" name="direccion" id="inp5" value="<?php echo  $row['DIRECCION']; ?>"> <br>
+                        
+      
+                           <div class="row">
+                                 <div class="col-5">
+                                       
+                                    <label class="form-label lab" for="inp6">BANCO</label>
+                                    <input class="form-control p-2 " type="text" name="banco" id="inp6" value="<?php echo  $row['BANCO']; ?>">
+                                 </div>
+                                 <div class="col-7 ">
+                                    <label class="form-label lab" for="inp8">TIPO DE CUENTA</label>
+                                    <input class="form-control p-2 " type="text" name="tipocuenta" id="inp8" value="<?php echo  $row['TIPO_CUENTA']; ?>">
+                                    <br>
+                                 </div>
                            </div>
-                           <div class="col-6 ">
-                               <label class="form-label lab" for="inp7">RUT</label>
-                               <input class="form-control p-2" type="text" name="rut" id="inp7">  
-                               <br>
+                           <div class="row">
+                                 <div class="col-5">
+                                    <label class="form-label lab" for="inp7">RUT</label>
+                                    <input class="form-control p-2" type="text" name="rut" id="inp7" value="<?php echo  $row['RUT']; ?>">  
+                                 </div>
+                                 <div class="col-7 ">
+                                    <label class="form-label lab" for="inp9">NUMERO DE CUENTA</label>
+                                    <input class="form-control p-2" type="text" name="numerocuenta" id="inp9" value="<?php echo  $row['NUMERO_CUENTA']; ?>">  
+                                    <br>
+                                 </div>
                            </div>
-                        </div>
-                     
-                     <label class="form-label lab"         for="inp8">SITIO WEB</label>
-                     <input class="form-control p-2" type="text" name="sitioweb" id="inp8"><br>
-
-                  </div>  <!-- Termino tercera col 4 -->
-
-
-                  <div class="col-12 d-flex justify-content-center">
-                     <button class="btn btn-primary btn-lg"  name="submit" type="submit">Guardar cambios</button>
-                  </div>
-
-
-
-               </form> <!-- Termino Form -->
-            
-
-
-
-
-
-
-
-
-
-            
-            <br><br> <br> <br> <br>
-
-            <div class="row mt-2 p-12 ">
-               <div class="col-12 ">
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur a fuga exercitationem laboriosam soluta rem enim? Iusto corrupti nesciunt accusantium facilis ullam perspiciatis repudiandae culpa recusandae. Vero dolorem cumque aliquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, et placeat doloremque vero amet aperiam illum corrupti? Dolore magni natus, a sed placeat nesciunt possimus assumenda nemo tempore similique fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consequuntur dolore blanditiis alias praesentium cupiditate illum tempora, eos ex voluptates nesciunt beatae inventore repudiandae deleniti, totam rem exercitationem. Saepe, nihil.
-               </div>
-            </div>
-
-
-
-
-        </div>         
-  </div>
+                        
+                        
+      
+                     </div>  <!-- Termino tercera col 4 -->
+      
+      
+                     <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-primary btn-lg"  name="submit" type="submit">Guardar cambios</button>
+                     </div>
+      
+      
+      
+                  </form> <!-- Termino Form -->
+               
+      
+      
+      
+      
+      
+      
+      
+      
+      
+               
+               <br><br> <br> <br> <br>
+      
+               
+      
+      
+      
+            </div>         
+      </div>
+</div>
 
 
 
 
- 
 
 
 

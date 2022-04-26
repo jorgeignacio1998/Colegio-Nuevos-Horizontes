@@ -32,20 +32,6 @@ if(!isset($_SESSION['usuario'])){
          padding: 2px 2px;
       }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    </style>
 </head>
 <body>
@@ -54,7 +40,7 @@ if(!isset($_SESSION['usuario'])){
 
 
     <!-- Inicio del Navbar -->
-   <div class="container-fluid ">
+   
       <nav class="navbar navbar-dark bg-primary navbar-expand-md border-primary">
          <div class="container-fluid">
                <a href="welcome.php" class="navbar-brand">Inicio</a>
@@ -63,16 +49,14 @@ if(!isset($_SESSION['usuario'])){
                </button>
                
                <div id="MenuNav" class="collapse navbar-collapse d-flex flex-row-reverse ">
-                  <ul class="navbar-nav" ms-3>
-                     
-                     
+                  <ul class="navbar-nav" ms-3>  
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown">
                            Opciones de soporte
                         </a>
                         <ul class="dropdown-menu">
                         <li> <a class="dropdown-item" href="perfil.php">Perfíl</a></li>
-                        <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
+                        <li> <a class="dropdown-item" href="usuarios.php">Gestionar usuarios</a></li>
                         <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
                         <li> <a class="dropdown-item" href="../codigos/logout.php">Cerrar sesión</a></li>
                         </ul>
@@ -83,7 +67,7 @@ if(!isset($_SESSION['usuario'])){
                </div>
          </div>
       </nav>
-   </div> 
+    
    <!-- Termino del Navbar  -->
    <!-- Inicio card informacion personal  -->
    <div class="d-flex flex-row-reverse flex-wrap">

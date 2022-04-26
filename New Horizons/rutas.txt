@@ -1,0 +1,6 @@
+Sitio de pruebas:                   http://localhost/New%20Horizons/views/prueba.php       
+
+LOGIN:                              http://localhost/New%20Horizons/views/login.php    
+
+
+https://foresight.org/

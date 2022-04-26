@@ -44,7 +44,7 @@ if(isset($_POST['contraseña1']) &&
     $contraseña2 = $_POST["contraseña2"];
 
 
-    if(!empty($_POST['contraseña2'])){
+    if(!empty($_POST['contraseña2']) || ($_POST['contraseña1'])){
         if($_POST['contraseña1'] != $_POST['contraseña2']){  
             array_push($error, "Las contraseñas no coinciden");
             echo'
@@ -64,16 +64,41 @@ if(isset($_POST['contraseña1']) &&
            ';
         }
     } // Cambiando la contraseña
+    
 };
 
 
 
-// Cambiando el telefono
-if(isset($_POST['telefono'])){
+// Cambiando el mayoria de datos
+if(isset($_POST['telefono']) &&
+isset($_POST['rut']) &&   
+isset($_POST['banco']) &&
+isset($_POST['direccion']) &&
+isset($_POST['sitioweb']) &&
+isset($_POST['tipocuenta']) &&    
+isset($_POST['numerocuenta'])
+){
+
+
+
     $telefono = $_POST["telefono"];
+    $rut = $_POST["rut"];
+    $banco = $_POST["banco"];
+    $direccion = $_POST["direccion"];
+    $sitioweb = $_POST["sitioweb"];
+    $tipocuenta = $_POST["tipocuenta"];
+    $numerocuenta = $_POST["numerocuenta"];
+
 
     $mysqli->query("UPDATE datos_usuarios SET TELEFONO = '{$telefono}' WHERE ID = $row[ID]");
-   
+    $mysqli->query("UPDATE datos_usuarios SET RUT = '{$rut}' WHERE ID = $row[ID]");
+    $mysqli->query("UPDATE datos_usuarios SET BANCO = '{$banco}' WHERE ID = $row[ID]");
+    $mysqli->query("UPDATE datos_usuarios SET DIRECCION = '{$direccion}' WHERE ID = $row[ID]");
+    $mysqli->query("UPDATE datos_usuarios SET SITIO_WEB = '{$sitioweb}' WHERE ID = $row[ID]");
+    $mysqli->query("UPDATE datos_usuarios SET TIPO_CUENTA = '{$tipocuenta}' WHERE ID = $row[ID]");
+    $mysqli->query("UPDATE datos_usuarios SET NUMERO_CUENTA = '{$numerocuenta}' WHERE ID = $row[ID]");
+    header('Location: ../vistas/perfil.php');
+
 }  
 
 
@@ -82,10 +107,17 @@ if(isset($_POST['telefono'])){
     if(!empty($nombre_img)){
         if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../images/{$nombre_img}")){ 
             $mysqli->query("UPDATE datos_usuarios SET FOTO = '{$nombre_img}' WHERE ID = $row[ID]");
+            header('Location: ../vistas/perfil.php');
         }
     }
 
 
+ 
+    
+    
+    
+ 
+    
 /*
 //Sube la imagen al servidor
 if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])){

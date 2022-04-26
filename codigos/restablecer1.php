@@ -67,8 +67,8 @@ if (count($error)==0){
             //Content
             $mail->isHTML(true);                                  
             $mail->Subject = 'Nueva Password' ;
-            $mail->Body    = "su nueva contraseña es: $newPass ";
-            $mail->AltBody = '';
+            $mail->Body    = "su nueva Password es:  $newPass ";
+            $mail->AltBody = 'se ha restablecido su contraseña exitosamente ';
 
             $mail->send();
             echo'
