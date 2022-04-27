@@ -1,21 +1,34 @@
 <?php  //seguridad de sesiones 
 session_start(); //Paso 1 para utilizar sesiones
- require '../codigos/connect.php';
+require '../codigos/connect.php';
 $usuario_logueado = $_SESSION['usuario'];
 if(!isset($_SESSION['usuario'])){
-   echo'
-         <script> 
-               alert("Tienes que iniciar sesión para entrar");
-               window.location = "Login.php";
-         </script>
-   ';
-   
-   session_destroy();
-   die();
+  echo'
+        <script> 
+              alert("Tienes que iniciar sesión para entrar");
+              window.location = "Login.php";
+        </script>
+  ';
+  
+  session_destroy();
+  die();
 }
+
+
+$datos_usuario2 = $mysqli->query("SELECT * FROM datos_usuarios WHERE EMAIL LIKE '{$usuario_logueado}' LIMIT 1");
+$sentencia2 = mysqli_fetch_array($datos_usuario2, MYSQLI_ASSOC); 
 
 //Programacion pintar usuarios
 $datos_usuario = $mysqli->query("SELECT * FROM datos_usuarios");
+
+if($sentencia2['NIVEL'] == 2 || $sentencia2['NIVEL'] == 3){
+    header('Location: ../vistas/welcome.php');
+}
+if($sentencia2['NIVEL'] == 1){
+echo "OK";
+}else{
+    header('Location: ../vistas/welcome.php');
+}
 
 
 
@@ -244,6 +257,7 @@ body{
                        <table class="table align-middle">
                             <thead>
                                 <tr>
+                                    
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre completo</th>
                                     <th scope="col">Correo electrónico</th>
