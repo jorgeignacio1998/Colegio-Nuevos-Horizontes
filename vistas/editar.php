@@ -38,6 +38,13 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,7 +55,19 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+    body{
+        background: #7F7FD5;  
+        background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
 
+
+
+
+
+
+</style>
   </head>
   <body>
       
@@ -70,7 +89,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Editar datos:
+                    <h3 class="">Editar datos</h3>
                 </div>
                 <form action="../codigos/c_editar.php" method="POST" class="p-4" >
                     <div class="mb-3">

@@ -137,7 +137,7 @@ body{
                 ?>
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Cambios realizados exitosamente</strong> xd.
+                    <strong>registro realizado exitosamente</strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -181,14 +181,14 @@ body{
 
 
 
-                 <!-- 2.  alerta    registrado  success -->
+                 <!-- 2.  alerta    editado  success -->
 
                  <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
                 ?>
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Cambios realizados exitosamente</strong> xd.
+                    <strong>Cambios realizados exitosamente</strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -200,6 +200,24 @@ body{
 
 
 
+
+
+
+                       <!-- 2.  alerta    registrado  success -->
+
+                <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
+                ?>
+
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Se han eliminado los datos correctamente </strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                
+                 <!-- 2. alerta    registrado  success -->
 
 
 
@@ -248,8 +266,8 @@ body{
                                     <td ><?php echo $fila['EMAIL']; ?></td>
                                     <td ><?php echo $fila['RUT']; ?></td>
                                     <td ><?php echo $fila['TELEFONO']; ?></td>
-                                    <td class="text-success">      <a href="../vistas/editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td class="text-danger">              <i class="bi bi-trash"></i>  </td>
+                                    <td><a class="text-primary" href="../vistas/editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="../codigos/c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>
                                     
                                     
                                 </tr>
