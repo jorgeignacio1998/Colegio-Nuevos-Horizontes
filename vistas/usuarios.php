@@ -1,37 +1,18 @@
-<?php  //seguridad de sesiones 
-session_start(); //Paso 1 para utilizar sesiones
-require '../codigos/connect.php';
-$usuario_logueado = $_SESSION['usuario'];
-if(!isset($_SESSION['usuario'])){
-  echo'
-        <script> 
-              alert("Tienes que iniciar sesión para entrar");
-              window.location = "Login.php";
-        </script>
-  ';
-  
-  session_destroy();
-  die();
-}
+<?php  
+require '../componentes/NIVEL.php'; //NIVEL DE USUARIO, BD Y SESSION
 
 
-$datos_usuario2 = $mysqli->query("SELECT * FROM datos_usuarios WHERE EMAIL LIKE '{$usuario_logueado}' LIMIT 1");
-$sentencia2 = mysqli_fetch_array($datos_usuario2, MYSQLI_ASSOC); 
+$datos_usuario = $mysqli->query("SELECT * FROM datos_usuarios"); //obtiene datos de todos los usuarios (servirá para pintar los datos en la tabla (250 fila))
 
-//Programacion pintar usuarios
-$datos_usuario = $mysqli->query("SELECT * FROM datos_usuarios");
-
+//logica del manejo de niveles. si no tiene acceso sera redirigido.
 if($sentencia2['NIVEL'] == 2 || $sentencia2['NIVEL'] == 3){
     header('Location: ../vistas/welcome.php');
 }
 if($sentencia2['NIVEL'] == 1){
-echo "OK";
+//nada, solo dejar entrar.
 }else{
     header('Location: ../vistas/welcome.php');
 }
-
-
-
 
 
 ?>
