@@ -2,13 +2,13 @@
 require '../componentes/NIVEL.php'; //NIVEL DE USUARIO, BD Y SESSION
 
 
-$datos_usuario = $mysqli->query("SELECT * FROM datos_usuarios"); //obtiene datos de todos los usuarios (servirá para pintar los datos en la tabla (250 fila))
+$datos_usuario = $mysqli->query("SELECT * FROM datos_usuarios WHERE NIVEL != 1"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
 
 //logica del manejo de niveles. si no tiene acceso sera redirigido.
-if($sentencia2['NIVEL'] == 2 || $sentencia2['NIVEL'] == 3){
+if( $sentencia2['NIVEL'] == 3){
     header('Location: ../vistas/welcome.php');
 }
-if($sentencia2['NIVEL'] == 1){
+if($sentencia2['NIVEL'] == 1 || $sentencia2['NIVEL'] == 2  ){
 //nada, solo dejar entrar.
 }else{
     header('Location: ../vistas/welcome.php');
@@ -251,18 +251,18 @@ body{
                                 <?php     //IMPRIMIR DATOS EN LOS td
    
                                 while($fila =mysqli_fetch_array($datos_usuario) ) {
- 
 
                                     
                                 ?>
                                 <tr>
+
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['USERNAME']; ?></td>
                                     <td ><?php echo $fila['EMAIL']; ?></td>
                                     <td ><?php echo $fila['RUT']; ?></td>
                                     <td ><?php echo $fila['TELEFONO']; ?></td>
                                     <td><a class="text-primary" href="../vistas/editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="../codigos/c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="../codigos/c_eliminar.php?codigo=<?php                     echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>
                                     
                                     
                                 </tr>
