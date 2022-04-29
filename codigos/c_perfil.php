@@ -100,7 +100,7 @@ isset($_POST['cargo'])
     $mysqli->query("UPDATE datos_usuarios SET TIPO_CUENTA = '{$tipocuenta}' WHERE ID = $row[ID]");
     $mysqli->query("UPDATE datos_usuarios SET NUMERO_CUENTA = '{$numerocuenta}' WHERE ID = $row[ID]");
     $mysqli->query("UPDATE datos_usuarios SET CARGO = '{$cargo}' WHERE ID = $row[ID]");
-    header('Location: ../vistas/perfil.php');
+    header('Location: ../vistas/perfil.php?mensaje=guardado');  //mensaje
 
 }  
 
@@ -110,7 +110,8 @@ isset($_POST['cargo'])
     if(!empty($nombre_img)){
         if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../images/{$nombre_img}")){ 
             $mysqli->query("UPDATE datos_usuarios SET FOTO = '{$nombre_img}' WHERE ID = $row[ID]");
-            header('Location: ../vistas/perfil.php');
+            header('Location: ../vistas/perfil.php?mensaje=guardado');  //mensaje
+
         }
     }
 

@@ -114,6 +114,12 @@ if(!isset($_SESSION['usuario'])){
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+
+
+
+
+
+
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
  <!-- Inicio del Navbar -->
@@ -149,13 +155,56 @@ if(!isset($_SESSION['usuario'])){
 
    
 
-      <div class=" mt-4 container-fluid">
-         <div class="d-flex flex-wrap " >      
-            <div class="container ">
-            
+      <div class=" mt-4 container-fluid">   
+         <div class="d-flex flex-wrap " >              
+            <div class="container ">           
                   <!-- formulario  Pintar FOTO  -->
                   <form action="../codigos/c_perfil.php"  enctype="multipart/form-data" method="POST"  class="row g-3 p-2 mt-4">
-                     <div class="row">
+                     <div class="row justify-content-center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     <!--INICIO  MENSAJES MENSAJES MENSAJES MENSAJES -->
+                     <!-- 1 Cambios realizados exitosamente -->
+
+                     <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'guardado') {
+                                    ?>
+
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                       <strong>CAMBIOS REALIZADOS CON EXITO!</strong> 
+                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    
+                     <!-- termino Cambios realizados exitosamente  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     <!--TERMINO  MENSAJES MENSAJES MENSAJES MENSAJES -->
+
                         <div class="col-md-3 p-4 container-avatar" >
                            <br><br>
                            <div class="circle" >               
@@ -163,10 +212,10 @@ if(!isset($_SESSION['usuario'])){
                                 
                                  <?php
                                     if(file_exists('../images/'.$row['FOTO'])){ 
-                                       echo '  <label for="input">      <img class="thumb" id="thumb"  src="/images/'.$row['FOTO'].'" style=" min-width:250px; max-width:250px; position: relative; top: 0px;  left: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
+                                       echo '  <label for="input"  >      <img class="thumb" id="thumb"  src="/images/'.$row['FOTO'].'" style=" min-width:250px; max-width:250px; position: relative; top: 0px;  left: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
                                     } 
                                     if($row['FOTO'] == ''){
-                                       echo '<label for="input" ><img class="thumb" id="thumb" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"  
+                                       echo '<label for="input"   ><img class="thumb" id="thumb" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"  
                                           style=" min-width:310px; max-width:100%; position: relative; top: -50px;  left: -35px;"  for="input1"         alt="avatar" ></label>';         
                                     }      
                                  ?>
@@ -271,10 +320,13 @@ if(!isset($_SESSION['usuario'])){
                      </div>
                   </form> <!-- Termino Form -->
                <br>
-            </div>     
+            </div> <!-- Termino CONTAINER -->    
       </div>
       <br><br> <br> <br> 
-</div>
+</div>  <!-- Termino CONTAINER 1 -->    
+
+
+
 
 
 
