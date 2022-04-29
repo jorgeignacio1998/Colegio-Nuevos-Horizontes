@@ -76,7 +76,8 @@ isset($_POST['banco']) &&
 isset($_POST['direccion']) &&
 isset($_POST['sitioweb']) &&
 isset($_POST['tipocuenta']) &&    
-isset($_POST['numerocuenta'])
+isset($_POST['numerocuenta']) &&
+isset($_POST['cargo'])
 ){
 
 
@@ -88,6 +89,7 @@ isset($_POST['numerocuenta'])
     $sitioweb = $_POST["sitioweb"];
     $tipocuenta = $_POST["tipocuenta"];
     $numerocuenta = $_POST["numerocuenta"];
+    $cargo = $_POST["cargo"];
 
 
     $mysqli->query("UPDATE datos_usuarios SET TELEFONO = '{$telefono}' WHERE ID = $row[ID]");
@@ -97,6 +99,7 @@ isset($_POST['numerocuenta'])
     $mysqli->query("UPDATE datos_usuarios SET SITIO_WEB = '{$sitioweb}' WHERE ID = $row[ID]");
     $mysqli->query("UPDATE datos_usuarios SET TIPO_CUENTA = '{$tipocuenta}' WHERE ID = $row[ID]");
     $mysqli->query("UPDATE datos_usuarios SET NUMERO_CUENTA = '{$numerocuenta}' WHERE ID = $row[ID]");
+    $mysqli->query("UPDATE datos_usuarios SET CARGO = '{$cargo}' WHERE ID = $row[ID]");
     header('Location: ../vistas/perfil.php');
 
 }  
@@ -117,114 +120,7 @@ isset($_POST['numerocuenta'])
     
     
  
-    
-/*
-//Sube la imagen al servidor
-if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])){
-
-    echo 'No upload';
-}else{
-        echo 'uploaded ';
-         // Recibo los datos de la imagen
-        $nombre_img = $_FILES['imagen']['name'];
-        $tipo = $_FILES['imagen']['type'];
-        $tamano = $_FILES['imagen']['size'];
-        
-        $image = $_FILES['imagen']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
-
-       
-        //Si existe imagen 
-        if (!empty($nombre_img)) {     
-            //indicamos los formatos que permitimos subir a nuestro servidor
-            if (($_FILES["imagen"]["type"] == "image/gif")
-            || ($_FILES["imagen"]["type"] == "image/jpeg")
-            || ($_FILES["imagen"]["type"] == "image/jpg")
-            || ($_FILES["imagen"]["type"] == "image/png"))
-            {            
-            // Ruta donde se guardarán las imágenes que subamos
-            $directorio = $_SERVER['DOCUMENT_ROOT'].'/intranet/uploads/';
-            // Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
-            move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta.$nombre_img); //envio de datos al servidor
-            //Listo subido al servidor.
-            }else{
-                //si no cumple con el formato
-                echo "No se puede subir una imagen con ese formato ";
-            }
-        } 
-
-       
-
-}
-
-
-
-*/
-
-
-
-//sube la imagen a la BD
-
-
-
-
-
-
-                                    //agregar a la bd
-
-            //
-
-            //  $tipoArchivo = $_FILES['imagen']['type'];
-            //  $nombreArchivo = $_FILES['imagen']['name'];
-            //  $tamañoArchivo = $_FILES['imagen']['size'];
-            //  $imagenSubida = fopen($_FILES['imagen']['tmp_name'], "rb");
-            //  $binariosImagen = fread($imagenSubida,$tamañoArchivo);
-            //  $binariosImagen = mysqli_escape_string($mysqli,$binariosImagen );
-            //  fclose($imagenSubida);
-            //  $query = "INSERT INTO datos_usuarios (NOMBRE_FOTO,FOTO,TIPO_FOTO) VALUES 
-            //  ('{$nombreArchivo}', '{$binariosImagen}','{$tipoArchivo}' )";
-
-
-
-
-
-
-             //mysqli_query($mysqli,$query);
-
-
-
-
-
-             //agregar a la bd
-             //$envie algo a la base de datos (lo envie mal): $mysqli->query("UPDATE datos_usuarios SET FOTO = '{$imgContent}' WHERE ID = $row[ID]");
-             //debugiar el error
-             
-             
-            // echo $row['FOTO'];
-            
-           
-           
-             //   ver que es lo que envie
-             //$result = mysqli_query($mysqli,"SELECT FOTO FROM datos_usuarios WHERE ID = $row[ID]");
-            
-             
-
-
-
-            // if($result->num_rows > 0){
-            //     $imgData = $result->fetch_assoc();
-                
-            //     //Render image
-            //     header("Content-type: image/jpg"); 
-            //     echo $imgData['image']; 
-            // }else{
-            //     echo 'Image not found...';
-            // }
-
-
-            
-
-
+  
 
 
 

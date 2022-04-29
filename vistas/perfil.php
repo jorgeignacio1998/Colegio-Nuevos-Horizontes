@@ -145,192 +145,135 @@ if(!isset($_SESSION['usuario'])){
                   </ul>
                </div>
          </div>
-      </nav>
+      </nav> <!-- Termino del Navbar  -->
 
-   <!-- Termino del Navbar  -->
+   
 
-<div class=" mt-5 container-fluid">
-
-      <div class="d-flex flex-wrap " >      
+      <div class=" mt-4 container-fluid">
+         <div class="d-flex flex-wrap " >      
             <div class="container ">
-      
-      
-      
-      
-      
-      
-      
-      
+            
                   <!-- formulario  Pintar FOTO  -->
                   <form action="../codigos/c_perfil.php"  enctype="multipart/form-data" method="POST"  class="row g-3 p-2 mt-4">
-      
-      
-                     <div class="col-md-3 p-4 mt-3 container-avatar" >
-                     <h4 class="fp"  >Foto de Perfíl</h4 > <br>
+                     <div class="row">
+                        <div class="col-md-3 p-4 container-avatar" >
+                           <br><br>
+                           <div class="circle" >               
+                              <div class="avatar" >
+                                
+                                 <?php
+                                    if(file_exists('../images/'.$row['FOTO'])){ 
+                                       echo '  <label for="input">      <img class="thumb" id="thumb"  src="/images/'.$row['FOTO'].'" style=" min-width:250px; max-width:250px; position: relative; top: 0px;  left: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
+                                    } 
+                                    if($row['FOTO'] == ''){
+                                       echo '<label for="input" ><img class="thumb" id="thumb" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"  
+                                          style=" min-width:310px; max-width:100%; position: relative; top: -50px;  left: -35px;"  for="input1"         alt="avatar" ></label>';         
+                                    }      
+                                 ?>
+                              </div>       
+                              <input type="file" class="hidden"  name="imagen" id="input" >   <!------------------ INPUT FILE  -->
+                              <i class="fas fa-camera"></i>              
+                              <label for="input" > </label>
+                           </div>  
+                        </div>    <!-- Termino primer col 3 -->
+
+
                         
-                        <br>
-                        <div class="circle" >
-                           
-                           <div class="avatar" >
-                             
-                              <?php
-                                 if(file_exists('../images/'.$row['FOTO'])){ 
-                                    echo '  <label for="input">      <img class="thumb" id="thumb"  src="/images/'.$row['FOTO'].'" style=" min-width:250px; max-width:250px; position: relative; top: 0px;  left: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
-                                 } 
-                                 if($row['FOTO'] == ''){
-                                    echo '<label for="input" ><img class="thumb" id="thumb" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"  
-                                       style=" min-width:310px; max-width:100%; position: relative; top: -50px;  left: -35px;"  for="input1"         alt="avatar" ></label>';
+                        <div class="col-md-4 p-4"> 
+                              <div class="row mt-5">
+                                 <div class="col-12">
+                                    <label class="form-label lab" for="inp1">NOMBRE COMPLETO</label>
+                                    <input class="form-control p-2" type="text" name="nombre" value="<?php echo  $row['USERNAME']; ?>"       id="inp1"><br>
+                                 </div>
+                                 <div >
+                                    <label class="form-label lab" for="inp2">CORREO ELECTRÓNICO</label>
+                                    <input class="form-control p-2 " type="text" name="email" value="<?php echo $row['EMAIL']; ?>"id="inp2"> <br>
+                                 </div>
+                              </div>
+         
+         
+                              <div class="row">
+                                 <div class="col-6">
+                                 <label class="form-label lab" for="inp7">RUT</label>
+                                 <input class="form-control p-2" type="text" name="rut" id="inp7" value="<?php echo  $row['RUT']; ?>">  <br>
                                     
-      
-                                 }
-                                 
-                              ?>
-                           </div>
-                           
-                           <input type="file" class="hidden"  name="imagen" id="input" >   <!------------------ INPUT FILE  -->
-
-                           <i class="fas fa-camera"></i>
-                         
-                           
-                        <label for="input" > </label>
-
-                           
-                        </div>  
-                        
+                                 </div>
+                                 <div class="col-6 ">
+                                    <label class="form-label lab" for="inp3">TELÉFONO</label>
+                                    <input class="form-control p-2" type="text" name="telefono" value="<?php echo  $row['TELEFONO']; ?>" id="inp3">  
+                                    <br>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-6">
+                                       
+                                    <label class="form-label lab" for="inp4">CAMBIAR CONTRASEÑA</label>
+                                    <input class="form-control p-2" type="password" name="contraseña1" id="inp4">
+                                 </div>
+                                 <div class="col-6 ">
+                                    <label class="form-label lab" for="inp4">REPETIR CONTRASEÑA</label>
+                                    <input class="form-control p-2" type="password" name="contraseña2" id="inp4">
+                                 </div>
+         
                                
-      
-                        
-                     </div>    <!-- Termino primer col 3 -->
-
-
-
-
-
-
-      
-      
-      
-                     <div class="col-md-5 p-4">
-                        <h4>Información Personal</h4> <br>
-                        <br>
-                           <div class="row">
-                              <div class="col-6">
-                                 <label class="form-label lab" for="inp1">NOMBRE COMPLETO</label>
-                                 <input class="form-control p-2" type="text" name="nombre" value="<?php echo  $row['USERNAME']; ?>"       id="inp1"><br>
                               </div>
-                              <div class="col-6">
-                                 <label class="form-label lab"    for="inp8">SITIO WEB</label>
-                                 <input class="form-control p-2" type="text" name="sitioweb" id="inp8" value="<?php echo  $row['SITIO_WEB']; ?>"><br>
-                              </div>
-                            
                               
-                              
-
-                           </div>
-      
-      
-                           <div class="row">
-                              <div class="col-6">
-                                       
-                                 <label class="form-label lab" for="inp2">CORREO ELECTRÓNICO</label>
-                                 <input class="form-control p-2 " type="text" name="email" value="<?php echo $row['EMAIL']; ?>"id="inp2">
-                              </div>
-                              <div class="col-6 ">
-                                 <label class="form-label lab" for="inp3">TELÉFONO</label>
-                                 <input class="form-control p-2" type="text" name="telefono" value="<?php echo  $row['TELEFONO']; ?>" id="inp3">  
-                                 <br>
-                              </div>
-                           </div>
-      
-      
-                           <div class="row">
-                              <div class="col-6">
-                                    
-                                 <label class="form-label lab" for="inp4">CAMBIAR CONTRASEÑA</label>
-                                 <input class="form-control p-2" type="password" name="contraseña1" id="inp4">
-                              </div>
-                              <div class="col-6 ">
-                                 <label class="form-label lab" for="inp4">REPETIR CONTRASEÑA</label>
-                                 <input class="form-control p-2" type="password" name="contraseña2" id="inp4">
-                              </div>
-      
-                            
-                           </div>
+                           </div>  <!-- Termino segunda col 4 --> 
                            
-                        
-      
+                                          <div class="col-md-4 p-4  "> 
+                                          
+                                                <div class="row mt-5"> 
+                                                   <div class="col-12" >                                               
+                                                      <label class="form-label lab" for="inp9">CARGO</label>
+                                                      <input class="form-control p-2 " type="text" name="cargo" id="inp9" value="<?php echo  $row['CARGO']; ?>"> </BR>
+                                                   </div>
+                                                   <div class="col-12">
+                                                      <label class="form-label lab"         for="inp5">DIRECCIÓN</label>
+                                                      <input class="form-control p-2" type="text" name="direccion" id="inp5" value="<?php echo  $row['DIRECCION']; ?>"> <br>
+                                                   </div>
+                                                </div>
 
 
 
+                                                <div class="row">
+                                                      <div class="col-5"> 
+                                                         <label class="form-label lab" for="inp6">BANCO</label>
+                                                         <input class="form-control p-2 " type="text" name="banco" id="inp6" value="<?php echo  $row['BANCO']; ?>"> <br>
+                                                      </div>
+                                                      <div class="col-7 ">
+                                                      <label class="form-label lab"    for="inp8">SITIO WEB</label>
+                                                      <input class="form-control p-2" type="text" name="sitioweb" id="inp8" value="<?php echo  $row['SITIO_WEB']; ?>"><br>
+                                                         
+                                                      </div>
+                                                </div>
 
 
 
-
-                     </div>  <!-- Termino segunda col 4 -->
-      
-                     <div class="col-md-4 p-4">
-                        <h4>Información Laboral</h4> <br>
-                        <br>
-                        <label class="form-label lab"         for="inp5">DIRECCIÓN</label>
-                        <input class="form-control p-2" type="text" name="direccion" id="inp5" value="<?php echo  $row['DIRECCION']; ?>"> <br>
-                        
-      
-                           <div class="row">
-                                 <div class="col-5">
-                                       
-                                    <label class="form-label lab" for="inp6">BANCO</label>
-                                    <input class="form-control p-2 " type="text" name="banco" id="inp6" value="<?php echo  $row['BANCO']; ?>">
-                                 </div>
-                                 <div class="col-7 ">
-                                    <label class="form-label lab" for="inp8">TIPO DE CUENTA</label>
-                                    <input class="form-control p-2 " type="text" name="tipocuenta" id="inp8" value="<?php echo  $row['TIPO_CUENTA']; ?>">
-                                    <br>
-                                 </div>
-                           </div>
-                           <div class="row">
-                                 <div class="col-5">
-                                    <label class="form-label lab" for="inp7">RUT</label>
-                                    <input class="form-control p-2" type="text" name="rut" id="inp7" value="<?php echo  $row['RUT']; ?>">  
-                                 </div>
-                                 <div class="col-7 ">
-                                    <label class="form-label lab" for="inp9">NUMERO DE CUENTA</label>
-                                    <input class="form-control p-2" type="text" name="numerocuenta" id="inp9" value="<?php echo  $row['NUMERO_CUENTA']; ?>">  
-                                    <br>
-                                 </div>
-                           </div>
-                        
-                        
-      
-                     </div>  <!-- Termino tercera col 4 --> 
-                                 
-                                 
+                                                <div class="row">
+                                                      <div class="col-5">
+                                                        <label class="form-label lab" for="inp8">TIPO DE CUENTA</label>
+                                                         <input class="form-control p-2 " type="text" name="tipocuenta" id="inp8" value="<?php echo  $row['TIPO_CUENTA']; ?>">
+                                                      </div>
+                                                      <div class="col-7 ">
+                                                         <label class="form-label lab" for="inp99">NUMERO DE CUENTA</label>
+                                                         <input class="form-control p-2" type="text" name="numerocuenta" id="inp99" value="<?php echo  $row['NUMERO_CUENTA']; ?>">  
+                                                         <br>
+                                                      </div>
+                                                </div>
+                                             
+                                             
+                           
+                                          </div>  <!-- Termino tercera col 4 --> 
+                     </div> <!-- Row principal -->
+        
                      <div class="col-12 d-flex justify-content-center">
                         <button class="btn btn-primary btn-lg mt-2"  name="submit" type="submit">Guardar cambios</button>
                      </div>
-      
-      
-      
                   </form> <!-- Termino Form -->
-               
-      
-      
-      
-      
-      
-      
-      
-      
-      
-               
-               <br><br> <br> 
-      
-               
-      
-      
-      
+               <br>
             </div>     
       </div>
-      <br><br> <br> <br> <br>
+      <br><br> <br> <br> 
 </div>
 
 
