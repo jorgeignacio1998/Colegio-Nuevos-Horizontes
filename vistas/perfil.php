@@ -292,13 +292,27 @@ if(!isset($_SESSION['usuario'])){
 
                                                 <div class="row">
                                                       <div class="col-5"> 
-                                                         <label class="form-label lab" for="inp6">BANCO</label>
-                                                         <input class="form-control p-2 " type="text" name="banco" id="inp6" value="<?php echo  $row['BANCO']; ?>"> <br>
+                                                         <label class="form-label lab"    for="inp8">SITIO WEB</label>
+                                                         <input class="form-control p-2" type="text" name="sitioweb" id="inp8" value="<?php echo  $row['SITIO_WEB']; ?>"><br>
                                                       </div>
+
                                                       <div class="col-7 ">
-                                                      <label class="form-label lab"    for="inp8">SITIO WEB</label>
-                                                      <input class="form-control p-2" type="text" name="sitioweb" id="inp8" value="<?php echo  $row['SITIO_WEB']; ?>"><br>
-                                                         
+                                                      <label class="form-label lab" for="idbanco">BANCO</label > 
+                                                      <?php  $opciones = array('BANCO ESTADO','SCOTIABANK CHILE','BANCO DE CREDITO E INVERSIONES','BANCO SANTANDER','BANCO DE CHILE');
+                                                             $seleccionado = $row['BANCO'];
+                                                      echo'
+                                                      <select class="form-select" aria-label="Disabled select example"  name="banco"  id="idbanco">';
+                                                     
+                                                       foreach($opciones as $opcion){
+                                                          
+                                                         if($seleccionado == $opcion){
+                                                            echo "<option selected='$seleccionado'           value='$opcion'>$opcion</option>";
+                                                         }else{
+                                                            echo "<option        value='$opcion'>$opcion</option>";
+                                                         }
+                                                       }
+                                                       echo"</select>"
+                                                      ?>
                                                       </div>
                                                 </div>
 
@@ -333,7 +347,7 @@ if(!isset($_SESSION['usuario'])){
 
 
 
-<!-- mostrar contraseña  con javascript-->
+<!-- mostrar contraseña  con-->
 <script type="text/javascript">
    function mostrar(){
       var tipo = document.getElementById("inp4");  //le puse la id del input de la contraseña.
