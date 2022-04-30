@@ -175,23 +175,61 @@ if(!isset($_SESSION['usuario'])){
 
 
                      <!--INICIO  MENSAJES MENSAJES MENSAJES MENSAJES -->
-                     <!-- 1 Cambios realizados exitosamente -->
+                     <!-- CAMBIOS REALIZADOS CON EXITO -->
 
                      <?php
-                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'guardado') {
+                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'guardado') {
+                     ?>
+
+                     <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>CAMBIOS REALIZADOS CON EXITO!</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
+                     <?php
+                     }
+                     ?>
+                                    
+                     <!-- CAMBIOS REALIZADOS CON EXITO-->
+
+
+
+
+
+
+                     <!-- MENSAJE VACIO  -->
+                     <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'vacio') {
                                     ?>
 
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                       <strong>CAMBIOS REALIZADOS CON EXITO!</strong> 
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                       <strong>El campo nombre no puede ir vacio</strong> 
                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                     <?php
                                     }
                                     ?>
-                                    
-                     <!-- termino Cambios realizados exitosamente  -->
+
+                     <!-- MENSAJE VACIO  -->
 
 
+
+
+
+
+                     <!-- MENSAJE NO NUMEROS NI SIMBOLOS  -->
+                     <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error_formato_nombre') {
+                                    ?>
+
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                       <strong>NO SE PERMITEN NUMEROS NI SIMBOLOS EN EL NOMBRE</strong> 
+                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+
+                     <!-- MENSAJE NO NUMEROS NI SIMBOLOS -->
 
 
 
@@ -232,7 +270,7 @@ if(!isset($_SESSION['usuario'])){
                               <div class="row mt-5">
                                  <div class="col-12">
                                     <label class="form-label lab" for="inp1">NOMBRE COMPLETO</label>
-                                    <input class="form-control p-2" type="text" name="nombre" value="<?php echo  $row['USERNAME']; ?>"       id="inp1"><br>
+                                    <input class="form-control p-2" type="text" name="nombre" value="<?php echo  $row['USERNAME']; ?>" id="inp1" pattern="[a-zA-Z]{3-40}" ><br>
                                  </div>
                                  <div >
                                     <label class="form-label lab" for="inp2">CORREO ELECTRÓNICO</label>

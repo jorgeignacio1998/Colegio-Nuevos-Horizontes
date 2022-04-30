@@ -12,6 +12,10 @@ $ruta = 'D:/XAMPP/htdocs/images/';
 
 
 
+$regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,}+$/";
+$regexNombre = "/^[a-zA-Z\s]+$/";
+
+
 
 //Editar nombre
 if(isset($_POST['nombre'])){
@@ -19,17 +23,21 @@ if(isset($_POST['nombre'])){
     //validacion campo nombre no este vacio
     if(empty($_POST['nombre'])){
     array_push($error, "El nombre de usuario no puede estar vacío");
-    echo'
-    <script> 
-          alert("El nombre de usuario no puede estar vacío");
-          window.location = "../vistas/perfil.php";
-    </script> ';
-                
+    header('Location: ../vistas/perfil.php?mensaje=vacio');  //Enviandole vacio metodo GET, 
+
     }
+
+    if(!preg_match("/^[a-zA-Z\s]{3,50}$/", $_POST['nombre'])){
+        array_push($error, "El formato es invalido");
+        exit();
+    }
+
+
+
     if (count($error)==0){ 
         $username = $_POST["nombre"];
         $mysqli->query("UPDATE datos_usuarios SET USERNAME = '{$username}' WHERE ID = $row[ID]");
-        // Editando nombre de usuario desde la vista 
+        
     }
 }
 
