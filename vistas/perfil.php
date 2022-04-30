@@ -254,15 +254,21 @@ if(!isset($_SESSION['usuario'])){
                                  </div>
                               </div>
                               <div class="row">
-                                 <div class="col-6">
+                                 <div class="col-12">
                                        
-                                    <label class="form-label lab" for="inp4">CAMBIAR CONTRASEÑA</label>
+                                    <label class="form-label lab" for="inp4" >CAMBIAR CONTRASEÑA</label>
                                     <input class="form-control p-2" type="password" name="contraseña1" id="inp4">
+                                    <div class="form-check">
+                                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="mostrar()">        
+                                       <label class="form-check-label" for="flexCheckDefault">
+                                          Mostrar contraseña
+                                       </label>
+                                    </div>
                                  </div>
-                                 <div class="col-6 ">
+                                 <!-- <div class="col-6 ">
                                     <label class="form-label lab" for="inp4">REPETIR CONTRASEÑA</label>
                                     <input class="form-control p-2" type="password" name="contraseña2" id="inp4">
-                                 </div>
+                                 </div> -->
          
                                
                               </div>
@@ -319,6 +325,38 @@ if(!isset($_SESSION['usuario'])){
                         <button class="btn btn-primary btn-lg mt-2"  name="submit" type="submit">Guardar cambios</button>
                      </div>
                   </form> <!-- Termino Form -->
+
+
+
+
+
+
+
+
+<!-- mostrar contraseña  con javascript-->
+<script type="text/javascript">
+   function mostrar(){
+      var tipo = document.getElementById("inp4");  //le puse la id del input de la contraseña.
+      if(tipo.type == "password"){
+         tipo.type = 'text';
+
+      }else{
+         tipo.type = 'password';
+      }
+
+   }
+</script>
+<!-- mostrar contraseña -->
+
+
+
+
+
+
+
+
+
+
                <br>
             </div> <!-- Termino CONTAINER -->    
       </div>

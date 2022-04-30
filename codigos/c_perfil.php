@@ -36,24 +36,14 @@ if(isset($_POST['nombre'])){
 
 
 // editar la contraseña
-if(isset($_POST['contraseña1']) &&
-   isset($_POST['contraseña2'])){
+if(isset($_POST['contraseña1'])){
 
 
     $contraseña1 = $_POST["contraseña1"];
-    $contraseña2 = $_POST["contraseña2"];
 
 
-    if(!empty($_POST['contraseña2']) || ($_POST['contraseña1'])){
-        if($_POST['contraseña1'] != $_POST['contraseña2']){  
-            array_push($error, "Las contraseñas no coinciden");
-            echo'
-             <script> 
-                alert("Las contraseñas no coinciden");
-                window.location = "../vistas/perfil.php";
-             </script>
-            ';
-        }else{
+
+    if(!empty($_POST['contraseña1'])){
             $contraseña1 = md5($contraseña1);  
             $mysqli->query("UPDATE datos_usuarios SET QPASSWORD = '{$contraseña1}' WHERE ID = $row[ID]");
             echo'
@@ -62,8 +52,8 @@ if(isset($_POST['contraseña1']) &&
                window.location = "../vistas/perfil.php";
             </script>
            ';
-        }
-    } // Cambiando la contraseña
+    }
+     // Cambiando la contraseña
     
 };
 
