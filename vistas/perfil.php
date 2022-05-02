@@ -50,6 +50,31 @@ if(!isset($_SESSION['usuario'])){
    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@500&family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap" rel="stylesheet"> 
 
+   <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>        <!-- jquery -->
+   <script src="../assets/jquery.rut.js"></script>     <!-- aca carga el archivo rut.js -->
+
+
+
+   <!-- usando funciones de si el rut es valido -->
+   <script>
+    $(function() {
+        $("#_rut").rut().on('rutValido', function(e, rut, dv) {
+           $('#_rut').attr('style','border-color:green');
+           
+          
+        });
+
+        $("#_rut").rut().on('rutInvalido', function(e) {
+           $('#_rut').val('').attr('style','border-color:red');
+           
+        }); 
+    });
+    </script>
+  
+
+
+
+
 
     <style>
       
@@ -162,17 +187,7 @@ if(!isset($_SESSION['usuario'])){
                   <form action="../codigos/c_perfil.php"  enctype="multipart/form-data" method="POST"  class="row g-3 p-2 mt-4">
                      <div class="row justify-content-center">
 
-
-
-
-
-
-
-
-
-
-
-
+                     
 
                      <!--INICIO  MENSAJES MENSAJES MENSAJES MENSAJES -->
                      <!-- CAMBIOS REALIZADOS CON EXITO -->
@@ -185,6 +200,7 @@ if(!isset($_SESSION['usuario'])){
                         <strong>CAMBIOS REALIZADOS CON EXITO!</strong> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                      </div>
+                     
                      <?php
                      }
                      ?>
@@ -196,33 +212,36 @@ if(!isset($_SESSION['usuario'])){
 
 
 
-                     <!-- MENSAJE VACIO  -->
-                     <?php
-                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'vacio') {
+                     <!-- MENSAJE ERROR FORMATO DE NOMBRE  -->
+                                    <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error1') {
                                     ?>
 
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                       <strong>El campo nombre no puede ir vacio</strong> 
+                                       <strong>ERROR, FORMATO INVALIDO.</strong> <br> El nombre NO puede estar vacio o contener simbologias ni numeros.
                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                     <?php
                                     }
                                     ?>
 
-                     <!-- MENSAJE VACIO  -->
+                     <!-- MENSAJE ERROR FORMATO DE NOMBRE  -->
 
 
 
 
 
 
-                     <!-- MENSAJE NO NUMEROS NI SIMBOLOS  -->
-                     <?php
-                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error_formato_nombre') {
+
+
+                      <!-- MENSAJE NO NUMEROS NI SIMBOLOS  -->
+
+                                    <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error3') {
                                     ?>
 
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                       <strong>NO SE PERMITEN NUMEROS NI SIMBOLOS EN EL NOMBRE</strong> 
+                                       <strong>ERROR, FORMATO INVALIDO.</strong> <br> El correo electronico NO cumple con el formato requerido ni menos puede estar vacio. 
                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                     <?php
@@ -239,10 +258,59 @@ if(!isset($_SESSION['usuario'])){
 
 
 
+                     <!-- MENSAJE  FORMATO MALO DEL TELEFONO-->
+                   
+                     <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error4') {
+                                    ?>
+
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                       <strong>ERROR, FORMATO INVALIDO.</strong> <br> El numero telefonico NO cumple con el formato requerido.
+                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?> 
+
+                     <!-- MENSAJE  FORMATO MALO DEL TELEFONO  -->
+
+
+
+
+
+
+                     
+                     <!-- MENSAJE  FORMATO RUT-->
+                   
+                     <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error5') {
+                                    ?>
+
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                       <strong>RUT MALO.</strong> <br> El rut NO cumple con el formato requerido.
+                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?> 
+
+                     <!-- MENSAJE  FORMATO RUT  -->
+
+                  
+
+
+
+
+
+
+
+
+
+
+
 
 
                      <!--TERMINO  MENSAJES MENSAJES MENSAJES MENSAJES -->
-
                         <div class="col-md-3 p-4 container-avatar" >
                            <br><br>
                            <div class="circle" >               
@@ -269,11 +337,11 @@ if(!isset($_SESSION['usuario'])){
                         <div class="col-md-4 p-4"> 
                               <div class="row mt-5">
                                  <div class="col-12">
-                                    <label class="form-label lab" for="inp1">NOMBRE COMPLETO</label>
+                                    <label class="form-label lab" for="inp1">*NOMBRE COMPLETO</label>
                                     <input class="form-control p-2" type="text" name="nombre" value="<?php echo  $row['USERNAME']; ?>" id="inp1" pattern="[a-zA-Z]{3-40}" ><br>
                                  </div>
                                  <div >
-                                    <label class="form-label lab" for="inp2">CORREO ELECTRÓNICO</label>
+                                    <label class="form-label lab" for="inp2">*CORREO ELECTRÓNICO</label>
                                     <input class="form-control p-2 " type="text" name="email" value="<?php echo $row['EMAIL']; ?>"id="inp2"> <br>
                                  </div>
                               </div>
@@ -281,8 +349,8 @@ if(!isset($_SESSION['usuario'])){
          
                               <div class="row">
                                  <div class="col-6">
-                                 <label class="form-label lab" for="inp7">RUT</label>
-                                 <input class="form-control p-2" type="text" name="rut" id="inp7" value="<?php echo  $row['RUT']; ?>">  <br>
+                                 <label class="form-label lab" for="_rut">*RUT</label>
+                                 <input class="form-control p-2" type="text" name="rut" id="_rut" value="<?php echo  $row['RUT']; ?>">  <br>
                                     
                                  </div>
                                  <div class="col-6 ">
@@ -374,7 +442,7 @@ if(!isset($_SESSION['usuario'])){
                      </div> <!-- Row principal -->
         
                      <div class="col-12 d-flex justify-content-center">
-                        <button class="btn btn-primary btn-lg mt-2"  name="submit" type="submit">Guardar cambios</button>
+                        <button class="btn btn-primary btn-lg mt-2 estilo_deshabilitado"  name="submit" type="submit" id="_boton"  >Guardar cambios</button>
                      </div>
                   </form> <!-- Termino Form -->
 
@@ -385,7 +453,7 @@ if(!isset($_SESSION['usuario'])){
 
 
 
-<!-- mostrar contraseña  con-->
+<!-- mostrar contraseña  con el checkbox-->
 <script type="text/javascript">
    function mostrar(){
       var tipo = document.getElementById("inp4");  //le puse la id del input de la contraseña.
@@ -403,27 +471,10 @@ if(!isset($_SESSION['usuario'])){
 
 
 
-
-
-
-
-
-
-               <br>
+            <br>
             </div> <!-- Termino CONTAINER -->    
       </div>
       <br><br> <br> <br> 
 </div>  <!-- Termino CONTAINER 1 -->    
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

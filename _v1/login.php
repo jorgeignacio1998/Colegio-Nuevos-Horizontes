@@ -4,7 +4,7 @@ session_start();
 error_reporting(0);
 
 if(isset($_SESSION["username"])){
-    header(Location: "panel.php");
+    header('Location: panel.php');
 }
 
 if(isset($_POST["submit"])){

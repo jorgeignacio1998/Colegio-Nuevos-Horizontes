@@ -11,7 +11,7 @@
     <script src="assets/jquery.rut.js"></script>  
 
 
-    
+    <!-- El siguiente script es para la validacion del rut -->
     <script>
     $(function() {
         $("#_rut").rut().on('rutValido', function(e, rut, dv) {
@@ -32,8 +32,10 @@
     </script>
     <style>
         .estilo_deshabilitado { background:#aaa!important; }
-        label[for=_archivo]{ background:green;color:#fff;padding:5px 10px; border-radius:5px; font-size:20px }
     </style>
+    <!-- El siguiente script es para la validacion del rut -->
+
+
 </head>
 
 
