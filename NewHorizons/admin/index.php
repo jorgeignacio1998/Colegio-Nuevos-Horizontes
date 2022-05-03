@@ -3,7 +3,7 @@
 require '../components/head.php';
 ?>
 <body>
-    <form action="../codes/c_loginAdmin.php" method="POST"  class="form-register"  >
+    <form action="../codes/c_loginAdmin.php" method="POST"  class="form-register" id='formid' >
 
         <h4  id="_titulo">Login</h4>
         <input   label="" type="email"    name="email"        placeholder= "Correo Electronico"  id="_email" >

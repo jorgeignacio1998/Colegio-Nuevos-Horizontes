@@ -1,3 +1,226 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.form-register {
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 120px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+
+}
+
+#_titulo{
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#_nombre{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+    
+}
+
+#_rut{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+
+}
+
+#_telefono{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+}
+
+#_email{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+}
+
+#_asunto{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+}
+
+#_mensaje{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+    min-height: 150px;
+    max-height: 150px ;
+    min-width: 340px;
+    max-width: 340px;
+}
+
+.form-register h4{
+    font-size: 23px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+
+}
+.form-register a {
+    color:white;
+    text-decoration:none;
+}
+.form-register a:hover {
+    color:white;
+    text-decoration:underline;
+}
+
+#_boton{
+    width: 100%;
+    background: #1f53c5;
+    padding: 12px;
+    color: white;
+    border: none;
+    margin: 16px 0;;
+    margin-top: 1px;
+    font-size: 16px;
+}
+
+#submit{
+    width: 100%;
+    background: #1f53c5;
+    padding: 12px;
+    color: white;
+    border: none;
+    margin: 16px 0;;
+    margin-top: 1px;
+    font-size: 19px;
+}
+
+.error{
+    background-color: #e44837;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.correcto{
+    background-color: #A0DEA7 ;
+    font-size: 12PX;
+    padding: 10px;
+}
+
+
+#_password{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+}
+#_cpassword{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+}
+#_username{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;   
+    border:1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+}
+.olvidaste{
+    text-align: center;
+    font-family: 'calibri';
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* RESTABLECER CONTRASEÑA */
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 3px 4px;
+    
+    cursor: pointer;
+    ;
+}
+
 
 
 

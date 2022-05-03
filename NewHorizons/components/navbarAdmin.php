@@ -4,7 +4,7 @@
 
  <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
          <div class="container-fluid">
-               <a href="welcome.php" class="navbar-brand">Inicio</a>
+               <a href="welcome.php" class="navbar-brand">Admin</a>
                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                   <span class="navbar-toggler-icon"></span>
                </button>
@@ -18,10 +18,11 @@
                            Opciones de soporte
                         </a>
                         <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="../views/login.php">Perfíl</a></li>
-                        <li> <a class="dropdown-item" href="usuarios.php">Gestionar usuarios</a></li>
+                        <li> <a class="dropdown-item" href="#">Gestionar usuarios</a></li>
+                        <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
                         <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
-                        <li> <a class="dropdown-item" href="../codigos/logout.php">Cerrar sesión</a></li>
+                        <li> <a class="dropdown-item" href="#">Opcion 4</a></li>
+                        <li> <a class="dropdown-item" href="../codes/logout.php">Cerrar sesión</a></li>
                         </ul>
                      </li>
                   </ul>

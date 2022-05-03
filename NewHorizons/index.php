@@ -7,7 +7,7 @@ require 'components/head.php';
 
 <body>
 <?php 
-require 'components/navbarAdmin.php';
+require 'components/navbar.php';
 ?>
     <h1>hola</h1>
 </body>
