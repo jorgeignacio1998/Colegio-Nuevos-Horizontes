@@ -10,7 +10,7 @@
 <body>
 
 
-    <form action="../codigos/entrar3.php" method="POST"  class="form-register"  id="_formid">
+    <form action="../codes/bienvenido.php" method="POST"  class="form-register"  id="_formid">
        
         <h4  id="_titulo">Iniciar sesion</h4>
 

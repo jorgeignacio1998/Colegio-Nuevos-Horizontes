@@ -139,8 +139,8 @@ if(count($error)==0){
 
 
                                                           
-//    $mysqli->query("INSERT INTO datos_usuarios (USERNAME, RUT, TELEFONO, BANCO, DIRECCION, SITIO_WEB, TIPO_CUENTA, NUMERO_CUENTA, CARGO) 
-//    VALUES ('{$username}', '{$rut}', '{$telefono}','{$banco}', '{$direccion}', '{$sitioweb}','{$tipocuenta}', '{$numerocuenta}', '{$cargo}' WHERE ID = $row[ID] ) ");
+    // $mysqli->query("INSERT INTO datos_usuarios (USERNAME, RUT, TELEFONO, BANCO, DIRECCION, SITIO_WEB, TIPO_CUENTA, NUMERO_CUENTA, CARGO) 
+    // VALUES ('{$username}', '{$rut}', '{$telefono}','{$banco}', '{$direccion}', '{$sitioweb}','{$tipocuenta}', '{$numerocuenta}', '{$cargo}') WHERE ID = $row[ID] ");
                                                                                     
 
 
