@@ -397,12 +397,12 @@ if(!isset($_SESSION['usuario'])){
 
 
                                                 <div class="row">
-                                                      <div class="col-5"> 
+                                                      <div class="col-6"> 
                                                          <label class="form-label lab"    for="inp8">SITIO WEB</label>
                                                          <input class="form-control p-2" type="text" name="sitioweb" id="inp8" value="<?php echo  $row['SITIO_WEB']; ?>"><br>
                                                       </div>
 
-                                                      <div class="col-7 ">
+                                                      <div class="col-6 ">
                                                       <label class="form-label lab" for="idbanco">BANCO</label > 
                                                       <?php  $opciones = array('BANCO ESTADO','SCOTIABANK CHILE','BANCO DE CREDITO E INVERSIONES','BANCO SANTANDER','BANCO DE CHILE');
                                                              $seleccionado = $row['BANCO'];
@@ -425,11 +425,26 @@ if(!isset($_SESSION['usuario'])){
 
 
                                                 <div class="row">
-                                                      <div class="col-5">
+                                                      <div class="col-6">
                                                         <label class="form-label lab" for="inp8">TIPO DE CUENTA</label>
-                                                         <input class="form-control p-2 " type="text" name="tipocuenta" id="inp8" value="<?php echo  $row['TIPO_CUENTA']; ?>">
+                                                        <?php  $opciones = array('Cuenta corriente','Cuenta vista','Cuenta de ahorro','Cuenta RUT');
+                                                             $seleccionado = $row['TIPO_CUENTA'];
+                                                      echo'
+                                                      <select class="form-select" aria-label="Disabled select example"  name="tipocuenta"  id="inp8">';
+                                                     
+                                                       foreach($opciones as $opcion){
+                                                          
+                                                         if($seleccionado == $opcion){
+                                                            echo "<option selected='$seleccionado'           value='$opcion'>$opcion</option>";
+                                                         }else{
+                                                            echo "<option        value='$opcion'>$opcion</option>";
+                                                         }
+                                                       }
+                                                       echo"</select>"
+                                                      ?>
+                                                        
                                                       </div>
-                                                      <div class="col-7 ">
+                                                      <div class="col-6 ">
                                                          <label class="form-label lab" for="inp99">NUMERO DE CUENTA</label>
                                                          <input class="form-control p-2" type="text" name="numerocuenta" id="inp99" value="<?php echo  $row['NUMERO_CUENTA']; ?>">  
                                                          <br>

@@ -12,7 +12,7 @@
 
     <form action="../codigos/entrar3.php" method="POST"  class="form-register"  id="_formid">
        
-        <h4  id="_titulo">Login</h4>
+        <h4  id="_titulo">Iniciar sesion</h4>
 
            
             <input   label="" type="email"    name="email"        placeholder= "Correo electronico"  id="_email" >
@@ -22,7 +22,6 @@
             <input type="submit" value="INGRESAR" id="submit" > 
             <div class='olvidaste'> 
                 <a href=''>¿Olvidaste tu contraseña?</a> <br>
-                <a href=''>Crear cuenta </a>
             </div>
 
             
