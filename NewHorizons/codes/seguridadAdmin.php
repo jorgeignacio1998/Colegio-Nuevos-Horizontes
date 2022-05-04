@@ -1,11 +1,12 @@
 <?php  //seguridad de sesiones 
+include '../codes/connect.php'; 
 session_start(); //Paso 1 para utilizar sesiones
 $usuario_logueado = $_SESSION['usuario'];
 if(!isset($_SESSION['usuario'])){
   echo'
         <script> 
               alert("Tienes que iniciar sesión para entrar");
-              window.location = "../views/index.php";
+              window.location = "../views/login.php";
         </script>
   ';
   
@@ -17,4 +18,20 @@ if(!isset($_SESSION['usuario'])){
 $datos_usuarios = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
 $sentencia2 = mysqli_fetch_array($datos_usuarios, MYSQLI_ASSOC); 
 
+
+if($sentencia2['NIVEL'] == 1){
+//nada, solo dejar entrar.
+}else{
+      echo'
+      <script> 
+            alert("No tienes permiso para entrar");
+            window.location = "index.php";
+      </script>
+';
+   
+}
+
+
+
 ?>
+
