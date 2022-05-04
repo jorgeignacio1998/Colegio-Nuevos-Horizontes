@@ -19,7 +19,7 @@
             <input   label="" type="password" name="password"     placeholder= "Contraseña"   id="_password">
            
             <br><br>
-            <input type="submit" value="INGRESAR" id="submit" > 
+            <input type="submit" value="Ingresar" id="submit" > 
             <div class='olvidaste'> 
                 <a href=''>¿Olvidaste tu contraseña?</a> <br>
             </div>
@@ -27,7 +27,7 @@
             
     </form>
 
-
-    e
+  
+    
 </body>
 </html>
