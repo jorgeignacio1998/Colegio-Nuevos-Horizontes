@@ -1,12 +1,15 @@
 <?php
 include 'codes/connect.php';
 session_start();
+
+$contador = 0;
 if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a cargar sus datos y meterlos en un array, si no hay ninguna sesion abierta entonces no hara nada.              
 
     $usuario_logueado = $_SESSION['usuario'];
     $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1"); //obteniendo los datos
     $array = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);  //colocando los datos del usuario en un array para asi luego gestionarlos de mejor manera,
     echo $array['NOMBRE'];
+    $contador = 1;
 }
 
 ?>
@@ -58,8 +61,13 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
                        <li> <a class="dropdown-item" href="NewHorizons/">Opcion 1</a></li>
                        <li> <a class="dropdown-item" href="NewHorizons/">Opcion 2</a></li>
                        <li> <a class="dropdown-item" href="NewHorizons/">Opcion 3</a></li>
-                       <li> <a class="dropdown-item" href="codes/logout.php">Cerrar sesión</a></li>
-                       <li> <a class="dropdown-item" href="views/login.php">Iniciar sesión</a></li>
+                       <?php if($contador == 0){
+                        echo  '<li> <a class="dropdown-item" href="views/login.php">Iniciar sesión</a></li>';
+                       }else{
+                        echo   '<li> <a class="dropdown-item" href="codes/logout.php">Cerrar sesión</a></li>';
+                       }?>
+                       
+                       
                        </ul>
                     </li>
                  </ul>
