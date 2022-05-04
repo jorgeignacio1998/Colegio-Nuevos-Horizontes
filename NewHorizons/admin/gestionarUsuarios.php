@@ -249,19 +249,40 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                         <div class="mb-3">
                             <label for="_1" class="form-label">Nombre: </label>
                             <input type="text" class="form-control" name="txtNombre" autofocus required id="_1">
+                        </div>             
+                        <div class="mb-3">
+                            <label for="_3" class="form-label">Rut: </label>
+                            <input type="text" class="form-control" name="txtRut" autofocus required id="_3">
                         </div>
                         <div class="mb-3">
                             <label for="_2" class="form-label">Correo electrónico: </label>
                             <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2">
                         </div>
                         <div class="mb-3">
-                            <label for="_3" class="form-label">Rut: </label>
-                            <input type="text" class="form-control" name="txtRut" autofocus required id="_3">
+                            <label for="_5" class="form-label">Contraseña: </label>
+                            <input type="password" class="form-control" name="txtPass" autofocus required id="_5">
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <label for="_4" class="form-label">Numero teléfonico: </label>
                             <input type="text" class="form-control" name="txtTelefono"  id="_4" autofocus required  >
                         </div>
+                        <div class="mb-3">
+                        <label class="form-label lab" for="_6">Nivel</label > 
+                                                      <?php  $opciones = array('1','2','3','4','5');
+                                                        
+                                                      echo'
+                                                      <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';
+                                                     
+                                                       foreach($opciones as $opcion){
+                                                          
+                                                        
+                                                            echo "<option        value='$opcion'>$opcion</option>";
+                                                         
+                                                       }
+                                                       echo"</select>"
+                                                      ?>
+                        </div>
+                        
                         <div class="d-grid">
                             <input type="hidden" name="oculto" value="1" >
                             <input type="submit" class="btn btn-primary" value="Registrar">
