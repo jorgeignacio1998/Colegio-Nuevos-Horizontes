@@ -32,11 +32,7 @@ if(mysqli_query($mysqli, $query)){
     header('Location: gestionarUsuarios.php?mensaje=error');
     exit();
 }
-    //  $mysqli->query("INSERT INTO datos_usuarios (USERNAME, EMAIL, TELEFONO, RUT) 
-    //   VALUES ('{$nombre}', '{$correo}', '{$telefono}', '{$rut}') ");
+   
     
-
-
-
         
 ?>

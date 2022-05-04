@@ -159,7 +159,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                 ?>
 
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Se han eliminado los datos correctamente </strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -224,8 +224,8 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                                     <td ><?php echo $fila['NIVEL']; ?></td>
 
                                     <td><a class="text-primary" href="../vistas/editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="../codigos/c_eliminar.php?codigo=<?php                     echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>
-                                    
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
                                 <?php
@@ -267,20 +267,20 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                             <input type="text" class="form-control" name="txtTelefono"  id="_4" autofocus required  >
                         </div>
                         <div class="mb-3">
-                        <label class="form-label lab" for="_6">Nivel</label > 
-                                                      <?php  $opciones = array('1','2','3','4','5');
+                            <label class="form-label lab" for="_6">Nivel</label > 
+                                <?php  $opciones = array('1','2','3','4','5');
                                                         
-                                                      echo'
-                                                      <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';
+                                echo'
+                                <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';
                                                      
-                                                       foreach($opciones as $opcion){
+                                foreach($opciones as $opcion){
                                                           
                                                         
-                                                            echo "<option        value='$opcion'>$opcion</option>";
+                                    echo "<option value='$opcion'>$opcion</option>";
                                                          
-                                                       }
-                                                       echo"</select>"
-                                                      ?>
+                                }
+                                echo"</select>"
+                                ?>
                         </div>
                         
                         <div class="d-grid">
