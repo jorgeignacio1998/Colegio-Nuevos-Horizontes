@@ -5,8 +5,8 @@ $usuario_logueado = $_SESSION['usuario'];
 if(!isset($_SESSION['usuario'])){
   echo'
         <script> 
-              alert("Tienes que iniciar sesión para entrar");
-              window.location = "../views/login.php";
+              alert("no tienes permiso para entrar");
+              window.location = "../index.php";
         </script>
   ';
   

@@ -223,7 +223,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                                     <td ><?php echo $fila['TELEFONO']; ?></td>
                                     <td ><?php echo $fila['NIVEL']; ?></td>
 
-                                    <td><a class="text-primary" href="../vistas/editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
@@ -283,7 +283,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                                 ?>
                         </div>
                         
-                        <div class="d-grid">
+                        <div class="d-grid mt-5">
                             <input type="hidden" name="oculto" value="1" >
                             <input type="submit" class="btn btn-primary" value="Registrar">
                         </div>
