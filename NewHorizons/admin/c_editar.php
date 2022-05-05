@@ -7,15 +7,13 @@ if(!isset($_POST['codigo'])){
 
 $codigo = $_POST['codigo'];
 $nombre = $_POST['txtNombre'];
-$rut = $_POST['txtRut'];
 $correo = $_POST['txtCorreo'];
 $contraseña1 = $_POST['txtPass'];
 $contraseña2 = md5($contraseña1);
-$telefono = $_POST['txtTelefono'];
 $nivel = $_POST['txtNivel'];
 
 //Editando los datos
-$query = "UPDATE usuarios SET  NOMBRE = '{$nombre}', EMAIL = '{$correo}', TELEFONO = '{$telefono}', RUT = '{$rut}', CONTRASENA = '{$contraseña2}', NIVEL ='{$nivel}'  WHERE ID = $codigo ";
+$query = "UPDATE usuarios SET  NOMBRE = '{$nombre}', EMAIL = '{$correo}', CONTRASENA = '{$contraseña2}', NIVEL ='{$nivel}'  WHERE ID = $codigo ";
 //$sentencia = $mysqli->query($query);
 
 

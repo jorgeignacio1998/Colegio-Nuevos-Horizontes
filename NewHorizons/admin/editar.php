@@ -87,10 +87,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                         <label for="_1" class="form-label">Nombre completo: </label>
                         <input type="text" class="form-control" name="txtNombre" autofocus required id="_1" value="<?php echo $sentencia2['NOMBRE'];  ?>">
                     </div>
-                    <div class="mb-3">
-                        <label for="_3" class="form-label">Rut: </label>
-                        <input type="text" class="form-control" name="txtRut" autofocus required id="_3" value="<?php echo $sentencia2['RUT'];  ?>" >
-                    </div>
+                    
                     <div class="mb-3">
                         <label for="_2" class="form-label">Correo electrónico: </label>
                         <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2" value="<?php echo $sentencia2['EMAIL'];  ?>" >
@@ -99,10 +96,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                         <label for="_5" class="form-label">Contraseña: </label>
                         <input type="password" class="form-control" name="txtPass" autofocus required id="_5" value="<?php echo $sentencia2['CONTRASENA'];  ?>" >
                     </div>
-                    <div class="mb-3">
-                        <label for="_4" class="form-label">Numero teléfonico: </label>
-                        <input type="text" class="form-control" name="txtTelefono"  id="_4" autofocus required value="<?php echo $sentencia2['TELEFONO'];  ?>" >
-                    </div>
+                  
                     <div class="mb-5">
                             <label class="form-label lab" for="_6">Nivel</label > 
                                 <?php  $opciones = array('1','2','3','4','5');

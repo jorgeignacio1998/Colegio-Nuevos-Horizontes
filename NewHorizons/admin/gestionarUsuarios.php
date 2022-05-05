@@ -14,7 +14,27 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
     
+    <style>
+        #col1{
+            Height:700px; overflow-y:scroll;
+        }
+    </style>
+
+
+
+
+
 </head>
+
+
+
+
+
+
+
+
+
+
 <body>
 
 <!-- Inicio del Navbar admin -->
@@ -60,7 +80,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
 
 <div class="container-fluid mt-5">
        <div class="row justify-content-center">
-           <div class="col-md-7">  <!-- Primer col 7  -->
+           <div  class="col-md-7">  <!-- Primer col 7  -->
 
 
 
@@ -186,41 +206,37 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
 
 
                
-               <div class="card">
+               <div  class="card ">
                    <div class="card-header">
                        Lista de usuarios
                    </div>
-                   <div class="p-4">
+                   <div  id="col1" class="p-4 ">
                        <table class="table align-middle">
                             <thead>
                                 <tr>
                                     
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre completo</th>                              
-                                    <th scope="col">Rut</th>
                                     <th scope="col">Correo electrónico</th>
                                     <th scope="col">Contraseña</th>
-                                    <th scope="col">Numero teléfonico</th>
                                     <th scope="col">Nivel</th>
 
                                     <th scope="col" colspan="2">Opciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody >
                                 <?php     //IMPRIMIR DATOS EN LOS td
    
                                 while($fila =mysqli_fetch_array($datos_usuario) ) {
 
                                     
                                 ?>
-                                <tr>
+                                <tr >
 
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    <td ><?php echo $fila['RUT']; ?></td>
                                     <td ><?php echo $fila['EMAIL']; ?></td>
                                     <td ><?php echo $fila['CONTRASENA']; ?></td>
-                                    <td ><?php echo $fila['TELEFONO']; ?></td>
                                     <td ><?php echo $fila['NIVEL']; ?></td>
 
                                     <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
@@ -247,13 +263,9 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                    </div>
                    <form action="../admin/c_registrar.php" method="POST" class="p-4" >
                         <div class="mb-3">
-                            <label for="_1" class="form-label">Nombre: </label>
+                            <label for="_1" class="form-label">Nombre completo: </label>
                             <input type="text" class="form-control" name="txtNombre" autofocus required id="_1">
                         </div>             
-                        <div class="mb-3">
-                            <label for="_3" class="form-label">Rut: </label>
-                            <input type="text" class="form-control" name="txtRut" autofocus required id="_3">
-                        </div>
                         <div class="mb-3">
                             <label for="_2" class="form-label">Correo electrónico: </label>
                             <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2">
@@ -261,10 +273,6 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                         <div class="mb-3">
                             <label for="_5" class="form-label">Contraseña: </label>
                             <input type="password" class="form-control" name="txtPass" autofocus required id="_5">
-                        </div>
-                        <div class="mb-3">
-                            <label for="_4" class="form-label">Numero teléfonico: </label>
-                            <input type="text" class="form-control" name="txtTelefono"  id="_4" autofocus required  >
                         </div>
                         <div class="mb-3">
                             <label class="form-label lab" for="_6">Nivel</label > 
