@@ -48,6 +48,9 @@ require '../codes/seguridadAdmin.php'; //BD, SESSION Y NIVEL==1
      
   
   <!-- Termino del Navbar  admin -->
+
+
+  
 </body>
 
 
