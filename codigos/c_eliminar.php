@@ -5,7 +5,7 @@ require 'connect.php';  //coneccion BD
         exit();
     }
 
-    include 'model/conexion.php';
+   
     $codigo = $_GET['codigo'];
 
     //Eliminando los datos

@@ -24,7 +24,7 @@ if(!isset($_GET['codigo'])) {
 
 
 //Pintando datos Del ID = GET
-$query = "SELECT USERNAME, EMAIL, TELEFONO, RUT FROM datos_usuarios  WHERE ID = $codigo ";
+$query = "SELECT NOMBRE, EMAIL,CONTRASENA,NIVEL, TELEFONO, RUT FROM datos_usuarios  WHERE ID = $codigo ";
 $sentencia1 = $mysqli->query($query);
 //print_r($sentencia1);  no entrega nada importante la sentencia es importante para la segunda.
 $sentencia2 =mysqli_fetch_array($sentencia1);
