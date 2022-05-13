@@ -232,7 +232,8 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre completo</th>                              
                                     <th scope="col">Correo electrónico</th>
-                                    <th scope="col">Contraseña</th>
+                                   
+                                    
                                     <th scope="col">Nivel</th>
 
                                     <th scope="col" colspan="2">Opciones</th>
@@ -250,7 +251,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
                                     <td ><?php echo $fila['EMAIL']; ?></td>
-                                    <td ><?php echo $fila['CONTRASENA']; ?></td>
+                                    
                                     <td ><?php echo $fila['NIVEL']; ?></td>
 
                                     <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
@@ -266,7 +267,8 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                        </table>
                    </div>
                </div>
-           </div> <!-- TERMINO PRIMER COL  -->
+               <br>  <br>
+           </div> <!-- TERMINO PRIMER COL  --> 
 
 
 
@@ -282,9 +284,11 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
 
 
 
+           
 
            <div class="col-md-4">    <!-- INICIO SEGUNDO COL  -->
                <div class="card">
+                 
                    <div class="card-header">
                        Ingresar datos:
                    </div>
@@ -324,7 +328,9 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                         </div>
 
                    </form>
+
                </div>
+               <br>
            </div>
        </div>
    </div>
