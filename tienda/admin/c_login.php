@@ -1,6 +1,6 @@
 <?php
 session_start(); //Paso 1 para utilizar sesiones
- require '../../codes/connect.php';
+require '/XAMPP/htdocs/tienda/codes/connect.php';
 
  $email = $_POST['email'];
  $password = $_POST['password'];
@@ -18,7 +18,7 @@ session_start(); //Paso 1 para utilizar sesiones
         echo'
             <script>
             alert("Las credenciales no son validas");
-            window.location = "../index.php";
+            window.location = "index.php";
             </script>
         ';
         
@@ -29,24 +29,12 @@ session_start(); //Paso 1 para utilizar sesiones
         if($sentencia2['NIVEL'] == 1){
             $id = $sentencia2['ID']; 
             $_SESSION['usuario'] = $id;      //variable de sesion
-            header("location: ../v/agregarProducto.php");
+            header("location: agregarProducto.php");
         }else{
-            header("location: ../../index.php");
+            header("location: index.php");
         }
         }
         
-
-
-        
-        
-       
-
-        
-
-        
-        
-
-
 
 
  

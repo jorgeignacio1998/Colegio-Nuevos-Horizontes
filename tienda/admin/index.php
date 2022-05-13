@@ -10,7 +10,7 @@
 <body>
 
 
-    <form action="c/c_loginAdmin.php" method="POST"  class="form-register"  id="_formid">
+    <form action="c_login.php" method="POST"  class="form-register"  id="_formid">
        
         <h4  id="_titulo">Login</h4>
 
