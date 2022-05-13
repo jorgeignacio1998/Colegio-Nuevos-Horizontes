@@ -29,7 +29,7 @@ require '/XAMPP/htdocs/tienda/codes/connect.php';
         if($sentencia2['NIVEL'] == 1){
             $id = $sentencia2['ID']; 
             $_SESSION['usuario'] = $id;      //variable de sesion
-            header("location: r_producto.php");
+            header("location: bienvenido.php");
         }else{
             header("location: index.php");
         }

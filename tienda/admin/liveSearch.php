@@ -60,8 +60,8 @@ $datos_productos = $mysqli->query("SELECT * FROM productos "); //obtiene datos d
                                     <td ><?php echo $fila['DESCUENTO']; ?></td>
                                     <td ><?php echo $fila['DESCRIPCION']; ?></td>
 
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a class="text-primary" href="E_producto.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="D_producto.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
