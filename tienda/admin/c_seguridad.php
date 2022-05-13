@@ -1,3 +1,4 @@
+
 <?php  //seguridad de sesiones Y BD
 include '/XAMPP/htdocs/tienda/codes/connect.php'; 
 session_start(); //Paso 1 para utilizar sesiones

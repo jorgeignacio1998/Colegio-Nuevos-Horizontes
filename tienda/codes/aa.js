@@ -1,3 +1,4 @@
+
 alert('ola');
 const slider = document.querySelector("#slider1");
 let sliderSection = document.querySelectorAll(".slider-section");
