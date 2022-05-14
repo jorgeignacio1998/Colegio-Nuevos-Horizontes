@@ -32,7 +32,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos "); //obtiene datos d
                                     <th scope="col">#</th>
                                     <th scope="col">IMAGEN</th>                              
                                     <th scope="col">NOMBRE</th>
-                                    <th scope="col">ID_MARCA</th>
+                                    <th scope="col">MARCA</th>
                                     <th scope="col">TIPO</th>
                                     <th scope="col">STOCK</th>
                                     <th scope="col">PRECIO</th>
@@ -53,7 +53,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos "); //obtiene datos d
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['FOTO']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    <td ><?php echo $fila['ID_MARCA']; ?></td>            
+                                    <td ><?php echo $fila['MARCA']; ?></td>            
                                     <td ><?php echo $fila['TIPO']; ?></td>
                                     <td ><?php echo $fila['STOCK']; ?></td>
                                     <td ><?php echo $fila['PRECIO']; ?></td>
@@ -61,7 +61,8 @@ $datos_productos = $mysqli->query("SELECT * FROM productos "); //obtiene datos d
                                     <td ><?php echo $fila['DESCRIPCION']; ?></td>
 
                                     <td><a class="text-primary" href="E_producto.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="D_producto.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="D_producto.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td> 
+                                   
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>

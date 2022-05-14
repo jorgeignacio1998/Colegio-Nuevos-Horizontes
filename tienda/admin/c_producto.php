@@ -16,40 +16,94 @@ include './c_seguridad.php';     // SESSION y Base de datos.
 
 <body>
     <div class="container-fluid mt-5">
-    <div class="row justify-content-center">
+        <div class="row justify-content-center">
         
-            <div class="col-md-4">    <!-- INICIO SEGUNDO COL  -->
+            <div class="col-sm-12 col-md-8 col-lg-4">    
                         <div class="card">
                             
                             <div class="card-header">
-                                Ingresar datos:
+                                <h4 id="t100"> Agregar producto</h4>
                             </div>
-                            <form action="../admin/c_registrar.php" method="POST" class="p-4" >
+                            <form action="c_prod.php" method="POST" class="p-4" >
                                 <div class="mb-3">
                                     <label for="_1" class="form-label">Nombre del producto: </label>
-                                    <input type="text" class="form-control" name="txtNombre" autofocus required id="_1">
+                                    <input type="text" class="form-control" name="nombre" autofocus required id="_1">
                                 </div>           
                                 
-                                <div class="mb-3">
-                                    <!-- SELECTBOX  DATOS DE BD  -->
-                                    <label for="555" class="form-label">Marca: </label>
-                                    <select name="nombre" class="form-control"  id="555">
-                                                <?php
-                                                $sqlMarcas = "SELECT * FROM marca order by ID";
-                                                $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
-
-                                                while($data = mysqli_fetch_array($dataMarcas)){ ?>
-                                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
-
-                                                <?php } ?>
-                                    </select>
-                                    <!-- SELECT BOX  DATOS DE BD  -->
-                                </div> 
 
 
 
+
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <!-- SELECTBOX  DATOS DE BD  -->
+                                        <label for="444" class="form-label">Categoria: </label>
+                                        <select name="categoria" class="form-control"  required  id="444" >
+                                        <option disabled selected value >  </option>
+                                                    <?php
+                                                    $sqlTipo = "SELECT * FROM categorias order by ID";
+                                                    $dataMarcas = mysqli_query($mysqli, $sqlTipo);
+
+                                                    while($data = mysqli_fetch_array($dataMarcas)){ ?>
+                                                    <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+
+                                                    <?php } ?>
+                                        </select>
+                                        <!-- SELECT BOX  DATOS DE BD  -->
+                                    </div> 
+                                     
+                                    <div class="mb-3 col-6">
+                                        <!-- SELECTBOX  DATOS DE BD  -->
+                                        <label for="555" class="form-label">Marca: </label>
+                                        <select name="marca" class="form-control"  required id="555">
+                                        <option disabled selected value>  </option>
+                                                    <?php
+                                                    $sqlMarcas = "SELECT * FROM marca order by ID";
+                                                    $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
+
+                                                    while($data = mysqli_fetch_array($dataMarcas)){ ?>
+                                                    <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+
+                                                    <?php } ?>
+                                        </select>
+                                        <!-- SELECT BOX  DATOS DE BD  -->
+                                    </div>                    
+                                </div>
+                                
+
+
+
+                                <div class="row">
+
+                                    <div class=" col-6 mb-3">
+                                        <label for="46" class="form-label">Precio: </label>
+                                        <input type="text" class="form-control" name="precio" autofocus required id="46">
+                                    </div>
+                                     <div class=" col-6 mb-3">
+                                         <label for="66" class="form-label">Stock disponible: </label>
+                                         <input type="text" class="form-control" name="stock" autofocus required id="66">
+                                     </div>          
+                                           
+                                </div>
 
                                 
+                                
+                                
+
+
+
+                                <div class=" col-12">
+                                    <label for="46" class="form-label" >Descripción:  </label>
+                                    <textarea class="form-control" name="descripcion"  id="desProd"></textarea   > 
+                                </div>
+
+                                <div class="mb-3 col-12">
+                                    <label for="43" class="form-label" >Imagen: </label> <br>
+                                    <input type="file" class="hidden"  name="imagen" id="43" >
+                                
+                                </div>
+                                
+
                                 <div class="d-grid mt-5">
                                     <input type="hidden" name="oculto" value="1" >
                                     <input type="submit" class="btn btn-primary" value="Registrar">
@@ -58,20 +112,12 @@ include './c_seguridad.php';     // SESSION y Base de datos.
                             </form>
         
                         </div>
-                        <br>
+<br>
             </div>
 
-    </div>
+        </div>
     </div>
 </body>
-
-
-
-
-
-
-
-
 
 
 </html>

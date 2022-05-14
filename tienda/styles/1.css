@@ -42,12 +42,12 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
     color:white;
-    
+
 }
 
 #_rut{
@@ -55,7 +55,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -68,7 +68,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -80,7 +80,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -92,7 +92,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -104,7 +104,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -147,7 +147,7 @@ body{
     margin: 16px 0;;
     margin-top: 1px;
     font-size: 20px;
-    cursor:pointer; 
+    cursor:pointer;
     font-family: 'Roboto', sans-serif;
 
     font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -172,7 +172,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -183,7 +183,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -194,7 +194,7 @@ body{
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
     border:1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
@@ -212,3 +212,24 @@ body{
 
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@700&display=swap');
+#t100{
+    text-align: center;
+     font-family: 'Roboto', sans-serif;
+
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+#desProd{
+    flex: auto;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:black;
+    min-height: 150px;
+    max-height: 150px ;
+    min-width: 250px;
+    max-width: 800px;   /* da igual el ancho ya que nunca se sobrepasara de la caja principal*/
+}
+
