@@ -36,8 +36,28 @@ session_start(); //Paso 1 para utilizar sesiones
 
         // NIVEL 11 = INDEX DEL ALUMNO
         if($sentencia2['NIVEL'] == 11  ){
-        header ('Location: ../alumno/index.php');
+            header ('Location: ../alumno/index.php');
         }
+
+        // NIVEL 10 = INDEX DEL Profesor JEFE
+        if($sentencia2['NIVEL'] == 10  ){
+            header ('Location: ../profesorJ/index.php');
+        }
+        // NIVEL 9 = INDEX DE PROFESOR REGULAR
+        if($sentencia2['NIVEL'] == 9  ){
+            header ('Location: ../profesor/index.php');
+        }
+
+        // NIVEL 1 = INDEX DEL ADMIN
+        if($sentencia2['NIVEL'] == 1  ){
+            header ('Location: ../admin/bienvenido.php');
+        }
+
+
+
+
+
+
         }
         
 

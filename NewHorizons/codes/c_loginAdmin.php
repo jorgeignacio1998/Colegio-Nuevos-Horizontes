@@ -29,9 +29,9 @@ session_start(); //Paso 1 para utilizar sesiones
         if($sentencia2['NIVEL'] == 1){
             $id = $sentencia2['ID']; 
             $_SESSION['usuario'] = $id;      //variable de sesion
-            header("location: ../admin/inicio.php");
+            header("location: ../admin/bienvenido.php");
         }else{
-            header("location: ../views/index.php");
+            header("location: index.php");
         }
         }
         

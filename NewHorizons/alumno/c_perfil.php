@@ -76,15 +76,11 @@ if(!empty($_POST['telefono'])){
 
 
 
-if(count($error)==0)
-
-
-
-
+if(count($error)==0) //NO ERRORES DE FORMATO
 { 
     if(empty($nombre_img) and $telefono == $row['TELEFONO'] ){ 
         if($contraseña1 == $row['CONTRASENA']){
-        header('Location:  perfil.php?mensaje=error6'); //Enviandole ALERTA QUE NO SE HAN DETECTADO Cambios
+        header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS
         }
     
     
@@ -103,7 +99,7 @@ if(count($error)==0)
         }
         }
 
-        header('Location: perfil.php?mensaje=guardado');  //mensaje 
+        header('Location: perfil.php?mensaje=guardado');  //ALERTA CAMBIOS REALIZADOS
         
     }
 

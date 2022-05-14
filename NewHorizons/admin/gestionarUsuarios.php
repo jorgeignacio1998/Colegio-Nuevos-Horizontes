@@ -1,6 +1,6 @@
 <?php
 require '../codes/seguridadAdmin.php'; //Session y Nivel == 1 y bd
-$datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
+$datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
 ?>
 
 <!DOCTYPE html>
@@ -205,6 +205,50 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
 
 
 
+                 <!-- 6  alerta FORTMATO ERROR .  -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato1') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>FORMATO INCORRECTO</strong> El nombre no puede tener numeros o simbolos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 6  alerta FORTMATO ERROR   -->
+
+                
+                 <!-- 7  alerta FORTMATO ERROR .  -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato2') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>FORMATO INCORRECTO</strong> No se realizaron cambios.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 7  alerta FORTMATO ERROR   -->
+
+
+                 
+                 <!-- 9  alerta CORREO OCUPADO ERROR 9 .  -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error9') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El correo ingresado ya esta en uso.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!--  9  alerta CORREO OCUPADO ERROR 9    -->
 
 
 
@@ -232,10 +276,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre completo</th>                              
                                     <th scope="col">Correo electrónico</th>
-                                   
-                                    
                                     <th scope="col">Nivel</th>
-
                                     <th scope="col" colspan="2">Opciones</th>
                                 </tr>
                             </thead>
@@ -251,7 +292,6 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE NIVEL != 1"); //ob
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
                                     <td ><?php echo $fila['EMAIL']; ?></td>
-                                    
                                     <td ><?php echo $fila['NIVEL']; ?></td>
 
                                     <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
