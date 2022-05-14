@@ -146,6 +146,7 @@ if(!isset($_SESSION['usuario'])){
                      
 
                      <!--INICIO  MENSAJES MENSAJES MENSAJES MENSAJES -->
+
                      <!-- CAMBIOS REALIZADOS CON EXITO -->
 
                      <?php
@@ -162,6 +163,26 @@ if(!isset($_SESSION['usuario'])){
                      ?>
                                     
                      <!-- CAMBIOS REALIZADOS CON EXITO-->
+
+
+
+                       
+                     <!-- PASS CHANGED -->
+
+                     <?php
+                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'pass') {
+                     ?>
+
+                     <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>SE HA CAMBIADO LA CONTRASEÑA</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
+                     
+                     <?php
+                     }
+                     ?>
+                                    
+                     <!-- PASS CHANGED -->
 
 
 

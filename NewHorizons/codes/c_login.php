@@ -28,9 +28,16 @@ session_start(); //Paso 1 para utilizar sesiones
         $sentencia2 =mysqli_fetch_array($sentencia1);
         $id = $sentencia2['ID']; 
         $_SESSION['usuario'] = $id;      //variable de sesion
-        //if($sentencia2['NIVEL'] == 2  3  4   5   6  7  ){
-        header ('Location: ../index.php');
-        
+
+
+
+
+        //Las siguientes sentencias son para redirigir a los usuarios a sus vistas dependiendo su NIVEL
+
+        // NIVEL 11 = INDEX DEL ALUMNO
+        if($sentencia2['NIVEL'] == 11  ){
+        header ('Location: ../alumno/index.php');
+        }
         }
         
 

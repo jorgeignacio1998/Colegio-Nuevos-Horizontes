@@ -30,3 +30,5 @@ if(mysqli_query($mysqli, $query)){
     
         
 ?>
+
+<!-- ACA FALTA VALIDACIONES -->

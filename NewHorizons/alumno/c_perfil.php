@@ -18,6 +18,9 @@ $regexTelefono = "/\A(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}\z/" ;
 
 
 
+$telefono = $_POST["telefono"];
+$nombre_img = $_FILES['imagen']['name'];
+$contraseña1 = 0;
 
 
 
@@ -28,13 +31,15 @@ $regexTelefono = "/\A(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}\z/" ;
 
 
 
-//1.- EDITAR CONTRASEÑA VALIDACIONES
+//.- EDITAR CONTRASEÑA VALIDACIONES
 if(isset($_POST['contraseña1'])){
 
     $contraseña1 = $_POST["contraseña1"];
     if(!empty($_POST['contraseña1'])){
         $contraseña1 = md5($contraseña1);  
         $mysqli->query("UPDATE usuarios SET CONTRASENA = '{$contraseña1}' WHERE ID = $row[ID]");
+        header('Location:  perfil.php?mensaje=pass'); //Enviandole ALERTA metodo GET(error4), REDIRECCION
+        $c = 1;
 
     }else{ // no muestra alerta porque esto ira en otro lado seguramente  LO ULTIMO QUE VOY A HACER.
     }
@@ -46,31 +51,25 @@ if(isset($_POST['contraseña1'])){
 
 
 
-
-
-
-
-
-
-
-//2 .- EDITAR TELEFONO CON FORMATO, No es un campo obligatorio.
+//1 .- EDITAR TELEFONO CON FORMATO, No es un campo obligatorio.
 if(!empty($_POST['telefono'])){
     if(!preg_match("$regexTelefono", $_POST['telefono'])){
         array_push($error, "El formato del telefono es invalido");
-        header('Location:  perfil.php?mensaje=error4'); //Enviandole ALERTA metodo GET(error4), REDIRECCION
+        header('Location:  perfil.php?mensaje=error4'); 
+       
     }else{
         echo 'Buen formato';
     }
 }
-//4.- EDITAR TELEFONO
+//1.- EDITAR TELEFONO
 
 
 
 
 
 
-$telefono = $_POST["telefono"];
-$nombre_img = $_FILES['imagen']['name'];
+
+
 
 
 
@@ -83,8 +82,11 @@ if(count($error)==0)
 
 
 { 
-    if(empty($nombre_img) and $telefono == $row['TELEFONO']  ){ 
-    header('Location:  perfil.php?mensaje=error6'); //Enviandole ALERTA QUE NO SE HAN DETECTADO Cambios
+    if(empty($nombre_img) and $telefono == $row['TELEFONO'] ){ 
+        if($contraseña1 == $row['CONTRASENA']){
+        header('Location:  perfil.php?mensaje=error6'); //Enviandole ALERTA QUE NO SE HAN DETECTADO Cambios
+        }
+    
     
 
     }else{

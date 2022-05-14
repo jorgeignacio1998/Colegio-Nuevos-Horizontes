@@ -45,7 +45,7 @@ include 'seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
             </div>
             <hr>
             <div class="nav-section">
-                <li class="nav-text"><a href="#"><i class="fa-solid fa-user-pen">  </i>  Editar perfil</a></li>
+                <li class="nav-text"><a href="../alumno/perfil.php"><i class="fa-solid fa-user-pen">  </i>  Editar perfil</a></li>
                 <li class="nav-text"><a href="#"><i class="fas fa-fire nav-icon"> </i> Trending</a></li>
                 <li class="nav-text"><a href="#"><i class="fab fa-youtube nav-icon"></i>Subcriptions</a></li>
             </div>
