@@ -22,19 +22,23 @@ $regexStock = 'solo numeros  no mayor a 9999';
 
     $nombre_img = $_FILES['imagen']['name'];
     if(!empty($nombre_img)){
-        move_uploaded_file($_FILES['imagen']['tmp_name'],"../img  {$nombre_img}");}
-
+        move_uploaded_file($_FILES['imagen']['tmp_name'],"../img/{$nombre_img}");
+        
+    }
+   
 
     $nombre_producto = $_POST['nombre'];
     $categoria = $_POST['categoria'];
     $marca = $_POST['marca'];
     $precio = $_POST['precio'];
     $stock = $_POST['stock'];
+    $descripcion = $_POST['descripcion'];
+
     
     
 
-     $mysqli->query("INSERT INTO productos (NOMBRE, MARCA, TIPO, STOCK, PRECIO, FOTO) 
-                         VALUES ('{$nombre_producto}', '{$marca}', '{$categoria}', '{$stock}', '{$precio}', '{$nombre_img}') ");
+     $mysqli->query("INSERT INTO productos (NOMBRE, MARCA, TIPO, STOCK, PRECIO, FOTO, DESCRIPCION) 
+                         VALUES ('{$nombre_producto}', '{$marca}', '{$categoria}', '{$stock}', '{$precio}', '{$nombre_img}', '{$descripcion}') ");
 
 
 

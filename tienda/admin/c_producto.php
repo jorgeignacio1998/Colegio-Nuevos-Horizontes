@@ -24,7 +24,7 @@ include './c_seguridad.php';     // SESSION y Base de datos.
                             <div class="card-header">
                                 <h4 id="t100"> Agregar producto</h4>
                             </div>
-                            <form action="c_prod.php" method="POST" class="p-4" >
+                            <form action="c_prod.php" enctype="multipart/form-data" method="POST" class="p-4" >
                                 <div class="mb-3">
                                     <label for="_1" class="form-label">Nombre del producto: </label>
                                     <input type="text" class="form-control" name="nombre" autofocus required id="_1">
@@ -58,7 +58,7 @@ include './c_seguridad.php';     // SESSION y Base de datos.
                                         <select name="marca" class="form-control"  required id="555">
                                         <option disabled selected value>  </option>
                                                     <?php
-                                                    $sqlMarcas = "SELECT * FROM marca order by ID";
+                                                    $sqlMarcas = "SELECT * FROM marcas order by ID";
                                                     $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
 
                                                     while($data = mysqli_fetch_array($dataMarcas)){ ?>
@@ -99,10 +99,14 @@ include './c_seguridad.php';     // SESSION y Base de datos.
 
                                 <div class="mb-3 col-12">
                                     <label for="43" class="form-label" >Imagen: </label> <br>
-                                    <input type="file" class="hidden"  name="imagen" id="43" >
+                                    <input type="file" name="imagen" id="43" >
                                 
                                 </div>
                                 
+
+
+
+
 
                                 <div class="d-grid mt-5">
                                     <input type="hidden" name="oculto" value="1" >

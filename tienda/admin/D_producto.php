@@ -1,5 +1,5 @@
 <?php
-require '../codes/connect.php';  //coneccion BD
+require 'c_seguridad.php'; 
     if(!isset($_GET['codigo'])){
         header('Location: R_producto.php?mensaje=error ');
         exit();
