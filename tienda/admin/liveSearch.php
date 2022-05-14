@@ -53,7 +53,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos "); //obtiene datos d
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['FOTO']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    <td ><?php echo $fila['MARCA']; ?></td>            
+                                    <td ><?php echo $fila['ID_MARCA']; ?></td>            
                                     <td ><?php echo $fila['TIPO']; ?></td>
                                     <td ><?php echo $fila['STOCK']; ?></td>
                                     <td ><?php echo $fila['PRECIO']; ?></td>

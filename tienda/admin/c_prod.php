@@ -22,7 +22,7 @@ $regexStock = 'solo numeros  no mayor a 9999';
 
     $nombre_img = $_FILES['imagen']['name'];
     if(!empty($nombre_img)){
-        move_uploaded_file($_FILES['imagen']['tmp_name'],"../img/{$nombre_img}");
+        move_uploaded_file($_FILES['imagen']['tmp_name'],"../img/prod/{$nombre_img}");
         
     }
    
