@@ -38,6 +38,11 @@ include './c_seguridad.php';     // SESSION y Base de datos.
                                     <div class="mb-3 col-6">
                                         <!-- SELECTBOX  DATOS DE BD  -->
                                         <label for="444" class="form-label">Categoria: </label>
+
+
+
+
+
                                         <select name="categoria" class="form-control"  required  id="444" >
                                         <option disabled selected value >  </option>
                                                     <?php
@@ -55,14 +60,17 @@ include './c_seguridad.php';     // SESSION y Base de datos.
                                     <div class="mb-3 col-6">
                                         <!-- SELECTBOX  DATOS DE BD  -->
                                         <label for="555" class="form-label">Marca: </label>
+
+
+
                                         <select name="marca" class="form-control"  required id="555">
-                                        <option disabled selected value>  </option>
+                                        <option value='opc'>opcion</option>
                                                     <?php
                                                     $sqlMarcas = "SELECT * FROM marcas order by ID";
                                                     $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
 
                                                     while($data = mysqli_fetch_array($dataMarcas)){ ?>
-                                                    <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+                                      <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
 
                                                     <?php } ?>
                                         </select>

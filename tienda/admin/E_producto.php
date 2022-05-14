@@ -84,39 +84,37 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                 </div>
                 
                 <div class="mb-3">
-                    <label for="_2" class="form-label">Marca: </label>
+                    <label for="88" class="form-label">Marca: </label>
+                    <select name="marca" class="form-control"  required id="88">
+                    <option > <?php echo  $sentencia2['MARCA']; ?> </option>
+                    
+                        <?php
+                        $sqlMarcas = "SELECT * FROM marcas order by ID";
+                        $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
 
+                        while($data = mysqli_fetch_array($dataMarcas)){ ?>
+                        <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
 
+                        <?php } ?>
+                    </select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-                    <input type="text" class="form-control" name="marca" autofocus required id="_5" value="<?php echo $sentencia2['MARCA'];  ?>" >
+                  
                 </div>
                 <div class="mb-3">
-                    <label for="_5" class="form-label">Categoria: </label>
-
+                    <label for="555" class="form-label">Categoria: </label>
+                    <select name="categoria" class="form-control"  required id="555">
+                    <option > <?php echo  $sentencia2['TIPO']; ?> </option>
                     
+                        <?php
+                        $sqlCategoria = "SELECT * FROM categorias order by ID";
+                        $dataCate = mysqli_query($mysqli, $sqlCategoria);
 
+                        while($data = mysqli_fetch_array($dataCate)){ ?>
+                        <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
 
-
-
-
-
-
-
-
-                    <input type="text" class="form-control" name="categoria" autofocus required id="_5" value="<?php echo $sentencia2['TIPO'];  ?>" >
-                </div>
+                        <?php } ?>
+                    </select>
+                </div> 
               
                 
                 <div class="mb-3">
