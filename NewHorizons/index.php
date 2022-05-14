@@ -44,7 +44,7 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
 
 <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
         <div class="container-fluid">
-              <a href="welcome.php" class="navbar-brand">Inicio</a>
+              <a href="index.php" class="navbar-brand">Inicio</a>
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                  <span class="navbar-toggler-icon"></span>
               </button>

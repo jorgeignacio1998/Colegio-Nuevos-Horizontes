@@ -54,7 +54,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
 <!-- Inicio del Navbar admin -->
 <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
         <div class="container-fluid">
-              <a href="inicio.php" class="navbar-brand">Admin</a>
+              <a href="bienvenido.php" class="navbar-brand">Admin</a>
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                  <span class="navbar-toggler-icon"></span>
               </button>
@@ -347,7 +347,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                         </div>
                         <div class="mb-3">
                             <label class="form-label lab" for="_6">Nivel</label > 
-                                <?php  $opciones = array('1','2','3','4','5');
+                                <?php  $opciones = array('1','2','3','4','5','6','7','8','9','10','11','12' );
                                                         
                                 echo'
                                 <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';

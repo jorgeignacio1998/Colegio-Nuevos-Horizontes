@@ -80,7 +80,11 @@ if(count($error)==0) //NO ERRORES DE FORMATO
 { 
     if(empty($nombre_img) and $telefono == $row['TELEFONO'] ){ 
         if($contraseña1 == $row['CONTRASENA']){
-        header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS
+            
+            header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS
+        }
+        if($nombre_img == '' and  $telefono == '' and $_POST['contraseña1']== ''){
+            header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS PORQUE TODOS LOS DATOS ESTAN VACIOS
         }
     
     

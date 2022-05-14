@@ -99,7 +99,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                   
                     <div class="mb-5">
                             <label class="form-label lab" for="_6">Nivel</label > 
-                                <?php  $opciones = array('1','2','3','4','5');
+                                <?php  $opciones = array('1','2','3','4','5','6','7','8','9','10','11','12' );
                                        $seleccionado = $sentencia2['NIVEL'];
                                                         
                                 echo'
