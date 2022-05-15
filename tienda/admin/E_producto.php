@@ -30,7 +30,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="../styles/1.css?<?php echo time(); ?>" > <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
 </head>
 
 
@@ -40,14 +40,21 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
     <!-- Bootstrap CSS v5.0.2 -->
     <style>
     body{
-        background: #7F7FD5;  
+        background: #7F7FD5;
         background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
     #close { position:absolute; left:10px; top:10px; right:10px; font-size: 30px; cursor: pointer; }
 
+    .img_productos{
+        height: 100px;
+        width: 100px;  
+    }
 
-
+    .hidden{
+      visibility:hidden;
+    }
+   
 
 
 </style>
@@ -56,7 +63,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
   <body>
 
 
-      
+
 <!-- Bootstrap JavaScript Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -65,7 +72,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 
-            
+
 
 
 <br><br><br>
@@ -74,20 +81,20 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
     <div class="col-md-4">
         <div class="card">
             <div class="card-header">
-            <a href="gestionarUsuarios.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
+            <a href="R_producto.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a>
                 <h3 id="_titulo">Editar datos</h3>
             </div>
-            <form action="c_editar.php" method="POST" class="p-4" >
+<!-- form -->   <form action="e_prod.php" enctype="multipart/form-data"   method="POST" class="p-4" >
                 <div class="mb-3">
                     <label for="_1" class="form-label">Nombre del producto: </label>
                     <input type="text" class="form-control" name="nombre" autofocus required id="_1" value="<?php echo $sentencia2['NOMBRE'];  ?>">
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="88" class="form-label">Marca: </label>
                     <select name="marca" class="form-control"  required id="88">
                     <option > <?php echo  $sentencia2['MARCA']; ?> </option>
-                    
+
                         <?php
                         $sqlMarcas = "SELECT * FROM marcas order by ID";
                         $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
@@ -98,13 +105,13 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                         <?php } ?>
                     </select>
 
-                  
+
                 </div>
                 <div class="mb-3">
                     <label for="555" class="form-label">Categoria: </label>
                     <select name="categoria" class="form-control"  required id="555">
                     <option > <?php echo  $sentencia2['TIPO']; ?> </option>
-                    
+
                         <?php
                         $sqlCategoria = "SELECT * FROM categorias order by ID";
                         $dataCate = mysqli_query($mysqli, $sqlCategoria);
@@ -114,31 +121,29 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
                         <?php } ?>
                     </select>
-                </div> 
-              
-                
+                </div>
+
+
                 <div class="mb-3">
-                  <label class="form-label lab" for="_99">Stock</label > 
+                  <label class="form-label lab" for="_99">Stock:</label >
                   <input type="text" class="form-control" name="stock" autofocus required id="99" value="<?php echo $sentencia2['STOCK'];  ?>">
                 </div>
                 <div class="mb-3">
-                  <label class="form-label lab" for="111">Precio</label > 
+                  <label class="form-label lab" for="111">Precio:</label >
                   <input type="text" class="form-control" name="precio" autofocus required id="111" value="<?php echo $sentencia2['PRECIO'];  ?>">
                 </div>
-                        
-                           
-                           
-                                 
-                       
 
+                <div class="mb-3">
+                  <label class="form-label lab">Imagen:</label >
+                  <div>
+                        <label for="input">  <img   class="img_productos"  src="../img/prod/<?php echo $sentencia2['FOTO']; ?>" alt="">      </label>
+                        <input type="file" class="hidden"  name="imagen" id="input"  >
+                  </div>
+                </div>
+                
+        
 
-
-
-
-
-
-
-
+                
 
 
                 <div class="form-group row justify-content-center d-grid ">
@@ -146,7 +151,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                         <input type="hidden"  name="codigo" value="<?php echo $codigo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
                         <input type="submit" class="btn btn-primary" value="Guardar cambios">
                     </div>
-                    
+
                 </div>
             </form>
         </div>

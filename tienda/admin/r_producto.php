@@ -17,7 +17,29 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  <!-- Ajax cdn jquery 3.6 -->
       <!-- Iconos --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+      <style>
+        .col1{
+            height:650px; overflow-y:scroll;
+        }
+        .img_productos{
+            height: 50px;
+            width: 50px;
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+    </head>
 <body>
 
 
@@ -202,7 +224,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                                     <th scope="col">#</th>
                                     <th scope="col">IMAGEN</th>                              
                                     <th scope="col">NOMBRE</th>
-                                    <th scope="col">ID_MARCA</th>
+                                    <th scope="col">MARCA</th>
                                     <th scope="col">TIPO</th>
                                     <th scope="col">STOCK</th>
                                     <th scope="col">PRECIO</th>
@@ -223,7 +245,15 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                                 <tr >
 
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
-                                    <td ><?php echo $fila['FOTO']; ?></td>
+
+
+
+                                    <td><img     class="img_productos"     src="../img/prod/<?php echo $fila['FOTO']; ?>" alt=""></td>
+
+
+
+
+
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
                                     <td ><?php echo $fila['MARCA']; ?></td>            
                                     <td ><?php echo $fila['TIPO']; ?></td>

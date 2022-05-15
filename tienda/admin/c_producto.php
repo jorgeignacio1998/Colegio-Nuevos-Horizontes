@@ -64,7 +64,7 @@ include './c_seguridad.php';     // SESSION y Base de datos.
 
 
                                         <select name="marca" class="form-control"  required id="555">
-                                        <option value='opc'>opcion</option>
+                                        <option disabled selected value >  </option>
                                                     <?php
                                                     $sqlMarcas = "SELECT * FROM marcas order by ID";
                                                     $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
