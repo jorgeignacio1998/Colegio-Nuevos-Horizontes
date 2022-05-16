@@ -99,7 +99,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 
 
 
-<!-- Inicio Gestor de usuarios--  admin -->   
+<!-- Inicio Gestor de prooductos--  admin -->   
 <div class="container-fluid mt-5">
        <div class="row justify-content-center">
            <div  class="col-md-8 col-sm-12">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
