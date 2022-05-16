@@ -7,10 +7,8 @@ include 'c_seguridad.php';
 $error = array();
 
 
-$regexPrecio = 'solo numeros no mayor a 99.999.999 ni menor a 100';
-$regexStock = 'solo numeros  no mayor a 9999';
-
-// El precio se coloque con puntos y signo $ automaticamente. precio con descuento se coloquen automaticamente digitando precio y descuento
+$regexPrecio = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
+$regexStock = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
 
 
 
@@ -18,7 +16,31 @@ $regexStock = 'solo numeros  no mayor a 9999';
 
 
 
-// if(count($error)==0){ 
+//1.-   VALIDACIONES   PRECIO              
+if(!preg_match($regexPrecio, $_POST['precio'] )){
+    array_push($error, "El formato es invalido");
+    header('Location: C_producto.php?mensaje=precio'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    
+}  
+//-  VALIDACIONES   PRECIO     
+
+
+
+//2.-  VALIDACIONES   STOCK                     
+if(!preg_match($regexStock, $_POST['stock'] )){
+    array_push($error, "El formato es invalido");
+    header('Location: C_producto.php?mensaje=stock'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    
+}  
+//-  VALIDACIONES   STOCK   
+
+
+
+
+
+
+
+if(count($error)==0){ 
 
     $nombre_img = $_FILES['imagen']['name'];
     if(!empty($nombre_img)){
@@ -44,11 +66,11 @@ $regexStock = 'solo numeros  no mayor a 9999';
 
 
 
-    header('Location: C_producto.php?mensaje=guardado');  //mensaje       
+    header('Location: R_producto.php?mensaje=registrado');  //mensaje       
     
     
    
-// }
+}
 
 ?>
 

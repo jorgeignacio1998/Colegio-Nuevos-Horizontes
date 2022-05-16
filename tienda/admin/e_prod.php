@@ -5,12 +5,14 @@ if(!isset($_POST['codigo'])){
 }
 
 
-
+$codigo = $_POST['codigo'];
 
 $nombre_img = $_FILES['imagen']['name'];
 
 if(!empty($nombre_img)){
-    if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../img/prod/{$nombre_img}")){     
+    if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../img/prod/{$nombre_img}")){    
+        $mysqli->query("UPDATE productos SET FOTO ='{$nombre_img}' WHERE ID = $codigo "); 
+        
 }
 }
 
@@ -20,7 +22,6 @@ if(!empty($nombre_img)){
 
 
 
-$codigo = $_POST['codigo'];
 $nombre = $_POST['nombre'];
 $marca = $_POST['marca'];
 $categoria = $_POST['categoria'];
@@ -31,7 +32,7 @@ $precio = $_POST['precio'];
 
 $mysqli->query("UPDATE productos SET  
 NOMBRE = '{$nombre}', MARCA = '{$marca}', TIPO = '{$categoria}', STOCK ='{$stock}', 
-PRECIO ='{$precio}', FOTO ='{$nombre_img}' WHERE ID = $codigo ");
+PRECIO ='{$precio}' WHERE ID = $codigo ");
 
 header('Location: R_producto.php');
 
