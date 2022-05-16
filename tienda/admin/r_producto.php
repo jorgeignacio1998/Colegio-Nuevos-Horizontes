@@ -19,7 +19,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
       <!-- Iconos --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <style>
         .col1{
-            height:600px; overflow-y:scroll;
+            height:580px; overflow-y:scroll;
         }
         .img_productos{
             height: 50px;
@@ -146,7 +146,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                 ?>
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>registro realizado exitosamente</strong> 
+                    <strong>PRODUCTO REGISTRADO CON EXITO</strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -169,13 +169,17 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                 ?>
                 <!-- 3 alerta ERROR  -->
 
+
+
+
+                
                 <!-- 4.  alerta    editado  success -->
                  <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
                 ?>
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Cambios realizados exitosamente</strong> 
+                    <strong>CAMBIOS REALIZADOS EXITOSAMENTE.</strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -187,41 +191,56 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 
 
 
-
-
-
-
-
-
-
-                <!--  ALERTA PRECIO -->
-                   <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'precio') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>ERROR </strong> El precio no puede tener letras o simbolos.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?> 
-                <!--  ALERTA PRECIO -->
-
-
-
                  <!--ALERTA ELIMINADO -->
                  <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Se han eliminado los datos correctamente </strong> 
+                    <strong>EL PRODUCTO SE HA ELIMINADO EXITOSAMENTE</strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
                 }
                 ?> 
                 <!-- ALERTA ELIMINADO-->
+
+
+
+
+
+                  <!--  ALERTA PRECIO -->
+                <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'precio') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR DE FORMATO. </strong> El precio solamente puede tener numeros enteros, sin espacios,letras o simbolos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                 <!--  ALERTA PRECIO -->
+
+
+
+    
+                  <!--  ALERTA STOCK -->
+                <?php
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'stock') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR DE FORMATO. </strong> El Stock no puede tener espacios, letras ni simbolos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                <!--  ALERTA STOCK -->
+
+
+               
 
 
 
@@ -239,12 +258,17 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                    <h4 id="_titulo2"> Lista de productos </h4>
 
                    <div class="card-header">  
-        
+                    
+              
 
                         <div class="divbtn ">
                             <div class="divdentro">
                                 <input type="text" class="form-control m-3 lupa" id="live_search" autocomplete="off" placeholder="Buscar...">  
                             </div>
+
+                
+
+
                            
                             <a class="btn btn-primary m-3"    id="btn-agregar"  data-bs-toggle="offcanvas" href="../admin/C_producto.php" role="button" aria-controls="offcanvasExample">Agregar producto</a>
                         </div>

@@ -81,21 +81,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
     <div class="col-md-4">
 
     
-     <!--  ALERTA PRECIO -->
-     <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'precio') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>ERROR </strong> El precio no puede tener letras o simbolos.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-    ?> 
-    <!--  ALERTA PRECIO -->
-
-
+ 
 
 
 
