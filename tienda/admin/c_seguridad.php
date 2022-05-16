@@ -7,7 +7,7 @@ if(!isset($_SESSION['usuario'])){
   echo'
         <script> 
               alert("no tienes permiso para entrar");
-              window.location = "./index.php";
+              window.location = "login.php";
         </script>
   ';
   
@@ -26,7 +26,7 @@ if($sentencia2['NIVEL'] == 1){
       echo'
       <script> 
             alert("No tienes permiso para entrar");
-            window.location = "./index.php";
+            window.location = "login.php";
       </script>
 ';
    

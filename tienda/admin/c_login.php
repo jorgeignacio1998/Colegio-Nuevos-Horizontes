@@ -2,6 +2,10 @@
 session_start(); //Paso 1 para utilizar sesiones
 require '/XAMPP/htdocs/tienda/codes/connect.php';
 
+
+
+
+
  $email = $_POST['email'];
  $password = $_POST['password'];
  $password = md5($password);
@@ -18,7 +22,7 @@ require '/XAMPP/htdocs/tienda/codes/connect.php';
         echo'
             <script>
             alert("Las credenciales no son validas");
-            window.location = "index.php";
+            window.location = "login.php";
             </script>
         ';
         
@@ -29,9 +33,16 @@ require '/XAMPP/htdocs/tienda/codes/connect.php';
         if($sentencia2['NIVEL'] == 1){
             $id = $sentencia2['ID']; 
             $_SESSION['usuario'] = $id;      //variable de sesion
-            header("location: bienvenido.php");
-        }else{
             header("location: index.php");
+        }else{
+        array_push($error, "INTRUSO DETECTADO");
+        echo'
+            <script>
+            alert("Tu direccion IP se ha registrado en la Base de datos, colaboramos con la policia de investigaciones");
+            window.location = "login.php";
+            </script>
+        ';
+
         }
         }
         
