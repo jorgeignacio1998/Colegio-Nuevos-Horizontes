@@ -52,7 +52,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE EMAIL LIKE '{$usua
   <!-- Termino del Navbar  admin -->
 
     <h1 class="titulo">Bienvenido Admin </h1>
-    <img src="/img/admin.jpg" id="admin">
+   
 
 
 

@@ -27,16 +27,6 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
             
         }
 
-
-
-
-
-
-
-
-
-
-
     </style>
 
     </head>
@@ -349,36 +339,8 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
            </div> <!-- TERMINO PRIMER COL  --> 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
          </div>
       </div>  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
