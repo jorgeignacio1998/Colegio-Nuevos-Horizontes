@@ -1,5 +1,5 @@
 <?php
-include 'c_seguridad.php';
+include '../c_seguridad.php';     //Seguridad y Base de datos.
 
 if(!isset($_POST['codigo'])){
     header('Location: R_producto.php?mensaje=error');
@@ -53,7 +53,7 @@ $nombre_img = $_FILES['imagen']['name'];
 if(count($error)==0){ 
 
     if(!empty($nombre_img)){
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../img/prod/{$nombre_img}")){    
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../../img/prod/{$nombre_img}")){    
             $mysqli->query("UPDATE productos SET FOTO ='{$nombre_img}' WHERE ID = $codigo "); 
             
     }

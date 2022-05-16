@@ -37,7 +37,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE EMAIL LIKE '{$usua
                           Opciones de soporte
                        </a>
                        <ul class="dropdown-menu">
-                       <li> <a class="dropdown-item" href="R_producto.php">Productos</a></li>
+                       <li> <a class="dropdown-item" href="../admin/productos/R_producto.php">Productossssssssssssssssss</a></li>       
                        <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
                        <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
                        <li> <a class="dropdown-item" href="c_logout.php">Cerrar sesión</a></li>

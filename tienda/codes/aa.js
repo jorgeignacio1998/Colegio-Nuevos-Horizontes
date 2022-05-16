@@ -1,5 +1,5 @@
 
-alert('ola');
+
 const slider = document.querySelector("#slider1");
 let sliderSection = document.querySelectorAll(".slider-section");
 let sliderSectionLast = sliderSection[sliderSection.length -1];

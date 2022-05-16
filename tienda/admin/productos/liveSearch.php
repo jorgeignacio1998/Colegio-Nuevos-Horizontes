@@ -1,6 +1,5 @@
 <?php 
-
-include './c_seguridad.php';     //Seguridad y Base de datos.
+include '../c_seguridad.php';  //Seguridad y Base de datos.
 $datos_productos = $mysqli->query("SELECT * FROM productos "); //obtiene datos de todos los productos
 
 
@@ -51,7 +50,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos "); //obtiene datos d
                                 <tr >
 
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
-                                    <td><img     class="img_productos"     src="../img/prod/<?php echo $fila['FOTO']; ?>" alt=""></td>
+                                    <td><img     class="img_productos"     src="../../img/prod/<?php echo $fila['FOTO']; ?>" alt=""></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
                                     <td ><?php echo $fila['MARCA']; ?></td>            
                                     <td ><?php echo $fila['TIPO']; ?></td>

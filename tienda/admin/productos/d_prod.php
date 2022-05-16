@@ -1,5 +1,5 @@
 <?php
-require 'c_seguridad.php'; 
+include '../c_seguridad.php';     //Seguridad y Base de datos.
     if(!isset($_GET['codigo'])){
         header('Location: R_producto.php?mensaje=error ');
         exit();

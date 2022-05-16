@@ -1,5 +1,5 @@
 <?php
-include 'c_seguridad.php';
+include '../c_seguridad.php';     //Seguridad y Base de datos.
 
 
 
@@ -44,7 +44,7 @@ if(count($error)==0){
 
     $nombre_img = $_FILES['imagen']['name'];
     if(!empty($nombre_img)){
-        move_uploaded_file($_FILES['imagen']['tmp_name'],"../img/prod/{$nombre_img}");
+        move_uploaded_file($_FILES['imagen']['tmp_name'],"../../img/prod/{$nombre_img}");
         
     }
    

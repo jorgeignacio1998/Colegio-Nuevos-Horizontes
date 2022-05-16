@@ -1,5 +1,5 @@
 <?php 
-include './c_seguridad.php';     //Seguridad y Base de datos.
+include '../c_seguridad.php';     //Seguridad y Base de datos.
 
 $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
 
@@ -11,7 +11,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../styles/1.css?<?php echo time(); ?>" > <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../../styles/1.css?<?php echo time(); ?>" > <!-- CSS -->
     <title>Productos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->  
@@ -41,7 +41,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
         <div class="container-fluid">
-              <a href="index.php" class="navbar-brand">Admin</a>
+              <a href="../index.php" class="navbar-brand">Admin</a>
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                  <span class="navbar-toggler-icon"></span>
               </button>
@@ -55,10 +55,10 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                           Opciones de soporte
                        </a>
                        <ul class="dropdown-menu">
-                       <li> <a class="dropdown-item" href="index.php">volver</a></li>
+                       <li> <a class="dropdown-item" href="../index.php">volver</a></li>
                        <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
                        <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
-                       <li> <a class="dropdown-item" href="c_logout.php">Cerrar sesión</a></li>
+                       <li> <a class="dropdown-item" href="../c_logout.php">Cerrar sesión</a></li>
                        </ul>
                     </li>
                  </ul>
@@ -260,7 +260,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 
 
                            
-                            <a class="btn btn-primary m-3"    id="btn-agregar"  data-bs-toggle="offcanvas" href="../admin/C_producto.php" role="button" aria-controls="offcanvasExample">Agregar producto</a>
+                            <a class="btn btn-primary m-3"    id="btn-agregar"  data-bs-toggle="offcanvas" href="../productos/C_producto.php" role="button" aria-controls="offcanvasExample">Agregar producto</a>
                         </div>
 
 
@@ -307,7 +307,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 
 
 
-                                    <td><img     class="img_productos"     src="../img/prod/<?php echo $fila['FOTO']; ?>" alt=""></td>
+                                    <td><img     class="img_productos"     src="../../img/prod/<?php echo $fila['FOTO']; ?>" alt=""></td>
 
 
 
