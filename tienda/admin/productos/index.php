@@ -36,12 +36,12 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 
 
 
-    <!-- Inicio del Navbar admin -->
+          <!-- Inicio del Navbar admin -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
         <div class="container-fluid">
-              <a href="../index.php" class="navbar-brand">Admin</a>
+              <a href="index.php" class="navbar-brand">Admin</a>
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                  <span class="navbar-toggler-icon"></span>
               </button>
@@ -55,10 +55,10 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                           Opciones de soporte
                        </a>
                        <ul class="dropdown-menu">
-                       <li> <a class="dropdown-item" href="../index.php">volver</a></li>
-                       <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
-                       <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
-                       <li> <a class="dropdown-item" href="../c_logout.php">Cerrar sesión</a></li>
+                       <li> <a class="dropdown-item" href="../productos/index.php">Productos</a></li>       
+                       <li> <a class="dropdown-item" href="../categorias/index.php">Categorias</a></li>  
+                       <li> <a class="dropdown-item" href="../marcas/index.php">Marcas</a></li>  
+                       <li> <a class="dropdown-item" href="c_logout.php">Cerrar sesión</a></li>
                        </ul>
                     </li>
                  </ul>
@@ -68,7 +68,6 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
      
   
   <!-- Termino del Navbar  admin -->
-
 
   <!-- Inicio BUSQUEDA con Jquery -->   
 <script type="text/javascript">

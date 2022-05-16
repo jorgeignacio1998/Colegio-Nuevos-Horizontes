@@ -11,7 +11,7 @@ slider.insertAdjacentElement('afterbegin', sliderSection);
 
 function Next(){
     let sliderSectionFirst = document.querySelectorAll(".slider-section")[0];
-    slider.style.marginLeft = "-200%";
+    slider.style.marginLeft = "-100%";
     slider.style.transition = "all 0.5s";
     setTimeout(function(){
         slider.style.transition = "none";

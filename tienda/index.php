@@ -23,8 +23,8 @@
 </head>
 <body>
 
-<script  src="codes/aa.js"></script> 
-    
+<script  src="codes/slider.js?<?php echo time(); ?>" > </script>
+  
     <header class="main-header">
         <div class="container container-flex">
 

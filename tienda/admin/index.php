@@ -38,8 +38,8 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE EMAIL LIKE '{$usua
                        </a>
                        <ul class="dropdown-menu">
                        <li> <a class="dropdown-item" href="../admin/productos/index.php">Productos</a></li>       
-                       <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
-                       <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
+                       <li> <a class="dropdown-item" href="../admin/categorias/index.php">Categorias</a></li>  
+                       <li> <a class="dropdown-item" href="../admin/marcas/index.php">Marcas</a></li>  
                        <li> <a class="dropdown-item" href="c_logout.php">Cerrar sesión</a></li>
                        </ul>
                     </li>
