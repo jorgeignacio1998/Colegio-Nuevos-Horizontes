@@ -2,7 +2,7 @@
 include '../c_seguridad.php';     //Seguridad y Base de datos.
 $codigo = $_GET['codigo'];
 if(!isset($_GET['codigo'])) {
-    header('Location: R_producto.php?mensaje=error');
+    header('Location: index.php?mensaje=error');
     exit();
 }
 
@@ -104,7 +104,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
         <div class="card">
             <div class="card-header">
-            <a href="R_producto.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a>
+            <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a>
                 <h3 id="_titulo">Editar datos</h3>
             </div>
 <!-- form -->   <form action="e_prod.php" enctype="multipart/form-data"   method="POST" class="p-4" >

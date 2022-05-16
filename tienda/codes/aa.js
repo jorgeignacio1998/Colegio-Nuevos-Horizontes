@@ -18,7 +18,7 @@ function Next(){
         slider.insertAdjacentElement('beforeend', sliderSectionFirst);
         slider.style.marginLeft = "-100%";
     }, 500);
-    alert('ola');
+    alert('olaeeee');
 } 
 
 function Prev(){
@@ -31,7 +31,7 @@ function Prev(){
         slider.insertAdjacentElement('afterbegin', sliderSectionLast);
         slider.style.marginLeft = "-100%";
     }, 500);
-    alert('ola');
+    alert('olaaaaa');
 
 }
 

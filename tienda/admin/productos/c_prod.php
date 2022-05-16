@@ -66,7 +66,7 @@ if(count($error)==0){
 
 
 
-    header('Location: R_producto.php?mensaje=registrado');  //mensaje       
+    header('Location: index.php?mensaje=registrado');  //mensaje       
     
     
    

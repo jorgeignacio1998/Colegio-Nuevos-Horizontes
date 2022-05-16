@@ -2,7 +2,7 @@
 include '../c_seguridad.php';     //Seguridad y Base de datos.
 
 if(!isset($_POST['codigo'])){
-    header('Location: R_producto.php?mensaje=error');
+    header('Location: index.php?mensaje=error');
 }
 
 $error = array();
@@ -18,7 +18,7 @@ $regexStock = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
 //1.-   VALIDACIONES   PRECIO              
 if(!preg_match($regexPrecio, $_POST['precio'] )){
     array_push($error, "El formato es invalido");
-    header('Location: R_producto.php?mensaje=precio'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    header('Location: index.php?mensaje=precio'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
     
 }  
 //-  VALIDACIONES   PRECIO     
@@ -28,7 +28,7 @@ if(!preg_match($regexPrecio, $_POST['precio'] )){
 //2.-  VALIDACIONES   STOCK                     
 if(!preg_match($regexStock, $_POST['stock'] )){
     array_push($error, "El formato es invalido");
-    header('Location: R_producto.php?mensaje=stock'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    header('Location: index.php?mensaje=stock'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
     
 }  
 //-  VALIDACIONES   STOCK   
@@ -77,7 +77,7 @@ if(count($error)==0){
     NOMBRE = '{$nombre}', MARCA = '{$marca}', TIPO = '{$categoria}', STOCK ='{$stock}', 
     PRECIO ='{$precio}' WHERE ID = $codigo ");
 
-    header('Location: R_producto.php?mensaje=editado');
+    header('Location: index.php?mensaje=editado');
 
 }
 
