@@ -41,7 +41,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
         <div class="container-fluid">
-              <a href="index.php" class="navbar-brand">Admin</a>
+              <a href="../index.php" class="navbar-brand">Admin</a>
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                  <span class="navbar-toggler-icon"></span>
               </button>

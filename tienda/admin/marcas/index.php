@@ -35,7 +35,7 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
         <div class="container-fluid">
-              <a href="index.php" class="navbar-brand">Admin</a>
+              <a href="../index.php" class="navbar-brand">Admin</a>
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                  <span class="navbar-toggler-icon"></span>
               </button>
@@ -188,30 +188,16 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
                <div  class="card "><br>
                    
 
-                   <div class="card-header">  
-                   <h4 id="t100"> Lista de Marcas </h4>
+            
               
 
+                   <div class="card-header">  
+                        <h4 id="t100"> Lista de Marcas </h4>
                         <div class="divbtn ">
                             <div class="divdentro">
                                 <input type="text" class="form-control m-3 lupa" id="live_search" autocomplete="off" placeholder="Buscar...">  
                             </div>
-
-                
-
-
-                           
-                            <a class="btn btn-primary m-3"    id="btn-agregar"  data-bs-toggle="offcanvas" href="../marcas/C_marcas.php" role="button" aria-controls="offcanvasExample">Agregar producto</a>
-                        </div>
-
-
-
-
-                
-                    
-                       
-                
-                                                                                                                                <!-- aca-->
+                        </div>                                                                                      
                    </div>
                   
                       
@@ -262,9 +248,42 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
             
            </div> <!-- TERMINO PRIMER COL  --> 
 
+                     
+           <div class="col-md-4">
+                   
+                   <div class="card">
+                       
+                       <div class="card-header">
+                           <h4 id="t100"> Agregar Categoria</h4>
+                       </div>
+                       <form action="c_prod.php" enctype="multipart/form-data" method="POST" class="p-4" >
+                           <div class="mb-3">
+                               <label for="_1" class="form-label">Nombre de la Categoria: </label>
+                               <input type="text" class="form-control" name="nombre" autofocus required id="_1">
+                           </div>           
+                           
+
+                           <div class="d-grid mt-5">
+                               <input type="hidden" name="oculto" value="1" >
+                               <input type="submit" class="btn btn-primary" value="Registrar">
+                           </div>
+   
+                       </form>
+   
+                   </div>
+               </div>
+      
+
+
+
+
+
+
+
 
          </div>
       </div>  
 
 </body>
+<br>
 </html>
