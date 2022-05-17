@@ -232,7 +232,7 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
                                   
 
                                     <td><a class="text-primary" href="E_marca.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="d_marca.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td> 
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="d_marc.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td> 
                                     
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
