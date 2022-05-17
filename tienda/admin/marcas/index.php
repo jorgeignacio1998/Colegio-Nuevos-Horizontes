@@ -256,7 +256,7 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
                        <div class="card-header">
                            <h4 id="t100"> Agregar Marca</h4>
                        </div>
-                       <form action="c_marc.php" enctype="multipart/form-data" method="POST" class="p-4" >
+                       <form action="c_marc.php"  method="POST" class="p-4" >
                            <div class="mb-3">
                                <label for="_1" class="form-label">Nombre de la Categoria: </label>
                                <input type="text" class="form-control" name="nombre" autofocus required id="_1">

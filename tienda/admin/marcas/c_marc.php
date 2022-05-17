@@ -13,7 +13,7 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
 
 
 
-
+    
 
     header('Location: index.php?mensaje=registrado');  //mensaje       
     
