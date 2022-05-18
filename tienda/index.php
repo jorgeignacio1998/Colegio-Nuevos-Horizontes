@@ -7,6 +7,7 @@
     <title>Tienda</title>
     <link rel="stylesheet" href="styles/estilos.css?<?php echo time(); ?>" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  <!-- Ajax cdn jquery 3.6 -->
+   
     
     <!-- Iconos --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -20,10 +21,8 @@
 
 
 
-</head>
 <body>
 
-<script  src="codes/slider.js?<?php echo time(); ?>" > </script>
   
     <header class="main-header">
         <div class="container container-flex">
@@ -55,28 +54,39 @@
 
         </div>
     </header>
-
- 
-    <div class="container-slider">
-        <div class="slider" id="slider1">
-            <div class="slider-section">slider-btn
-                <img src="img/1.jpg" alt="#" class="slider-img">
-            </div>
-            <div class="slider-section">
-                <img src="img/2.jpg" alt="#" class="slider-img">
-            </div>
-            <div class="slider-section">
-                <img src="img/3.jpg" alt="#" class="slider-img">
-            </div>
-            <div class="slider-section">
-                <img src="img/4.jpg" alt="#" class="slider-img">
-            </div>
-            
+    <BR></BR>
+    <div id="slideshow-principal">
+        <div id="progress-bar-container">
+            <div id="progress-bar"> </div>
         </div>
-        <div class="slider-btn slider_btn_right" id="btn-right" >&#62;</div>
-        <div class="slider-btn slider_btn_left" id="btn-left" >&#60;</div>
-    
+           
+            <div id=slideshow>
+                <img src="slider/img/1.jpg" id="img1" >
+                <img src="slider/img/2.PNG" id="img2" >
+                <img src="slider/img/3.jpg" id="img3" >
+                <img src="slider/img/4.jpg" id="img4" >
+                <img src="slider/img/5.jpg" id="img5" >
+                <img src="slider/img/6.jpg" id="img6" >
+
+            </div>
+            <div id="indicadores">
+
+            </div>
     </div>
+
+
+
+    
+    <main class="main">
+        <h2 class="main-title">Nuevos productos</h2>
+        <section class="container-products">
+            <div class="product">
+
+            </div>
+        </section>
+    </main>
+
+
   
    
    
@@ -88,6 +98,6 @@
 
 
 
-
+<script src="slider/js/slider.js " ></script>
 </body>
 </html>
