@@ -13,6 +13,7 @@
 
 
 <body>
+<br><br>
     <div id="slideshow-principal">
         <div id="progress-bar-container">
             <div id="progress-bar"> </div>
@@ -20,18 +21,17 @@
            
             <div id=slideshow>
                 <img src="img/1.jpg" id="img1" >
-                <img src="img/2.jpg" id="img2" >
+                <img src="img/2.PNG" id="img2" >
                 <img src="img/3.jpg" id="img3" >
                 <img src="img/4.jpg" id="img4" >
                 <img src="img/5.jpg" id="img5" >
                 <img src="img/6.jpg" id="img6" >
-
             </div>
             <div id="indicadores">
 
             </div>
-        
     </div>
+
 
 
 
@@ -42,3 +42,24 @@
 <script src="js/slider.js " ></script>
 </body>
 </html>
+
+
+
+<!-- <br><br>
+    <div id="slideshow-principal">
+        <div id="progress-bar-container">
+            <div id="progress-bar"> </div>
+        </div>
+           
+            <div id=slideshow>
+                <img src="slider/img/1.jpg" id="img1" >
+                <img src="slider/img/2.PNG" id="img2" >
+                <img src="slider/img/3.jpg" id="img3" >
+                <img src="slider/img/4.jpg" id="img4" >
+                <img src="slider/img/5.jpg" id="img5" >
+                <img src="slider/img/6.jpg" id="img6" >
+            </div>
+            <div id="indicadores">
+
+            </div>
+    </div> -->

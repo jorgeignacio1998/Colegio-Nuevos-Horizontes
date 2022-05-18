@@ -1,6 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 body {
     margin: 0;
+    font-family: 'Inconsolata';
 }
 
 img {
@@ -22,6 +24,9 @@ img {
     text-align:center;
     font-size: 2.5em;
     margin:10px 0;
+    font-family: 'Julius Sans One', sans-serif;
+
+
 }
 
 .main-nav{
@@ -165,7 +170,17 @@ carrusel 2.0  */
 }
 
 
-img{
+/* slider class img */
+.dd{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    object-fit: cover;
+}
+
+#img1{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -243,4 +258,55 @@ img{
 .resaltado {
     background-color: rgba(228, 69, 69,1);
     transition: background-color .8s;
+}
+
+.main{
+    padding: 10px;
+}
+
+
+/* font-family: 'Inconsolata', monospace; */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:ital,wght@1,700&display=swap');
+
+
+.main-title{
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+
+/* estilos productos */
+
+.container-products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:10px;
+}
+
+
+
+.product {
+    border:1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+.product__title{
+    text-align:center;
+
+}
+
+.product__price{
+    color:#FF4E00;
+    font-weight: bold;
+}
+
+
+.product__icon{
+    display: block;
+    margin-top:10px;
+}
+
+.product__img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }

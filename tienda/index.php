@@ -28,7 +28,7 @@
         <div class="container container-flex">
 
             <div class="main_header_container">
-                <h1 class="main_header_title">GOGGLES</h1>
+                <h1 class="main_header_title">MY SUNGLASSES</h1>
                 <span class="icon-menu fa-solid fa-bars" id="btn-menu"></span>
                 <nav class="main-nav" id="main-nav">
                     <ul class="menu " >
@@ -54,36 +54,110 @@
 
         </div>
     </header>
-    <BR></BR>
+
+
+
+
+    <br><br>
     <div id="slideshow-principal">
         <div id="progress-bar-container">
             <div id="progress-bar"> </div>
         </div>
            
             <div id=slideshow>
-                <img src="slider/img/1.jpg" id="img1" >
-                <img src="slider/img/2.PNG" id="img2" >
-                <img src="slider/img/3.jpg" id="img3" >
-                <img src="slider/img/4.jpg" id="img4" >
-                <img src="slider/img/5.jpg" id="img5" >
-                <img src="slider/img/6.jpg" id="img6" >
-
+                <img class="dd" src="slider/img/1.jpg" id="img1" >
+                <img class="dd" src="slider/img/2.PNG" id="img2" >
+                <img class="dd" src="slider/img/3.jpg" id="img3" >
+                <img class="dd" src="slider/img/4.jpg" id="img4" >
+                <img class="dd" src="slider/img/5.jpg" id="img5" >
+                <img class="dd " src="slider/img/6.jpg" id="img6" >
             </div>
             <div id="indicadores">
 
             </div>
     </div>
+<br><br><br><br>
+
 
 
 
     
     <main class="main">
-        <h2 class="main-title">Nuevos productos</h2>
-        <section class="container-products">
-            <div class="product">
-
+            <div class="container">
+                <h2 class="main-title">Nuevos productos</h2>
             </div>
-        </section>
+            <section class="container-products">
+                <div class="product">
+                    <img src="img/prod2/b1.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Hot Summer 2022</h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="product">
+                    <img src="img/prod2/b2.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Just me 2020</h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="product">
+                    <img src="img/prod2/b3.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Dirty show s9</h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="product">
+                    <img src="img/prod2/b4.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Sunglasses AK-47 </h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+
+
+
+
+
+                <div class="product">
+                    <img src="img/prod2/b5.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Hot Summer 2022</h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="product">
+                    <img src="img/prod2/b6.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Just me 2020</h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="product">
+                    <img src="img/prod2/b7.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Dirty show s9</h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="product">
+                    <img src="img/prod2/b8.PNG" alt="" class="product__img">
+                    <div class="product__description">
+                        <h3 class="product__title">Sunglasses AK-47 </h3>
+                        <span class="product__price"></span>
+                    </div>
+                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                </div>
+
+            </section>
     </main>
 
 
