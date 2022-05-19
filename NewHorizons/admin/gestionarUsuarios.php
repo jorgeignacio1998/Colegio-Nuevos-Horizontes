@@ -346,20 +346,18 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                             <input type="password" class="form-control" name="txtPass" autofocus required id="_5">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label lab" for="_6">Nivel</label > 
-                                <?php  $opciones = array('1','2','3','4','5','6','7','8','9','10','11','12' );
-                                                        
-                                echo'
-                                <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';
-                                                     
-                                foreach($opciones as $opcion){
-                                                          
-                                                        
-                                    echo "<option value='$opcion'>$opcion</option>";
-                                                         
-                                }
-                                echo"</select>"
-                                ?>
+                            <label class="form-label lab" for="_6">Tipo de usuario</label > 
+                                        <select name="txtNivel" class="form-control"  required  id="_6" >
+                                        <option disabled selected value >  </option>
+                                                    <?php
+                                                    $sqlTipo = "SELECT * FROM niveles order by ID";
+                                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                                    //el siguiente codigo: El data ID es lo dato que se enviara, en este caso el ID, el utf8_encode es el dato de referencia a mostrar, es decir el nombre
+                                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
+                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+
+                                                    <?php } ?>
+                                        </select>  
                         </div>
                         
                         <div class="d-grid mt-5">
