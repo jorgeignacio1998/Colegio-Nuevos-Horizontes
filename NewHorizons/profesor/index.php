@@ -1,6 +1,6 @@
 <?php 
 
-include 'seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
+include 'seguridad_profesor.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
 
     $usuario_logueado = $_SESSION['usuario'];
@@ -22,7 +22,7 @@ include 'seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sidebar y navbar</title>
-    <link rel="stylesheet" type="text/css" href="../styles/alumno.css" >
+    <link rel="stylesheet" type="text/css" href="../styles/side.css" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
     
 </head>

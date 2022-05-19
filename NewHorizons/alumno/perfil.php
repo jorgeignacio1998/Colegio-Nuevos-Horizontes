@@ -1,5 +1,4 @@
-<?php  //seguridad de sesiones 
-
+<?php  
 include 'seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
 $usuario_logueado = $_SESSION['usuario'];
 if(!isset($_SESSION['usuario'])){
@@ -9,26 +8,14 @@ if(!isset($_SESSION['usuario'])){
                window.location = "../views/login.php";
          </script>
    ';
-   
    session_destroy();
    die();
 }
 
 
-
-   
    $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
    $row = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC); 
-   //print_r($row['ID']);
 
-
-   ## listado de usuarios registrados
-
-   
-   
-   // $datos_usuario2 = $mysqli->query("SELECT * FROM datos_usuarios ");
-   // $row2 = mysqli_fetch_array($datos_usuario2, MYSQLI_ASSOC);  
-   // print_r($rows);
 
 
 ?>
@@ -44,7 +31,7 @@ if(!isset($_SESSION['usuario'])){
    
    <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
 
-  
+   <link rel="stylesheet" type="text/css" href="../styles/alumno.css" >
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -64,9 +51,11 @@ if(!isset($_SESSION['usuario'])){
     <style>
       
     body{
-        background: #7F7FD5;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: #373B44;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 
     }
 
@@ -136,6 +125,20 @@ if(!isset($_SESSION['usuario'])){
 
    
 
+
+   <?php 
+   include 'navside.php';
+   ?>
+
+
+
+
+
+
+
+
+
+
       <div class=" mt-4 container-fluid">   
          <div class="d-flex flex-wrap " >              
             <div class="container ">           
@@ -183,20 +186,6 @@ if(!isset($_SESSION['usuario'])){
                      ?>
                                     
                      <!-- PASS CHANGED -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

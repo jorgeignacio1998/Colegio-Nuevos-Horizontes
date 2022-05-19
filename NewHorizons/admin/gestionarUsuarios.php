@@ -352,9 +352,10 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                                                     <?php
                                                     $sqlTipo = "SELECT * FROM niveles order by ID";
                                                     $dataNivel = mysqli_query($mysqli, $sqlTipo);
-                                                    //el siguiente codigo: El data ID es lo dato que se enviara, en este caso el ID, el utf8_encode es el dato de referencia a mostrar, es decir el nombre
+                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
                                                     while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['ID']. '- '. $data['NOMBRE']); ?>
 
                                                     <?php } ?>
                                         </select>  
