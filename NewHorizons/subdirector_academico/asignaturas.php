@@ -220,30 +220,38 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
                    <div class="card-header">
                        Ingresar datos:
                    </div>
-                   <form action="../admin/c_registrar.php" method="POST" class="p-4" >
+                   <form action="c_registrar.php" method="POST" class="p-4" >
                         <div class="mb-3">
-                            <label for="_1" class="form-label">Nombre completo: </label>
-                            <input type="text" class="form-control" name="txtNombre" autofocus required id="_1">
+                            <label for="_1" class="form-label">Nombre Asignatura: </label>
+                            <input type="text" class="form-control" name="nombre" autofocus required id="_1">
                         </div>             
                         <div class="mb-3">
-                            <label for="_2" class="form-label">Correo electrónico: </label>
-                            <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2">
-                        </div>
-                        <div class="mb-3">
-                            <label for="_5" class="form-label">Contraseña: </label>
-                            <input type="password" class="form-control" name="txtPass" autofocus required id="_5">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label lab" for="_6">Tipo de usuario</label > 
-                                        <select name="txtNivel" class="form-control"  required  id="_6" >
+                            <label for="_2" class="form-label">Profesor: </label>
+                            <select name="profesor" class="form-control"  required  id="_6" >
                                         <option disabled selected value >  </option>
                                                     <?php
-                                                    $sqlTipo = "SELECT * FROM niveles order by ID";
-                                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                                    $sqlProfe = "SELECT * FROM profesores order by ID";
+                                                    $dataProfe = mysqli_query($mysqli, $sqlProfe);
                                                     //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
                                                     //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['ID']. '- '. $data['NOMBRE']); ?>
+                                                    while($data = mysqli_fetch_array($dataProfe)){ ?>
+                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - Nombre: '. $data['NOMBRE'] ); ?>
+
+                                                    <?php } ?>
+                                        </select>  
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label lab" for="_6">Sala: </label > 
+                                        <select name="sala" class="form-control"  required  id="_6" >
+                                        <option disabled selected value >  </option>
+                                                    <?php
+                                                    $sqlSala = "SELECT * FROM salas order by ID";
+                                                    $dataSala = mysqli_query($mysqli, $sqlSala);
+                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                                    while($data = mysqli_fetch_array($dataSala)){ ?>
+                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - Numero: '. $data['NUMERO']. ' - Piso: '.$data['PISO'] ); ?>
 
                                                     <?php } ?>
                                         </select>  
