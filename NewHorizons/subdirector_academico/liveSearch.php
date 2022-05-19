@@ -1,7 +1,7 @@
 <?php 
 
 include '../codes/connect.php';
-$datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
+$datos_asignaturas = $mysqli->query("SELECT * FROM asignaturas "); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
 
 
 
@@ -10,10 +10,10 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
     $input = $_POST['input'];
 
     if(empty($input)){
-        $query =  "SELECT * FROM usuarios  ";
+        $query =  "SELECT * FROM asignaturas  ";
         } else{
             
-        $query = "SELECT * FROM usuarios WHERE NOMBRE LIKE '{$input}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
+        $query = "SELECT * FROM asignaturas WHERE NOMBRE LIKE '{$input}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
         }
 
 
@@ -30,9 +30,9 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                                 <tr>
                                     
                                     <th scope="col">#</th>
-                                    <th scope="col">Nombre completo</th>                              
-                                    <th scope="col">Correo electrónico</th>
-                                    <th scope="col">Nivel</th>
+                                    <th scope="col">Nombre de la asignatura</th>                              
+                                    <th scope="col">Id profesor</th>
+                                    <th scope="col">Id sala</th>
 
                                     <th scope="col" colspan="2">Opciones</th>
                                 </tr>
@@ -47,8 +47,8 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
 
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    <td ><?php echo $fila['EMAIL']; ?></td>
-                                    <td ><?php echo $fila['NIVEL']; ?></td>
+                                    <td ><?php echo $fila['NOMBRE']; ?></td>
+                                    <td ><?php echo $fila['NOMBRE']; ?></td>
 
                                     <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  

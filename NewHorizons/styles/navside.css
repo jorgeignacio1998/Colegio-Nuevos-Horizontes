@@ -15,7 +15,7 @@ background-color: #464646;
 
 #navbar{
     background-color: #212121;
-    height: 60px;  
+    height: 60px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -37,6 +37,8 @@ background-color: #464646;
     top:0;
     left: -100% ;
     transition: 850ms;
+    z-index:+99999;
+   
 }
 
 #nav-menu.active{
@@ -45,7 +47,7 @@ background-color: #464646;
 }
 
 .nav-text{
-    
+
     display: flex;
     justify-content: start;
     list-style: none;
@@ -102,6 +104,12 @@ navbar-toggle a {
     color: #fff;
 }
 
+/* iconos */
+.fa-solid{
+    color: #fff;
+    margin-right: 15px;
+}
+
 .nav-section{
     height: 200px;
     display: flex;
@@ -114,3 +122,4 @@ navbar-toggle a {
     position: absolute;
     left: 90%;
 }
+

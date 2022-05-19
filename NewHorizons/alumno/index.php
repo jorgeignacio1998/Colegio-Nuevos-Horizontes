@@ -18,11 +18,12 @@ include 'seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sidebar y navbar</title>
-    <link rel="stylesheet" type="text/css" href="../styles/alumno.css" >
+    <link rel="stylesheet" type="text/css" href="../styles/navside.css" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
     
 </head>
@@ -60,7 +61,7 @@ include 'seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
     <script src="../components/c_sidebar2.js"></script>
 
-
+    <i class="fa-solid fa-book-circle-arrow-right"></i>
 
 </body>
 </html>
