@@ -183,7 +183,7 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
                                     <td ><?php echo $fila['ID_SALA']; ?></td>
 
                                     <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asigna.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
@@ -214,13 +214,13 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
            
 
-           <div class="col-md-4 col-sm-12 col1">    <!-- INICIO SEGUNDO COL  -->
+           <div class="col-md-4 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
                <div class="card segundo">
                  
                    <div class="card-header">
                        Ingresar datos:
                    </div>
-                   <form action="c_registrar.php" method="POST" class="p-4" >
+                   <form action="c_asigna.php" method="POST" class="p-4" >
                         <div class="mb-3">
                             <label for="_1" class="form-label">Nombre Asignatura: </label>
                             <input type="text" class="form-control" name="nombre" autofocus required id="_1">
