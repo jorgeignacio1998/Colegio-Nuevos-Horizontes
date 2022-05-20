@@ -5,7 +5,12 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
     $usuario_logueado = $_SESSION['usuario'];
     $datos_asignaturas = $mysqli->query("SELECT * FROM asignaturas"); //obteniendo los datos
+    $datos_grados = $mysqli->query("SELECT * FROM grados"); //obteniendo los datos
  
+
+    $inner = $mysqli->query("SELECT * FROM asignaturas
+                        INNER JOIN grados
+                        ON asignaturas.ID_GRADO = grados.ID");
 
 
 ?>
@@ -163,32 +168,51 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
                                     
                                     <th scope="col">#</th>
                                     <th scope="col">Asignatura</th>                              
-                                    <th scope="col">Id profesor</th>
-                                    <th scope="col">Id sala</th>
+                                    <th scope="col">Grado</th>
+                                  
                                     <th scope="col" colspan="2">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody >
                                 <?php     //IMPRIMIR DATOS EN LOS td
    
-                                while($fila =mysqli_fetch_array($datos_asignaturas) ) {
+                                while($fila =mysqli_fetch_array($inner)  ) {
+                                 
+                                    
+                                    
+
+
+                                    
+
 
                                     
                                 ?>
                                 <tr >
 
-                                    <td scope="row"><?php echo $fila['ID']; ?></td>
+                                    <td scope="row"><?php echo $fila['ID_A']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    <td ><?php echo $fila['ID_PROFESOR']; ?></td>
-                                    <td ><?php echo $fila['ID_SALA']; ?></td>
+                                    
 
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asigna.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+
+
+                                   
+                                    <td ><?php echo $fila['NIVEL']; ?></td>
+
+
+
+                                
+
+                                    <td><a class="text-primary" href="E_asignatura.php?codigo=<?php echo $fila['ID_A']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asigna.php?codigo=<?php echo $fila['ID_A']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
+
+
+
                                 </tr>
                                 <?php
-                                }
+
+                                }          
                                 ?>
                                
                             </tbody>
@@ -220,42 +244,34 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
                    <div class="card-header">
                        Ingresar datos:
                    </div>
+
                    <form action="c_asigna.php" method="POST" class="p-4" >
                         <div class="mb-3">
                             <label for="_1" class="form-label">Nombre Asignatura: </label>
                             <input type="text" class="form-control" name="nombre" autofocus required id="_1">
-                        </div>             
-                        <div class="mb-3">
-                            <label for="_2" class="form-label">Profesor: </label>
-                            <select name="profesor" class="form-control"  required  id="_6" >
-                                        <option disabled selected value >  </option>
-                                                    <?php
-                                                    $sqlProfe = "SELECT * FROM profesores order by ID";
-                                                    $dataProfe = mysqli_query($mysqli, $sqlProfe);
-                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data = mysqli_fetch_array($dataProfe)){ ?>
-                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - Nombre: '. $data['NOMBRE'] ); ?>
-
-                                                    <?php } ?>
-                                        </select>  
-                        </div>
+                        </div>   
                         
+                        
+
                         <div class="mb-3">
-                            <label class="form-label lab" for="_6">Sala: </label > 
-                                        <select name="sala" class="form-control"  required  id="_6" >
+                            <label class="form-label lab" for="_6">Grado</label > 
+                                        <select name="grado" class="form-control"  required  id="_6" >
                                         <option disabled selected value >  </option>
                                                     <?php
-                                                    $sqlSala = "SELECT * FROM salas order by ID";
-                                                    $dataSala = mysqli_query($mysqli, $sqlSala);
+                                                    $sqlTipo = "SELECT * FROM grados order by ID";
+                                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
                                                     //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
                                                     //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data = mysqli_fetch_array($dataSala)){ ?>
-                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - Numero: '. $data['NUMERO']. ' - Piso: '.$data['PISO'] ); ?>
+                                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
+                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NIVEL']); ?>
 
                                                     <?php } ?>
                                         </select>  
-                        </div>
+                        </div>         
+
+
+
+
                         
                         <div class="d-grid mt-5">
                             <input type="hidden" name="oculto" value="1" >
@@ -271,70 +287,9 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
    </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       
     <!-- Bootstrap JavaScript Libraries -->
     
-
-
-
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
 

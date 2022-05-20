@@ -1,7 +1,19 @@
 <?php 
 
 include '../codes/connect.php';
-$datos_asignaturas = $mysqli->query("SELECT * FROM asignaturas "); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
+
+
+$datos_asignaturas = $mysqli->query("SELECT * FROM asignaturas"); //obteniendo los datos
+$datos_grados = $mysqli->query("SELECT * FROM grados"); //obteniendo los datos
+
+$query2 = "SELECT * FROM asignaturas
+INNER JOIN grados
+ON asignaturas.ID_GRADO = grados.ID";
+
+
+$inner = $mysqli->query("SELECT * FROM asignaturas
+                    INNER JOIN grados
+                    ON asignaturas.ID_GRADO = grados.ID");
 
 
 
@@ -10,10 +22,15 @@ $datos_asignaturas = $mysqli->query("SELECT * FROM asignaturas "); //obtiene dat
     $input = $_POST['input'];
 
     if(empty($input)){
-        $query =  "SELECT * FROM asignaturas  ";
+        $query =  "SELECT * FROM asignaturas
+        INNER JOIN grados
+        ON asignaturas.ID_GRADO = grados.ID  ";
+
         } else{
             
-        $query = "SELECT * FROM asignaturas WHERE NOMBRE LIKE '{$input}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
+        $query = "SELECT * FROM asignaturas
+                    INNER JOIN grados
+                    ON asignaturas.ID_GRADO = grados.ID WHERE NOMBRE LIKE '{$input}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
         }
 
 
@@ -30,28 +47,28 @@ $datos_asignaturas = $mysqli->query("SELECT * FROM asignaturas "); //obtiene dat
                                 <tr>
                                     
                                     <th scope="col">#</th>
-                                    <th scope="col">Nombre de la asignatura</th>                              
-                                    <th scope="col">Id profesor</th>
-                                    <th scope="col">Id sala</th>
+                                    <th scope="col">Asignatura</th>                              
+                                    <th scope="col">Grado</th>
 
                                     <th scope="col" colspan="2">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody >
-                                <?php     //IMPRIMIR DATOS EN LOS td
+                            <?php     //IMPRIMIR DATOS EN LOS td
    
-                                while($fila =mysqli_fetch_assoc($result) ) {
-    
-                                ?>
-                                <tr >
+                                    while($fila =mysqli_fetch_array($result)  ) {
+                                        
+                                    ?>
+                                    <tr >
 
-                                    <td scope="row"><?php echo $fila['ID']; ?></td>
-                                    <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    <td ><?php echo $fila['NOMBRE']; ?></td>
+                                        <td scope="row"><?php echo $fila['ID_A']; ?></td>
+                                        <td ><?php echo $fila['NOMBRE']; ?></td>
+                                        <td ><?php echo $fila['NIVEL']; ?></td>
 
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+
+                                        
+                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID_A']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asigna.php?codigo=<?php echo $fila['ID_A']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>

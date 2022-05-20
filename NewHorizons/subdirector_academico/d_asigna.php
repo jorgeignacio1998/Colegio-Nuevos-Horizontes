@@ -1,15 +1,13 @@
 <?php
 include 'seguridad_subdirector.php';     //Seguridad y Base de datos.
-    if(!isset($_GET['codigo'])){
-        header('Location: index.php?mensaje=error ');
-        exit();
-    }
-
+if(!isset($_POST['codigo'])){
+    header('Location: index.php?mensaje=error');
+}
    
-    $codigo = $_GET['codigo'];
+    $codigo = $_POST['codigo'];
 
     //Eliminando los datos
-$query = "DELETE FROM asignaturas WHERE ID = $codigo ";
+$query = "DELETE * FROM asignaturas WHERE ID = $codigo ";
 
 
 
