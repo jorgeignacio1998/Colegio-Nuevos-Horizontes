@@ -19,7 +19,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 $inner = $mysqli->query("SELECT * FROM asignaturas
 INNER JOIN grados
-ON asignaturas.ID_GRADO = grados.ID");
+ON asignaturas.ID_GRADO = grados.ID WHERE ID_A = $codigo ");
 
 $sen =mysqli_fetch_array($inner);
 
