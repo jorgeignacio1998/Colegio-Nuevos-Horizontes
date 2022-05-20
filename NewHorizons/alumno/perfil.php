@@ -90,10 +90,12 @@ if(!isset($_SESSION['usuario'])){
 
     .lab{
       font-family: 'Akshar', sans-serif;
-
-
-      
     }
+
+    .lab2{
+      font-family: 'Akshar', sans-serif;
+    }
+
     .hidden{
       visibility:hidden;
     }
@@ -112,11 +114,18 @@ if(!isset($_SESSION['usuario'])){
     margin-left: 14%;
     }
 
+    .bajando{
+   margin-top: 30%;
+    }
+
     
     .segundo{
       margin-left: 6%;
     }
 
+    .primeroo{
+       margin-top: 4px;
+    }
 
 
     </style>
@@ -153,98 +162,21 @@ if(!isset($_SESSION['usuario'])){
             <div class="container center  ">           
                   <!-- formulario  Pintar FOTO  -->
                   <form action="c_perfil.php"  enctype="multipart/form-data" method="POST"  class="row g-3 p-2 mt-4">
-                     <div class="row justify-content-center">
+                    
+                     <div class="row justify-content-center ">
 
                      
 
                      <!--INICIO  MENSAJES MENSAJES MENSAJES MENSAJES -->
 
-                     <!-- CAMBIOS REALIZADOS CON EXITO -->
-
-                     <?php
-                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'guardado') {
-                     ?>
-
-                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>CAMBIOS REALIZADOS CON EXITO!</strong> 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                     </div>
-                     
-                     <?php
-                     }
-                     ?>
-                                    
-                     <!-- CAMBIOS REALIZADOS CON EXITO-->
-
-
-
-                       
-                     <!-- PASS CHANGED -->
-
-                     <?php
-                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'pass') {
-                     ?>
-
-                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>SE HA CAMBIADO LA CONTRASEÑA</strong> 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                     </div>
-                     
-                     <?php
-                     }
-                     ?>
-                                    
-                     <!-- PASS CHANGED -->
-
-
-
-
-
-                     <!-- MENSAJE  FORMATO MALO DEL TELEFONO-->
                    
-                     <?php
-                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error4') {
-                                    ?>
-
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                       <strong>ERROR, FORMATO INVALIDO.</strong> <br> El numero telefonico NO cumple con el formato requerido.
-                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                    <?php
-                                    }
-                                    ?> 
-
-                     <!-- MENSAJE  FORMATO MALO DEL TELEFONO  -->
 
 
-
-
-
-
-
-
-                     <!-- MENSAJE  sin cambios -->
-                   
-                         <?php
-                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error6') {
-                                    ?>
-
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                       <strong>NO SE HAN REALIZADO CAMBIOS </strong> <br>
-                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                    <?php
-                                    }
-                        ?> 
-
-                      <!-- MENSAJE  sin cambios -->
-                  
-
-
-
-
-
-
+                     
+                     <?php 
+                     include 'sendAlertas.php';
+                     
+                     ?>
 
 
 
@@ -253,26 +185,32 @@ if(!isset($_SESSION['usuario'])){
 
 
                      <!--TERMINO  MENSAJES MENSAJES MENSAJES MENSAJES -->
-                        <div class="col-md-3 p-4 container-avatar " >
-                           <br><br>
-                           <div class="circle" >               
-                              <div class="avatar " >
-                                
-                                 <?php
-                                    if(file_exists('../images/'.$row['FOTO'])){ 
-                                       echo '  <label for="input"  >      <img class="thumb" id="thumb"  src="../images/'.$row['FOTO'].'" style=" min-width:250px; max-width:250px; position: relative; top: 0px;  left: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
-                                    } 
-                                    if($row['FOTO'] == ''){
-                                       echo '<label for="input"   ><img class="thumb" id="thumb" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"  
-                                          style=" min-width:310px; max-width:100%; position: relative; top: -50px;  left: -35px;"  for="input1"         alt="avatar" ></label>';         
-                                    }      
-                                 ?>
-                              </div>       
-                              <input type="file" class="hidden center"  name="imagen" id="input" >   <!------------------ INPUT FILE  -->
-                              <i class="fas fa-camera"></i>              
-                              <label for="input" > </label>   
-                              <!-- arreglar esto pls -->
-                           </div>  
+                   
+                        <div class="col-md-3 p-4 container-avatar2 mt-3" >     
+                           <br>
+                           <div class="primeroo">
+
+                              <label class="form-label lab" for="inp2">FOTO DE PERFIL</label>
+                              <br><br>
+                              <div class="circle" >               
+                                 <div class="avatar " >
+                                   
+                                    <?php
+                                       if(file_exists('../images/'.$row['FOTO'])){ 
+                                          echo '  <label for="input"  >      <img class="thumb" id="thumb"  src="../images/'.$row['FOTO'].'" style=" min-width:250px; max-width:250px; position: relative; top: 0px;  left: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
+                                       } 
+                                       if($row['FOTO'] == ''){
+                                          echo '<label for="input"   ><img class="thumb" id="thumb" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"  
+                                             style=" min-width:310px; max-width:100%; position: relative; top: -50px;  left: -35px;"  for="input1"         alt="avatar" ></label>';         
+                                       }      
+                                    ?>
+                                 </div>       
+                                 <input type="file" class="hidden center"  name="imagen" id="input" >   <!------------------ INPUT FILE  -->
+                                 <i class="fas fa-camera"></i>              
+                                 <label for="input" > </label>   
+                                 <!-- arreglar esto pls -->
+                              </div>  
+                           </div>
                         </div>    <!-- Termino primer col 3 -->
 
 
