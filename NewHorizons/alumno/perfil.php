@@ -71,6 +71,11 @@ if(!isset($_SESSION['usuario'])){
         font-family: 'Roboto', sans-serif;
     }
 
+    .center{
+           
+            margin-right: -105px;
+        }
+
 
     h4{
         font-family: 'Roboto', sans-serif;
@@ -95,7 +100,7 @@ if(!isset($_SESSION['usuario'])){
    
 
     .circle{
-    float: left;
+    float: center;
     display: block;
     width: 250px;
     height: 250px;
@@ -104,9 +109,13 @@ if(!isset($_SESSION['usuario'])){
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
+    margin-left: 14%;
     }
 
- 
+    
+    .segundo{
+      margin-left: 6%;
+    }
 
 
 
@@ -139,9 +148,9 @@ if(!isset($_SESSION['usuario'])){
 
 
 
-      <div class=" mt-4 container-fluid">   
+      <div class=" mt-4 container-fluid ">   
          <div class="d-flex flex-wrap " >              
-            <div class="container ">           
+            <div class="container center  ">           
                   <!-- formulario  Pintar FOTO  -->
                   <form action="c_perfil.php"  enctype="multipart/form-data" method="POST"  class="row g-3 p-2 mt-4">
                      <div class="row justify-content-center">
@@ -244,10 +253,10 @@ if(!isset($_SESSION['usuario'])){
 
 
                      <!--TERMINO  MENSAJES MENSAJES MENSAJES MENSAJES -->
-                        <div class="col-md-3 p-4 container-avatar" >
+                        <div class="col-md-3 p-4 container-avatar " >
                            <br><br>
                            <div class="circle" >               
-                              <div class="avatar" >
+                              <div class="avatar " >
                                 
                                  <?php
                                     if(file_exists('../images/'.$row['FOTO'])){ 
@@ -259,16 +268,17 @@ if(!isset($_SESSION['usuario'])){
                                     }      
                                  ?>
                               </div>       
-                              <input type="file" class="hidden"  name="imagen" id="input" >   <!------------------ INPUT FILE  -->
+                              <input type="file" class="hidden center"  name="imagen" id="input" >   <!------------------ INPUT FILE  -->
                               <i class="fas fa-camera"></i>              
-                              <label for="input" > </label>
+                              <label for="input" > </label>   
+                              <!-- arreglar esto pls -->
                            </div>  
                         </div>    <!-- Termino primer col 3 -->
 
 
                         
-                        <div class="col-md-4 p-4"> 
-                              <div class="row mt-5">
+                        <div class="col-md-4 p-4  ml-5 segundo"> 
+                              <div class="row mt-5 ">
                                  <div class="col-12">
                                     <label class="form-label lab" for="inp1">NOMBRE COMPLETO</label>
                                     <input class="form-control p-2" type="text" name="nombre"  disabled value="<?php echo  $row['NOMBRE']; ?>" id="inp1" pattern="[a-zA-Z]{3-40}" ><br>

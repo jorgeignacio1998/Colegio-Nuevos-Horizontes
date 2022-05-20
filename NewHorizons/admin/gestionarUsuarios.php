@@ -23,8 +23,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
         }
 
 
-
-
+     
 
 
 
@@ -53,7 +52,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
 
 <!-- Inicio del Navbar admin -->
 <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
-        <div class="container-fluid">
+        <div class="container-fluid ">
               <a href="bienvenido.php" class="navbar-brand">Admin</a>
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
                  <span class="navbar-toggler-icon"></span>
