@@ -310,3 +310,40 @@ carrusel 2.0  */
     height: 200px;
     object-fit: cover;
 }
+
+
+
+
+/* footer */
+
+.main-footer{
+    background: #151515;
+    color: white;
+    padding: 30px 20px;
+}
+
+.footer__title{
+    border-bottom: 1px dotted rgb(124, 45, 45);
+    padding-bottom: 20px;
+}
+
+.footer__txt{
+    color: white;
+
+}
+
+.footer__link{
+    color: #555;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+
+}
+
+.footer__input{
+    background: #151515;
+    width: 100%;
+    display: block;
+    padding: 20px;  
+    border: 1px solid #555;
+}

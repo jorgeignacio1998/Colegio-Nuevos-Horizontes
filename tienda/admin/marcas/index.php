@@ -52,7 +52,7 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
                        <li> <a class="dropdown-item" href="../productos/index.php">Productos</a></li>       
                        <li> <a class="dropdown-item" href="../categorias/index.php">Categorias</a></li>  
                        <li> <a class="dropdown-item" href="../marcas/index.php">Marcas</a></li>  
-                       <li> <a class="dropdown-item" href="c_logout.php">Cerrar sesión</a></li>
+                       <li> <a class="dropdown-item" href="../c_logout.php">Cerrar sesión</a></li>
                        </ul>
                     </li>
                  </ul>

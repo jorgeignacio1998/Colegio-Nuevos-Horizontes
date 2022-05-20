@@ -1,61 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
-    <link rel="stylesheet" href="styles/estilos.css?<?php echo time(); ?>" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  <!-- Ajax cdn jquery 3.6 -->
-   
-    
-    <!-- Iconos --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-    
-
-
-
-
-
-
-
-
-<body>
-
-  
-    <header class="main-header">
-        <div class="container container-flex">
-
-            <div class="main_header_container">
-                <h1 class="main_header_title">MY SUNGLASSES</h1>
-                <span class="icon-menu fa-solid fa-bars" id="btn-menu"></span>
-                <nav class="main-nav" id="main-nav">
-                    <ul class="menu " >
-                        <li class="menu-item" > <a href="#" class="menu-link">HOME</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link">ABOUT</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link">FEATURES</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link">SHOP</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link">CONTACT</a></li>
-                    </ul>
-                </nav>
-            </div>  
-
-             <div class="main_header_container">
-                <span class="main_header_txt">Need Help</span>
-                <p class="main_header_txt"><i class="fa-solid fa-phone"></i>call +56988938757</p>
-             </div>
-
-             <div class="main_header_container">
-                <i class="fa-solid fa-user"></i>
-                <a class="main_header_btn" href="#">Mi carrito<i class="fa-solid fa-cart-shopping"></i></a >
-                <input class="main_header_input" placeholder="Buscar..." type="search"><i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-
-        </div>
-    </header>
-
-
+<?php  
+    include 'vistas/header.php';
+?>
 
 
     <br><br>
@@ -76,6 +21,7 @@
 
             </div>
     </div>
+
 <br><br><br><br>
 
 
@@ -91,23 +37,23 @@
                     <img src="img/prod2/b1.PNG" alt="" class="product__img">
                     <div class="product__description">
                         <h3 class="product__title">Hot Summer 2022</h3>
-                        <span class="product__price"></span>
+                        <span class="product__price">$55.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
                 <div class="product">
                     <img src="img/prod2/b2.PNG" alt="" class="product__img">
                     <div class="product__description">
-                        <h3 class="product__title">Just me 2020</h3>
-                        <span class="product__price"></span>
+                        <h3 class="product__title">Just one Sec 2020</h3>
+                        <span class="product__price">$49.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
                 <div class="product">
                     <img src="img/prod2/b3.PNG" alt="" class="product__img">
                     <div class="product__description">
-                        <h3 class="product__title">Dirty show s9</h3>
-                        <span class="product__price"></span>
+                        <h3 class="product__title">Dirty Light s900</h3>
+                        <span class="product__price">$35.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
@@ -115,7 +61,7 @@
                     <img src="img/prod2/b4.PNG" alt="" class="product__img">
                     <div class="product__description">
                         <h3 class="product__title">Sunglasses AK-47 </h3>
-                        <span class="product__price"></span>
+                        <span class="product__price">$45.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
@@ -127,38 +73,72 @@
                 <div class="product">
                     <img src="img/prod2/b5.PNG" alt="" class="product__img">
                     <div class="product__description">
-                        <h3 class="product__title">Hot Summer 2022</h3>
-                        <span class="product__price"></span>
+                        <h3 class="product__title">Forever alone Forza Edition</h3>
+                        <span class="product__price">$33.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
                 <div class="product">
                     <img src="img/prod2/b6.PNG" alt="" class="product__img">
                     <div class="product__description">
-                        <h3 class="product__title">Just me 2020</h3>
-                        <span class="product__price"></span>
+                        <h3 class="product__title">Can't Dodge Dude!</h3>
+                        <span class="product__price">$29.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
                 <div class="product">
                     <img src="img/prod2/b7.PNG" alt="" class="product__img">
                     <div class="product__description">
-                        <h3 class="product__title">Dirty show s9</h3>
-                        <span class="product__price"></span>
+                        <h3 class="product__title">Big Time Valentine</h3>
+                        <span class="product__price">$35.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
                 <div class="product">
                     <img src="img/prod2/b8.PNG" alt="" class="product__img">
                     <div class="product__description">
-                        <h3 class="product__title">Sunglasses AK-47 </h3>
-                        <span class="product__price"></span>
+                        <h3 class="product__title">Never Surrender VIP</h3>
+                        <span class="product__price">$79.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
 
             </section>
     </main>
+    <br><br><BR> <BR> </BR></BR>
+
+
+
+
+
+
+    
+
+    <footer class="main-footer">
+        <div class="footer__section">
+            <h2 class="footer__title">About Us</h2>
+            <p class="footer__txt">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, possimus
+                 suscipit commodi quisquam, ducimus
+                 ad numquam facilis recusandae perferendis, autem aperiam voluptatem.
+            </p>
+        </div>
+        <div class="footer__section">
+            <h2 class="footer__title">Location:</h2>
+            <p class="footer__txt"> Avenida siempre viva #123, California.</p>
+        </div>
+        <div class="footer__section">
+            <h2 class="footer__title">Contacto</h2>
+            <p class="footer__txt"> +569 88938757</p>
+            <p class="footer__txt"> Email: dqwiudfhef@gmail.com</p>
+            <p class="footer__txt"> </p>
+        </div>
+        
+            
+       
+
+    </footer>
+
 
 
   

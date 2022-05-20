@@ -37,6 +37,28 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
     
 </head>
+
+<style>
+
+
+ .foto{
+   margin-left: 12% ;
+   margin-top: 4%;
+}
+
+ 
+
+
+
+
+.img_productos{
+        height: 80%;
+        width: auto;  
+    }
+
+
+</style>
+
 <body>
        <!-- Inicio del Navbar -->
 
@@ -81,6 +103,11 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
 
 
 </body>
+
+
+<div class="foto">
+     <img src="images/colegio.jpg"  class="img_productos">                
+</div>
 </html>
 
 
