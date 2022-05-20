@@ -9,14 +9,6 @@ if(!isset($_GET['codigo'])) {
 
 
 //Pintando datos Del ID = GET
-$query = "SELECT * FROM asignaturas  WHERE ID_A = $codigo ";
-$sentencia1 = $mysqli->query($query);
-//print_r($sentencia1);  no entrega nada importante la sentencia es importante para la segunda.
-$sentencia2 =mysqli_fetch_array($sentencia1);
-//print_r($sentencia2);   //TIENE LOS DATOS ahora se pintan en lo value.
-
-
-
 $inner = $mysqli->query("SELECT * FROM asignaturas
 INNER JOIN grados
 ON asignaturas.ID_GRADO = grados.ID WHERE ID_A = $codigo ");
