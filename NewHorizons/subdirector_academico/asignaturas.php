@@ -191,11 +191,6 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
                                     <td scope="row"><?php echo $fila['ID_A']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
-                                    
-
-
-
-                                   
                                     <td ><?php echo $fila['NIVEL']; ?></td>
 
 

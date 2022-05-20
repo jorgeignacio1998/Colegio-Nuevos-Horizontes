@@ -83,7 +83,7 @@ if(count($error)==0) //NO ERRORES DE FORMATO
             
             header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS
         }
-        if($nombre_img == '' and  $telefono == '' and $_POST['contraseña1']== ''){
+        if($nombre_img == '' and  $telefono == $row['TELEFONO'] and $_POST['contraseña1']== ''){
             header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS PORQUE TODOS LOS DATOS ESTAN VACIOS
         }
     
