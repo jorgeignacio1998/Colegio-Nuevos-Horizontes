@@ -76,32 +76,14 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 <br><br><br>
-<div class="container mt-5">
-<div class="row justify-content-center ">
+<div class="container mt-3">
+
+
+
+
+    <!-- primer row -->
+    <div class="row ">
     <div class="col-md-4">
-
-    
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="card">
             <div class="card-header">
             <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a>
@@ -156,6 +138,9 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                   <input type="text" class="form-control" name="precio" autofocus required id="111" value="<?php echo $sentencia2['PRECIO'];  ?>">
                 </div>
 
+
+
+                
                 <div class="mb-3">
                   <label class="form-label lab">Imagen:</label >
                   <div>
@@ -176,11 +161,55 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                     </div>
 
                 </div>
+
             </form>
         </div>
 
     </div>
-</div>
+
+
+
+
+    <!-- segundo col GALERIA DE IMAGENES -->
+
+
+    <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                <div class="mb-3">
+                    <label for="_1" class="form-label">Nombre del producto: </label>
+                    <input type="text" class="form-control" name="nombre" autofocus required id="_1" value="<?php echo $sentencia2['NOMBRE'];  ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="88" class="form-label">Marca: </label>
+                    <select name="marca" class="form-control"  required id="88">
+                    <option > <?php echo  $sentencia2['MARCA']; ?> </option>
+
+                        <?php
+                        $sqlMarcas = "SELECT * FROM marcas order by ID";
+                        $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
+
+                        while($data = mysqli_fetch_array($dataMarcas)){ ?>
+                        <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+
+                        <?php } ?>
+                    </select>
+
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    
+
+
+    </div>     <!-- row -->
 </div>
 </body>
 </html>
