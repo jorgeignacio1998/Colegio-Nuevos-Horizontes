@@ -39,16 +39,13 @@ $nombre_img = $_FILES['imagen']['name'];
 
 
 
-if(count($error)==0){ 
 
-    
-//Subiendo imagen producto.
 if(isset($nombre_img) && $nombre_img !=""){
     $tipo = $_FILES['imagen']['type'];
     $temp = $_FILES['imagen']['tmp_name'];
 
     if(!((strpos($tipo, 'gif') || strpos($tipo, 'jpeg')  || strpos($tipo, 'webp')   || strpos($tipo, 'jpg')    || strpos($tipo, 'png')   ))){
-        
+        array_push($error, "El formato es invalido");
         header('Location: index.php?mensaje=archivo'); //Enviandole ALERTA el archivo no es correcto.
     }else{
         $query = "INSERT INTO galeria (FOTO , ID_PRODUCTO) values ('$nombre_img','$codigo')";
@@ -58,6 +55,14 @@ if(isset($nombre_img) && $nombre_img !=""){
         }
     }
 }
+
+
+
+if(count($error)==0){ 
+
+    
+//Subiendo imagen producto.
+
 
    
 

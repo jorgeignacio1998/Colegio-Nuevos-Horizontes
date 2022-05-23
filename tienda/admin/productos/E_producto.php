@@ -192,7 +192,21 @@ $resultado = mysqli_query($mysqli, $query);
     
 <div class="col-md-8  ">
 
+  
+                <!-- 3 alerta Formato imagen incorrecto  -->
+                <?php
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'archivo') {
+                ?>
 
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Archivo rechazado</strong> Solo se permiten archivos JPG , GIF, WEBP, JPEG y PNG.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 3 alerta Formato imagen incorrecto  -->
+              
 
 
 
@@ -217,7 +231,9 @@ $resultado = mysqli_query($mysqli, $query);
                         <div class="card" style="width: 20rem;">
                            
                             <img src="img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">
-                                 
+                            
+                            <a onclick="return confirm('¿estas seguro quie quieres eliminar a esta imagen?')"
+                             class="text-danger" href="d_galeria.php?codigo=<?php echo $row['ID_PRODUCTO']; ?>">   <i class="bi bi-trash"></i></a>  
                         </div>
                           
                     </div>
