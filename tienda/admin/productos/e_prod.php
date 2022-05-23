@@ -5,14 +5,11 @@ if(!isset($_POST['codigo'])){
     header('Location: index.php?mensaje=error');
 }
 
+
+
 $error = array();
 $regexPrecio = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
 $regexStock = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
-
-
-
-
-
 
 
 //1.-   VALIDACIONES   PRECIO              
@@ -42,22 +39,27 @@ $nombre_img = $_FILES['imagen']['name'];
 
 
 
-
-
-
-
-
-
-
-
 if(count($error)==0){ 
 
-    if(!empty($nombre_img)){
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../../img/prod/{$nombre_img}")){    
-            $mysqli->query("UPDATE productos SET FOTO ='{$nombre_img}' WHERE ID = $codigo "); 
-            
+    
+//Subiendo imagen producto.
+if(isset($nombre_img) && $nombre_img !=""){
+    $tipo = $_FILES['imagen']['type'];
+    $temp = $_FILES['imagen']['tmp_name'];
+
+    if(!((strpos($tipo, 'gif') || strpos($tipo, 'jpeg')  || strpos($tipo, 'webp')   || strpos($tipo, 'jpg')    || strpos($tipo, 'png')   ))){
+        
+        header('Location: index.php?mensaje=archivo'); //Enviandole ALERTA el archivo no es correcto.
+    }else{
+        $query = "INSERT INTO galeria (FOTO , ID_PRODUCTO) values ('$nombre_img','$codigo')";
+        $resultado = mysqli_query($mysqli, $query);
+        if($resultado){
+            move_uploaded_file($_FILES['imagen']['tmp_name'],"img/{$nombre_img}");
+        }
     }
-    }
+}
+
+   
 
 
 
@@ -80,6 +82,10 @@ if(count($error)==0){
     header('Location: index.php?mensaje=editado');
 
 }
+
+
+
+
 
 
 

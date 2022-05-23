@@ -230,6 +230,19 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 
 
                
+                <!-- 3 alerta Formato imagen incorrecto  -->
+                <?php
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'archivo') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Archivo rechazado</strong> Solo se permiten archivos JPG , GIF, WEBP, JPEG y PNG.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 3 alerta Formato imagen incorrecto  -->
 
 
 

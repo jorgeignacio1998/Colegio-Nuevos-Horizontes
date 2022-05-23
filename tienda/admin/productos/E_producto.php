@@ -12,6 +12,18 @@ $sentencia1 = $mysqli->query($query);
 //print_r($sentencia1);  no entrega nada importante la sentencia es importante para la segunda.
 $sentencia2 =mysqli_fetch_array($sentencia1);
 //print_r($sentencia2);   //TIENE LOS DATOS ahora se pintan en lo value.
+
+
+
+
+
+//Pintando Imagenes en la galeria
+$query = "SELECT * FROM galeria";
+$resultado = mysqli_query($mysqli, $query);
+
+
+
+
 ?>
 
 
@@ -54,6 +66,9 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
     .hidden{
       visibility:hidden;
     }
+    .col1{
+            height:600px; overflow-y:scroll;
+        }
    
 
 
@@ -76,7 +91,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 <br><br><br>
-<div class="container mt-3">
+<div class="container mt-3 ">
 
 
 
@@ -141,13 +156,15 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
                 
-                <div class="mb-3">
-                  <label class="form-label lab">Imagen:</label >
+                <div class="mb-3 form-group">
+                  <label class="form-label lab" for="input">Imagen:</label >
                   <div>
-                        <label for="input">  <img   class="img_productos"  src="../../img/prod/<?php echo $sentencia2['FOTO']; ?>" alt="">      </label>
-                        <input type="file" class="hidden"  name="imagen" id="input"  >
+                       
+                        <input type="file" class=""  name="imagen" id="input"  >
+                
                   </div>
                 </div>
+                <br>
                 
         
 
@@ -164,51 +181,65 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
             </form>
         </div>
-
-    </div>
+        <br><br>
+    </div> 
 
 
 
 
     <!-- segundo col GALERIA DE IMAGENES -->
 
-
-    <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                <div class="mb-3">
-                    <label for="_1" class="form-label">Nombre del producto: </label>
-                    <input type="text" class="form-control" name="nombre" autofocus required id="_1" value="<?php echo $sentencia2['NOMBRE'];  ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label for="88" class="form-label">Marca: </label>
-                    <select name="marca" class="form-control"  required id="88">
-                    <option > <?php echo  $sentencia2['MARCA']; ?> </option>
-
-                        <?php
-                        $sqlMarcas = "SELECT * FROM marcas order by ID";
-                        $dataMarcas = mysqli_query($mysqli, $sqlMarcas);
-
-                        while($data = mysqli_fetch_array($dataMarcas)){ ?>
-                        <option value="<?php echo $data["NOMBRE"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
-
-                        <?php } ?>
-                    </select>
-
-
-                </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
     
+<div class="col-md-8  ">
 
 
+
+
+
+
+
+
+
+    <div class="card">
+        <div class="card-header">
+            <h3 id="_titulo">Galeria</h3>   
+            <hr>  
+
+            <div class="row col1 ">
+
+
+
+            <?php foreach( $resultado as $row){ ?>
+                <div class="col-md-5 ms-5 mt-5">
+               
+                    <div class="card-columns">
+                   
+                        <div class="card" style="width: 20rem;">
+                           
+                            <img src="img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">
+                                 
+                        </div>
+                          
+                    </div>
+                   
+                </div>
+            <?php } ?>
+               
+                
+
+
+
+
+
+
+            </div> 
+            
+
+
+
+
+
+        </div>
     </div>     <!-- row -->
 </div>
 </body>
