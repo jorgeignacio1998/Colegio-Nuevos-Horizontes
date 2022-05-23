@@ -99,6 +99,65 @@ $resultado = mysqli_query($mysqli, $query);
     <!-- primer row -->
     <div class="row ">
     <div class="col-md-4">
+
+
+          <!-- 4.  alerta    editado  success -->
+          <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
+                ?>
+
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>CAMBIOS REALIZADOS EXITOSAMENTE.</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                <!-- 4. alerta    registrado  success -->
+
+
+
+                
+                  <!--  ALERTA PRECIO -->
+                  <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'precio') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR DE FORMATO. </strong> El precio solamente puede tener numeros enteros, sin espacios,letras o simbolos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                 <!--  ALERTA PRECIO -->
+
+
+
+    
+                  <!--  ALERTA STOCK -->
+                <?php
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'stock') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR DE FORMATO. </strong> El Stock no puede tener espacios, letras ni simbolos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                <!--  ALERTA STOCK -->
+
+
+
+
+
+
+
+
+
+
         <div class="card">
             <div class="card-header">
             <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a>

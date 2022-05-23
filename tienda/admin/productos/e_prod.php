@@ -10,12 +10,13 @@ if(!isset($_POST['codigo'])){
 $error = array();
 $regexPrecio = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
 $regexStock = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
-
+$codigo = $_POST['codigo'];
 
 //1.-   VALIDACIONES   PRECIO              
 if(!preg_match($regexPrecio, $_POST['precio'] )){
     array_push($error, "El formato es invalido");
-    header('Location: index.php?mensaje=precio'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    header("Location: E_producto.php?mensaje=precio&codigo=$codigo"); //Enviandole 2 POST, EL CODIGO Y LA ALERTA. 2 GETS.
+    //header('Location: index.php?mensaje=precio'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
     
 }  
 //-  VALIDACIONES   PRECIO     
@@ -25,14 +26,15 @@ if(!preg_match($regexPrecio, $_POST['precio'] )){
 //2.-  VALIDACIONES   STOCK                     
 if(!preg_match($regexStock, $_POST['stock'] )){
     array_push($error, "El formato es invalido");
-    header('Location: index.php?mensaje=stock'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    header("Location: E_producto.php?mensaje=stock&codigo=$codigo"); //Enviandole 2 POST, EL CODIGO Y LA ALERTA. 2 GETS.
+    //header('Location: index.php?mensaje=stock'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
     
 }  
 //-  VALIDACIONES   STOCK   
 
 
 
-$codigo = $_POST['codigo'];
+
 
 $nombre_img = $_FILES['imagen']['name'];
 
@@ -46,7 +48,7 @@ if(isset($nombre_img) && $nombre_img !=""){
 
     if(!((strpos($tipo, 'gif') || strpos($tipo, 'jpeg')  || strpos($tipo, 'webp')   || strpos($tipo, 'jpg')    || strpos($tipo, 'png')   ))){
         array_push($error, "El formato es invalido");
-        header('Location: index.php?mensaje=archivo'); //Enviandole ALERTA el archivo no es correcto.
+        header("Location: E_producto.php?mensaje=archivo&codigo=$codigo"); //Enviandole 2 POST, EL CODIGO Y LA ALERTA. 2 GETS.
     }else{
         $query = "INSERT INTO galeria (FOTO , ID_PRODUCTO) values ('$nombre_img','$codigo')";
         $resultado = mysqli_query($mysqli, $query);
@@ -84,7 +86,7 @@ if(count($error)==0){
     NOMBRE = '{$nombre}', MARCA = '{$marca}', TIPO = '{$categoria}', STOCK ='{$stock}', 
     PRECIO ='{$precio}' WHERE ID = $codigo ");
 
-    header('Location: index.php?mensaje=editado');
+    header("Location: E_producto.php?mensaje=editado&codigo=$codigo");
 
 }
 
