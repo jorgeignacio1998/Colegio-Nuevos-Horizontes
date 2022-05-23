@@ -18,7 +18,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 //Pintando Imagenes en la galeria
-$query = "SELECT * FROM galeria";
+$query = "SELECT * FROM galeria WHERE ID_PRODUCTO = $codigo ";
 $resultado = mysqli_query($mysqli, $query);
 
 
@@ -209,7 +209,7 @@ $resultado = mysqli_query($mysqli, $query);
 
 
 
-            <?php foreach( $resultado as $row){ ?>
+            <?php foreach( $resultado as $row ){ ?>
                 <div class="col-md-5 ms-5 mt-5">
                
                     <div class="card-columns">
