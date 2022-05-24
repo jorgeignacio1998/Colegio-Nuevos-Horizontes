@@ -318,20 +318,14 @@ $resultado = mysqli_query($mysqli, $query2);
                
                 
 
-
-
-
-
-
             </div> 
-            
-
-
-
-
-
         </div>
-    </div>     <!-- row -->
+    </div>     <!-- card -->
+
+
+
+    
+
 </div>
 </body>
 </html>

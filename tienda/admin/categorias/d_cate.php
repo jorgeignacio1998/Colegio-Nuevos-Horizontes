@@ -9,7 +9,7 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
     $codigo = $_GET['codigo'];
 
     //Eliminando los datos
-$query = "DELETE FROM marcas WHERE ID = $codigo ";
+$query = "DELETE FROM categorias WHERE ID = $codigo ";
 
 
 

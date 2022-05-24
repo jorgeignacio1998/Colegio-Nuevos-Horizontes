@@ -9,7 +9,7 @@ if(!isset($_POST['codigo'])){
 
 $error = array();
 $regexPrecio = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
-$regexStock = "/^[1-9][0-9]*$/";    //Numeros enteros sin decimales.
+$regexStock = "/^[0-9][0-9]*$/";    //Numeros enteros sin decimales.
 $codigo = $_POST['codigo'];
 
 //1.-   VALIDACIONES   PRECIO              
