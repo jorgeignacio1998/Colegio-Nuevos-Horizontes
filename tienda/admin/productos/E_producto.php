@@ -18,8 +18,8 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 //Pintando Imagenes en la galeria
-$query = "SELECT * FROM galeria WHERE ID_PRODUCTO = $codigo ";
-$resultado = mysqli_query($mysqli, $query);
+$query2 = "SELECT * FROM galeria WHERE ID_PRODUCTO = $codigo ";
+$resultado = mysqli_query($mysqli, $query2);
 
 
 
@@ -265,6 +265,22 @@ $resultado = mysqli_query($mysqli, $query);
                 }
                 ?>
                 <!-- 3 alerta Formato imagen incorrecto  -->
+
+
+                
+                 <!--ALERTA IMAGEN ELIMINADA -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
+                ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>LA IMAGEN DEL PRODUCTO SE HA ELIMINADO EXITOSAMENTE</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                <!-- ALERTA IMAGEN ELIMINADA-->
+
               
 
 
@@ -292,7 +308,7 @@ $resultado = mysqli_query($mysqli, $query);
                             <img src="img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">
                             
                             <a onclick="return confirm('¿estas seguro quie quieres eliminar a esta imagen?')"
-                             class="text-danger" href="d_galeria.php?codigo=<?php echo $row['ID_PRODUCTO']; ?>">   <i class="bi bi-trash"></i></a>  
+                             class="text-danger" href="d_galeria.php?id_foto=<?php echo $row['ID_G'];?>&codigo=<?php echo $codigo;?>">   <i class="bi bi-trash"></i></a>  
                         </div>
                           
                     </div>

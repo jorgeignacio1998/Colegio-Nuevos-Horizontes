@@ -293,7 +293,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
                                 <tr>
                                     
                                     <th scope="col">#</th>
-                                    <th scope="col">IMAGEN</th>                              
+                                                     
                                     <th scope="col">NOMBRE</th>
                                     <th scope="col">MARCA</th>
                                     <th scope="col">TIPO</th>
@@ -319,7 +319,7 @@ $datos_productos = $mysqli->query("SELECT * FROM productos"); //obtiene datos de
 
 
 
-                                    <td><img     class="img_productos"     src="../../img/prod/<?php echo $fila['FOTO']; ?>" alt=""></td>
+                              
 
 
 
