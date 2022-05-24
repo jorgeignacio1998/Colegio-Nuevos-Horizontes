@@ -118,8 +118,9 @@ navbar-toggle a {
 }
 
 .cerrar{
+   
     justify-content: end;
     position: absolute;
-    left: 90%;
+    
 }
 

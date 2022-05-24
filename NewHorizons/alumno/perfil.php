@@ -31,7 +31,7 @@ if(!isset($_SESSION['usuario'])){
    
    <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
 
-   <link rel="stylesheet" type="text/css" href="../styles/navside.css" >
+   <link rel="stylesheet" type="text/css" href="../styles/navside.css?<?php echo time(); ?>" >  <!-- CSS -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">

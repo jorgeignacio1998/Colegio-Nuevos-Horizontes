@@ -33,6 +33,7 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../styles/s1.css?<?php echo time(); ?>" >  <!-- CSS -->
     <title>Nuevos Horizontes</title>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
     
@@ -44,6 +45,7 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
  .foto{
    margin-left: 12% ;
    margin-top: 4%;
+
 }
 
  
@@ -52,8 +54,8 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
 
 
 .img_productos{
-        height: 80%;
-        width: auto;  
+        height: 70%;
+        width: 80%;  
     }
 
 

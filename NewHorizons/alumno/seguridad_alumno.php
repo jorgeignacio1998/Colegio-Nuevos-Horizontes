@@ -19,7 +19,7 @@ $datos_usuarios = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuari
 $sentencia2 = mysqli_fetch_array($datos_usuarios, MYSQLI_ASSOC); 
 
 
-if($sentencia2['NIVEL'] == 1 || $sentencia2['NIVEL'] == 11 ){                  
+if($sentencia2['NIVEL'] == 11 ){                  
 //deja entrar al alumno y al admin
 }else{
       echo'
