@@ -13,12 +13,21 @@ $query = "UPDATE asignaturas SET  NOMBRE = '{$nombre}', ID_GRADO = '{$grado}'  W
 //$sentencia = $mysqli->query($query);
 
 
+
+
+
+
 if(mysqli_query($mysqli, $query)){
-    header('Location: asignaturas.php?mensaje=editado');
-}else{
-    header('Location: asignaturas.php?mensaje=error');
+    
+    echo "<script>location.href='asignaturas.php?mensaje=editado';</script>";
+
+    die();
 }
+else{
+    echo "<script>location.href='asignaturas.php?mensaje=error';</script>";
 
-
+    die();
+  
+}
 
 ?>

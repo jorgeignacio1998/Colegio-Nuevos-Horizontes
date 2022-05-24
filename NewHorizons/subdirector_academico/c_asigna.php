@@ -12,11 +12,23 @@ $error = array();
 
     
     $query = "INSERT INTO asignaturas (NOMBRE,ID_GRADO) VALUES ('{$nombre}','{$grado}') ";
+    
+
+
+
+    
     if(mysqli_query($mysqli, $query)){
-        header('Location: asignaturas.php?mensaje=registrado');
-    }else{
-        header('Location: asignaturas.php?mensaje=error');
-        exit();
+    
+        echo "<script>location.href='asignaturas.php?mensaje=registrado';</script>";
+    
+        die();
     }
+    else{
+        echo "<script>location.href='asignaturas.php?mensaje=error';</script>";
+    
+        die();
+      
+    }
+    
     
 ?>

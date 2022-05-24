@@ -13,8 +13,15 @@ $query = "DELETE FROM asignaturas WHERE ID_A = $codigo ";
 
 
 if(mysqli_query($mysqli, $query)){
-    header('Location: asignaturas.php?mensaje=eliminado');
-}else{
-    header('Location: asignaturas.php?mensaje=error');
+    
+    echo "<script>location.href='asignaturas.php?mensaje=eliminado';</script>";
+
+    die();
+}
+else{
+    echo "<script>location.href='asignaturas.php?mensaje=error';</script>";
+
+    die();
+  
 }
 ?>

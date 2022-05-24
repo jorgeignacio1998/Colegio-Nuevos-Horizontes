@@ -4,7 +4,9 @@
         <a href="#" class="menu-bars"  id="show-menu">
             <i class="fas fa-bars"></i>
        </a>
-       <li class="cerrar"><a href="../codes/logout.php"><i class="fa-solid fa-right-from-bracket" >cerrar sesion</i>
+       <div class="collapse navbar-collapse d-flex flex-row-reverse">
+           <li class="cerrar"><a href="../codes/logout.php"><i class="fa-solid fa-right-from-bracket " >Cerrar sesion</i>
+       </div>
     </div>
     <nav id="nav-menu">
         <ul class="nav-menu-items">

@@ -32,10 +32,21 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  <!-- Ajax cdn jquery 3.6 -->
 </head>
+
+
+
+
+
+
+
+
+
+
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-    <?php 
+   
+   <?php 
     include 'navside.php';
     ?>
     
@@ -91,64 +102,12 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
 
 
+                
+                
+           <?php include 'sendAlertas.php';
+            ?>
 
                 
-                <!-- 2.  alerta  registrado  success -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado') {
-                ?>
-
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>registro realizado exitosamente</strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                 <!-- 2. alerta registrado  success -->
-
-
-                 <!-- 3 alerta ERROR, seguridad.  -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error</strong> Vuelve a intentar.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                <!-- 3 alerta ERROR  -->
-
-                <!-- 4.  alerta    editado  success -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
-                ?>
-
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Cambios realizados exitosamente</strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?> 
-                <!-- 4. alerta    registrado  success -->
-
-                <!-- 5.  alerta    eliminado  success -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
-                ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Se han eliminado los datos correctamente </strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?> 
-                <!-- 5. alerta    eliminado  success, TERMINO DE TODAS LAS ALERTAS-->
-
 
 
             
