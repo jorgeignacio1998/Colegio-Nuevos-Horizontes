@@ -1,6 +1,6 @@
 <?php
 include '../c_seguridad.php';     //Seguridad y Base de datos.
-$resultado = 1;
+
 
 
 
@@ -196,7 +196,6 @@ $resultado = 1;
 
                     <div class="row col1 ">
 
-
                         <?php  
 
                             if(isset($_GET['id_producto'])) {
@@ -204,29 +203,14 @@ $resultado = 1;
                                 $id_producto = $_GET['id_producto'];
                                 $query5 = ("SELECT * FROM galeria WHERE ID_PRODUCTO = $id_producto ");
                                 $resultado = mysqli_query($mysqli, $query5);
-                                //$sen2 =mysqli_fetch_array($sentencia);
                                
-
-                                
-
-                                
                             }
-                                          
-                            
-
-
-
-
                         ?>                                    
-
-
-
                         <?php  
                             
-                                
+                                if(isset($resultado)){
                                 foreach( $resultado as $row ){ 
-
-                                
+   
                         ?>
 
                         <div class="col-md-5 ms-5 mt-5">
@@ -234,11 +218,7 @@ $resultado = 1;
                             <div class="card-columns">
                         
                                 <div class="card" style="width: 20rem;">
-
-
-
-                                    <img src="../productos/img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">
-                                    
+                                    <img src="../productos/img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">           
                                     <a onclick="return confirm('¿estas seguro quie quieres eliminar a esta imagen?')"
                                     class="text-danger" href="d_galeria.php?id_foto=<?php echo $row['ID_G'];?>&codigo=<?php echo $codigo;?>">   <i class="bi bi-trash"></i></a>  
                                 </div>
@@ -246,21 +226,11 @@ $resultado = 1;
                             </div>
                         </div>
 
-                        <?php } ?>
+                        <?php }  } ?>
                
-                        
-
-
-
                     </div> 
                 </div>
             </div>     <!-- card -->
-
-
-
-
-
-
 
         </div>
     </div>
