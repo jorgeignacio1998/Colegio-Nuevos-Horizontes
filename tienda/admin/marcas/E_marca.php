@@ -6,6 +6,21 @@ if(!isset($_GET['codigo'])) {
     exit();
 }
 
+if(!isset($_GET['id'])) {
+    header('Location: index.php?mensaje=error');
+    exit();
+}
+$id = $_GET['id'];
+
+$query4 = $mysqli->query("SELECT * FROM categorias WHERE ID = $id ");
+$sen =mysqli_fetch_array($query4);
+
+
+
+
+
+
+
 //Pintando datos Del ID = GET
 $query = "SELECT NOMBRE FROM marcas  WHERE ID = $codigo ";
 $sentencia1 = $mysqli->query($query);
@@ -90,6 +105,27 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                         <label for="_1" class="form-label">Nombre de la marca: </label>
                         <input type="text" class="form-control" name="nombre" autofocus required id="_1" value="<?php echo $sentencia2['NOMBRE'];  ?>">
                     </div>
+
+                    
+                    <div class="mb-3">
+                            <label class="form-label lab" for="_6">Categoria</label > 
+                                        <select name="categoria" class="form-control"  required  id="_6" >          
+                                        <!-- este option es el dato visible seleccionado  -->
+                                        <option value="<?php echo $sen["ID"]; ?>"><?php echo utf8_encode($sen['NOMBRE']); ?>
+                                                    <?php
+                                                    $sqlCate = "SELECT * FROM categorias order by ID";
+                                                    $dataCate = mysqli_query($mysqli, $sqlCate);
+                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                                    while($data = mysqli_fetch_array($dataCate)){ ?>
+                                                    <!-- este option son las opciones disponibles para elegir -->
+                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+
+                                                    <?php } ?>
+                                        </select>  
+                        </div>   
+
+                   
 
                 
                     <div class="form-group row justify-content-center d-grid ">
