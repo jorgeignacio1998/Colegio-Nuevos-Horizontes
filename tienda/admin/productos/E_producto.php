@@ -7,7 +7,7 @@ if(!isset($_GET['codigo'])) {
 }
 
 //Pintando datos Del ID = GET
-$query = "SELECT NOMBRE,MARCA,TIPO,STOCK,PRECIO,DESCUENTO,DESCRIPCION,FOTO  FROM productos  WHERE ID = $codigo ";
+$query = "SELECT NOMBRE,MARCA,TIPO,STOCK,PRECIO,DESCUENTO,DESCRIPCION  FROM productos  WHERE ID = $codigo ";
 $sentencia1 = $mysqli->query($query);
 //print_r($sentencia1);  no entrega nada importante la sentencia es importante para la segunda.
 $sentencia2 =mysqli_fetch_array($sentencia1);

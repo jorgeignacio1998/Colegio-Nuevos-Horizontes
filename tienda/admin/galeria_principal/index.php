@@ -1,6 +1,6 @@
 <?php
 include '../c_seguridad.php';     //Seguridad y Base de datos.
-
+$resultado = 1;
 
 
 
@@ -199,43 +199,44 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
 
                         <?php  
 
-
-                      
                             if(isset($_GET['id_producto'])) {
+
                                 $id_producto = $_GET['id_producto'];
-
-
                                 $query5 = ("SELECT * FROM galeria WHERE ID_PRODUCTO = $id_producto ");
                                 $resultado = mysqli_query($mysqli, $query5);
                                 //$sen2 =mysqli_fetch_array($sentencia);
-
-
-
-
                                
 
-                                foreach( $resultado as $row ){
-                            }
-                                                            
+                                
 
-                         
+                                
+                            }
+                                          
+                            
+
+
+
 
                         ?>                                    
 
 
 
+                        <?php  
+                            
+                                
+                                foreach( $resultado as $row ){ 
 
-
-
-
-                      
+                                
+                        ?>
 
                         <div class="col-md-5 ms-5 mt-5">
                     
                             <div class="card-columns">
                         
                                 <div class="card" style="width: 20rem;">
-                                
+
+
+
                                     <img src="../productos/img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">
                                     
                                     <a onclick="return confirm('¿estas seguro quie quieres eliminar a esta imagen?')"
@@ -247,7 +248,10 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
 
                         <?php } ?>
                
-                
+                        
+
+
+
                     </div> 
                 </div>
             </div>     <!-- card -->
