@@ -5,13 +5,15 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
 
 
 
-//datos ID, ID_PRODUCTO, ID_
- 
-$inner = $mysqli->query("SELECT * FROM galeria
-                        INNER JOIN productos
-                        ON galeria.ID_G = productos.ID  ");
 
-$sen =mysqli_fetch_array($inner);
+ 
+
+
+
+
+
+
+
 
 ?>
 
@@ -67,11 +69,11 @@ $sen =mysqli_fetch_array($inner);
                     <h3 id="_titulo">Seleccionar producto</h3> 
 
 
-                    <form action="">
+                    <form action="buscar.php">
 
                         <div class="mb-3">
                                 <label class="form-label lab" for="_6">Filtrar por marca</label > 
-                                            <select name="marca" class="form-control"  required  id="_6" >          
+                                            <select name="id_marca" class="form-control"    id="_6" >          
                                             <!-- este option es el dato visible seleccionado  -->
                                             <option value="" require>
                                                         <?php
@@ -92,7 +94,7 @@ $sen =mysqli_fetch_array($inner);
 
                         <div class="mb-3">
                                 <label class="form-label lab" for="_6">Filtrar por categoria</label > 
-                                            <select name="categoria" class="form-control"  required  id="_6" >          
+                                            <select name="id_categoria" class="form-control"    id="_6" >          
                                             <!-- este option es el dato visible seleccionado  -->
                                             <option value="" require>
                                                         <?php
@@ -115,7 +117,7 @@ $sen =mysqli_fetch_array($inner);
 
                         <div class="mb-3">
                                 <label class="form-label lab" for="_6">Nombre del producto</label > 
-                                            <select name="grado" class="form-control"  required  id="_6" >          
+                                            <select name="id_producto" class="form-control"    id="_6" >          
                                             <!-- este option es el dato visible seleccionado  -->
                                             <option value="" require>
                                                         <?php
@@ -130,6 +132,20 @@ $sen =mysqli_fetch_array($inner);
                                                         <?php } ?>
                                             </select>  
                         </div>   
+
+
+
+
+
+
+
+
+
+                        
+                        <div class="d-grid mt-5">
+                                    <input type="hidden" name="oculto" value="1" >
+                                    <input type="submit" class="btn btn-primary" value="Buscar">
+                        </div>
 
 
                     </form>
@@ -181,7 +197,38 @@ $sen =mysqli_fetch_array($inner);
                     <div class="row col1 ">
 
 
-                        <?php foreach( $sen as $row ){ ?>
+                        <?php  
+
+
+                      
+                            if(isset($_GET['id_producto'])) {
+                                $id_producto = $_GET['id_producto'];
+
+
+                                $query5 = ("SELECT * FROM galeria WHERE ID_PRODUCTO = $id_producto ");
+                                $resultado = mysqli_query($mysqli, $query5);
+                                //$sen2 =mysqli_fetch_array($sentencia);
+
+
+
+
+                               
+
+                                foreach( $resultado as $row ){
+                            }
+                                                            
+
+                         
+
+                        ?>                                    
+
+
+
+
+
+
+
+                      
 
                         <div class="col-md-5 ms-5 mt-5">
                     
@@ -189,7 +236,7 @@ $sen =mysqli_fetch_array($inner);
                         
                                 <div class="card" style="width: 20rem;">
                                 
-                                    <img src="img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">
+                                    <img src="../productos/img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">
                                     
                                     <a onclick="return confirm('¿estas seguro quie quieres eliminar a esta imagen?')"
                                     class="text-danger" href="d_galeria.php?id_foto=<?php echo $row['ID_G'];?>&codigo=<?php echo $codigo;?>">   <i class="bi bi-trash"></i></a>  
