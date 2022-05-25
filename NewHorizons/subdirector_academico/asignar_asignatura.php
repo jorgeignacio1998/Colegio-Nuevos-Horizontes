@@ -2,8 +2,19 @@
 include 'seguridad_subdirector.php';
 
 
-$query10 = $mysqli->query("SELECT * FROM asignaturas_profes");
+// $query10 = $mysqli->query("SELECT * FROM asignaturas_profes");
 
+
+
+$inner = $mysqli->query("SELECT *,
+ profesores.NOMBRE as prono
+
+ FROM asignaturas_profes
+                        INNER JOIN profesores
+                       
+                        ON asignaturas_profes.ID_PROFESOR = profesores.ID
+                        INNER JOIN asignaturas
+                        ON asignaturas.ID_A = asignaturas_profes.ID_ASIGNATURA");
 
 
 
@@ -115,7 +126,7 @@ $query10 = $mysqli->query("SELECT * FROM asignaturas_profes");
                         <tbody >
                             <?php     //IMPRIMIR DATOS EN LOS td
 
-                            while($fila =mysqli_fetch_array($query10)  ) {
+                            while($fila =mysqli_fetch_array($inner)  ) {
                             
                                 
                                 
@@ -129,8 +140,8 @@ $query10 = $mysqli->query("SELECT * FROM asignaturas_profes");
                             <tr >
 
                                 <td scope="row"><?php echo $fila['ID_ASIGNACION']; ?></td>
-                                <td ><?php echo $fila['ID_PROFESOR']; ?></td>
-                                <td ><?php echo $fila['ID_ASIGNATURA']; ?></td>
+                                <td ><?php echo $fila['prono']; ?></td>
+                                <td ><?php echo $fila['NOMBRE']; ?></td>
 
 
 
