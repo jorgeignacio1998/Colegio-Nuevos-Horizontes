@@ -20,7 +20,7 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="stylesheet" type="text/css" href="../styles/navside.css" >
+    <link rel="stylesheet" type="text/css" href="../styles/navside.css?<?php echo time(); ?>" >  <!-- CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
 </head>

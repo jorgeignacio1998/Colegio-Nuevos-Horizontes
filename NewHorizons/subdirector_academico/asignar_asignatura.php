@@ -1,26 +1,8 @@
 <?php
 include 'seguridad_subdirector.php';
-$codigo = $_GET['codigo'];
-if(!isset($_GET['codigo'])) {
-
-    header('Location: ../index.php?mensaje=error');
-    exit();
-}
 
 
-//Pintando datos Del ID = GET
-$query = "SELECT NOMBRE, ID_PROFESOR, ID_SALA FROM asignaturas  WHERE ID = $codigo ";
-$sentencia1 = $mysqli->query($query);
-//print_r($sentencia1);  no entrega nada importante la sentencia es importante para la segunda.
-$sentencia2 =mysqli_fetch_array($sentencia1);
-//print_r($sentencia2);   //TIENE LOS DATOS ahora se pintan en lo value.
-
-
-
-
-$query2 = "SELECT NOMBRE, ID_PROFESOR, ID_SALA FROM asignaturas  WHERE ID = $codigo ";
-$inner = $mysqli->query($query2);
-
+$query10 = $mysqli->query("SELECT * FROM asignaturas_profes");
 
 
 
@@ -104,36 +86,136 @@ $inner = $mysqli->query($query2);
 
 
 <!-- Inicio Gestor de asignaturas--  academico -->   
-<div class="container-fluid moverabajo">
-       <div class="row justify-content-center">
-           <div class="col-md-4 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
+<div class="container moverabajo">
+    <div class="row ">
+
+           
+        <div  class="col-5">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
+
+
+            <!-- siguiendo con la estructura de la tabla (primer col) -->
+            <div  class="card ">
+                <div class="card-header">
+                    Lista de asignaciones                                     
+                    <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Buscar...">                          <!-- aca-->
+                </div>
+
+                <div  id="searchResult" class="p-4 col1 ">                                        <!-- aca-->
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                
+                                <th scope="col">#</th>
+                                <th scope="col">Profesor</th>                              
+                                <th scope="col">Asignatura</th>
+                            
+                                <th scope="col" colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <?php     //IMPRIMIR DATOS EN LOS td
+
+                            while($fila =mysqli_fetch_array($query10)  ) {
+                            
+                                
+                                
+
+
+                                
+
+
+                                
+                            ?>
+                            <tr >
+
+                                <td scope="row"><?php echo $fila['ID_ASIGNACION']; ?></td>
+                                <td ><?php echo $fila['ID_PROFESOR']; ?></td>
+                                <td ><?php echo $fila['ID_ASIGNATURA']; ?></td>
+
+
+
+                            
+
+                                <td><a class="text-primary" href="E_asignatura.php?codigo=<?php echo $fila['ID_ASIGNACION']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asigna.php?codigo=<?php echo $fila['ID_ASIGNACION']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                <!-- le envia por la url el id del usuario al c_eliminar -->
+                                
+
+
+
+                            </tr>
+                            <?php
+
+                            }          
+                            ?>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>  <br>
+        </div> <!-- TERMINO PRIMER COL  --> 
+       
+       
+      
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           <div class="col-4  ">    <!-- INICIO SEGUNDO COL  -->
                <div class="card segundo">
                  
                    <div class="card-header">
-                       Editar asignatura:
+                       Asignar asignaturas
                    </div>
-                   <form action="e_asigna.php" method="POST" class="p-4" >
+                   <form action="c_asignar.php" method="POST" class="p-4" >
                         <div class="mb-3">
                             <label for="_1" class="form-label">Nombre Asignatura: </label>
-                            <select name="profesor" class="form-control"  required id="_2">
+                            <select name="asignatura" class="form-control"  required id="_2">
 
 
                             <!-- Este option es el dato del profesor -->
                          
 
-                            <option value="<?php echo $sentencia2['ID_PROFESOR']; ?>"><?php echo utf8_encode($sentencia2['ID_PROFESOR'] ); ?>
+                            <option value="">
 
                                         <?php
-                                        $sqlProfe = "SELECT * FROM profesores order by ID";
-                                        $dataProfe = mysqli_query($mysqli, $sqlProfe);
+                                        $sqlAsi = "SELECT * FROM asignaturas order by ID_A";
+                                        $dataAsi = mysqli_query($mysqli, $sqlAsi);
 
                                         
-                                        while($data = mysqli_fetch_array($dataProfe)){ 
+                                        while($data = mysqli_fetch_array($dataAsi)){ 
                                         ?>
 
 
                                         <!-- y este option las opciones -->
-                                        <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - Nombre: '. $data['NOMBRE'] ); ?>
+                                        <option value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode('ID: '. $data['ID_A']. ' - Nombre: '. $data['NOMBRE'] ); ?>
                                         <?php } ?>
 
                            </select>
@@ -149,7 +231,7 @@ $inner = $mysqli->query($query2);
                             <!-- Este option es el dato del profesor -->
                          
 
-                            <option value="<?php echo $sentencia2['ID_PROFESOR']; ?>"><?php echo utf8_encode($sentencia2['ID_PROFESOR'] ); ?>
+                            <option value=""   >
 
                                         <?php
                                         $sqlProfe = "SELECT * FROM profesores order by ID";
@@ -169,50 +251,36 @@ $inner = $mysqli->query($query2);
 
 
                         
-                        <div class="mb-3">
-                            <label class="form-label lab" for="_6">Sala: </label > 
-                         <select name="sala" class="form-control"  required id="_6">
-
-
-                            <!-- Este option es el dato del profesor -->
-                         
-
-                            <option value="<?php echo $sentencia2['ID_SALA']; ?>"><?php echo utf8_encode($sentencia2['ID_SALA'] ); ?>
-                                        <?php
-                                        $sqlSala = "SELECT * FROM salas order by ID";
-                                        $dataSala = mysqli_query($mysqli, $sqlSala);
-
-                                        
-                                        while($data = mysqli_fetch_array($dataSala)){ 
-                                        ?>
-
-
-                                        <!-- y este option las opciones -->
-                                        <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - NUMERO: '. $data['NUMERO'] ); ?>
-                                        <?php } ?>
-                            </select>
-                        </div>
+                        
                         
                         <div class="d-grid mt-5">
                          
                             <input type="hidden"  name="codigo" value="<?php echo $codigo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
-                            <input type="submit" class="btn btn-primary" value="Guardar cambios">
+                            <input type="submit" class="btn btn-primary" value="Asignar">
                         </div>
 
                    </form>
 
                </div>
                <br>
-           </div>
+            </div>   <!--col 4 -->
+
+
+
+
+
+
+
+
+
+
        </div>
    </div>
 
 
 
 
-      
-    <!-- Bootstrap JavaScript Libraries -->
-    
+
 
 
 
