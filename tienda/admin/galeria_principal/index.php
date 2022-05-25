@@ -67,70 +67,72 @@ $sen =mysqli_fetch_array($inner);
                     <h3 id="_titulo">Seleccionar producto</h3> 
 
 
+                    <form action="">
 
-                    <div class="mb-3">
-                            <label class="form-label lab" for="_6">Filtrar por marca</label > 
-                                        <select name="grado" class="form-control"  required  id="_6" >          
-                                        <!-- este option es el dato visible seleccionado  -->
-                                        <option value="" require>
-                                                    <?php
-                                                    $sqlMarca = "SELECT * FROM marcas order by ID";
-                                                    $dataMarca = mysqli_query($mysqli, $sqlMarca);
-                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data = mysqli_fetch_array($dataMarca)){ ?>
-                                                    <!-- este option son las opciones disponibles para elegir -->
-                                                    <option value="<?php echo $data["ID"];   //variable?     ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
-                                                    
-                                                    <?php } ?>
-                                        </select>  
-                    </div>         
-
-
-
-
-                    <div class="mb-3">
-                            <label class="form-label lab" for="_6">Filtrar por categoria</label > 
-                                        <select name="grado" class="form-control"  required  id="_6" >          
-                                        <!-- este option es el dato visible seleccionado  -->
-                                        <option value="" require>
-                                                    <?php
-                                                    $sqlCate = "SELECT * FROM categorias order by ID";
-                                                    $dataCate = mysqli_query($mysqli, $sqlCate);
-                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data2 = mysqli_fetch_array($dataCate)){ ?>
-                                                    <!-- este option son las opciones disponibles para elegir -->
-                                                    <option value="<?php echo $data2["ID"];   //variable?     ?>"><?php echo utf8_encode($data2['NOMBRE']); ?>
-                                                    
-                                                    <?php } ?>
-                                        </select>  
-                    </div>    
+                        <div class="mb-3">
+                                <label class="form-label lab" for="_6">Filtrar por marca</label > 
+                                            <select name="marca" class="form-control"  required  id="_6" >          
+                                            <!-- este option es el dato visible seleccionado  -->
+                                            <option value="" require>
+                                                        <?php
+                                                        $sqlMarca = "SELECT * FROM marcas order by ID";
+                                                        $dataMarca = mysqli_query($mysqli, $sqlMarca);
+                                                        //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                                        //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                                        while($data = mysqli_fetch_array($dataMarca)){ ?>
+                                                        <!-- este option son las opciones disponibles para elegir -->
+                                                        <option value="<?php echo $data["ID"];   //variable?     ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+                                                        
+                                                        <?php } ?>
+                                            </select>  
+                        </div>         
 
 
 
-                   
+
+                        <div class="mb-3">
+                                <label class="form-label lab" for="_6">Filtrar por categoria</label > 
+                                            <select name="categoria" class="form-control"  required  id="_6" >          
+                                            <!-- este option es el dato visible seleccionado  -->
+                                            <option value="" require>
+                                                        <?php
+                                                        $sqlCate = "SELECT * FROM categorias order by ID";
+                                                        $dataCate = mysqli_query($mysqli, $sqlCate);
+                                                        //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                                        //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                                        while($data2 = mysqli_fetch_array($dataCate)){ ?>
+                                                        <!-- este option son las opciones disponibles para elegir -->
+                                                        <option value="<?php echo $data2["ID"];   //variable?     ?>"><?php echo utf8_encode($data2['NOMBRE']); ?>
+                                                        
+                                                        <?php } ?>
+                                            </select>  
+                        </div>    
 
 
-                    <div class="mb-3">
-                            <label class="form-label lab" for="_6">Nombre del producto</label > 
-                                        <select name="grado" class="form-control"  required  id="_6" >          
-                                        <!-- este option es el dato visible seleccionado  -->
-                                        <option value="" require>
-                                                    <?php
-                                                    $sqlNombre = "SELECT * FROM productos order by ID";
-                                                    $dataNombre = mysqli_query($mysqli, $sqlNombre);
-                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data3 = mysqli_fetch_array($dataNombre)){ ?>
-                                                    <!-- este option son las opciones disponibles para elegir -->
-                                                    <option value="<?php echo $data3["ID"];   //variable?     ?>"><?php echo utf8_encode($data3['NOMBRE']); ?>
-                                                    
-                                                    <?php } ?>
-                                        </select>  
-                    </div>   
+
+                    
 
 
+                        <div class="mb-3">
+                                <label class="form-label lab" for="_6">Nombre del producto</label > 
+                                            <select name="grado" class="form-control"  required  id="_6" >          
+                                            <!-- este option es el dato visible seleccionado  -->
+                                            <option value="" require>
+                                                        <?php
+                                                        $sqlNombre = "SELECT * FROM productos order by ID";
+                                                        $dataNombre = mysqli_query($mysqli, $sqlNombre);
+                                                        //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                                        //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                                        while($data3 = mysqli_fetch_array($dataNombre)){ ?>
+                                                        <!-- este option son las opciones disponibles para elegir -->
+                                                        <option value="<?php echo $data3["ID"];   //variable?     ?>"><?php echo utf8_encode($data3['NOMBRE']); ?>
+                                                        
+                                                        <?php } ?>
+                                            </select>  
+                        </div>   
+
+
+                    </form>
 
 
 

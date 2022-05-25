@@ -1,7 +1,33 @@
 <?php 
 include '../c_seguridad.php';     //Seguridad y Base de datos.
 $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos las marcas.
+
+
+
+
+$datos2 = $mysqli->query("SELECT *,
+marcas.ID as ma_id,
+marcas.NOMBRE as ma_no,
+marcas.ID_CATEGORIA as ma_ca
+FROM marcas INNER JOIN categorias as c
+ON marcas.ID_CATEGORIA = c.ID"); //obtiene datos de todos las marcas.
+
+
+
+
+
+
+
+
+
+
 ?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -210,6 +236,8 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
                                     <th scope="col">#</th>
                                                         
                                     <th scope="col">NOMBRE</th>
+
+                                    <th scope="col">CATEGORIA</th>
                 
                                 
                                     
@@ -221,13 +249,14 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
                             <tbody >
                                 <?php     //IMPRIMIR DATOS EN LOS td
    
-                                while($fila =mysqli_fetch_array($datos_marcas) ) {
+                                while($fila =mysqli_fetch_array($datos2) ) {
 
                                     
                                 ?>
                                 <tr >
 
-                                    <td scope="row"><?php echo $fila['ID']; ?></td>
+                                    <td scope="row"><?php echo $fila['ma_id']; ?></td>
+                                    <td ><?php echo $fila['ma_no']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
                                   
 
@@ -258,9 +287,32 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas"); //obtiene datos de todos
                        </div>
                        <form action="c_marc.php"  method="POST" class="p-4" >
                            <div class="mb-3">
-                               <label for="_1" class="form-label">Nombre de la Categoria: </label>
+                               <label for="_1" class="form-label">Nombre de la Marca: </label>
                                <input type="text" class="form-control" name="nombre" autofocus required id="_1">
-                           </div>           
+                           </div>     
+                           
+                           
+
+
+
+
+                           <div class="mb-3">
+                                <label class="form-label lab" for="_6">Categoria</label > 
+                                            <select name="categoria" class="form-control"  required  id="_6" >          
+                                            <!-- este option es el dato visible seleccionado  -->
+                                            <option value="" require>
+                                                        <?php
+                                                        $sqlCate = "SELECT * FROM categorias order by ID";
+                                                        $dataCate = mysqli_query($mysqli, $sqlCate);
+                                                        //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                                        //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                                        while($data2 = mysqli_fetch_array($dataCate)){ ?>
+                                                        <!-- este option son las opciones disponibles para elegir -->
+                                                        <option value="<?php echo $data2["ID"];   //variable?     ?>"><?php echo utf8_encode($data2['NOMBRE']); ?>
+                                                        
+                                                        <?php } ?>
+                                            </select>  
+                        </div>    
                            
 
                            <div class="d-grid mt-5">

@@ -1,6 +1,12 @@
 <?php 
 include '../c_seguridad.php';  //Seguridad y Base de datos.
-$datos_marcas = $mysqli->query("SELECT * FROM marcas "); //obtiene datos de todos los productos
+$datos2 = $mysqli->query("SELECT *,
+marcas.ID as ma_id,
+marcas.NOMBRE as ma_no,
+marcas.ID_CATEGORIA as ma_ca
+FROM marcas INNER JOIN categorias as c
+ON marcas.ID_CATEGORIA = c.ID"); //obtiene datos de todos las marcas.
+
 
 
 
@@ -9,10 +15,20 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas "); //obtiene datos de todo
     $input = $_POST['input'];
 
     if(empty($input)){
-        $query =  "SELECT * FROM marcas  ";
+        $query =  "SELECT *,
+        marcas.ID as ma_id,
+        marcas.NOMBRE as ma_no,
+        marcas.ID_CATEGORIA as ma_ca
+        FROM marcas INNER JOIN categorias as c
+        ON marcas.ID_CATEGORIA = c.ID  ";
         } else{
             
-        $query = "SELECT * FROM marcas WHERE NOMBRE LIKE '{$input}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
+        $query = "SELECT *,
+        marcas.ID as ma_id,
+        marcas.NOMBRE as ma_no,
+        marcas.ID_CATEGORIA as ma_ca
+        FROM marcas INNER JOIN categorias as c
+        ON marcas.ID_CATEGORIA = c.ID WHERE marcas.NOMBRE LIKE '{$input}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
         }
 
 
@@ -30,6 +46,7 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas "); //obtiene datos de todo
                                     
                                     <th scope="col">#</th>                         
                                     <th scope="col">NOMBRE</th>
+                                    <th scope="col">CATEGORIA</th>
                               
                                     <th scope="col">EDITAR</th>
                                     <th   scope="col">ELIMINAR</th>
@@ -44,6 +61,7 @@ $datos_marcas = $mysqli->query("SELECT * FROM marcas "); //obtiene datos de todo
                                 <tr >
 
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
+                                    <td ><?php echo $fila['ma_no']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
                              
                                     <td><a class="text-primary" href="E_marca.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
