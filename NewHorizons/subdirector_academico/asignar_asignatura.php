@@ -10,11 +10,10 @@ $inner = $mysqli->query("SELECT *,
  profesores.NOMBRE as prono
 
  FROM asignaturas_profes
-                        INNER JOIN profesores
-                       
-                        ON asignaturas_profes.ID_PROFESOR = profesores.ID
-                        INNER JOIN asignaturas
-                        ON asignaturas.ID_A = asignaturas_profes.ID_ASIGNATURA");
+ INNER JOIN profesores                 
+ ON asignaturas_profes.ID_PROFESOR = profesores.ID
+ INNER JOIN asignaturas
+ ON asignaturas.ID_A = asignaturas_profes.ID_ASIGNATURA");
 
 
 
@@ -101,7 +100,7 @@ $inner = $mysqli->query("SELECT *,
     <div class="row ">
 
            
-        <div  class="col-5">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
+        <div  class="col-8">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
 
 
 
@@ -120,6 +119,64 @@ $inner = $mysqli->query("SELECT *,
                 ?>
                 <!-- 1 alerta clonado  -->
 
+
+                 <!-- 2.  alerta    eliminado  success -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
+                ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>SE ELIMINARON LOS DATOS CORRECTAMENTE </strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                <!-- 2. alerta    eliminado  success, -->
+
+
+                   <!-- 3 alerta ERROR, seguridad.  -->
+                   <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> Vuelve a intentar.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 3 alerta ERROR  -->
+
+
+                 <!-- 4.  alerta  registrado  success -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado') {
+                ?>
+
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>REGISTRO REALIZADO CORRECTAMENTE</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                 <!-- 4. alerta registrado  success -->
+
+                
+                <!-- 5.  alerta    EDITADO  success -->
+                <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
+                ?>
+
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>CAMBIOS REALIZADO CON EXITO</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?> 
+                <!-- 5. alerta  EDITADO  success -->
 
 
 
@@ -169,8 +226,8 @@ $inner = $mysqli->query("SELECT *,
 
                             
 
-                                <td><a class="text-primary" href="E_asignatura.php?codigo=<?php echo $fila['ID_ASIGNACION']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asigna.php?codigo=<?php echo $fila['ID_ASIGNACION']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                <td><a class="text-primary" href="E_asignacion.php?id_asignacion=<?php echo $fila['ID_ASIGNACION']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asignacion.php?id_asignacion=<?php echo $fila['ID_ASIGNACION']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                 <!-- le envia por la url el id del usuario al c_eliminar -->
                                 
 
