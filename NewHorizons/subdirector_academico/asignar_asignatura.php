@@ -62,7 +62,7 @@ $inner = $mysqli->query("SELECT *,
 
                 $.ajax({
 
-                    url:"liveSearch.php",
+                    url:"liveSearch2.php",
                     method: "POST",
                     data: {input:input},
 
@@ -102,6 +102,28 @@ $inner = $mysqli->query("SELECT *,
 
            
         <div  class="col-5">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
+
+
+
+        
+                 <!-- 1 alerta clonado  -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'clonado') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> La asignacion ya existe.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 1 alerta clonado  -->
+
+
+
+
+
 
 
             <!-- siguiendo con la estructura de la tabla (primer col) -->

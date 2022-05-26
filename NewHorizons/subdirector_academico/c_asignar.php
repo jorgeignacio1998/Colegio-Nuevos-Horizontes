@@ -16,15 +16,14 @@ $asignatura = $_POST["asignatura"];
 
 
 //1 .- Asignaciones clonadas no permitidas.
-    $validar_existencia = $mysqli->query("SELECT * FROM asignaturas_profes WHERE ID_PROFESOR LIKE '{$profesor}' AND ID_ASIGNATURA LIKE  '{$asignatura}' ");
-    if(empty($validar_existencia)){
+    $validar_existencia = $mysqli->query("SELECT ID_ASIGNACION FROM asignaturas_profes WHERE ID_PROFESOR LIKE '{$profesor}' AND ID_ASIGNATURA LIKE  '{$asignatura}' ");
+    $res = mysqli_num_rows($validar_existencia);
 
-
+    if($res == 1){
         array_push($error, "Asignacion repetida");
         echo "<script>location.href='asignar_asignatura.php?mensaje=clonado';</script>";
-       
-    }
 
+    }
 //1.- Asignaciones clonadas no permitidas.
 
 
