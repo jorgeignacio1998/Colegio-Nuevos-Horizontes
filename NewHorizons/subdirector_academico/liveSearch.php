@@ -11,10 +11,6 @@ INNER JOIN grados
 ON asignaturas.ID_GRADO = grados.ID";
 
 
-$inner = $mysqli->query("SELECT * FROM asignaturas
-                    INNER JOIN grados
-                    ON asignaturas.ID_GRADO = grados.ID");
-
 
 
 
@@ -67,7 +63,7 @@ $inner = $mysqli->query("SELECT * FROM asignaturas
 
 
                                         
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID_A']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a class="text-primary" href="E_asignatura.php?codigo=<?php echo $fila['ID_A']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asigna.php?codigo=<?php echo $fila['ID_A']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     

@@ -47,32 +47,7 @@ $sen =mysqli_fetch_array($inner);
     ?>
     
 
-    <!-- Inicio BUSQUEDA con Jquery -->   
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#live_search").keyup(function(){
 
-            var input = $(this).val();
-            //alert(input);   
-
-                $.ajax({
-
-                    url:"liveSearch.php",
-                    method: "POST",
-                    data: {input:input},
-
-                    success:function(data){
-                        $("#searchResult").html(data);
-                        $("#searchResult").css("display","block");
-                    }
-
-                });
-         
-        });
-
-    });
-</script>
-<!-- Termino BUSQUEDA con Jquery -->   
 
 
 <style>
