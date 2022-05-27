@@ -82,7 +82,7 @@ color: #212121;
 .list__item:hover {
      margin-left: -40px;
      cursor: pointer;
-     color: orangered;
+     color: steelblue;
      transition: .5s;
      
 }
@@ -101,11 +101,11 @@ color: #212121;
 }
 
 .list__button:hover .fa-solid{
-    color: orangered;
+    color: steelblue;
     
 }
 .list__button:hover a{
-    color: orangered;
+    color: steelblue;
     
 }
 
@@ -214,7 +214,7 @@ navbar-toggle a {
 }
 
 .cerrar:hover{
-    color: orangered;
+    color: steelblue;
 }
 
 .fa-angle-right{

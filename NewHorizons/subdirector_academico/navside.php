@@ -82,7 +82,7 @@ color: #212121;
 .list__item:hover {
      margin-left: -40px;
      cursor: pointer;
-     color: orangered;
+     color: steelblue;
      transition: .5s;
      
 }
@@ -101,11 +101,11 @@ color: #212121;
 }
 
 .list__button:hover .fa-solid{
-    color: orangered;
+    color: steelblue;
     
 }
 .list__button:hover a{
-    color: orangered;
+    color: steelblue;
     
 }
 
@@ -143,6 +143,10 @@ color: #212121;
     margin-left: 2rem;
     font-size: 2rem;
     color: #fff;
+}
+.menu-bars:hover i{
+ 
+    color: steelblue ;
 }
 
 #nav-menu{
@@ -214,7 +218,7 @@ navbar-toggle a {
 }
 
 .cerrar:hover{
-    color: orangered;
+    color: steelblue;
 }
 
 .fa-angle-right{
@@ -283,7 +287,7 @@ navbar-toggle a {
                                 <a href="asignaturas.php"  class=" nav__link nav__link__inside"  >Lista de asignaturas   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="asignar_asignatura.php" class=" nav__link nav__link__inside" >Asignar profesor  </a >
+                                <a href="asignar_asignatura.php" class=" nav__link nav__link__inside" >Asignar asignaturas  </a >
                             </li>
                         </ul>
                     </li>
@@ -297,16 +301,16 @@ navbar-toggle a {
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 2 <i class=" list__arrow fa-solid fa-angle-right"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Cursos <i class=" list__arrow fa-solid fa-angle-right"></i>
                             
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1   </a>
+                                <a href="cursos/index.php"  class=" nav__link nav__link__inside"  >Lista de Cursos   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
+                                <a href="#" class=" nav__link nav__link__inside" >Asignar profesor Jefe   </a >
                             </li>
                         </ul>
                     </li>

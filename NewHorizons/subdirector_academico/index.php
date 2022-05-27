@@ -6,12 +6,18 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
     $usuario_logueado = $_SESSION['usuario'];
     $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1"); //obteniendo los datos
     $array = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);  //colocando los datos del usuario en un array para asi luego gestionarlos de mejor manera,
-    // echo $array['NOMBRE'];
+ 
 
 
 ?>
 
 
+<style>
+    h2{
+        padding: 20px;
+        margin: 10px;
+    }
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,11 +31,18 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
 </head>
 <body>
+   
+    
+
     <?php 
     include 'navside.php';
 
     ?>
-    Bienvenido
+
+<div>
+    <h2>Bienvenido  <?php  echo $array['NOMBRE'];?></h2>
+</div>
+    
 
 
 </body>
