@@ -8,20 +8,17 @@ $inner = $mysqli->query("SELECT *,
  cursos.ID as curid,
  cursos.NOMBRE as curnom,
  grados.NIVEL as graniv,
- profesores_jefes.NOMBRE as pronom,
- salas.NUMERO as salnum,
- sedes.NOMBRE_SEDE as sednom
+ salas.NUMERO as salnum
+
  
 
  FROM cursos
  INNER JOIN grados                 
  ON cursos.ID_GRADO = grados.ID
- INNER JOIN profesores_jefes
- ON cursos.ID_PROFESOR_JEFE = profesores_jefes.ID  
+
  INNER JOIN salas
  ON cursos.ID_SALA = salas.ID 
- INNER JOIN sedes 
- ON cursos.ID_SEDE = sedes.ID_SEDE ");
+  ");
 
 ?>
 
@@ -243,11 +240,10 @@ $inner = $mysqli->query("SELECT *,
                                 <tr>
                                     
                                     <th scope="col">#</th>
-                                    <th scope="col">Nombre del curso</th>                              
                                     <th scope="col">Grado</th>
-                                    <th scope="col">Profesor Jefe</th>
+                                    <th scope="col">Nombre del curso</th>                                        
                                     <th scope="col">Numero de la Sala</th>
-                                    <th scope="col">Sede</th>
+                                    <th scope="col">Profesor Jefe</th>
 
 
                                     <th scope="col" colspan="2">Opciones</th>
@@ -263,11 +259,10 @@ $inner = $mysqli->query("SELECT *,
                                 <tr >
 
                                     <td scope="row"><?php echo $fila['curid']; ?></td>
-                                    <td ><?php echo $fila['curnom']; ?></td>
                                     <td ><?php echo $fila['graniv']; ?></td>
-                                    <td ><?php echo $fila['pronom']; ?></td>
+                                    <td ><?php echo $fila['curnom']; ?></td>
                                     <td ><?php echo $fila['salnum']; ?></td>
-                                    <td ><?php echo $fila['sednom']; ?></td>
+                                    
 
 
                                     <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
@@ -306,39 +301,54 @@ $inner = $mysqli->query("SELECT *,
                <div class="card">
                  
                    <div class="card-header">
-                       Ingresar datos:
+                       Registrar curso:
                    </div>
-                   <form action="../admin/c_registrar.php" method="POST" class="p-4" >
-                        <div class="mb-3">
-                            <label for="_1" class="form-label">Nombre completo: </label>
-                            <input type="text" class="form-control" name="txtNombre" autofocus required id="_1">
-                        </div>             
-                        <div class="mb-3">
-                            <label for="_2" class="form-label">Correo electrónico: </label>
-                            <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2">
-                        </div>
-                        <div class="mb-3">
-                            <label for="_5" class="form-label">Contraseña: </label>
-                            <input type="password" class="form-control" name="txtPass" autofocus required id="_5">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label lab" for="_6">Tipo de usuario</label > 
-                                        <select name="txtNivel" class="form-control"  required  id="_6" >
-                                        <option disabled selected value >  </option>
-                                                    <?php
-                                                    $sqlTipo = "SELECT * FROM niveles order by ID";
-                                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
-                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['ID']. '- '. $data['NOMBRE']); ?>
+                   <form action="c_registrar.php" method="POST" class="p-4" >
 
-                                                    <?php } ?>
-                                        </select>  
+                   
+                            
+                        <div class="mb-3">
+                            <label class="form-label lab" for="_6">Grado</label > 
+                            <select name="grado" class="form-control"  required  id="_6" >
+                                <option disabled selected value >  </option>
+                                    <?php
+                                    $sqlTipo = "SELECT * FROM grados order by ID";
+                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
+                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NIVEL']); ?>
+
+                                    <?php } ?>
+                            </select>  
+                        </div>   
+                           
+                        <div class="mb-3">
+                            <label for="_2" class="form-label">Nombre del curso: </label>
+                            <input type="text" class="form-control" name="nombre" autofocus required id="_2">
                         </div>
+
+
+
+                        <div class="mb-3">
+                            <label class="form-label lab" for="_6">Numero de sala</label > 
+                            <select name="sala" class="form-control"  required  id="_6" >
+                                <option disabled selected value >  </option>
+                                    <?php
+                                    $sqlTipo = "SELECT * FROM salas order by ID";
+                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
+                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NUMERO']); ?>
+
+                                    <?php } ?>
+                            </select>  
+                        </div>   
+
+
                         
                         <div class="d-grid mt-5">
-                            <input type="hidden" name="oculto" value="1" >
                             <input type="submit" class="btn btn-primary" value="Registrar">
                         </div>
 

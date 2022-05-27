@@ -284,7 +284,7 @@ navbar-toggle a {
                         <!-- primer submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="asignaturas.php"  class=" nav__link nav__link__inside"  >Lista de asignaturas   </a>
+                                <a href="../asignaturas.php"  class=" nav__link nav__link__inside"  >Lista de asignaturas   </a>
                             </li>
                             <li class="list__inside">
                                 <a href="asignar_asignatura.php" class=" nav__link nav__link__inside" >Asignar asignaturas  </a >
