@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SIDEBAR DEFINITIVO</title>
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> 
 </head>
-
-
-
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
@@ -22,15 +19,12 @@
     box-sizing: border-box;
 }
 
-
 body{
     font-family: 'Poppins', sans-serif;
 }
 
-
 .nav{
-    width:340px;
-    /* background-color: #212121; */
+    width:390px;
 }
 
 .nav__link{
@@ -38,8 +32,15 @@ body{
     display: block;
     padding: 15px 0;
     text-decoration: none;
-    align-items: start;
-    
+    align-items: start; 
+}
+.nav__link__1{
+    color: #fff;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    align-items: start; 
+    font-size: 1.2rem;
 }
 
 .nav__link__inside{
@@ -48,15 +49,11 @@ body{
     color:#fff;
 }
 
-.nav__link__inside:hover{
+.nav__link__inside:hover {
 background: #fff;
 color: #212121;
 
-    
 }
-
-
-
 
 .list{
     width: 70%;
@@ -67,10 +64,7 @@ color: #212121;
     justify-content: center;
     flex-direction: column;
     border-radius: 0 16px 16px 0;
-    background-color: #212121;
-
-    
-    
+    background-color: #212121;  
 }
 
 .list__item{
@@ -82,24 +76,16 @@ color: #212121;
      margin-top: 15px;
      color: #fff;
      margin-left: -50px;
-     cursor: pointer;
-     
-       
-    
+     cursor: pointer;  
 }
-.list__item:hover{
-  
+
+.list__item:hover {
      margin-left: -40px;
      cursor: pointer;
      color: orangered;
      transition: .5s;
      
-    
 }
-
-
-
-
 
 .list__item__click{
     cursor: pointer;
@@ -110,32 +96,27 @@ color: #212121;
     align-items: center;
     gap: 1em;
     width: 89%;
-    margin: 0 auto;
-    
+    margin: 0 auto; 
+    font-size: 1.2rem;
 }
 
 .list__button:hover .fa-solid{
     color: orangered;
     
 }
-
-
-
-
+.list__button:hover a{
+    color: orangered;
+    
+}
 
 .arrow .list__arrow{
-    transform: rotate(90deg);
-    
+    transform: rotate(90deg); 
 }
 
 .list__arrow{
     margin-left:auto;
     transition: transform .3s;
-
 }
-
-
-
 
 .list__inside{
     list-style: none;
@@ -150,23 +131,12 @@ color: #212121;
     height: 0;
 }
 
-/* primer navside */
-
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@700&display=swap');
-
-
-hr{
-background-color: #464646;
-}
-
 #navbar{
     background-color: #212121;
     height: 60px;
     display: flex;
     justify-content: start;
     align-items: center;
-    
-  
 }
 
 .menu-bars{
@@ -177,7 +147,7 @@ background-color: #464646;
 
 #nav-menu{
     background-color: #212121;
-    width: 300px;
+    width: 310px;
     height: 100vh;
     display: flex;
     justify-content:center;
@@ -186,7 +156,6 @@ background-color: #464646;
     left: -100% ;
     transition: 850ms;
     z-index:+99999;
-   
 }
 
 #nav-menu.active{
@@ -194,86 +163,14 @@ background-color: #464646;
     transition: 350ms;
 }
 
-.nav-text{
-
-    display: flex;
-    justify-content: start;
-    list-style: none;
-    height: 50px;
-    padding: 1rem;
-}
-
-.nav-text a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2rem;
-    margin-left: 1rem;
-}
-
-
-.nav-text2{
-
-    display: flex;
-    justify-content: start;
-
-    list-style:none;
-    height: 70px;
-    width: auto;
-    padding: 1rem;
-    background-color: #212121;
-    border: solid 1px #fff;
-    
-    align-items: center;
-    margin-left: -18%;
-    margin-top: 5% ;
-}
-
-
-
-.nav-menu-items2{
-    width:74%;
-    height: 50%;
-    margin:0;
-    padding: 0;
-    background-color: #212121;
-    top: 0;
-   
-    
-   
-    
-}
-
-.nav-text2:hover {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2rem;
-    background-color: #464646;
-    cursor: pointer;
-    
-}
-
-.nav-text:hover {
-background-color: rgba(144,144,144, 0.219);
-cursor: pointer;
-
-}
-
-
-
 .nav-menu-items{
     width:100%;
 
 }
 
-
 .nav-icon{
     padding-right: 1rem;
     color: #909090;
-}
-
-#logo{
-    color:#464646;
-    padding-right:0.2rem;
 }
 
 #navbar-toggle{
@@ -283,7 +180,6 @@ cursor: pointer;
     display: flex;
     justify-content: start;
     align-items: center;
-    
 }
 
 navbar-toggle h1{
@@ -308,17 +204,13 @@ navbar-toggle a {
     margin-right: 15px;
 }
 
-
 .cerrar{
     font-family: 'Poppins', sans-serif;
     color: #fff;
     margin-right: 3%;
     text-decoration: none;
     font-size: 1.2rem;
-    
-  
-    
-   
+
 }
 
 .cerrar:hover{
@@ -329,25 +221,15 @@ navbar-toggle a {
     color: #fff;
 }
 
-
+.inicio{
+    padding-left: 21px;
+    
+}
 
 </style>
 
 
-
-
-
-
-
 <body>
-
-
-
-
-
-
-
-
 
 
     <div id="navbar">
@@ -355,20 +237,12 @@ navbar-toggle a {
             <i class="fas fa-bars"></i>
        </a>
        <div class="  collapse navbar-collapse d-flex flex-row-reverse ">
-           <a  class = "cerrar" href="">Cerrar sesion</a>
+           <a  class = "cerrar" href="../codes/logout.php">Cerrar Sesión</a>
        </div>
     </div>
 
 
     
-
-
-
-
-
-
-
-
     <nav id="nav-menu">
         <ul class="nav-menu-items">
             <div id="navbar-toggle">
@@ -377,39 +251,37 @@ navbar-toggle a {
                </a>
             </div>
 
-
-
-
-
-
             <nav class="nav">
-
-            
-
                 <ul class="list">
-                    <li class="list__item">
+
+
+
+                    <li class="list__item inicio">
                         <div class="list__button">
-                            <!-- fontawesome -->
-                            <a href="#"  class="nav__link" >  </a ><i class="fa-solid fa-book-bookmark">  </i>Inicio 
+                            <a href="index.php"  class="nav__link" >  <i class="fa-solid fa-book-bookmark">  </i>Inicio  </a >
                         </div>
                     </li>
+
+
+
+
 
 
                         <!-- 1 HAMBURGESA -->
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas  <i class=" list__arrow fa-solid fa-angle-right"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>MENU 1  <i class=" list__arrow fa-solid fa-angle-right"></i>
                             
                             
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                                <a href="asignaturas.php"  class=" nav__link nav__link__inside"  >OPCION 1   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
+                                <a href="asignar_asignatura.php" class=" nav__link nav__link__inside" >OPCION 2  </a >
                             </li>
                         </ul>
                     </li>
@@ -423,13 +295,13 @@ navbar-toggle a {
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas <i class=" list__arrow fa-solid fa-angle-right"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 2 <i class=" list__arrow fa-solid fa-angle-right"></i>
                             
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1   </a>
                             </li>
                             <li class="list__inside">
                                 <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
@@ -438,18 +310,17 @@ navbar-toggle a {
                     </li>
 
 
-
                         <!-- 3 HAMBURGESA -->
-                          <li class="list__item list__item--click" >
+                    <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas  <i class=" list__arrow fa-solid fa-angle-right"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 3  <i class=" list__arrow fa-solid fa-angle-right"></i>
                           
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1   </a>
                             </li>
                             <li class="list__inside">
                                 <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
@@ -457,15 +328,11 @@ navbar-toggle a {
                         </ul>
                     </li>
 
-
-
-
-                    
                         <!-- 4 HAMBURGESA -->
-                        <li class="list__item list__item--click" >
+                    <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas   <i class="  fa-solid fa-angle-right list__arrow"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 4   <i class="  fa-solid fa-angle-right list__arrow"></i>
 
                                
                          
@@ -473,18 +340,13 @@ navbar-toggle a {
                         <!-- primer submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1  </a>
                             </li>
                             <li class="list__inside">
                                 <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
                             </li>
                         </ul>
                     </li>
-
-
-
-
-
 
                 </ul>
 
@@ -494,12 +356,7 @@ navbar-toggle a {
 
 
 
-
-
-
-
-
-
+    <!-- Este script es para que aparezca y desaparezca el sidebar -->
     <script>
         let listElements = document.querySelectorAll('.list__button__click');
 
@@ -519,9 +376,7 @@ navbar-toggle a {
             })
         })
 
-
     </script>
-
 
 
     <!-- Este script es para que aparezca y desaparezca el sidebar -->
@@ -542,7 +397,8 @@ navbar-toggle a {
     })
 
     </script>
+    <!-- Este script es para que aparezca y desaparezca el sidebar -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>          
 </body>
