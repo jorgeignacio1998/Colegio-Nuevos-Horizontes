@@ -29,7 +29,7 @@ body{
 
 
 .nav{
-    width:300px;
+    width:340px;
     /* background-color: #212121; */
 }
 
@@ -45,10 +45,12 @@ body{
 .nav__link__inside{
     border-radius: 6px;
     padding-left: 20px;
+    color:#fff;
 }
 
 .nav__link__inside:hover{
 background: #fff;
+color: #212121;
 
     
 }
@@ -59,7 +61,7 @@ background: #fff;
 .list{
     width: 70%;
     /* posicion altura */
-    height: 60vh;      
+    height: 80vh;      
      /* posicion altura */  
     display: flex;
     justify-content: center;
@@ -81,6 +83,7 @@ background: #fff;
      color: #fff;
      margin-left: -50px;
      cursor: pointer;
+     
        
     
 }
@@ -89,9 +92,14 @@ background: #fff;
      margin-left: -40px;
      cursor: pointer;
      color: orangered;
+     transition: .5s;
      
     
 }
+
+
+
+
 
 .list__item__click{
     cursor: pointer;
@@ -103,12 +111,21 @@ background: #fff;
     gap: 1em;
     width: 89%;
     margin: 0 auto;
-     /* color: #fff; */
+    
 }
+
+.list__button:hover .fa-solid{
+    color: orangered;
+    
+}
+
+
+
 
 
 .arrow .list__arrow{
     transform: rotate(90deg);
+    
 }
 
 .list__arrow{
@@ -160,7 +177,7 @@ background-color: #464646;
 
 #nav-menu{
     background-color: #212121;
-    width: 250px;
+    width: 300px;
     height: 100vh;
     display: flex;
     justify-content:center;
@@ -308,9 +325,10 @@ navbar-toggle a {
     color: orangered;
 }
 
-.hola{
-    width: 150%;
+.fa-angle-right{
+    color: #fff;
 }
+
 
 
 </style>
@@ -381,8 +399,9 @@ navbar-toggle a {
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
-                            <img src="svg/arrow.svg" class="list__arrow">
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas  <i class=" list__arrow fa-solid fa-angle-right"></i>
+                            
+                            
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
@@ -404,8 +423,8 @@ navbar-toggle a {
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
-                            <img src="svg/arrow.svg" class="list__arrow">
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas <i class=" list__arrow fa-solid fa-angle-right"></i>
+                            
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
@@ -424,8 +443,8 @@ navbar-toggle a {
                           <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
-                            <img src="svg/arrow.svg" class="list__arrow">
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas  <i class=" list__arrow fa-solid fa-angle-right"></i>
+                          
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
@@ -446,8 +465,10 @@ navbar-toggle a {
                         <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
-                            <img src="svg/arrow.svg" class="list__arrow">
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas   <i class="  fa-solid fa-angle-right list__arrow"></i>
+
+                               
+                         
                         </div>
                         <!-- primer submenu -->
                         <ul class="list__show">
