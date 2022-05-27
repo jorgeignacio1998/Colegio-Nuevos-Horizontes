@@ -30,14 +30,16 @@ body{
 
 .nav{
     width:300px;
+    /* background-color: #212121; */
 }
 
 .nav__link{
-    color: #303440;
+    color: #fff;
     display: block;
     padding: 15px 0;
     text-decoration: none;
     align-items: start;
+    
 }
 
 .nav__link__inside{
@@ -55,7 +57,7 @@ background: #fff;
 
 
 .list{
-    width: 100%;
+    width: 70%;
     /* posicion altura */
     height: 60vh;      
      /* posicion altura */  
@@ -63,7 +65,8 @@ background: #fff;
     justify-content: center;
     flex-direction: column;
     border-radius: 0 16px 16px 0;
-    background: #fff;
+    background-color: #212121;
+
     
     
 }
@@ -75,6 +78,19 @@ background: #fff;
      overflow: hidden; 
      /* esten separaditos */
      margin-top: 15px;
+     color: #fff;
+     margin-left: -50px;
+     cursor: pointer;
+       
+    
+}
+.list__item:hover{
+  
+     margin-left: -40px;
+     cursor: pointer;
+     color: orangered;
+     
+    
 }
 
 .list__item__click{
@@ -85,8 +101,9 @@ background: #fff;
     display: flex;
     align-items: center;
     gap: 1em;
-    width: 70%;
+    width: 89%;
     margin: 0 auto;
+     /* color: #fff; */
 }
 
 
@@ -108,9 +125,9 @@ background: #fff;
 }
 
 .list__show{
-    width: 80%;
+    width: 100%;
     margin-left: auto;
-    border-left: 2px solid #303440;
+    border-left: 2px solid #fff;
     list-style: none;
     transition: height .4s;
     height: 0;
@@ -274,12 +291,6 @@ navbar-toggle a {
     margin-right: 15px;
 }
 
-.nav-section{
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 .cerrar{
     font-family: 'Poppins', sans-serif;
@@ -297,7 +308,9 @@ navbar-toggle a {
     color: orangered;
 }
 
-
+.hola{
+    width: 150%;
+}
 
 
 </style>
@@ -351,88 +364,118 @@ navbar-toggle a {
 
 
 
+            <nav class="nav">
 
-
-
-           
-            <div class="nav-section">
-                <li  class="nav-text"><a  href="asignaturas.php">   <i class="fa-solid fa-book-bookmark"> </i >chao</a></li>
-            </div>
             
-        </ul>
-        
-                   
-      
+
+                <ul class="list">
+                    <li class="list__item">
+                        <div class="list__button">
+                            <!-- fontawesome -->
+                            <a href="#"  class="nav__link" >  </a ><i class="fa-solid fa-book-bookmark">  </i>Inicio 
+                        </div>
+                    </li>
+
+
+                        <!-- 1 HAMBURGESA -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
+                            <img src="svg/arrow.svg" class="list__arrow">
+                        </div>
+                        <!-- primer submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+
+
+                          <!-- 2 HAMBURGESA -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
+                            <img src="svg/arrow.svg" class="list__arrow">
+                        </div>
+                        <!-- primer submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                        <!-- 3 HAMBURGESA -->
+                          <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
+                            <img src="svg/arrow.svg" class="list__arrow">
+                        </div>
+                        <!-- primer submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                    
+                        <!-- 4 HAMBURGESA -->
+                        <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas 
+                            <img src="svg/arrow.svg" class="list__arrow">
+                        </div>
+                        <!-- primer submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+
+
+                </ul>
+
+            </nav>
+        </ul> 
     </nav>
 
 
 
 
 
-<!-- 
-    el negro -->
 
-
-
-
-    <nav class="nav">
-        
-        <ul class="list">
-            <li class="list__item">
-                <div class="list__button">
-                    <img src="svg/dashboard.svg" class="list__img">
-                    <a href="#"  class="nav__link" >Inicio   </a >
-                </div>
-            </li>
-            <li class="list__item list__item--click" >
-                <div class="list__button list__button__click">
-                    <img src="svg/book.svg" class="list__img">
-                    <a href="#" class="nav__link" >Asignaturas   </a >
-                    <img src="svg/arrow.svg" class="list__arrow">
-                </div>
-                <!-- submenu -->
-                <ul class="list__show">
-                    <li class="list__inside">
-                        <a href="#"  class=" nav__link nav__link__inside"  >Asignar Profesor   </a>
-                    </li>
-                    <li class="list__inside">
-                        <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
-                    </li>
-                    
-                </ul>
-
-
-
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <img src="svg/book.svg" class="list__img">
-                    <a href="#" class="nav__link" >estadisticas   </a >
-                </div>
-            </li>
-            <li class="list__item list__item__lick">
-                <div class="list__button list__button__click">
-                    <img src="svg/book.svg" class="list__img">
-                    <a href="#" class="nav__link" >Profesores   </a >
-                    <img src="svg/arrow.svg" class="list__arrow">
-                </div>
-                <!-- submenu -->
-                <ul class="list__show">
-                    <li class="list__inside">
-                        <a href="#" class="nav__link nav__link__inside">Asignar curso   </a >
-                    </li>
-                    <li class="list__inside">
-                        <a href="#" class="nav__link nav__link__inside" >Clases  </a >
-                    </li>
-                    
-                </ul>
-
-
-
-            </li>
-
-        </ul>
-    </nav>
 
 
 
