@@ -299,6 +299,7 @@ $resultado = mysqli_query($mysqli, $query2);
 
 
             <?php foreach( $resultado as $row ){ ?>
+                
                 <div class="col-md-5 ms-5 mt-5">
                
                     <div class="card-columns">

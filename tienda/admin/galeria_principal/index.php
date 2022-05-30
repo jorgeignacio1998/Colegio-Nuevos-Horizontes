@@ -219,8 +219,7 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
                         
                                 <div class="card" style="width: 20rem;">
                                     <img src="../productos/img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">           
-                                    <a onclick="return confirm('¿estas seguro quie quieres eliminar a esta imagen?')"
-                                    class="text-danger" href="d_galeria.php?id_foto=<?php echo $row['ID_G'];?>&codigo=<?php echo $codigo;?>">   <i class="bi bi-trash"></i></a>  
+                                    
                                 </div>
                                 
                             </div>
@@ -228,13 +227,17 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
 
                         <?php }  } ?>
                
-                    </div> 
-                </div>
+                      </div> 
+                    </div>
             </div>     <!-- card -->
-
         </div>
     </div>
 </div>
 
+
+
+
+
 </body>
 </html>
+
