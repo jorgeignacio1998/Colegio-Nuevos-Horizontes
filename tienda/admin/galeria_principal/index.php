@@ -46,6 +46,9 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
     }
    
 
+.separados {
+    justify-content: space-between;
+}
 
 </style>
 <body>
@@ -194,6 +197,41 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
                     <h3 id="_titulo">Seleccionar Imagen</h3>   
                     <hr>  
 
+                    <!-- AGREGADO CON EXITO-->
+
+                        <?php
+                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'success') {
+                        ?>
+
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>SE HA AGREGADO CORRECTAMENTE LA IMAGEN A LA GALERIA PRINCIPAL</strong> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        
+                        <?php
+                        }
+                        ?>
+                                        
+                    <!-- AGREGADO CON EXITO-->
+
+
+                    <!-- ELIMINADO  CON EXITO -->
+
+                            <?php
+                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
+                        ?>
+
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>LA IMAGEN SE HA QUITADO CORRECTAMENTE DE LA GALERIA PRINCIPAL</strong> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        
+                        <?php
+                        }
+                        ?>
+                                    
+                    <!-- ELIMINADO  CON EXITO-->
+
                     <div class="row col1 ">
 
                         <?php  
@@ -213,15 +251,35 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
    
                         ?>
 
-                        <div class="col-md-5 ms-5 mt-5">
+                        <div class="col-md-5 ms-4 mt-5">
                     
                             <div class="card-columns">
                         
-                                <div class="card" style="width: 20rem;">
+                                <div class="card" style="width: 19rem;">
                                     <img src="../productos/img/<?php  echo $row['FOTO'];      ?>" class="card-img-top" alt="...">           
-                                    
+                                   
+                                  
+                                    <div class="row ">
+                                        <div class="col-6 ">
+                                            <a onclick="return confirm('¿estas seguro que quieres agregar esta imagen a la galeria principal?')"
+                                            class="text-success"
+                                            href="c_agregarGaleria.php?id_foto=<?php echo $row['ID_G'];?>&id_producto=<?php echo $id_producto;?>">   
+                                            <i class="bi bi-box-arrow-in-up"></i> </a>
+                                        </div>
+                                        <div class="col-6 d-flex flex-row-reverse">
+                                            <a onclick="return confirm('¿estas seguro que quieres Eliminar esta imagen de la galeria principal')"
+                                            class="text-danger"
+                                            href="c_eliminarGaleria.php?id_foto=<?php echo $row['ID_G'];?>&id_producto=<?php echo $id_producto;?>">   
+                                            <i class="bi bi-box-arrow-in-down"></i> </a>
+                                        </div>
+
+
+
+                                    </div>
+
+
                                 </div>
-                                
+                               
                             </div>
                         </div>
 

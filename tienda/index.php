@@ -33,6 +33,17 @@
                 <h2 class="main-title">Nuevos productos</h2>
             </div>
             <section class="container-products">
+
+
+
+
+
+
+
+
+
+
+
                 <div class="product">
                     <img src="img/prod2/b1.PNG" alt="" class="product__img">
                     <div class="product__description">
@@ -41,6 +52,21 @@
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+<!-- 
                 <div class="product">
                     <img src="img/prod2/b2.PNG" alt="" class="product__img">
                     <div class="product__description">
@@ -101,9 +127,9 @@
                         <span class="product__price">$79.990</span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
-                </div>
+                </div> -->
 
-            </section>
+           
     </main>
     <br><br><BR> <BR> </BR></BR>
 
