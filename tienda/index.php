@@ -1,5 +1,6 @@
 <?php  
     include 'vistas/header.php';
+    include 'codes/connect.php';
 ?>
 
 
@@ -32,32 +33,35 @@
             <div class="container">
                 <h2 class="main-title">Nuevos productos</h2>
             </div>
+
+           
+
             <section class="container-products">
 
-
-
-
-
-
-
+                <?php
+                $query = ("SELECT * FROM galeria INNER JOIN productos ON galeria.ID_PRODUCTO = productos.ID WHERE galeria.PRINCIPAL = 1");
+                $resultado = mysqli_query($mysqli, $query);
+                foreach( $resultado as $row ){ 
+                ?>
 
 
 
 
                 <div class="product">
-                    <img src="img/prod2/b1.PNG" alt="" class="product__img">
+                    <img src="admin/productos/img/<?php    echo $row['FOTO'];      ?>" class="product__img" >         
+                   
                     <div class="product__description">
-                        <h3 class="product__title">Hot Summer 2022</h3>
-                        <span class="product__price">$55.990</span>
+                        <h3 class="product__title">  <?php    echo $row['NOMBRE'];      ?>  </h3>
+                        <span class="product__price">    <?php    echo '$'. $row['PRECIO'];      ?></span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
                 </div>
 
 
+                <?php  } ?>
 
 
-
-                </section>
+            </section>
 
 
 
