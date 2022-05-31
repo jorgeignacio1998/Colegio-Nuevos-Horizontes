@@ -127,7 +127,7 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
                         ?>
 
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>SE HA AGREGADO CORRECTAMENTE LA IMAGEN A LA GALERIA PRINCIPAL</strong> 
+                            <strong>SE HA AGREGADO CORRECTAMENTE LA IMAGEN AL SLIDER</strong> 
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         
@@ -145,7 +145,7 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
                         ?>
 
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>LA IMAGEN SE HA QUITADO CORRECTAMENTE DE LA GALERIA PRINCIPAL</strong> 
+                            <strong>LA IMAGEN SE HA QUITADO CORRECTAMENTE DEL SLIDER</strong> 
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         
@@ -183,7 +183,7 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
                                    
                                         <a onclick="return confirm('¿estas seguro que quieres quitar esta imagen del slider? ')"
                                         class="text-danger"
-                                        href="c_eliminar.php?id_foto=<?php echo $row['ID'];?>">   
+                                        href="c_eliminar.php?id_imagen=<?php echo $row['ID'];?>">   
                                         <i class="bi bi-trash"></i> </a>
  
                                 </div>
