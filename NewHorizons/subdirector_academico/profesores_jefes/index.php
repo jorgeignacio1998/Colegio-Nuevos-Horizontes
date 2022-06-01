@@ -4,27 +4,6 @@ $datos_cursos = $mysqli->query("SELECT * FROM cursos");
 
 
 
-$inner = $mysqli->query("SELECT *,
- cursos.ID as curid,
- cursos.NOMBRE as curnom,
- grados.NIVEL as graniv,
- profesores_jefes.ID as proid,
- profesores.NOMBRE as pronom
-
- 
-
- FROM cursos
- INNER JOIN grados                 
- ON cursos.ID_GRADO = grados.ID
-
- INNER JOIN profesores_jefes
- ON cursos.ID_PROFESOR_JEFE = profesores_jefes.ID 
-
- INNER JOIN profesores
- ON profesores_jefes.ID_PROFESOR = profesores.ID
-
-
-  ");
 
 ?>
 
@@ -255,6 +234,27 @@ $inner = $mysqli->query("SELECT *,
                             </thead>
                             <tbody >
                                 <?php     //IMPRIMIR DATOS EN LOS td
+
+                                
+                            $inner = $mysqli->query("SELECT *,
+                                
+                                cursos.NOMBRE as curnom,
+                                grados.NIVEL as graniv,
+                                profesores.NOMBRE as pronom
+                            
+
+
+
+                            FROM jefaturas
+                            INNER JOIN cursos                 
+                            ON jefaturas.ID_CURSO = cursos.ID
+                            INNER JOIN profesores
+                            ON jefaturas.ID_PROFESOR = profesores.ID
+                            INNER JOIN grados                 
+                            ON cursos.ID_GRADO = grados.ID
+
+
+                            ");
    
                                 while($fila =mysqli_fetch_array($inner) ) {
 
@@ -263,13 +263,9 @@ $inner = $mysqli->query("SELECT *,
                                 <tr >
 
                                    
-                                <td scope="row"><?php echo $fila['curid']; ?></td>
+                                    <td scope="row"><?php echo $fila['ID_JEFATURA']; ?></td>
                                     <td ><?php echo $fila['graniv'] . ' ' . $fila['curnom'] ; ?></td>
-
-
-
                                     <td ><?php echo $fila['pronom']; ?></td>
-                                   
                                     
 
                                     
@@ -335,7 +331,7 @@ $inner = $mysqli->query("SELECT *,
                                     //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
                                     //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
                                     while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['graniv'] . ' ' .$data['curnom'] ); ?>
+                                <option value="<?php echo $data["curid"]; ?>"><?php echo utf8_encode($data['graniv'] . ' ' .$data['curnom'] ); ?>
 
                                     <?php } ?>
                             </select>  

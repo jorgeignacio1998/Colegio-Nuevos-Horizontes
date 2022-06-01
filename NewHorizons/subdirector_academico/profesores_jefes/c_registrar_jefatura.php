@@ -14,7 +14,7 @@ $error = array();
   
 
     
-    $query = "INSERT INTO profesores_jefes (ID_CURSO,ID_PROFESOR) VALUES ('{$curso}','{$profesor}') ";
+    $query = "INSERT INTO jefaturas (ID_PROFESOR,ID_CURSO) VALUES ('{$profesor}','{$curso}') ";
     
 
 
