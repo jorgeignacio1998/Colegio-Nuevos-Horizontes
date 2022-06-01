@@ -310,7 +310,7 @@ navbar-toggle a {
                                 <a href="cursos/index.php"  class=" nav__link nav__link__inside"  >Lista de Cursos   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="profesores_jefes/index.php" class=" nav__link nav__link__inside" >Asignar profesor Jefe   </a >
+                                <a href="jefaturas/index.php" class=" nav__link nav__link__inside" >Asignar profesor Jefe   </a >
                             </li>
                         </ul>
                     </li>
