@@ -78,7 +78,7 @@ $inner = $mysqli->query("SELECT *,
 
 
     <?php 
-    include '../navside.php';
+    include 'navside.php';
     ?>
 
 

@@ -1,5 +1,5 @@
 <?php
-include 'seguridad_subdirector.php';
+include '../seguridad_subdirector.php';
 
 
 // $query10 = $mysqli->query("SELECT * FROM asignaturas_profes");

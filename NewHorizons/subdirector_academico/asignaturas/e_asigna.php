@@ -1,5 +1,5 @@
 <?php
-require 'seguridad_subdirector.php';
+require '../seguridad_subdirector.php';
 if(!isset($_POST['codigo'])){
     header('Location: index.php?mensaje=error');
 }
@@ -19,12 +19,12 @@ $query = "UPDATE asignaturas SET  NOMBRE = '{$nombre}', ID_GRADO = '{$grado}'  W
 
 if(mysqli_query($mysqli, $query)){
     
-    echo "<script>location.href='asignaturas.php?mensaje=editado';</script>";
+    echo "<script>location.href='index.php?mensaje=editado';</script>";
 
     die();
 }
 else{
-    echo "<script>location.href='asignaturas.php?mensaje=error';</script>";
+    echo "<script>location.href='index.php?mensaje=error';</script>";
 
     die();
   

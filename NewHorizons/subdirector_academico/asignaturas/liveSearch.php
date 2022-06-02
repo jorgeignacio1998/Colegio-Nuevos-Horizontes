@@ -1,6 +1,6 @@
 <?php 
 
-include '../codes/connect.php';
+include '../../codes/connect.php';
 
 
 $datos_asignaturas = $mysqli->query("SELECT * FROM asignaturas"); //obteniendo los datos

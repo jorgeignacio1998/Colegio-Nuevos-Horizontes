@@ -1,6 +1,6 @@
 <?php 
 
-include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
+include '../seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
 
     $usuario_logueado = $_SESSION['usuario'];

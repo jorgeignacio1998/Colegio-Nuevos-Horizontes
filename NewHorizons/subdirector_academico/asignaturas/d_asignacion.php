@@ -1,5 +1,5 @@
 <?php 
-include 'seguridad_subdirector.php';
+include '../seguridad_subdirector.php';
 
 if(!isset($_GET['id_asignacion'])){
     header('Location: index.php?mensaje=error');

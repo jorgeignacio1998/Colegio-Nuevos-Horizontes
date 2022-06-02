@@ -1,5 +1,5 @@
 <?php 
-include 'seguridad_subdirector.php';
+include '../seguridad_subdirector.php';
 $error = array();
 
 

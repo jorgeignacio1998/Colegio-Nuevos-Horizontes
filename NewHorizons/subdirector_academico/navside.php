@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Navside del  subdirector</title>
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> 
@@ -284,10 +284,10 @@ navbar-toggle a {
                         <!-- primer submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="asignaturas.php"  class=" nav__link nav__link__inside"  >Lista de asignaturas   </a>
+                                <a href="asignaturas/index.php"  class=" nav__link nav__link__inside"  >Lista de asignaturas   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="asignar_asignatura.php" class=" nav__link nav__link__inside" >Asignar asignaturas  </a >
+                                <a href="asignaturas/asignar_asignatura.php" class=" nav__link nav__link__inside" >Asignar asignaturas  </a >
                             </li>
                         </ul>
                     </li>

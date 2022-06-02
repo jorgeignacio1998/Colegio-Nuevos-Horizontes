@@ -1,5 +1,5 @@
 <?php  
-include 'seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
+include '../seguridad_alumno.php';    //BD, SEGURIDAD NIVEL, SESSION.
 $usuario_logueado = $_SESSION['usuario'];
 if(!isset($_SESSION['usuario'])){
    echo'
@@ -177,8 +177,8 @@ if(!isset($_SESSION['usuario'])){
                   
                     
 
-<?php include 'sendAlertas.php';
-?>
+                     <?php include 'sendAlertas.php';
+                     ?>
 
 
 

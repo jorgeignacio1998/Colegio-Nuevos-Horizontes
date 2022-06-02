@@ -1,5 +1,5 @@
 <?php
-include 'seguridad_subdirector.php';
+include '../seguridad_subdirector.php';
 $id_asignacion = $_GET['id_asignacion'];
 if(!isset($_GET['id_asignacion'])) {
 

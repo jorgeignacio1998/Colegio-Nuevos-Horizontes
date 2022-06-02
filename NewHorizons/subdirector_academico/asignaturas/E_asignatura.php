@@ -1,5 +1,5 @@
 <?php
-include 'seguridad_subdirector.php';
+include '../seguridad_subdirector.php';
 $codigo = $_GET['codigo'];
 if(!isset($_GET['codigo'])) {
 

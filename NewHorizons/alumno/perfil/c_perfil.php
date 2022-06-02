@@ -1,5 +1,5 @@
 <?php
-require '../codes/connect.php';  //coneccion BD
+require '../seguridad_alumno.php';  //coneccion BD
 session_start(); //Paso 1 para utilizar sesiones
 //manejar los datos del usuario
 $usuario_logueado = $_SESSION['usuario'];
@@ -38,7 +38,7 @@ if(isset($_POST['contraseña1'])){
     if(!empty($_POST['contraseña1'])){
         $contraseña1 = md5($contraseña1);  
         $mysqli->query("UPDATE usuarios SET CONTRASENA = '{$contraseña1}' WHERE ID = $row[ID]");
-        header('Location:  perfil.php?mensaje=pass'); //Enviandole ALERTA metodo GET(error4), REDIRECCION
+        echo "<script>location.href='index.php?mensaje=pass';</script>";
         $c = 1;
 
     }else{ // no muestra alerta porque esto ira en otro lado seguramente  LO ULTIMO QUE VOY A HACER.
@@ -55,7 +55,8 @@ if(isset($_POST['contraseña1'])){
 if(!empty($_POST['telefono'])){
     if(!preg_match("$regexTelefono", $_POST['telefono'])){
         array_push($error, "El formato del telefono es invalido");
-        header('Location:  perfil.php?mensaje=error4'); 
+        echo "<script>location.href='index.php?mensaje=error4';</script>";
+      
        
     }else{
         echo 'Buen formato';
@@ -80,11 +81,11 @@ if(count($error)==0) //NO ERRORES DE FORMATO
 { 
     if(empty($nombre_img) and $telefono == $row['TELEFONO'] ){ 
         if($contraseña1 == $row['CONTRASENA']){
-            
-            header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS
+            echo "<script>location.href='index.php?mensaje=error6';</script>";
         }
         if($nombre_img == '' and  $telefono == $row['TELEFONO'] and $_POST['contraseña1']== ''){
-            header('Location:  perfil.php?mensaje=error6'); //ALERTA NO CAMBIOS REALIZADOS PORQUE TODOS LOS DATOS ESTAN VACIOS
+            //ALERTA NO CAMBIOS REALIZADOS PORQUE TODOS LOS DATOS ESTAN VACIOS
+            echo "<script>location.href='index.php?mensaje=error6';</script>";
         }
     
     
@@ -103,8 +104,8 @@ if(count($error)==0) //NO ERRORES DE FORMATO
         }
         }
 
-        header('Location: perfil.php?mensaje=guardado');  //ALERTA CAMBIOS REALIZADOS
-        
+       
+        echo "<script>location.href='index.php?mensaje=guardado';</script>";
     }
 
 

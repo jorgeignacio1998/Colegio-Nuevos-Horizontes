@@ -1,5 +1,5 @@
 <?php
-require 'seguridad_subdirector.php';
+require '../seguridad_subdirector.php';
 $error = array();
 
 
@@ -19,12 +19,12 @@ $error = array();
     
     if(mysqli_query($mysqli, $query)){
     
-        echo "<script>location.href='asignaturas.php?mensaje=registrado';</script>";
+        echo "<script>location.href='index.php?mensaje=registrado';</script>";
     
         die();
     }
     else{
-        echo "<script>location.href='asignaturas.php?mensaje=error';</script>";
+        echo "<script>location.href='index.php?mensaje=error';</script>";
     
         die();
       

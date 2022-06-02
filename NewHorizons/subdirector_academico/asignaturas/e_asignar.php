@@ -1,5 +1,5 @@
 <?php
-require 'seguridad_subdirector.php';
+require '../seguridad_subdirector.php';
 $error = array();
 if(!isset($_POST['id_asignacion'])){
     header('Location: index.php?mensaje=error');
