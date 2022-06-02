@@ -8,6 +8,7 @@ if(!isset($_POST['id_curso'])){
 $grado = $_POST["grado"];
 $nombre = $_POST["nombre"];
 $regexNombre = "/^[A-Za-z]+$/"; 
+//no espacios, no simbolos ni numeros, solo una palabra natural.
 $id_sala= $_POST["sala"];
 
 

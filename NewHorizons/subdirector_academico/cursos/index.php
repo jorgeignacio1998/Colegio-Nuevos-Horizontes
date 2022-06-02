@@ -98,19 +98,6 @@ $inner = $mysqli->query("SELECT *,
 
 
 
-                <!--  1. Primera ALERTA, campos no vacios para el registro -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'falta') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error</strong> Los campos no pueden ir vacios.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?> 
-                <!--  1. termino  CAMPOS VACIOS -->
 
                 
                 <!-- 2.  alerta  registrado  success -->
@@ -119,7 +106,7 @@ $inner = $mysqli->query("SELECT *,
                 ?>
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>registro realizado exitosamente</strong> 
+                    <strong>Registro realizado exitosamente</strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -161,7 +148,7 @@ $inner = $mysqli->query("SELECT *,
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Se han eliminado los datos correctamente </strong> 
+                    <strong>El curso se ha eliminado con exito</strong> 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -171,51 +158,56 @@ $inner = $mysqli->query("SELECT *,
 
 
 
-                 <!-- 6  alerta FORTMATO ERROR .  -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato1') {
-                ?>
 
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>FORMATO INCORRECTO</strong> El nombre no puede tener numeros o simbolos.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+             
+                <!-- 6 formato nombre  -->
                 <?php
-                }
-                ?>
-                <!-- 6  alerta FORTMATO ERROR   -->
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nombre') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> El formato del nombre es incorrecto.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- 6 formato nombre  -->
 
                 
-                 <!-- 7  alerta FORTMATO ERROR .  -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato2') {
-                ?>
 
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>FORMATO INCORRECTO</strong> No se realizaron cambios.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                <!--7 sala en uso  -->
                 <?php
-                }
-                ?>
-                <!-- 7  alerta FORTMATO ERROR   -->
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'sala_clonada') {
+                    ?>
 
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> La sala ya está en uso.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- 7 sala en uso  -->
+
+
+                <!-- curso clonado  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'curso_clonado') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> El curso ya existe.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- curso clonado   -->
+
+               
 
                  
-                 <!-- 9  alerta CORREO OCUPADO ERROR 9 .  -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error9') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>ERROR</strong> El correo ingresado ya esta en uso.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                <!--  9  alerta CORREO OCUPADO ERROR 9    -->
-
 
 
 
@@ -243,7 +235,7 @@ $inner = $mysqli->query("SELECT *,
                                     <th scope="col">Grado</th>
                                     <th scope="col">Nombre del curso</th>                                        
                                     <th scope="col">Numero de la Sala</th>
-                                    <th scope="col">Profesor Jefe</th>
+                                   
 
 
                                     <th scope="col" colspan="2">Opciones</th>

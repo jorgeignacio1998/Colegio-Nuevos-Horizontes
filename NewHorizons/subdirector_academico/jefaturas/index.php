@@ -76,54 +76,70 @@ $datos_cursos = $mysqli->query("SELECT * FROM cursos");
 
 
 
+                <!--1-  Profesor jefe ya tiene un curso   -->
+                    <?php
+                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'no_disponible') {
+                        ?>
+
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>ERROR</strong> El profesór ya tiene una jefatura asociada.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php
+                        }
+                    ?>
+                  <!--1-  Profesor jefe ya tiene un curso   -->
+
+
+
+
+                <!--1-  El curso ya tiene profesor jefe  -->
+                    <?php
+                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'curso_no_disponible') {
+                        ?>
+
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>ERROR</strong> El curso ya tiene un profesór jefe.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php
+                        }
+                    ?>
+                 <!--1-  El curso ya tiene profesor jefe  -->
 
 
 
 
 
-
-
-                <!--  1. Primera ALERTA, campos no vacios para el registro -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'falta') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error</strong> Los campos no pueden ir vacios.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?> 
-                <!--  1. termino  CAMPOS VACIOS -->
+                 
 
                 
                 <!-- 2.  alerta  registrado  success -->
                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado') {
-                ?>
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado') {
+                    ?>
 
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>registro realizado exitosamente</strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Registro realizado exitosamente</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
                 ?>
                  <!-- 2. alerta registrado  success -->
 
 
                  <!-- 3 alerta ERROR, seguridad.  -->
                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error') {
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error') {
                 ?>
 
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error</strong> Vuelve a intentar.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Error</strong> Vuelve a intentar.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php
-                }
+                    }
                 ?>
                 <!-- 3 alerta ERROR  -->
 
@@ -156,50 +172,10 @@ $datos_cursos = $mysqli->query("SELECT * FROM cursos");
 
 
 
-                 <!-- 6  alerta FORTMATO ERROR .  -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato1') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>FORMATO INCORRECTO</strong> El nombre no puede tener numeros o simbolos.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                <!-- 6  alerta FORTMATO ERROR   -->
-
-                
-                 <!-- 7  alerta FORTMATO ERROR .  -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato2') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>FORMATO INCORRECTO</strong> No se realizaron cambios.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                <!-- 7  alerta FORTMATO ERROR   -->
+               
 
 
-                 
-                 <!-- 9  alerta CORREO OCUPADO ERROR 9 .  -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error9') {
-                ?>
 
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>ERROR</strong> El correo ingresado ya esta en uso.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                <!--  9  alerta CORREO OCUPADO ERROR 9    -->
 
 
 
