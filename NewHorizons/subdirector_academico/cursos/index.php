@@ -265,8 +265,8 @@ $inner = $mysqli->query("SELECT *,
                                     
 
 
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a class="text-primary" href="E_curso.php?id_curso=<?php echo $fila['curid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar_curso.php?id_curso=<?php echo $fila['curid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
