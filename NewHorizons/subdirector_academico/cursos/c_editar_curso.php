@@ -16,8 +16,7 @@ $id_curso= $_POST["id_curso"];
 
 // echo '<script language="javascript">alert("'.$row['ID_SALA'].'");</script>';
 // echo '<script language="javascript">alert("'.$id_sala.'");</script>';
-
-
+//usando alertas
 
 // esta sentencia es para usarlas para validar datos clonados.
 $datos = $mysqli->query("SELECT * FROM cursos WHERE ID LIKE '{$id_curso}' ");

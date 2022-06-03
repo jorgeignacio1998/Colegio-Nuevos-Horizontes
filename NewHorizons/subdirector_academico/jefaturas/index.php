@@ -249,7 +249,7 @@ $datos_cursos = $mysqli->query("SELECT * FROM cursos");
                                     
 
 
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID_JEFATURA']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a class="text-primary" href="E_jefatura.php?id_jefatura=<?php echo $fila['ID_JEFATURA']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <td><a onclick="return confirm('¿estas seguro de eliminar a esta jefatura')" class="text-danger" href="c_eliminar_jefatura.php?id_jefatura=<?php echo $fila['ID_JEFATURA']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
