@@ -5,45 +5,41 @@
 
 
     <br><br>
-    <div id="slideshow-principal">
-        <div id="progress-bar-container">
-            <div id="progress-bar"> </div>
-        </div>
-           
-        <div id=slideshow>
 
 
 
 
-            
-            <?php
-            $querySlider = ("SELECT * FROM slider_imagenes ");
-            $resultadoSlider = mysqli_query($mysqli, $querySlider);
-            $variable = 1;
-            foreach( $resultadoSlider as $row ){ 
-                $imagenes[]= "'slider/img/$row[NOMBRE_IMAGEN]'";
-            ?>
 
-            <img class="dd" src="slider/img/<?php    echo $row['NOMBRE_IMAGEN'];      ?>" id="img<?php echo $variable; ?>" >
+    
 
 
-            <?php  
-                $variable++;
-            } ?>
 
-        </div>
-                <!-- <img class="dd" src="slider/img/1.jpg" id="img1" >
-                <img class="dd" src="slider/img/2.PNG" id="img2" >
-                <img class="dd" src="slider/img/3.jpg" id="img3" >
-                <img class="dd" src="slider/img/4.jpg" id="img4" >
-                <img class="dd" src="slider/img/5.jpg" id="img5" >
-                <img class="dd " src="slider/img/6.jpg" id="img6" > -->
-            <div id="indicadores">
 
-            </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <br><br><br><br>
+
+
+
+
+
 
 
 
@@ -201,7 +197,7 @@
 
 
 
-<script>  const imagenes = [<?php echo implode(',', $imagenes); ?>] </script>
-<script src="slider/js/slider.js?2" ></script>
+
+
 </body>
 </html>
