@@ -10,14 +10,34 @@
             <div id="progress-bar"> </div>
         </div>
            
-            <div id=slideshow>
-                <img class="dd" src="slider/img/1.jpg" id="img1" >
+        <div id=slideshow>
+
+
+
+
+            
+            <?php
+            $querySlider = ("SELECT * FROM slider_imagenes ");
+            $resultadoSlider = mysqli_query($mysqli, $querySlider);
+            $variable = 1;
+            foreach( $resultadoSlider as $row ){ 
+                $imagenes[]= "'slider/img/$row[NOMBRE_IMAGEN]'";
+            ?>
+
+            <img class="dd" src="slider/img/<?php    echo $row['NOMBRE_IMAGEN'];      ?>" id="img<?php echo $variable; ?>" >
+
+
+            <?php  
+                $variable++;
+            } ?>
+
+        </div>
+                <!-- <img class="dd" src="slider/img/1.jpg" id="img1" >
                 <img class="dd" src="slider/img/2.PNG" id="img2" >
                 <img class="dd" src="slider/img/3.jpg" id="img3" >
                 <img class="dd" src="slider/img/4.jpg" id="img4" >
                 <img class="dd" src="slider/img/5.jpg" id="img5" >
-                <img class="dd " src="slider/img/6.jpg" id="img6" >
-            </div>
+                <img class="dd " src="slider/img/6.jpg" id="img6" > -->
             <div id="indicadores">
 
             </div>
@@ -51,7 +71,7 @@
                     <img src="admin/productos/img/<?php    echo $row['FOTO'];      ?>" class="product__img" >         
                    
                     <div class="product__description">
-                        <h3 class="product__title">  <?php    echo $row['NOMBRE'];      ?>  </h3>
+                        <A href="producto/index.php?id_producto=<?php    echo $row['ID'];      ?>" class="product__title"> <h3> <?php    echo $row['NOMBRE'];      ?> </h3></A>
                         <span class="product__price">    <?php    echo '$'. $row['PRECIO'];      ?></span>
                     </div>
                     <i class="product__icon fa-solid fa-cart-plus"></i>
@@ -181,7 +201,7 @@
 
 
 
-
-<script src="slider/js/slider.js " ></script>
+<script>  const imagenes = [<?php echo implode(',', $imagenes); ?>] </script>
+<script src="slider/js/slider.js?2" ></script>
 </body>
 </html>
