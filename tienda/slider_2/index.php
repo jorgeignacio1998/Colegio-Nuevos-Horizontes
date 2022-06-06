@@ -1,5 +1,5 @@
 <?php  
-    include '../codes/connect.php';
+     include '../codes/connect.php';
   
 
 
@@ -28,14 +28,14 @@
 
 <style>
     
-.contene{
+.slider_contenedor{
     position: relative;
     z-index: 999;
     height: 630px;
     
 }
 
-.img{
+.slider_img{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -52,8 +52,8 @@
 <body>
     <header class="main-header">
 
-        <div class="contene">
-            <img id='slideshow2'  class="img"                  src='<?php echo $imagenes[0]; ?>'  /> 
+        <div class="slider_contenedor">
+            <img id='slideshow2'  class="slider_img"                  src='<?php echo $imagenes[0]; ?>'  /> 
         </div>
         <br style='clear:both;'>
         <br style='clear:both;'>
@@ -65,16 +65,16 @@
 
 
     <script>
-        const imagenes = [<?php echo implode(',', $imagenes2); ?>]
-    $(document).ready( function(){
-        $( imagenes ).each(function( index ) { 
-            setTimeout(() => {  
-                $('#slideshow2').attr('src', imagenes[index])
-            }, 4000 * index)
+            const imagenes = [<?php echo implode(',', $imagenes2); ?>]
+        $(document).ready( function(){
+            $( imagenes ).each(function( index ) { 
+                setTimeout(() => {  
+                    $('#slideshow2').attr('src', imagenes[index])
+                }, 4000 * index)
+            });
         });
-    });
 
-</script>
+    </script>
 
   
 </body>

@@ -5,12 +5,59 @@
 
 
 
-<body>
+ 
+<style>
+    
+.slider_contenedor{
+    position: relative;
+    z-index: 999;
+    height: 630px;
+    
+}
 
+.slider_img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    object-fit: cover;
+}
+
+</style>
+
+
+<body>
+    <?php  
+        //Slider Obteniendo imagenes
+    
+        $querySlider = ("SELECT * FROM slider_imagenes ");
+        $resultadoSlider = mysqli_query($mysqli, $querySlider);
+        $variable = 1;
+        foreach( $resultadoSlider as $row ){ 
+            $imagenes[]= "slider_2/img/$row[NOMBRE_IMAGEN]"; 
+            $imagenes2[]= "'slider_2/img/$row[NOMBRE_IMAGEN]'"; 
+            $variable++;
+        } 
+
+         //Slider Obteniendo imagenes
+    ?>
 
  
     <br><br>
+    
 
+   
+
+        <div class="slider_contenedor">
+            <img id='slideshow2'  class="slider_img"  src='<?php echo $imagenes[0]; ?>'  /> 
+        </div>
+        <br style='clear:both;'>
+        <br style='clear:both;'>
+
+        <br><br><br><br>
+
+        </section>
 
     
 
@@ -95,9 +142,19 @@
 
 
 
+    <!-- slider javascript -->
+    <script>
+            const imagenes = [<?php echo implode(',', $imagenes2); ?>]
+        $(document).ready( function(){
+            $( imagenes ).each(function( index ) { 
+                setTimeout(() => {  
+                    $('#slideshow2').attr('src', imagenes[index])
+                }, 4000 * index)
+            });
+        });
 
-
-
+    </script>
+    <!-- slider javascript -->
 
 
 
