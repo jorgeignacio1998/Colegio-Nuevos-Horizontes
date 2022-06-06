@@ -43,59 +43,50 @@
          //Slider Obteniendo imagenes
     ?>
 
- 
-    <br><br>
-    
-
-   
-
-        <div class="slider_contenedor">
-            <img id='slideshow2'  class="slider_img"  src='<?php echo $imagenes[0]; ?>'  /> 
-        </div>
-        <br style='clear:both;'>
-        <br style='clear:both;'>
-
-        <br><br><br><br>
-
-        </section>
-
-    
 
 
+    <br><br><br>
+    <div class="slider_contenedor">
+        <img id='slideshow2'  class="slider_img"  src='<?php echo $imagenes[0]; ?>'  /> 
+    </div>
+    <br style='clear:both;'>
+    <br style='clear:both;'>
     <br><br><br><br>
+
+       
     <main class="main">
-            <div class="container">
-                <h2 class="main-title">Nuevos productos</h2>
-            </div>
+        <div class="container">
+            <h2 class="main-title">Nuevos productos</h2>
+        </div>
 
            
 
-            <section class="container-products">
+        <section class="container-products">
 
-                <?php
-                $query = ("SELECT * FROM galeria INNER JOIN productos ON galeria.ID_PRODUCTO = productos.ID WHERE galeria.PRINCIPAL = 1");
-                $resultado = mysqli_query($mysqli, $query);
-                foreach( $resultado as $row ){ 
-                ?>
-
-
+            <?php
+            $query = ("SELECT * FROM galeria INNER JOIN productos ON galeria.ID_PRODUCTO = productos.ID WHERE galeria.PRINCIPAL = 1");
+            $resultado = mysqli_query($mysqli, $query);
+            foreach( $resultado as $row ){ 
+            ?>
 
 
-                <div class="product">
-                    <img src="admin/productos/img/<?php    echo $row['FOTO'];      ?>" class="product__img" >         
+
+
+            <div class="product">
+                <img src="admin/productos/img/<?php    echo $row['FOTO'];      ?>" class="product__img" >         
                    
-                    <div class="product__description">
-                        <A href="producto/index.php?id_producto=<?php    echo $row['ID'];      ?>" class="product__title"> <h3> <?php    echo $row['NOMBRE'];      ?> </h3></A>
-                        <span class="product__price">    <?php    echo '$'. $row['PRECIO'];      ?></span>
-                    </div>
-                    <i class="product__icon fa-solid fa-cart-plus"></i>
+                <div class="product__description">
+                    <A href="producto/index.php?id_producto=<?php    echo $row['ID'];      ?>" class="product__title"> <h3> <?php    echo $row['NOMBRE'];      ?> </h3></A>
+                    <span class="product__price">    <?php    echo '$'. $row['PRECIO'];      ?></span>
                 </div>
+                <i class="product__icon fa-solid fa-cart-plus"></i>
+            </div>
 
 
-                <?php  } ?>
+            <?php  } ?>
 
 
-            </section>
+        </section>
 
 
            

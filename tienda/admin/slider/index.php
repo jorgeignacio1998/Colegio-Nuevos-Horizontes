@@ -179,7 +179,7 @@ include '../c_seguridad.php';     //Seguridad y Base de datos.
                             <div class="card-columns">
                         
                                 <div class="card" style="width: 19rem;">
-                                    <img src="../../slider/img/<?php  echo $row['NOMBRE_IMAGEN'];      ?>" class="card-img-top" >           
+                                    <img src="../../slider_2/img/<?php  echo $row['NOMBRE_IMAGEN'];      ?>" class="card-img-top" >           
                                    
                                         <a onclick="return confirm('¿estas seguro que quieres quitar esta imagen del slider? ')"
                                         class="text-danger"
