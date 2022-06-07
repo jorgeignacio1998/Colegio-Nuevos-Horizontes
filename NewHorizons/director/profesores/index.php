@@ -215,9 +215,9 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                                 <tr>
                                     
                                     <th scope="col">#</th>
-                                    <th scope="col">Grado</th>
-                                    <th scope="col">Nombre del curso</th>                                        
-                                    <th scope="col">Numero de la Sala</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Rut</th>                                        
+                                    
                                    
 
 
@@ -227,21 +227,21 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                             <tbody >
                                 <?php     //IMPRIMIR DATOS EN LOS td
    
-                                while($fila =mysqli_fetch_array($inner) ) {
+                                while($fila =mysqli_fetch_array($profesores) ) {
 
                                     
                                 ?>
                                 <tr >
 
-                                    <td scope="row"><?php echo $fila['curid']; ?></td>
-                                    <td ><?php echo $fila['graniv']; ?></td>
-                                    <td ><?php echo $fila['curnom']; ?></td>
-                                    <td ><?php echo $fila['salnum']; ?></td>
+                                    <td scope="row"><?php echo $fila['ID']; ?></td>
+                                    <td ><?php echo $fila['NOMBRE']; ?></td>
+                                    <td ><?php echo $fila['RUT']; ?></td>
+                                    
                                     
 
 
-                                    <td><a class="text-primary" href="E_curso.php?id_curso=<?php echo $fila['curid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar_curso.php?id_curso=<?php echo $fila['curid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a class="text-primary" href="E_curso.php?id_curso=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar_curso.php?id_curso=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>

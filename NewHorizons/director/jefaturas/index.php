@@ -191,7 +191,7 @@ $datos_cursos = $mysqli->query("SELECT * FROM cursos");
                 <!-- siguiendo con la estructura de la tabla (primer col) -->
                <div  class="card ">
                    <div class="card-header">
-                       Lista de usuarios                                     
+                       Lista de Jefaturas                                     
                        <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Buscar...">                          <!-- aca-->
                    </div>
 

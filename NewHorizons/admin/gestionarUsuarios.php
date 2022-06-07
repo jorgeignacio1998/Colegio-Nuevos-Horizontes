@@ -9,22 +9,37 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../styles/s1.css?<?php echo time(); ?>" >  <!-- CSS -->
+
     <title>Gestionar usuarios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  <!-- Ajax cdn jquery 3.6 -->
     
-    
+    <!-- Estos dos son para el rut verificador -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="../codes/jquery.rut.js"></script>  
+    <!-- Estos dos son para el rut verificador -->
     
     <style>
-        .col1{
-            Height:650px; overflow-y:scroll;
-        }
-
+      
 
      
+        *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body{
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.col1{
+            Height:650px; overflow-y:scroll;
+        }
 
 
 
@@ -110,6 +125,35 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
     });
 </script>
 <!-- Termino BUSQUEDA con Jquery -->   
+
+
+<!-- Inicio RUT VERIFICADOR con Jquery -->   
+
+<script>
+    $(function() {
+        $("#_rut").rut().on('rutValido', function(e, rut, dv) {
+           $('#_rut').attr('style','border-color:green');
+           $('#_boton').removeClass('estilo_deshabilitado').removeAttr('disabled')
+        });
+
+        $("#_rut").rut().on('rutInvalido', function(e) {
+           $('#_rut').val('').attr('style','border-color:red');
+           $('#_boton').addClass('estilo_deshabilitado').attr('disabled','disabled')
+        }); 
+
+        $('#_boton').click(function(){ 
+
+
+        })
+    })
+</script>
+
+    <style>
+        .estilo_deshabilitado { background:#aaa!important; }
+    </style>
+
+<!-- Termino RUT VERIFICADOR con Jquery -->   
+
 
 
 
@@ -210,7 +254,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                 ?>
 
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>FORMATO INCORRECTO</strong> El nombre no puede tener numeros o simbolos.
+                    <strong>ERROR </strong> El nombre no puede tener numeros o simbolos.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -225,7 +269,23 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                 ?>
 
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>FORMATO INCORRECTO</strong> No se realizaron cambios.
+                    <strong>ERROR</strong> El formato del correo es invalido.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 7  alerta FORTMATO ERROR   -->
+
+
+
+                 <!-- 7  alerta FORTMATO ERROR .  -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato3') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El formato del Rut es invalido.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -273,7 +333,8 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                                 <tr>
                                     
                                     <th scope="col">#</th>
-                                    <th scope="col">Nombre completo</th>                              
+                                    <th scope="col">Nombre completo</th>       
+                                    <th scope="col">Rut</th>       
                                     <th scope="col">Correo electrónico</th>
                                     <th scope="col">Nivel</th>
                                     <th scope="col" colspan="2">Opciones</th>
@@ -290,6 +351,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
 
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
                                     <td ><?php echo $fila['NOMBRE']; ?></td>
+                                    <td ><?php echo $fila['RUT']; ?></td>
                                     <td ><?php echo $fila['EMAIL']; ?></td>
                                     <td ><?php echo $fila['NIVEL']; ?></td>
 
@@ -335,7 +397,13 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de to
                         <div class="mb-3">
                             <label for="_1" class="form-label">Nombre completo: </label>
                             <input type="text" class="form-control" name="txtNombre" autofocus required id="_1">
-                        </div>             
+                        </div>   
+                                
+                        <div class="mb-3">
+                            <label for="_1" class="form-label">Rut: </label>
+                            <input  label="_rut" class="form-control" type="text" name="rut"  autofocus required id="_rut" >
+                        </div>
+
                         <div class="mb-3">
                             <label for="_2" class="form-label">Correo electrónico: </label>
                             <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2">
