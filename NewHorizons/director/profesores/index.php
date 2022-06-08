@@ -13,7 +13,7 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lista de cursos</title>
+    <title>Lista de Profesores</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  <!-- Ajax cdn jquery 3.6 -->
@@ -24,6 +24,12 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
         }
 
     </style>
+
+    <!-- Estos dos son para el rut verificador -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="../../codes/jquery.rut.js"></script>  
+    <!-- Estos dos son para el rut verificador -->
+    
 
 </head>
 <body>
@@ -58,6 +64,36 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
     });
 </script>
 <!-- Termino BUSQUEDA con Jquery -->   
+
+
+
+<!-- Inicio RUT VERIFICADOR con Jquery -->   
+
+<script>
+    $(function() {
+        $("#_rut").rut().on('rutValido', function(e, rut, dv) {
+           $('#_rut').attr('style','border-color:green');
+           $('#_boton').removeClass('estilo_deshabilitado').removeAttr('disabled')
+        });
+
+        $("#_rut").rut().on('rutInvalido', function(e) {
+           $('#_rut').val('').attr('style','border-color:red');
+           $('#_boton').addClass('estilo_deshabilitado').attr('disabled','disabled')
+        }); 
+
+        $('#_boton').click(function(){ 
+
+
+        })
+    })
+</script>
+
+    <style>
+        .estilo_deshabilitado { background:#aaa!important; }
+    </style>
+
+<!-- Termino RUT VERIFICADOR con Jquery -->   
+
 
 
     <?php 
@@ -112,6 +148,9 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                 ?>
                 <!-- 3 alerta ERROR  -->
 
+
+
+
                 <!-- 4.  alerta    editado  success -->
                  <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
@@ -126,6 +165,9 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                 ?> 
                 <!-- 4. alerta    registrado  success -->
 
+
+
+
                 <!-- 5.  alerta    eliminado  success -->
                 <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
@@ -138,6 +180,7 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                 }
                 ?> 
                 <!-- 5. alerta    eliminado  success, TERMINO DE TODAS LAS ALERTAS-->
+
 
 
 
@@ -156,37 +199,42 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                     }
                     ?>
                 <!-- 6 formato nombre  -->
+                
+                
+                
+                
+                <!-- 7 formato RUT  -->
+                <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_rut') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> El formato del RUT es incorrecto.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- 7 formato RUT  -->
 
                 
 
-                <!--7 sala en uso  -->
-                <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'sala_clonada') {
+                
+
+
+                <!-- rut_repetido  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'rut_repetido') {
                     ?>
 
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERROR</strong> La sala ya está en uso.
+                        <strong>ERROR</strong> El Profesor ya existe.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <?php
                     }
                     ?>
-                <!-- 7 sala en uso  -->
-
-
-                <!-- curso clonado  -->
-                    <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'curso_clonado') {
-                    ?>
-
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERROR</strong> El curso ya existe.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                <!-- curso clonado   -->
+                <!-- rut_repetido   -->
 
                
 
@@ -276,53 +324,27 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                <div class="card">
                  
                    <div class="card-header">
-                       Registrar curso:
+                       Registrar Profesor:
                    </div>
                    <form action="c_registrar.php" method="POST" class="p-4" >
 
                    
                             
-                        <div class="mb-3">
-                            <label class="form-label lab" for="_6">Grado</label > 
-                            <select name="grado" class="form-control"  required  id="_6" >
-                                <option disabled selected value >  </option>
-                                    <?php
-                                    $sqlTipo = "SELECT * FROM grados order by ID";
-                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
-                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NIVEL']); ?>
-
-                                    <?php } ?>
-                            </select>  
-                        </div>   
+                   
                            
                         <div class="mb-3">
-                            <label for="_2" class="form-label">Nombre del curso: </label>
+                            <label for="_2" class="form-label">Nombre: </label>
                             <input type="text" class="form-control" name="nombre" autofocus required id="_2">
                         </div>
 
-
-
                         <div class="mb-3">
-                            <label class="form-label lab" for="_6">Numero de sala</label > 
-                            <select name="sala" class="form-control"  required  id="_6" >
-                                <option disabled selected value >  </option>
-                                    <?php
-                                    $sqlTipo = "SELECT * FROM salas order by ID";
-                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
-                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NUMERO']); ?>
-
-                                    <?php } ?>
-                            </select>  
-                        </div>   
-
-
+                            <label for="_1" class="form-label">Rut: </label>
+                            <input  label="_rut" class="form-control" type="text" name="rut"  autofocus required id="_rut" >
+                        </div>
                         
+
+
+
                         <div class="d-grid mt-5">
                             <input type="submit" class="btn btn-primary" value="Registrar">
                         </div>
