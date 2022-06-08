@@ -56,6 +56,9 @@ if(!preg_match($regexRut, $rut)){
 //3.- rut existe
 
 
+
+
+
 if(count($error)==0){
 
 

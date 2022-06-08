@@ -108,147 +108,9 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
        <div class="row justify-content-center">
            <div  class="col-md-7">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
 
-
-
-
-
-
-
-
-
-
-
-                
-                <!-- 2.  alerta  registrado  success -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado') {
+                <?php 
+                include 'alertas_profesor.php';
                 ?>
-
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Registro realizado exitosamente</strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                 <!-- 2. alerta registrado  success -->
-
-
-                 <!-- 3 alerta ERROR, seguridad.  -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error') {
-                ?>
-
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error</strong> Vuelve a intentar.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                <!-- 3 alerta ERROR  -->
-
-
-
-
-                <!-- 4.  alerta    editado  success -->
-                 <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
-                ?>
-
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Cambios realizados exitosamente</strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?> 
-                <!-- 4. alerta    registrado  success -->
-
-
-
-
-                <!-- 5.  alerta    eliminado  success -->
-                <?php
-                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
-                ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>El curso se ha eliminado con exito</strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?> 
-                <!-- 5. alerta    eliminado  success, TERMINO DE TODAS LAS ALERTAS-->
-
-
-
-
-
-             
-                <!-- 6 formato nombre  -->
-                <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nombre') {
-                    ?>
-
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERROR</strong> El formato del nombre es incorrecto.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                <!-- 6 formato nombre  -->
-                
-                
-                
-                
-                <!-- 7 formato RUT  -->
-                <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_rut') {
-                    ?>
-
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERROR</strong> El formato del RUT es incorrecto.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                <!-- 7 formato RUT  -->
-
-                
-
-                
-
-
-                <!-- rut_repetido  -->
-                    <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'rut_repetido') {
-                    ?>
-
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERROR</strong> El Profesor ya existe.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                <!-- rut_repetido   -->
-
-               
-
-                 
-
-
-
-
-
-
-
-
-
-
 
                 <!-- siguiendo con la estructura de la tabla (primer col) -->
                <div  class="card ">
@@ -288,8 +150,8 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
                                     
 
 
-                                    <td><a class="text-primary" href="E_curso.php?id_curso=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar_curso.php?id_curso=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a class="text-primary" href="E_profesor.php?id_profesor=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este profesor?')" class="text-danger" href="c_eliminar_profesor.php?id_profesor=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
