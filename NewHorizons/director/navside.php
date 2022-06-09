@@ -344,11 +344,36 @@ navbar-toggle a {
 
 
 
+                    <!-- usuarios -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Cuentas<i class=" list__arrow fa-solid fa-angle-right"></i>
+                          
+                        </div>
+                        <!--  submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="cuentas/index.php"  class=" nav__link nav__link__inside"  >Gestionar Cuentas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- usuarios -->
+
+
+
+
+
+
+
+
+
+
                     <!-- Libro de clases -->
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>libro de clases <i class="  fa-solid fa-angle-right list__arrow"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Libro de clases<i class="  fa-solid fa-angle-right list__arrow"></i>
 
                                
                          

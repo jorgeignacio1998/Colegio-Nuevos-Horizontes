@@ -36,15 +36,19 @@ if(!preg_match($regexRut, $rut)){
 
 
 
-// 2.- Validacion sala ya en uso
-// if($row['ID_CURSO'] !== $id_curso ){
-//     $query2 = $mysqli->query("SELECT * FROM jefaturas WHERE ID_CURSO LIKE '{$id_curso}' ");
-//     $res2 = mysqli_num_rows($query2);
-//     if($res2 > 0){
-//         array_push($error, "Curso no disponible");
-//         echo "<script>location.href='E_jefatura.php?id_jefatura=$id_jefatura&mensaje=curso_ocupado';</script>";
-//     }
-// }
+// 2.- Validacion profesor ya existe
+$datos = $mysqli->query("SELECT * FROM profesores WHERE ID LIKE '{$id_profesor}' ");
+$row =mysqli_fetch_array($datos);
+
+
+if($row['RUT'] !== $rut ){
+    $query2 = $mysqli->query("SELECT * FROM profesores WHERE RUT LIKE '{$rut}' ");
+    $res2 = mysqli_num_rows($query2);
+    if($res2 > 0){
+        array_push($error, "Profesor ya existe");
+        echo "<script>location.href='E_profesor.php?id_profesor=$id_profesor&mensaje=profesor_clonado';</script>";
+    }
+}
 // 2.- Validacion sala ya en uso
 
 

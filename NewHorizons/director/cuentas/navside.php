@@ -310,7 +310,7 @@ navbar-toggle a {
                                 <a href="../profesores/index.php"  class=" nav__link nav__link__inside"  >Gestionar profesores   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="index.php" class=" nav__link nav__link__inside" >Gestionar Jefaturas </a >
+                                <a href="../jefaturas/index.php" class=" nav__link nav__link__inside" >Gestionar Jefaturas </a >
                             </li>
                             <li class="list__inside">
                                 <a href="../carga/index.php" class=" nav__link nav__link__inside" >Gestionar carga academica </a >
@@ -352,11 +352,12 @@ navbar-toggle a {
                         <!--  submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="../cuentas/index.php"  class=" nav__link nav__link__inside"  >Gestionar Cuentas</a>
+                                <a href="index.php"  class=" nav__link nav__link__inside"  >Gestionar Cuentas</a>
                             </li>
                         </ul>
                     </li>
                     <!-- usuarios -->
+
 
 
 

@@ -103,6 +103,23 @@
 
                 <!-- rut_repetido  -->
                     <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'profesor_clonado') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> El Profesor ya existe.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- rut_repetido   -->
+
+
+
+
+                <!-- rut_repetido  -->
+                    <?php
                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'rut_repetido') {
                     ?>
 
@@ -114,3 +131,7 @@
                     }
                     ?>
                 <!-- rut_repetido   -->
+
+
+
+                
