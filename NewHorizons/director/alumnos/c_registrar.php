@@ -89,10 +89,10 @@ if(count($error)==0){
               
     if(mysqli_query($mysqli, $query)){
        
-        echo "<script>location.href='index.php?mensaje=registrado';</script>";
+        echo "<script>location.href='editar.php?mensaje=registrado';</script>";
         
     }else{
-        echo "<script>location.href='index.php?mensaje=error';</script>";
+        echo "<script>location.href='editar.php?mensaje=error';</script>";
         exit();
     }
     

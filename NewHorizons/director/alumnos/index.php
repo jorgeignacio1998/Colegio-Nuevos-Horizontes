@@ -1,9 +1,10 @@
 <?php
 include '../seguridad_director.php'; 
-$datos_usuario = $mysqli->query("SELECT *,
+$datos_matriculados = $mysqli->query("SELECT *,
 grados.NIVEL as graniv,
 periodos.ANO as periano,
-periodos.SEMESTRE as perise
+periodos.SEMESTRE as perise,
+matriculados.ID as matrid
 FROM matriculados 
 INNER JOIN grados 
 ON matriculados.ID_GRADO = grados.ID
@@ -204,21 +205,21 @@ ORDER BY ID_GRADO ");
                             <tbody >
                                 <?php     //IMPRIMIR DATOS EN LOS td
    
-                                while($fila =mysqli_fetch_array($datos_usuario) ) {
+                                while($fila =mysqli_fetch_array($datos_matriculados) ) {
 
                                     
                                 ?>
                                 <tr >
 
-                                    <td scope="row"><?php echo $fila['ID']; ?></td>
+                                    <td scope="row"><?php echo $fila['matrid']; ?></td>
                                     <td ><?php echo $fila['NOMBRE1_ALUMNO'] . ' ' . $fila['NOMBRE2_ALUMNO'] . ' ' .  $fila['APELLIDO1_ALUMNO'] . ' ' . $fila['APELLIDO2_ALUMNO']  ; ?></td>
                                     <td ><?php echo $fila['RUT_ALUMNO']; ?></td>
                                     <td ><?php echo $fila['graniv']; ?></td>
                                     <td ><?php echo $fila['NOMBRE_APODERADO']; ?></td>
                                     <td ><?php echo $fila['RUT_APODERADO']; ?></td>
                                     <td ><?php echo $fila['perise']  . ' SEMESTRE DEL AÑO ' . $fila['periano']; ?></td>
-
-                                    <td><a class="text-primary" href="E_alumno.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    
+                                    <td><a class="text-primary" href="editar.php?id_matriculado=<?php echo $fila['matrid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <td><a onclick="return confirm('¿estas seguro de eliminar esta matricula?')" class="text-danger" href="c_eliminar.php?id_matriculado=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
