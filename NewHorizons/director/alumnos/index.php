@@ -219,7 +219,7 @@ ORDER BY ID_GRADO ");
                                     <td ><?php echo $fila['perise']  . ' SEMESTRE DEL AÑO ' . $fila['periano']; ?></td>
 
                                     <td><a class="text-primary" href="E_alumno.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar esta matricula?')" class="text-danger" href="c_eliminar.php?id_matriculado=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
