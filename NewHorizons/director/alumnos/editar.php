@@ -41,17 +41,81 @@ $sen =mysqli_fetch_array($datos_matriculados);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" type="text/css" href="../styles/navside.css?<?php echo time(); ?>" >  
+    <title>Editar alumnos</title>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  <!-- Ajax cdn jquery 3.6 -->
+    
+    <!-- Estos dos son para el rut verificador -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="../../codes/jquery.rut.js"></script>  
+    <!-- Estos dos son para el rut verificador -->
+
+
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+    
+
+
+        <!-- Inicio RUT VERIFICADOR con Jquery (alumno)  -->   
+            <script>
+                $(function() {
+                    $("#_rut").rut().on('rutValido', function(e, rut, dv) {
+                    $('#_rut').attr('style','border-color:green');
+                    $('#_boton').removeClass('estilo_deshabilitado').removeAttr('disabled')
+                    });
+
+                    $("#_rut").rut().on('rutInvalido', function(e) {
+                    $('#_rut').val('').attr('style','border-color:red');
+                    $('#_boton').addClass('estilo_deshabilitado').attr('disabled','disabled')
+                    }); 
+
+                    $('#_boton').click(function(){ 
+
+
+                    })
+                })
+            </script>
+
+                <style>
+                    .estilo_deshabilitado { background:#aaa!important; }
+                </style>
+
+        <!-- Termino RUT VERIFICADOR con Jquery -->  
+
+        <!-- Inicio RUT VERIFICADOR con Jquery (apoderado)  -->   
+            <script>
+                $(function() {
+                    $("#_rut1").rut().on('rutValido', function(e, rut, dv) {
+                    $('#_rut1').attr('style','border-color:green');
+                    $('#_boton').removeClass('estilo_deshabilitado').removeAttr('disabled')
+                    });
+
+                    $("#_rut1").rut().on('rutInvalido', function(e) {
+                    $('#_rut1').val('').attr('style','border-color:red');
+                    $('#_boton').addClass('estilo_deshabilitado').attr('disabled','disabled')
+                    }); 
+
+                    $('#_boton').click(function(){ 
+
+
+                    })
+                })
+            </script>
+
+            <style>
+                .estilo_deshabilitado { background:#aaa!important; }
+            </style>
+
+        <!-- Termino RUT VERIFICADOR con Jquery -->  
+
+    
+    
     <?php 
     include 'navside.php';
     ?>
@@ -69,7 +133,8 @@ $sen =mysqli_fetch_array($datos_matriculados);
     .col1{
         height:580px; overflow-y:scroll;
     }
-            
+
+    #close { position:absolute; left:10px; top:10px; right:10px; font-size: 30px; cursor: pointer; color: black; }
 
 
     </style>
@@ -88,7 +153,8 @@ $sen =mysqli_fetch_array($datos_matriculados);
                <div class="card segundo">
                  
                    <div class="card-header">
-                       Editar matriculado:
+                        <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
+                        <h3 id="_titulo">&nbsp; &nbsp; &nbsp; Editar matriculado:</h3>  
                    </div>
 
                    <form action="c_editar.php" method="POST" class="p-4" >
@@ -145,7 +211,7 @@ $sen =mysqli_fetch_array($datos_matriculados);
                         </div> 
                         <div class="mb-3 ">
                             <label for="_rut1" class="form-label">Rut del Apoderado: </label>
-                            <input  label="_rut" class="form-control" type="text" name="rut_apoderado" value="<?php echo $sen['RUT_APODERADO']; ?>"  autofocus required id="_rut" >
+                            <input  label="_rut" class="form-control" type="text" name="rut_apoderado" value="<?php echo $sen['RUT_APODERADO']; ?>"  autofocus required id="_rut1" >
                         </div>
 
 
