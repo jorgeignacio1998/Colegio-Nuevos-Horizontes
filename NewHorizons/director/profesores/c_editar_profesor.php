@@ -28,7 +28,7 @@ if(!preg_match("/^[a-zA-Z\s]+$/", $nombre)){
 //2.-  RUT VALIDACIONES                     
 if(!preg_match($regexRut, $rut)){
     array_push($error, "El formato es invalido");
-    echo "<script>location.href='index.php?mensaje=formato_rut';</script>";
+    echo "<script>location.href='editar.php?codigo=$codigo&mensaje=formato_nombre';</script>";    
 }  
 //-  RUT VALIDACIONES   
 

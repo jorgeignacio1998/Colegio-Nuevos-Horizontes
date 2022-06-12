@@ -1,6 +1,6 @@
 <?php
 require '../codes/seguridadAdmin.php'; //Session y Nivel == 1 y bd
-$datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
+$datos_usuario = $mysqli->query("SELECT * FROM usuarios ORDER BY NIVEL"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
 ?>
 
 <!DOCTYPE html>

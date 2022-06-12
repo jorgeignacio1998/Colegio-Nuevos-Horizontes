@@ -179,6 +179,19 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                 <!-- 11 CORREO duplicado .  -->
                 
 
+                  <!-- 6  alerta FORTMATO ERROR .  -->
+                  <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nombre') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR </strong> El nombre no puede tener numeros o simbolos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 6  alerta FORTMATO ERROR   -->
 
 
 
@@ -216,25 +229,20 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
                     </div>
                   
                     <div class="mb-5">
-                            <label class="form-label lab" for="_6">Nivel</label > 
-                                <?php  $opciones = array('1','2','3','4','5','6','7','8','9','10','11','12' );
-                                       $seleccionado = $sentencia2['NIVEL'];
-                                                        
-                                echo'
-                                <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';
-                                                     
-                                foreach($opciones as $opcion){
-                                                          
-                                    if($seleccionado == $opcion){
-                                       echo "<option selected='$seleccionado'           value='$opcion'>$opcion</option>";
-                                    }else{
-                                       echo "<option        value='$opcion'>$opcion</option>";
-                                    }
-                                  }
-                                  echo"</select>"
-                                ?>
+                                <label class="form-label lab" for="_6">Tipo de usuario</label > 
+                                <select name="txtNivel" class="form-control"  required  id="_6" >
+                                    <?php
+                                        $queryUsuarios = "SELECT * FROM niveles order by ID";
+                                        $dataNivel = mysqli_query($mysqli, $queryUsuarios);
+                                        //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                        //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                        while($data = mysqli_fetch_array($dataNivel)){ 
+                                        $selected=($sentencia2['NIVEL']==$data['ID'])?'selected':false;    
+                                        ?>
+                                        <option <?=$selected;?> value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['ID'] . ' - ' . $data['NOMBRE']); ?>
 
-
+                                    <?php } ?>
+                                </select>  
                     </div>
 
 

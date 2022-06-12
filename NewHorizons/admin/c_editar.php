@@ -18,6 +18,23 @@ $rut = $_POST['rut'];
 
 $regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
 $regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
+$regexNombre = "/^[a-zA-Z\s]+$/";
+
+
+
+//1.-  NOMBRE VALIDACIONES                     
+if(!preg_match("/^[a-zA-Z\s]+$/", $nombre)){
+    array_push($error, "El formato es invalido");
+    echo "<script>location.href='editar.php?codigo=$codigo&mensaje=formato_nombre';</script>";    
+}  
+//-   NOMBRE VALIDACIONES   
+
+
+
+
+
+
+
 
 
 //1.-  RUT VALIDACIONES                     
