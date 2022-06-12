@@ -1,6 +1,15 @@
 <?php
 include '../seguridad_director.php'; 
-$datos_usuario = $mysqli->query("SELECT * FROM matriculados ORDER BY ID_GRADO "); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
+$datos_usuario = $mysqli->query("SELECT *,
+grados.NIVEL as graniv,
+periodos.ANO as periano,
+periodos.SEMESTRE as perise
+FROM matriculados 
+INNER JOIN grados 
+ON matriculados.ID_GRADO = grados.ID
+INNER JOIN periodos
+ON matriculados.ID_PERIODO = periodos.ID
+ORDER BY ID_GRADO "); 
 ?>
 
 <!DOCTYPE html>
@@ -202,12 +211,12 @@ $datos_usuario = $mysqli->query("SELECT * FROM matriculados ORDER BY ID_GRADO ")
                                 <tr >
 
                                     <td scope="row"><?php echo $fila['ID']; ?></td>
-                                    <td ><?php echo $fila['NOMBRE_ALUMNO']; ?></td>
+                                    <td ><?php echo $fila['NOMBRE1_ALUMNO'] . ' ' . $fila['NOMBRE2_ALUMNO'] . ' ' .  $fila['APELLIDO1_ALUMNO'] . ' ' . $fila['APELLIDO2_ALUMNO']  ; ?></td>
                                     <td ><?php echo $fila['RUT_ALUMNO']; ?></td>
-                                    <td ><?php echo $fila['ID_GRADO']; ?></td>
+                                    <td ><?php echo $fila['graniv']; ?></td>
                                     <td ><?php echo $fila['NOMBRE_APODERADO']; ?></td>
                                     <td ><?php echo $fila['RUT_APODERADO']; ?></td>
-                                    <td ><?php echo $fila['ID_PERIODO']; ?></td>
+                                    <td ><?php echo $fila['perise']  . ' SEMESTRE DEL AÑO ' . $fila['periano']; ?></td>
 
                                     <td><a class="text-primary" href="E_alumno.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
