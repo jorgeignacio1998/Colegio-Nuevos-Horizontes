@@ -122,32 +122,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios ORDER BY NIVEL "); //obt
 <!-- Termino BUSQUEDA con Jquery -->   
 
 
-<!-- Inicio RUT VERIFICADOR con Jquery -->   
 
-<script>
-    $(function() {
-        $("#_rut").rut().on('rutValido', function(e, rut, dv) {
-           $('#_rut').attr('style','border-color:green');
-           $('#_boton').removeClass('estilo_deshabilitado').removeAttr('disabled')
-        });
-
-        $("#_rut").rut().on('rutInvalido', function(e) {
-           $('#_rut').val('').attr('style','border-color:red');
-           $('#_boton').addClass('estilo_deshabilitado').attr('disabled','disabled')
-        }); 
-
-        $('#_boton').click(function(){ 
-
-
-        })
-    })
-</script>
-
-    <style>
-        .estilo_deshabilitado { background:#aaa!important; }
-    </style>
-
-<!-- Termino RUT VERIFICADOR con Jquery -->   
 
 
 
