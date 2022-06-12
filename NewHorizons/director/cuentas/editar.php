@@ -110,6 +110,85 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 <div class="container mt-5">
     <div class="row justify-content-center ">
         <div class="col-md-4">
+
+
+
+
+
+
+
+
+
+                  <!-- 7  alerta FORTMATO ERROR .  -->
+                  <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato3') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El formato del Rut es invalido.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 7  alerta FORTMATO ERROR   -->
+
+                  <!-- 7  alerta FORTMATO ERROR .  -->
+                  <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato2') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El formato del email es invalido.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 7  alerta FORTMATO ERROR   -->
+
+
+
+                <!-- 10  alertaERROR 10 rut duplicado .  -->
+                <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error10') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El rut ingresado ya esta en uso.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 10  alerta ERROR 10 rut duplicado .  -->
+
+                
+                <!-- 11  CORRREO duplicado .  -->
+                <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'correo_clonado') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El Correo electronico ingresado ya esta en uso.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 11 CORREO duplicado .  -->
+                
+
+
+
+
+
+
+
+
+
+
+
             <div class="card">
                 <div class="card-header">
                 <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 

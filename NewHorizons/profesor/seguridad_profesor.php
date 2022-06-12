@@ -15,7 +15,7 @@ if(!isset($_SESSION['usuario'])){
 }
 
 
-$datos_usuarios = $mysqli->query("SELECT * FROM profesores WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+$datos_usuarios = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
 $sentencia2 = mysqli_fetch_array($datos_usuarios, MYSQLI_ASSOC); 
 
 

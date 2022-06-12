@@ -21,7 +21,7 @@ $rut = $_POST['rut'];
 //1.-  NOMBRE VALIDACIONES                     
 if(!preg_match("/^[a-zA-Z\s]+$/", $_POST['txtNombre'])){
     array_push($error, "El formato es invalido");
-    header('Location: gestionarUsuarios.php?mensaje=formato1'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    echo "<script>location.href='gestionarUsuarios.php?mensaje=formato1';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
     
 }  
 //-   NOMBRE VALIDACIONES   
@@ -30,7 +30,7 @@ if(!preg_match("/^[a-zA-Z\s]+$/", $_POST['txtNombre'])){
 //1.-  RUT VALIDACIONES                     
 if(!preg_match($regexRut, $_POST['rut'])){
     array_push($error, "El formato es invalido");
-    header('Location: gestionarUsuarios.php?mensaje=formato3'); //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+    echo "<script>location.href='gestionarUsuarios.php?mensaje=formato3';</script>"; //Enviandole ALERTA metodo GET(error1), REDIRECCION 
     
 }  
 //-  RUT VALIDACIONES   
@@ -45,7 +45,7 @@ if(!preg_match($regexRut, $_POST['rut'])){
 
 if(!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/", $_POST['txtCorreo'])){
     array_push($error, "El formato del correo es invalido");  //este mensaje no es visible al usuario, se llena en la lista error, la cual sí está vacia hara cambios en la base de datos.
-    header('Location: gestionarUsuarios.php?mensaje=formato2 '); //Enviandole ALERTA metodo GET(error3), REDIRECCION 
+    echo "<script>location.href='gestionarUsuarios.php?mensaje=formato2';</script>";
 };
     
     $validar_correo = $mysqli->query("SELECT * FROM usuarios WHERE EMAIL LIKE '{$email}' ");
@@ -53,10 +53,22 @@ if(!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/", $_POST['txt
         //esta ok, el mail si está disponible para registar.
     }else{
         array_push($error, "El correo electronico ya esta en uso ");
-        header('Location: gestionarUsuarios.php?mensaje=error9'); //Enviandole ALERTA metodo GET(error3), REDIRECCION 
+        echo "<script>location.href='gestionarUsuarios.php?mensaje=error9';</script>";
     }
 
 // fin EDITAR CORREO ELECTRONICO VALIDACIONES
+
+
+
+// 4  RUT DUPLICADO
+$rut_existe = $mysqli->query("SELECT * FROM usuarios WHERE RUT LIKE '{$rut}' ");
+if(empty($rut_existe->num_rows)){ 
+    //esta ok, el rut si está disponible para registar.
+}else{
+    array_push($error, "El rut ya esta en uso ");
+    echo "<script>location.href='gestionarUsuarios.php?mensaje=error10';</script>";
+}
+// 4  RUT DUPLICADO
 
 
 
@@ -78,9 +90,9 @@ if(count($error)==0){
 
 
     if(mysqli_query($mysqli, $query)){
-        header('Location: gestionarUsuarios.php?mensaje=registrado');
+        echo "<script>location.href='gestionarUsuarios.php?mensaje=registrado';</script>";
     }else{
-        header('Location: gestionarUsuarios.php?mensaje=error');
+        echo "<script>location.href='gestionarUsuarios.php?mensaje=error';</script>";
         exit();
     }
     

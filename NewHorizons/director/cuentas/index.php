@@ -303,6 +303,20 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios "); //obtiene datos de t
                 }
                 ?>
                 <!--  9  alerta CORREO OCUPADO ERROR 9    -->
+                 
+                 <!-- 10  alerta CORREO OCUPADO ERROR 10 rut duplicado .  -->
+                 <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error10') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El rut ingresado ya esta en uso.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                  <!-- 10  alerta CORREO OCUPADO ERROR 10 rut duplicado .  -->
 
 
 

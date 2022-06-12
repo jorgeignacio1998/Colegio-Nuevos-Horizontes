@@ -37,7 +37,7 @@ if(!preg_match($regexRut, $_POST['rut'])){
 
 
 
-//3.- EDITAR CORREO ELECTRONICO VALIDACIONES
+//3.- CORREO ELECTRONICO VALIDACIONES
 // falta una validacion por si el correo modificado esta en la base de datos. ademas mejorar el formato.  .algo(lengh 3 ) com  cl  pero no 4 letras.
 
 if(!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/", $_POST['txtCorreo'])){
@@ -53,7 +53,26 @@ if(!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/", $_POST['txt
         echo "<script>location.href='index.php?mensaje=error9';</script>";
     }
 
-// fin EDITAR CORREO ELECTRONICO VALIDACIONES
+// CORREO ELECTRONICO VALIDACIONES
+
+
+
+
+
+// 4  RUT DUPLICADO
+$rut_existe = $mysqli->query("SELECT * FROM usuarios WHERE RUT LIKE '{$rut}' ");
+if(empty($rut_existe->num_rows)){ 
+    //esta ok, el rut si está disponible para registar.
+}else{
+    array_push($error, "El rut ya esta en uso ");
+    echo "<script>location.href='index.php?mensaje=error10';</script>";
+}
+// 4  RUT DUPLICADO
+
+
+
+
+
 
 
 

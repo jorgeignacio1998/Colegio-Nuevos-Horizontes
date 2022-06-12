@@ -42,6 +42,14 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../styles/s1.css?<?php echo time(); ?>" >    <!-- Bootstrap CSS v5.0.2 -->
 
+
+    <!-- Estos dos son para el rut verificador -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="../codes/jquery.rut.js"></script>  
+    <!-- Estos dos son para el rut verificador -->
+
+
+
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -57,8 +65,8 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 </style>
-  </head>
-  <body>
+</head>
+<body>
 
 
       
@@ -68,71 +76,187 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 
+    <!-- Inicio RUT VERIFICADOR con Jquery -->   
 
+    <script>
+        $(function() {
+            $("#_rut").rut().on('rutValido', function(e, rut, dv) {
+            $('#_rut').attr('style','border-color:green');
+            $('#_boton').removeClass('estilo_deshabilitado').removeAttr('disabled')
+            });
+
+            $("#_rut").rut().on('rutInvalido', function(e) {
+            $('#_rut').val('').attr('style','border-color:red');
+            $('#_boton').addClass('estilo_deshabilitado').attr('disabled','disabled')
+            }); 
+
+            $('#_boton').click(function(){ 
+
+
+            })
+        })
+    </script>
+
+    <style>
+        .estilo_deshabilitado { background:#aaa!important; }
+    </style>
+
+    <!-- Termino RUT VERIFICADOR con Jquery -->   
 
                 
 
 
-<br><br><br>
-<div class="container mt-5">
-    <div class="row justify-content-center ">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                <a href="gestionarUsuarios.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
-                    <h3 id="_titulo">Editar datos</h3>
+        <br><br><br>
+        <div class="container mt-5">
+            <div class="row justify-content-center ">
+                <div class="col-md-4">
+
+
+
+
+                    <!-- 7  alerta FORTMATO ERROR .  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato3') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> El formato del Rut es invalido.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                    <!-- 7  alerta FORTMATO ERROR   -->
+
+
+                    <!-- 10  alertaERROR 10 rut duplicado .  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error10') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> El rut ingresado ya esta en uso.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                    <!-- 10  alerta ERROR 10 rut duplicado .  -->
+
+
+
+
+                    <!-- 11  CORRREO duplicado .  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'correo_clonado') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR</strong> El Correo electronico ingresado ya esta en uso.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                    <!-- 11 CORREO duplicado .  -->
+
+
+
+                    <!-- 7  alerta FORTMATO ERROR .  -->
+                  <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato2') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> El formato del email es invalido.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <form action="c_editar.php" method="POST" class="p-4" >
-                    <div class="mb-3">
-                        <label for="_1" class="form-label">Nombre completo: </label>
-                        <input type="text" class="form-control" name="txtNombre" autofocus required id="_1" value="<?php echo $sentencia2['NOMBRE'];  ?>">
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="_2" class="form-label">Correo electrónico: </label>
-                        <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2" value="<?php echo $sentencia2['EMAIL'];  ?>" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="_5" class="form-label">Contraseña: </label>
-                        <input type="password" class="form-control" name="txtPass" autofocus required id="_5" value="<?php echo $sentencia2['CONTRASENA'];  ?>" >
-                    </div>
-                  
-                    <div class="mb-5">
-                            <label class="form-label lab" for="_6">Nivel</label > 
-                                <?php  $opciones = array('1','2','3','4','5','6','7','8','9','10','11','12' );
-                                       $seleccionado = $sentencia2['NIVEL'];
-                                                        
-                                echo'
-                                <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';
-                                                     
-                                foreach($opciones as $opcion){
-                                                          
-                                    if($seleccionado == $opcion){
-                                       echo "<option selected='$seleccionado'           value='$opcion'>$opcion</option>";
-                                    }else{
-                                       echo "<option        value='$opcion'>$opcion</option>";
-                                    }
-                                  }
-                                  echo"</select>"
-                                ?>
-
-
-                    </div>
+                <?php
+                }
+                ?>
+                <!-- 7  alerta FORTMATO ERROR   -->
 
 
 
-                    <div class="form-group row justify-content-center d-grid ">
-                        <div class="col-sm-6 ">
-                            <input type="hidden"  name="codigo" value="<?php echo $codigo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
-                            <input type="submit" class="btn btn-primary" value="Guardar cambios">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="gestionarUsuarios.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
+                            <h3 id="_titulo">Editar datos</h3>
                         </div>
-                        
-                    </div>
-                </form>
-            </div>
+                        <form action="c_editar.php" method="POST" class="p-4" >
 
+                            <div class="mb-3">
+                                <label for="_1" class="form-label">Nombre completo: </label>
+                                <input type="text" class="form-control" name="txtNombre" autofocus required id="_1" value="<?php echo $sentencia2['NOMBRE'];  ?>">
+                            </div>
+
+                            <div class="mb-3">
+                                    <label for="_rut" class="form-label">Rut: </label>
+                                    <input  label="_rut" class="form-control" type="text" name="rut"  autofocus required id="_rut" >
+                            </div>
+
+                        
+                            <div class="mb-3">
+                                <label for="_2" class="form-label">Correo electrónico: </label>
+                                <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2" value="<?php echo $sentencia2['EMAIL'];  ?>" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="_5" class="form-label">Contraseña: </label>
+                                <input type="password" class="form-control" name="txtPass" autofocus required id="_5" value="<?php echo $sentencia2['CONTRASENA'];  ?>" >
+                            </div>
+                    
+                            <div class="mb-5">
+                                    <label class="form-label lab" for="_6">Nivel</label > 
+                                        <?php  $opciones = array('1','2','3','4','5','6','7','8','9','10','11','12' );
+                                            $seleccionado = $sentencia2['NIVEL'];
+                                                                
+                                        echo'
+                                        <select class="form-select" aria-label="Disabled select example"  name="txtNivel"  id="_6">';
+                                                            
+                                        foreach($opciones as $opcion){
+                                                                
+                                            if($seleccionado == $opcion){
+                                            echo "<option selected='$seleccionado'           value='$opcion'>$opcion</option>";
+                                            }else{
+                                            echo "<option        value='$opcion'>$opcion</option>";
+                                            }
+                                        }
+                                        echo"</select>"
+                                        ?>
+
+
+                            </div>
+
+
+
+                            <div class="form-group row justify-content-center d-grid ">
+                                <div class="col-sm-6 ">
+                                    <input type="hidden"  name="codigo" value="<?php echo $codigo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
+                                    <input type="submit" class="btn btn-primary" value="Guardar cambios">
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 </body>
 </html>
