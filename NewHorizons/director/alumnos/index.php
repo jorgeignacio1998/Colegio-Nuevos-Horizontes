@@ -220,7 +220,7 @@ ORDER BY ID_GRADO ");
                                     <td ><?php echo $fila['perise']  . ' SEMESTRE DEL AÑO ' . $fila['periano']; ?></td>
                                     
                                     <td><a class="text-primary" href="editar.php?id_matriculado=<?php echo $fila['matrid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar esta matricula?')" class="text-danger" href="c_eliminar.php?id_matriculado=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar esta matricula?')" class="text-danger" href="c_eliminar.php?id_matriculado=<?php echo $fila['matrid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
@@ -302,14 +302,23 @@ ORDER BY ID_GRADO ");
                             </div> 
                         </div>
                       
-                           <div class="mb-3">
+                            <div class="mb-3">
                                <label for="7" class="form-label">Nombre Completo del Apoderado: </label>
                                <input type="text" class="form-control" name="nombre_apoderado" autofocus required id="7">
-                           </div> 
-                           <div class="mb-3 ">
-                                <label for="_rut1" class="form-label">Rut del Apoderado: </label>
-                                <input  label="_rut" class="form-control" type="text" name="rut_apoderado"  autofocus required id="_rut1" >
+                            </div> 
+                            <div class="row">
+                                <div class="mb-3 col-6 ">
+                                    <label for="_rut1" class="form-label">Rut del Apoderado: </label>
+                                    <input  label="_rut" class="form-control" type="text" name="rut_apoderado"  autofocus required id="_rut1" >
+                                </div>
+                                <div class="mb-3 col-6 ">
+                                    <label for="9" class="form-label">Email del Apoderado: </label>
+                                    <input class="form-control" type="email" name="email"  autofocus required id="9" >
+                                </div>
+
+
                             </div>
+                           
                        
                       
                         <?php 

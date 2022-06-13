@@ -4,6 +4,8 @@ $error = array();
 
 $regexNombre = "/^[a-zA-Z\s]+$/";
 $regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
+$regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
+
 
 $nombre1 = $_POST["nombre1"];
 $nombre2 = $_POST['nombre2'];
@@ -14,7 +16,7 @@ $grado = $_POST['grado'];
 $nombre_apoderado = $_POST['nombre_apoderado'];
 $rut_apoderado = $_POST['rut_apoderado'];
 $periodo_id = $_POST['periodo_id'];
-
+$email_apoderado = $_POST['email'];
 
 
 
@@ -79,22 +81,59 @@ $periodo_id = $_POST['periodo_id'];
 // VALIDACION RUT ALUMNO YA MATRICULADO
 
 
+//  FORMATO CORREO ELECTRONICO 
+    if(!preg_match($regexEmail, $email_apoderado )){
+        array_push($error, "El formato del correo es invalido");  //este mensaje no es visible al usuario, se llena en la lista error, la cual sí está vacia hara cambios en la base de datos.
+        echo "<script>location.href='index.php?mensaje=correo1';</script>";
+    };
+//  FORMATO CORREO ELECTRONICO 
+
+
+
+
+
 
 
 if(count($error)==0){
 
 
-    $query = "INSERT INTO matriculados (NOMBRE1_ALUMNO , NOMBRE2_ALUMNO , APELLIDO1_ALUMNO , APELLIDO2_ALUMNO , NOMBRE_APODERADO ,  RUT_ALUMNO , RUT_APODERADO , ID_GRADO , ID_PERIODO) 
-              VALUES ('{$nombre1}', '{$nombre2}', '{$apellido1}', '{$apellido2}', '{$nombre_apoderado}', '{$rut_alumno}' , '{$rut_apoderado}', '{$grado}', '{$periodo_id}') ";
-              
-    if(mysqli_query($mysqli, $query)){
-       
-        echo "<script>location.href='editar.php?mensaje=registrado';</script>";
+    
+            
         
-    }else{
-        echo "<script>location.href='editar.php?mensaje=error';</script>";
-        exit();
-    }
+ 
+  
+ 
+    
+
+
+    $query1 = "INSERT INTO matriculados (NOMBRE1_ALUMNO , NOMBRE2_ALUMNO , APELLIDO1_ALUMNO , APELLIDO2_ALUMNO  ,  RUT_ALUMNO  , ID_GRADO , ID_PERIODO) 
+              VALUES ('{$nombre1}', '{$nombre2}', '{$apellido1}', '{$apellido2}',  '{$rut_alumno}', '{$grado}', '{$periodo_id}') ";
+              
+ 
+
+    if(mysqli_query($mysqli, $query1)){
+
+
+            $query2 = "SELECT * FROM matriculados WHERE RUT_ALUMNO LIKE '{$rut_alumno}'";
+            $sentencia1 = $mysqli->query($query2);
+            $sentencia2 =mysqli_fetch_array($sentencia1);
+            $id_matriculado = $sentencia2['ID'];
+            
+            
+            $query3 = "INSERT INTO apoderados (RUT , NOMBRE , EMAIL, ID_MATRICULADO)
+            VALUES ('{$rut_apoderado}', '{$nombre_apoderado}', '{$email_apoderado}',  '{$id_matriculado}')";
+            
+
+            if(mysqli_query($mysqli, $query3)){
+                echo "<script>location.href='index.php?mensaje=registrado';</script>";
+            }else{
+                echo "<script>location.href='index.php?mensaje=error44';</script>";
+            }
+
+        }else{
+            echo "<script>location.href='index.php?mensaje=error';</script>";
+            exit();
+        }
     
     
 }

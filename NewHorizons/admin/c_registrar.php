@@ -11,7 +11,7 @@ $sentencia2 =mysqli_fetch_array($sentencia1);
 
 
 $regexNombre = "/^[a-zA-Z\s]+$/";
-$regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,}+$/";
+$regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
 $regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
 
 
@@ -40,10 +40,10 @@ if(!preg_match($regexRut, $_POST['rut'])){
 
 
 
-//3.- EDITAR CORREO ELECTRONICO VALIDACIONES
-// falta una validacion por si el correo modificado esta en la base de datos. ademas mejorar el formato.  .algo(lengh 3 ) com  cl  pero no 4 letras.
+//3.-  CORREO ELECTRONICO VALIDACIONES
 
-if(!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/", $_POST['txtCorreo'])){
+
+if(!preg_match($regexEmail, $_POST['txtCorreo'])){
     array_push($error, "El formato del correo es invalido");  //este mensaje no es visible al usuario, se llena en la lista error, la cual sí está vacia hara cambios en la base de datos.
     echo "<script>location.href='gestionarUsuarios.php?mensaje=formato2';</script>";
 };
@@ -56,7 +56,7 @@ if(!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/", $_POST['txt
         echo "<script>location.href='gestionarUsuarios.php?mensaje=error9';</script>";
     }
 
-// fin EDITAR CORREO ELECTRONICO VALIDACIONES
+//  CORREO ELECTRONICO VALIDACIONES
 
 
 

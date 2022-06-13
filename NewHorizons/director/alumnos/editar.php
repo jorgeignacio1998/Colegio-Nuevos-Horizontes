@@ -209,9 +209,15 @@ $sen =mysqli_fetch_array($datos_matriculados);
                             <label for="7" class="form-label">Nombre Completo del Apoderado: </label>
                             <input type="text" class="form-control" name="nombre_apoderado"  value="<?php echo $sen['NOMBRE_APODERADO']; ?>"  autofocus required id="_rut" >
                         </div> 
-                        <div class="mb-3 ">
-                            <label for="_rut1" class="form-label">Rut del Apoderado: </label>
-                            <input  label="_rut" class="form-control" type="text" name="rut_apoderado" value="<?php echo $sen['RUT_APODERADO']; ?>"  autofocus required id="_rut1" >
+                        <div class="row">
+                            <div class="mb-3 col-6 ">
+                                <label for="_rut1" class="form-label">Rut del Apoderado: </label>
+                                <input  label="_rut" class="form-control" type="text" name="rut_apoderado"  autofocus required id="_rut1" >
+                            </div>
+                            <div class="mb-3 col-6 ">
+                                <label for="9" class="form-label">Email del Apoderado: </label>
+                                <input class="form-control" type="email" name="email"  autofocus required id="9" >
+                            </div>
                         </div>
 
 

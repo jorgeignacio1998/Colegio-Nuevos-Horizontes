@@ -10,7 +10,7 @@ if(!isset($_GET['id_matriculado'])){
 
 
     //Eliminando los datos
-    $query = "DELETE FROM matriculados WHERE ID = $id_matriculado ";
+    $query = "DELETE FROM matriculados WHERE ID LIKE '{$id_matriculado}'";
 
 
 
