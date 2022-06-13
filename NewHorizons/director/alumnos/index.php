@@ -4,12 +4,16 @@ $datos_matriculados = $mysqli->query("SELECT *,
 grados.NIVEL as graniv,
 periodos.ANO as periano,
 periodos.SEMESTRE as perise,
-matriculados.ID as matrid
+matriculados.ID as matrid,
+apoderados.NOMBRE as aponom,
+apoderados.RUT as aporut
 FROM matriculados 
 INNER JOIN grados 
 ON matriculados.ID_GRADO = grados.ID
 INNER JOIN periodos
 ON matriculados.ID_PERIODO = periodos.ID
+INNER JOIN apoderados
+ON matriculados.ID = apoderados.ID_MATRICULADO
 ORDER BY ID_GRADO "); 
 ?>
 
@@ -215,8 +219,8 @@ ORDER BY ID_GRADO ");
                                     <td ><?php echo $fila['NOMBRE1_ALUMNO'] . ' ' . $fila['NOMBRE2_ALUMNO'] . ' ' .  $fila['APELLIDO1_ALUMNO'] . ' ' . $fila['APELLIDO2_ALUMNO']  ; ?></td>
                                     <td ><?php echo $fila['RUT_ALUMNO']; ?></td>
                                     <td ><?php echo $fila['graniv']; ?></td>
-                                    <td ><?php echo $fila['NOMBRE_APODERADO']; ?></td>
-                                    <td ><?php echo $fila['RUT_APODERADO']; ?></td>
+                                    <td ><?php echo $fila['aponom']; ?></td>
+                                    <td ><?php echo $fila['aporut']; ?></td>
                                     <td ><?php echo $fila['perise']  . ' SEMESTRE DEL AÑO ' . $fila['periano']; ?></td>
                                     
                                     <td><a class="text-primary" href="editar.php?id_matriculado=<?php echo $fila['matrid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
