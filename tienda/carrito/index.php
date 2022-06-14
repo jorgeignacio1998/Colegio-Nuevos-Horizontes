@@ -1,4 +1,5 @@
-<?php  
+<?php 
+include '../codes/connect.php';
 session_start();
 // session_destroy();
 if(isset($_SESSION["carrito"])){
@@ -85,12 +86,31 @@ $cantidad1 = 2;
                         <div class="row">  <!-- CADA  PRODUCTO   -->
 
                             <!--aca iria el FOR EACH   -->
+                            <?php  
+
+                                if(isset($_SESSION["carrito"])){
+
+                               
+                                $query5 = ("SELECT * FROM productos WHERE ID = $indice ");
+                                $resultado = mysqli_query($mysqli, $query5);
+
+
+                                if(isset($resultado)){
+                                foreach( $resultado as $row ){ 
+                                
+                                    
+                            
+
+                            // if(isset($resultado)){
+                            // foreach( $resultado as $row ){ 
+                            ?>
+
 
                             <div class="col-3 m-3 ">
                                 <img src="../admin/productos/img/<?php  echo 'nombre de la foto'  ?>" class="img_productos">       
                             </div>
                             <div class="col-6 mt-2">
-                                <h3>Nombre del producto</h3>
+                                <h3><?php if(isset($_SESSION["carrito"])){echo $row['NOMBRE'];}?></h3>
                                 <a> DESCRIPCION: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facili
                                     s voluptas quis unde consequatur, iste illum error fugiat modi assumenda asperiores e
                                     ius voluptatem dolor. Cum corrupti, similique laboriosam libero magni deleniti.</a> 
@@ -131,6 +151,7 @@ $cantidad1 = 2;
 
 
                     </div>
+                    <?php }  } ?>
                 </div>
             </div> 
 
@@ -183,7 +204,7 @@ $cantidad1 = 2;
 
 
 
-
+            <?php }   ?>
         </div>
     </div>  
 </body>
