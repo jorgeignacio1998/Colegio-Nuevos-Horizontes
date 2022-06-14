@@ -1,5 +1,29 @@
 <?php  
-$cantidad = 1;
+session_start();
+// session_destroy();
+if(isset($_SESSION["carrito"])){
+   foreach($_SESSION["carrito"] as $indice => $arreglo){
+        echo ' <hr> ID del producto: ' . $indice . "<br>";
+        foreach($arreglo as $key => $value){
+            echo $key . ": " . $value;
+        }
+   }
+
+}else{
+    echo '<script language="javascript">alert("carrito vacio");</script>';
+}
+
+
+$cantidad1 = 2;
+
+
+
+
+
+
+
+
+
 ?>
 
 
@@ -28,6 +52,10 @@ $cantidad = 1;
         height: 100%;
         width:100%;           
     }
+    .not-active { 
+            pointer-events: none; 
+            cursor: default; 
+        } 
 
 </style>
 <body>
@@ -40,58 +68,76 @@ $cantidad = 1;
     <br><br>
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
+
+
+
+
             <div  class="col-md-6 col-sm-12">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
                 <div  class="card "><br>
                     <div class="card-header">  
                         <h3>Cesta</h3>                                                                                                <!-- aca-->
                     </div>
-                    <div class="p-4 col1">      
-                        <div class="row">
+                    <div class="p-4 col1">   
+                        
+                    
+
+
+                        <div class="row">  <!-- CADA  PRODUCTO   -->
+
+                            <!--aca iria el FOR EACH   -->
+
                             <div class="col-3 m-3 ">
-                                <img src="../admin/productos/img/<?php  echo 'foto'  ?>" class="img_productos">       
+                                <img src="../admin/productos/img/<?php  echo 'nombre de la foto'  ?>" class="img_productos">       
                             </div>
                             <div class="col-6 mt-2">
-                                <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facili
+                                <h3>Nombre del producto</h3>
+                                <a> DESCRIPCION: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facili
                                     s voluptas quis unde consequatur, iste illum error fugiat modi assumenda asperiores e
-                                    ius voluptatem dolor. Cum corrupti, similique laboriosam libero magni deleniti.</a>
-                                    
+                                    ius voluptatem dolor. Cum corrupti, similique laboriosam libero magni deleniti.</a> 
+                                <h4 class="mt-2">$50.000</h4>
                             </div>
 
 
-
-                            <div class="col-2 p-3 m-3 ">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <a href=""> <i class="fa-solid fa-minus"></i></a>
-                                
+                            <div class="col-2 p-3 m-3  ">
+                                <div class="row mt-5 p-2">
+                                    <?php 
+                                    if($cantidad1 == 1){
+                                    ?>
+                                    <div class="col-4 not-active" >
+                                        <a href="" > <i class="fa-solid fa-minus" ></i></a>
                                     </div>
+                                    <?php }else{ ?>
+                                    <div class="col-4" >
+                                        <a href="" > <i class="fa-solid fa-minus" ></i></a>
+                                    </div>
+                                    <?php }?>
+
+
                                     <div class="col-4">
-                                        <a> <?php echo $cantidad; ?></a>
+                                        <a> <?php echo $cantidad1; ?></a>
                                     </div>
                                     <div class="col-4">
                                         <a href="">  <i class="fa-solid fa-plus"></i> </a>
-                                      
                                     </div>
                                 </div>
-                                
-
-
-
-                               
-                                     
-
-                           
                             </div>
                             
 
+                        </div>     <!-- CADA  PRODUCTO   -->
+                        
+                        
 
 
 
-                        </div>                               
-                      
+
                     </div>
                 </div>
             </div> 
+
+
+
+
+
             <div class="col-md-3 col-sm-12">
                 <div  class="card "><br>
                     <div class="card-header">  
@@ -123,19 +169,22 @@ $cantidad = 1;
                                 <h2 class="d-flex flex-row-reverse">$ 0</h2>
                             </div>
                         </div>  
+
                         <br><br>
                         <div class="">
                             <button type="button" class="btn btn-success btn-lg  ">COMPRAR</button>
                         </div>
-                        
-                   
-
+                    
                     </div>
                 </div>
             </div>
 
+
+
+
+
+
         </div>
-        
     </div>  
 </body>
 </html>

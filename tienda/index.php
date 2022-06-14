@@ -1,5 +1,6 @@
 <?php  
     include 'codes/connect.php';
+    session_start();
 ?>
 
 
@@ -175,8 +176,8 @@
 
 
 
-            <form action="carrito/cart.php">
-
+            <form action="index.php">
+            <!-- enviare los datos del form a este mismos -->
 
                 <div class="product">
                     <img src="admin/productos/img/<?php    echo $row['FOTO'];      ?>" class="product__img" >         
@@ -186,9 +187,10 @@
                         <span class="product__price">    <?php    echo '$'. $row['PRECIO'];      ?></span>
                     </div>
 
-                    <input type="hidden"  name="cantidad" value="1">  <!-- Enviando cantidad de productos -->
+                  
                     <input type="hidden"  name="id_producto" value="<?php echo $row['ID'];   ?>">  <!-- Enviando el ID por metodo post -->
-                    <button class="boton" type="submit">    <a  class="boton"> <i class="product__icon fa-solid fa-cart-plus"></i>   </a> </button>
+                    <input type="hidden"  name="nombre_producto" value="<?php echo $row['NOMBRE'];   ?>">  <!-- Enviando el ID por metodo post -->
+                    <button class="boton" type="submit" name="btnAgregar">    <a  class="boton"> <i class="product__icon fa-solid fa-cart-plus"></i>   </a> </button>
                 </div>
 
             </form>
@@ -200,8 +202,22 @@
 
         </section>
 
+          
+        <!-- recepcion datos-->
+        <?php 
+        if(isset($_REQUEST["btnAgregar"])){
+            $id_producto = $_REQUEST["id_producto"];
+            $nombre_producto = $_REQUEST["nombre_producto"];
 
-           
+
+          
+            $_SESSION["carrito"][$id_producto]["Nombre del producto"] = $nombre_producto;
+            echo '<script language="javascript">alert("Producto agregado al carrito");</script>';
+            //  echo "producto: $id_producto . ' NOMBRE  : '. $nombre_producto ";
+        }
+      
+        ?>
+        <!-- recepcion datos-->
     </main>
     <br><br><BR> <BR> </BR></BR>
 
@@ -238,6 +254,7 @@
     </footer>
 
 
+   
 
   
    
