@@ -176,7 +176,6 @@
 
 
 
-            <form action="index.php">
             <!-- enviare los datos del form a este mismos -->
 
                 <div class="product">
@@ -187,13 +186,9 @@
                         <span class="product__price">    <?php    echo '$'. $row['PRECIO'];      ?></span>
                     </div>
 
-                  
-                    <input type="hidden"  name="id_producto" value="<?php echo $row['ID'];   ?>">  <!-- Enviando el ID por metodo post -->
-                    <input type="hidden"  name="nombre_producto" value="<?php echo $row['NOMBRE'];   ?>">  <!-- Enviando el ID por metodo post -->
-                    <button class="boton" type="submit" name="btnAgregar">    <a  class="boton"> <i class="product__icon fa-solid fa-cart-plus"></i>   </a> </button>
+                    <a  class="boton agregar-al-carro" data-id="<?php echo $row['ID']; ?>"  href="javascript:;"> <i class="product__icon fa-solid fa-cart-plus"></i>   </a>
                 </div>
 
-            </form>
 
             
             
@@ -201,23 +196,7 @@
             
 
         </section>
-
-          
-        <!-- recepcion datos-->
-        <?php 
-        if(isset($_REQUEST["btnAgregar"])){
-            $id_producto = $_REQUEST["id_producto"];
-            $nombre_producto = $_REQUEST["nombre_producto"];
-
-
-          
-            $_SESSION["carrito"][$id_producto]["Nombre del producto"] = $nombre_producto;
-            echo '<script language="javascript">alert("Producto agregado al carrito");</script>';
-            //  echo "producto: $id_producto . ' NOMBRE  : '. $nombre_producto ";
-        }
-      
-        ?>
-        <!-- recepcion datos-->
+ 
     </main>
     <br><br><BR> <BR> </BR></BR>
 
@@ -270,6 +249,14 @@
                 setTimeout(() => {  
                     $('#slideshow2').attr('src', imagenes[index])
                 }, 4000 * index)
+            });
+
+
+            
+            $('.agregar-al-carro').click(function(){
+                var id = $(this).attr('data-id');
+                $.get('/tienda/carrito/index.php?id='+id+'&qty=1');
+                alert('agregado');
             });
         });
 

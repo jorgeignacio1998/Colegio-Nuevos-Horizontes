@@ -2,29 +2,25 @@
 include '../codes/connect.php';
 session_start();
 // session_destroy();
-if(isset($_SESSION["carrito"])){
-   foreach($_SESSION["carrito"] as $indice => $arreglo){
-        echo ' <hr> ID del producto: ' . $indice . "<br>";
-        foreach($arreglo as $key => $value){
-            echo $key . ": " . $value;
-        }
-   }
 
-}else{
-    echo '<script language="javascript">alert("carrito vacio");</script>';
+if(!empty($_GET['vaciar'])){
+    session_destroy();
+    header("location:index.php");
+}
+
+
+if(!empty($_GET["qty"])){
+    $_SESSION['carrito'][$_GET['id']] = (int)$_GET['qty'];
+    header("location:index.php");
+}
+
+if(!empty($_GET['eliminar'])){
+    unset($_SESSION['carrito'][$_GET['eliminar']]);
+    header("location:index.php");
 }
 
 
 $cantidad1 = 2;
-
-
-
-
-
-
-
-
-
 ?>
 
 
@@ -87,71 +83,80 @@ $cantidad1 = 2;
 
                             <!--aca iria el FOR EACH   -->
                             <?php  
-
-                                if(isset($_SESSION["carrito"])){
-
-                               
-                                $query5 = ("SELECT * FROM productos WHERE ID = $indice ");
-                                $resultado = mysqli_query($mysqli, $query5);
-
-
-                                if(isset($resultado)){
-                                foreach( $resultado as $row ){ 
-                                
+                              # print_r($_SESSION["carrito"]);
+                            if(isset($_SESSION["carrito"])){
+                                foreach($_SESSION["carrito"] as $indice => $qty){
+                                    $query5 = ("SELECT * FROM productos WHERE ID = $indice  limit 1");
+                                    $resultado = mysqli_query($mysqli, $query5);
+    
+    
+                                    if(isset($resultado)){
+                                    foreach( $resultado as $row ){ 
                                     
-                            
-
-                            // if(isset($resultado)){
-                            // foreach( $resultado as $row ){ 
-                            ?>
-
-
-                            <div class="col-3 m-3 ">
-                                <img src="../admin/productos/img/<?php  echo 'nombre de la foto'  ?>" class="img_productos">       
-                            </div>
-                            <div class="col-6 mt-2">
-                                <h3><?php if(isset($_SESSION["carrito"])){echo $row['NOMBRE'];}?></h3>
-                                <a> DESCRIPCION: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facili
-                                    s voluptas quis unde consequatur, iste illum error fugiat modi assumenda asperiores e
-                                    ius voluptatem dolor. Cum corrupti, similique laboriosam libero magni deleniti.</a> 
-                                <h4 class="mt-2">$50.000</h4>
-                            </div>
-
-
-                            <div class="col-2 p-3 m-3  ">
-                                <div class="row mt-5 p-2">
-                                    <?php 
-                                    if($cantidad1 == 1){
-                                    ?>
-                                    <div class="col-4 not-active" >
-                                        <a href="" > <i class="fa-solid fa-minus" ></i></a>
-                                    </div>
-                                    <?php }else{ ?>
-                                    <div class="col-4" >
-                                        <a href="" > <i class="fa-solid fa-minus" ></i></a>
-                                    </div>
-                                    <?php }?>
-
-
-                                    <div class="col-4">
-                                        <a> <?php echo $cantidad1; ?></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="">  <i class="fa-solid fa-plus"></i> </a>
+                                        
+                                
+    
+                                // if(isset($resultado)){
+                                // foreach( $resultado as $row ){ 
+                                ?>
+    
+    
+                                <div class="col-3 m-3 ">
+                                    <img src="../admin/productos/img/<?php  echo 'nombre de la foto'  ?>" class="img_productos">       
+                                </div>
+                                <div class="col-6 mt-2">
+                                    <h3><?php if(isset($_SESSION["carrito"])){echo $row['NOMBRE'];}?></h3>
+                                    <a> DESCRIPCION: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facili
+                                        s voluptas quis unde consequatur, iste illum error fugiat modi assumenda asperiores e
+                                        ius voluptatem dolor. Cum corrupti, similique laboriosam libero magni deleniti.</a> 
+                                    <h4 class="mt-2">$50.000</h4>
+                                    <a href="index.php?eliminar=<?php echo $indice; ?>">Eliminar</a>
+                                </div>
+    
+    
+                                <div class="col-2 p-3 m-3  ">
+                                    <div class="row mt-5 p-2">
+                                        <?php 
+                                        $notactive = false;
+                                        if($qty == 1){
+                                            $notactive = 'not-active';
+                                        }
+                                        ?>
+                                        <div class="col-4 <?php echo $notactive; ?>" >
+                                            <a href="index.php?id=<?php echo $indice; ?>&qty=<?php echo $qty-1; ?>" > <i class="fa-solid fa-minus" ></i></a>
+                                        </div> 
+    
+    
+                                        <div class="col-4">
+                                            <a> <?php echo $qty; ?></a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="index.php?id=<?php echo $indice; ?>&qty=<?php echo $qty+1; ?>">  <i class="fa-solid fa-plus"></i> </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                
+    
                             
+                            
+    
+    
+    
+    
+                     
+                        <?php }  } 
+                                     
+                                }
+                             
+                             }else{
+                                 echo '<script language="javascript">alert("carrito vacio");</script>';
+                             }
 
-                        </div>     <!-- CADA  PRODUCTO   -->
-                        
-                        
+                            ?>    
 
-
-
-
-                    </div>
-                    <?php }  } ?>
+                        </div>     <!-- CADA  PRODUCTO   -->                
+                               
+                    </div>       
                 </div>
             </div> 
 
@@ -193,6 +198,7 @@ $cantidad1 = 2;
 
                         <br><br>
                         <div class="">
+                            <a href='index.php?vaciar=true' class='btn btn-danger btn-lg'>vaciar</a>
                             <button type="button" class="btn btn-success btn-lg  ">COMPRAR</button>
                         </div>
                     
@@ -204,7 +210,7 @@ $cantidad1 = 2;
 
 
 
-            <?php }   ?>
+           
         </div>
     </div>  
 </body>
