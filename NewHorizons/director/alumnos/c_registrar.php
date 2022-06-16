@@ -98,49 +98,48 @@ if(count($error)==0){
 
 
     
-            
-        
- 
-  
- 
-    
+    $query4 = "SELECT * FROM matriculas WHERE ID_PERIODO LIKE $periodo_id AND ID_GRADO LIKE $grado";
+    $sentencia4 = $mysqli->query($query4);
+    $sentencia44 =mysqli_fetch_array($sentencia4);
+    $cupos = $sentencia44['CUPOS'];
 
-
-    $query1 = "INSERT INTO matriculados (NOMBRE1_ALUMNO , NOMBRE2_ALUMNO , APELLIDO1_ALUMNO , APELLIDO2_ALUMNO  ,  RUT_ALUMNO  , ID_GRADO , ID_PERIODO) 
-              VALUES ('{$nombre1}', '{$nombre2}', '{$apellido1}', '{$apellido2}',  '{$rut_alumno}', '{$grado}', '{$periodo_id}') ";
-              
- 
-
-    if(mysqli_query($mysqli, $query1)){
-
-
-            $query2 = "SELECT * FROM matriculados WHERE RUT_ALUMNO LIKE '{$rut_alumno}'";
-            $sentencia1 = $mysqli->query($query2);
-            $sentencia2 =mysqli_fetch_array($sentencia1);
-            $id_matriculado = $sentencia2['ID'];
-            
-            
-            $query3 = "INSERT INTO apoderados (RUT , NOMBRE , EMAIL, ID_MATRICULADO)
-            VALUES ('{$rut_apoderado}', '{$nombre_apoderado}', '{$email_apoderado}',  '{$id_matriculado}')";
-            
-
-            if(mysqli_query($mysqli, $query3)){
-                echo "<script>location.href='index.php?mensaje=registrado';</script>";
-            }else{
-                echo "<script>location.href='index.php?mensaje=error44';</script>";
-            }
-
+    if($cupos == NULL){
+        echo "<script>location.href='index.php?mensaje=matricula_no_existe';</script>";
+    }else{
+        $cupos_actualizados = $cupos -1;
+        if($cupos_actualizados < 1){
+            echo "<script>location.href='index.php?mensaje=no_cupos_disponibles';</script>";
         }else{
-            echo "<script>location.href='index.php?mensaje=error';</script>";
-            exit();
+            $query5 = "UPDATE matriculas  SET  CUPOS = $cupos_actualizados WHERE ID_PERIODO LIKE $periodo_id AND ID_GRADO LIKE $grado ";
+            if(mysqli_query($mysqli, $query5)){
+               
+                $query1 = "INSERT INTO matriculados (NOMBRE1_ALUMNO , NOMBRE2_ALUMNO , APELLIDO1_ALUMNO , APELLIDO2_ALUMNO  ,  RUT_ALUMNO  , ID_GRADO , ID_PERIODO) 
+                VALUES ('{$nombre1}', '{$nombre2}', '{$apellido1}', '{$apellido2}',  '{$rut_alumno}', '{$grado}', '{$periodo_id}') ";
+                if(mysqli_query($mysqli, $query1)){
+
+                    $query2 = "SELECT * FROM matriculados WHERE RUT_ALUMNO LIKE '{$rut_alumno}'";
+                    $sentencia1 = $mysqli->query($query2);
+                    $sentencia2 =mysqli_fetch_array($sentencia1);
+                    $id_matriculado = $sentencia2['ID'];
+                    
+                    $query3 = "INSERT INTO apoderados (RUT , NOMBRE , EMAIL, ID_MATRICULADO)
+                    VALUES ('{$rut_apoderado}', '{$nombre_apoderado}', '{$email_apoderado}',  '{$id_matriculado}')";
+
+                    if(mysqli_query($mysqli, $query3)){
+                        echo "<script>location.href='index.php?mensaje=registrado';</script>";
+                    }else{
+                        echo "<script>location.href='index.php?mensaje=error44';</script>";
+                    }
+
+                }else{
+                    echo "<script>location.href='index.php?mensaje=error';</script>";
+                    exit();
+
+                }
+            }
         }
-    
-    
-}
-
-
-
-        
+    }
+}  
 ?>
 
 

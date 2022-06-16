@@ -192,3 +192,33 @@
                 }
                 ?>
             <!-- alerta ERROR  -->
+
+
+            <!-- La matricula No existe  -->
+              <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'matricula_no_existe') {
+                ?>
+
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> La matricula de este curso NO ha sido creada, Debe registrar la matricula primero para poder matricular alumnos a este curso.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+            <!-- La matricula No existe  -->
+
+            <!-- No hay cupos disponibles -->
+              <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'no_cupos_disponibles') {
+                ?>
+
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> No hay cupos disponibles para este curso.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+              <!-- No hay cupos disponibles -->
+            

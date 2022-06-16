@@ -21,13 +21,13 @@ $f_final=$_POST['f_final'];
 
 
 // 4  RUT DUPLICADO
-// $matricula_existe = $mysqli->query("SELECT * FROM usuarios WHERE RUT LIKE '{$rut}' ");
-// if(empty($rut_existe->num_rows)){ 
-//     //esta ok, el rut si está disponible para registar.
-// }else{
-//     array_push($error, "El rut ya esta en uso ");
-//     echo "<script>location.href='index.php?mensaje=error10';</script>";
-// }
+$matricula_existe = $mysqli->query("SELECT * FROM matriculas WHERE ID_GRADO LIKE '{$id_grado}' AND ID_PERIODO LIKE '{$id_periodo}' ");
+if(empty($matricula_existe->num_rows)){ 
+    //esta ok, el rut si está disponible para registar.
+}else{
+    array_push($error, "La matricula ya existe ");
+    echo "<script>location.href='index.php?mensaje=matricula_existe';</script>";
+}
 // 4  RUT DUPLICADO
 
 

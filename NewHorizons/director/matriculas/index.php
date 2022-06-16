@@ -11,7 +11,7 @@ INNER JOIN grados
 ON matriculas.ID_GRADO = grados.ID
 INNER JOIN periodos
 ON matriculas.ID_PERIODO = periodos.ID
-ORDER BY ID_GRADO "); 
+ORDER BY ID_PERIODO  DESC , ID_GRADO "); 
 ?>
 
 
@@ -96,7 +96,12 @@ ORDER BY ID_GRADO ");
        <div class="row justify-content-center">
            <div  class="col-md-7">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
 
-                <!-- siguiendo con la estructura de la tabla (primer col) -->
+           <?php 
+                include 'alertas.php';
+           ?>
+
+
+                
                <div  class="card ">
                    <div class="card-header">
                        Lista de usuarios                                     
@@ -108,7 +113,7 @@ ORDER BY ID_GRADO ");
                             <thead>
                                 <tr>
                                     
-                                    <th scope="col">#</th>
+                                 
                                     <th scope="col">GRADO</th>       
                                     <th scope="col">CUPOS</th>       
                                     <th scope="col">PERIODO</th>
@@ -128,7 +133,7 @@ ORDER BY ID_GRADO ");
                                 ?>
                                 <tr >
 
-                                    <td scope="row"><?php echo $fila['matrid']; ?></td>
+                                   
                                     <td ><?php echo $fila['graniv']; ?></td>
                                     <td ><?php echo $fila['CUPOS']; ?></td>
                                     <td ><?php echo $fila['perise']  . ' SEMESTRE DEL AÑO ' . $fila['periano']; ?></td>
