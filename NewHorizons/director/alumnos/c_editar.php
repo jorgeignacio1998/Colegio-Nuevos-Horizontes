@@ -98,16 +98,68 @@ $email_apoderado = $_POST['email'];
 // VALIDACION RUT ALUMNO YA MATRICULADO
 
 
-
-
-
-
-
-
-
-
-
 if(count($error)==0){
+
+    // Buscando ID periodo Vigente y guardandolo para usarlo despues
+    $sqlPeriodo = "SELECT * FROM periodos WHERE ESTADO = 'VIGENTE'";
+    $sentencia100 = $mysqli->query($sqlPeriodo);
+    $sentencia101 =mysqli_fetch_array($sentencia100);
+    $id_periodo = $sentencia101['ID'];
+    // Buscando periodo Vigente y guardandolo para usarlo despues
+
+
+
+ // Este if es para saber si el ID_GRADO es el mismo o diferente.
+    if($row['ID_GRADO'] !== $grado ){
+        $id_grado_anterior = $row['ID_GRADO'];
+
+        //Buscando el numero de cupos que tiene el curso que el estudiante se va a cambiar para restarle - 1 al momento que se cambie de grado
+        $query4 = "SELECT * FROM matriculas WHERE ID_PERIODO LIKE $id_periodo AND ID_GRADO LIKE $grado";
+        $sentencia4 = $mysqli->query($query4);
+        $sentencia44 =mysqli_fetch_array($sentencia4);
+        $cupos_grado_nuevo = $sentencia44['CUPOS'];
+        //Buscando el numero de cupos que tiene el curso que el estudiante se va a cambiar  para restarle - 1 al momento que se cambie de grado
+        
+
+        //Buscando el numero de cupos que tiene el grado que tiene actualmente para sumarle +1 al momento que se cambie de grado.
+        $query5 = "SELECT * FROM matriculas WHERE ID_PERIODO LIKE $id_periodo AND ID_GRADO LIKE $id_grado_anterior";
+        $sentencia5 = $mysqli->query($query5);
+        $sentencia55 =mysqli_fetch_array($sentencia5);
+        $cupos_grado_anterior = $sentencia55['CUPOS'];
+        //Buscando el numero de cupos que tiene el grado que tiene actualmente para sumarle+ 1 al momento que se cambie de grado
+
+        
+        if($cupos_grado_nuevo == NULL){
+            echo "<script>location.href='index.php?mensaje=matricula_no_existe';</script>";
+            exit();
+        }else{
+            $cupos_actualizados_nuevo = $cupos_grado_nuevo -1;
+            if($cupos_actualizados_nuevo < 1){
+                echo "<script>location.href='index.php?mensaje=no_cupos_disponibles';</script>";
+                exit();
+            }else{
+                //actualizando el numero de cupos del grado anterior
+                 
+                $cupos_actualizados_anterior = $cupos_grado_anterior +1;
+                $query6 = "UPDATE matriculas  SET  CUPOS = $cupos_actualizados_anterior WHERE ID_PERIODO LIKE $id_periodo AND ID_GRADO LIKE $id_grado_anterior ";
+
+                if(mysqli_query($mysqli, $query6)){
+                    $query7 = "UPDATE matriculas  SET  CUPOS = $cupos_actualizados_nuevo WHERE ID_PERIODO LIKE $id_periodo AND ID_GRADO LIKE $grado ";         
+                    if(mysqli_query($mysqli, $query7)){
+                        //todo ok. se termina eso 
+                    }
+                }
+            }
+        }
+    }
+    // Este if era para saber si el dato que se cambiara va a ser el grado, y actualizara los cupos de el grado anterior y el grado a modificar.
+  
+
+
+   
+
+
+
 
     
     $query = "UPDATE matriculados SET NOMBRE1_ALUMNO = '{$nombre1}', NOMBRE2_ALUMNO = '{$nombre2}', APELLIDO1_ALUMNO = '{$apellido1}', APELLIDO2_ALUMNO = '{$apellido2}', 
