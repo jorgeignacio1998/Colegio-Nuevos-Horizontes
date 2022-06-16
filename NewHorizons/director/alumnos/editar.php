@@ -12,6 +12,7 @@ if(!isset($_GET['id_matriculado'])) {
 
 $datos_matriculados = $mysqli->query("SELECT *,
 grados.NIVEL as graniv,
+grados.ID as gradid,
 periodos.ANO as periano,
 periodos.SEMESTRE as perise,
 matriculados.ID as matrid,

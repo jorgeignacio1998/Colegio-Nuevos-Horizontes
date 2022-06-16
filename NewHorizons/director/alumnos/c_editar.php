@@ -4,7 +4,7 @@ require '../seguridad_director.php';
 $error = array();
 $regexNombre = "/^[a-zA-Z\s]+$/";
 $regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
-
+$regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
 
 // $ruts = "SELECT RUT FROM profesores"; 
 // $sentencia1 = $mysqli->query($ruts);
@@ -19,6 +19,7 @@ $rut_alumno = $_POST['rut_alumno'];
 $grado = $_POST['grado'];
 $nombre_apoderado = $_POST['nombre_apoderado'];
 $rut_apoderado = $_POST['rut_apoderado'];
+$email_apoderado = $_POST['email'];
 
 
 
@@ -45,6 +46,17 @@ $rut_apoderado = $_POST['rut_apoderado'];
         echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=nombre_apoderado';</script>";
     } 
 // VALIDACIONES FORMATO DE LOS 5 NOMBRES   
+
+
+
+
+
+//  FORMATO CORREO ELECTRONICO 
+    if(!preg_match($regexEmail, $email_apoderado )){
+        array_push($error, "El formato del correo es invalido");  //este mensaje no es visible al usuario, se llena en la lista error, la cual sí está vacia hara cambios en la base de datos.
+        echo "<script>location.href='index.php?mensaje=correo1';</script>";
+    };
+//  FORMATO CORREO ELECTRONICO 
 
 
 
@@ -92,19 +104,31 @@ $rut_apoderado = $_POST['rut_apoderado'];
 
 
 
+
+
+
 if(count($error)==0){
 
     
     $query = "UPDATE matriculados SET NOMBRE1_ALUMNO = '{$nombre1}', NOMBRE2_ALUMNO = '{$nombre2}', APELLIDO1_ALUMNO = '{$apellido1}', APELLIDO2_ALUMNO = '{$apellido2}', 
-    NOMBRE_APODERADO = '{$nombre_apoderado}', RUT_ALUMNO = '{$rut_alumno}', RUT_APODERADO = '{$rut_apoderado}', ID_GRADO = '{$grado}'
+    RUT_ALUMNO = '{$rut_alumno}', ID_GRADO = '{$grado}'
     WHERE ID  = $id_matriculado";
 
 
     if(mysqli_query($mysqli, $query)){
-        
+
+
+
+        $query3 = "UPDATE apoderados  SET RUT =  '{$rut_apoderado}' , NOMBRE  = '{$nombre_apoderado}' , EMAIL = '{$email_apoderado}', ID_MATRICULADO = '{$id_matriculado}' ";
+        if(mysqli_query($mysqli, $query3)){
+
         echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=editado';</script>";
 
         die();
+        }
+        else{
+            echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=error44';</script>";
+        }
     }
     else{
         echo "<script>location.href='E_profesor.php?id_matriculado=$id_matriculado&mensaje=error';</script>";
