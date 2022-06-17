@@ -231,6 +231,12 @@ navbar-toggle a {
     top: 17px;
     
 }
+.matriculas{
+    padding-left: 23px;
+    position: relative;
+    top: -10px;
+    
+}
 
 </style>
 
@@ -358,6 +364,34 @@ navbar-toggle a {
                     </li>
                     <!-- usuarios -->
 
+
+                    <!-- Alumnos -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i> Alumnos<i class=" list__arrow fa-solid fa-angle-right"></i>
+                          
+                        </div>
+                        <!--  submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="../alumnos/index.php"  class=" nav__link nav__link__inside"  >Matricular alumno </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar curso </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Alumnos -->
+
+
+                    <!-- Matriculas -->
+                    <li class="list__item matriculas">
+                        <div class="list__button">
+                            <a href="../matriculas/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Matriculas  </a >
+                        </div>
+                    </li>
+                    <!-- Matriculas -->
 
 
 
