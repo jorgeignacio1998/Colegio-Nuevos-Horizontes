@@ -1,0 +1,134 @@
+
+.grid-layout-prin{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    /*background-color: darkgoldenrod*/;
+    padding: 20px;
+    /*border: 1px solid black*/;
+}
+
+.grid-layout{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    /*background-color: darkgoldenrod;*/
+    padding: 20px;
+    /*border: 1px solid black;*/
+}
+
+.caja{
+    border: 1px solid #f4f3ee;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 3%;
+    box-shadow: -3px 3px 10px 2px rgba(0,0,0,0.3);
+    padding: 15px;
+    margin: 10px;
+}
+
+
+
+.caja-prin{
+    /*background-color: white;*/
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+#navbar img{
+    float: left;
+    position: absolute;
+    width: auto;
+    height: 80px;
+}
+
+.caja h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 110%;
+    color: #4071fa;
+    text-align: center;
+}
+
+.caja p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    color: #212529;
+    text-align: justify;
+}
+
+.caja-prin h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 110%;
+    color: black;
+    text-align: center;
+}
+
+
+
+
+/* INICIO CODIGO PARA EL NAV */
+
+a, li{
+    color: white;
+    text-decoration: none;
+    list-style: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo-header img{
+    width: 6rem;
+    height: 6rem;
+    float: left;
+    margin-left: 13%;
+    margin-top: 10px;
+    
+}
+
+
+
+header{
+    background-color: #4071fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    height: 125px;
+}
+
+.ingresar{
+    font-family: 'Josefin Sans';
+}
+
+.nav-menu ul{
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li{
+    margin-right: 40px;
+}
+
+.nav-menu a:hover{
+    color: #ff9f1c;
+}
+
+.nav-menu li:last-child{
+    background-color: #ff9f1c;
+    border: 2px solid #ff9f1c;
+    border-radius: 15%;
+    padding: 8px;
+} 
+
+.nav-menu li:last-child:hover{
+    background: transparent;
+    border: 2px solid #ff9f1c;
+}
+
+/* FIN CODIGO PARA EL NAV */
