@@ -11,17 +11,7 @@
     /*border: 1px solid black*/;
 }
 
-.grid-layout{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    justify-content: space-around;
-    width: 80%;
-    margin: 0 auto;
-    /*background-color: darkgoldenrod;*/
-    padding: 20px;
-    /*border: 1px solid black;*/
-}
+
 
 .caja{
     border: 1px solid #f4f3ee;
@@ -34,20 +24,6 @@
 
 
 
-.caja-prin{
-    /*background-color: white;*/
-    text-align: center;
-    padding: 10px;
-}
-
-
-
-#navbar img{
-    float: left;
-    position: absolute;
-    width: auto;
-    height: 80px;
-}
 
 .caja h2{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -63,12 +39,7 @@
     text-align: justify;
 }
 
-.caja-prin h2{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 110%;
-    color: black;
-    text-align: center;
-}
+
 
 
 
@@ -79,15 +50,16 @@ a, li{
     color: white;
     text-decoration: none;
     list-style: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
+
 
 .logo-header img{
     width: 6rem;
     height: 6rem;
     float: left;
     margin-left: 13%;
-    margin-top: 10px;
+    margin-top: 13px;
     
 }
 
@@ -102,9 +74,6 @@ header{
     height: 125px;
 }
 
-.ingresar{
-    font-family: 'Josefin Sans';
-}
 
 .nav-menu ul{
     display: flex;
