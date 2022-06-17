@@ -14,24 +14,13 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
 
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../styles/s1.css?<?php echo time(); ?>" >  <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="slider_1/css/estilos.css?<?php echo time(); ?>" >  <!-- CSS  del SLIDER-->
     <title>Nuevos Horizontes</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -39,77 +28,76 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
     
 </head>
 
+
 <style>
-
-
- .foto{
-   margin-left: 12% ;
-   margin-top: 4%;
-
+.logo{
+   height: 6rem;
+   width: 6rem;
 }
-
- 
-
-
-
-
-.img_productos{
-        height: 70%;
-        width: 80%;  
-    }
+.largo{
+   height: 6rem;
+}
 
 
 </style>
 
+
 <body>
-       <!-- Inicio del Navbar -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary">
-        <div class="container-fluid">
-              <a href="index.php" class="navbar-brand">Inicio</a>
-              <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
-                 <span class="navbar-toggler-icon"></span>
-              </button>
-              
-              <div id="MenuNav" class="collapse navbar-collapse d-flex flex-row-reverse">
-                 <ul class="navbar-nav" ms-3>
-                    <!--  <li class="nav-item"> <a class="nav-link" href="perfil.php">Perfíl</a></li> -->
-                    
-                    <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                          Opciones de soporte
-                       </a>
-                       <ul class="dropdown-menu">
-                       <li> <a class="dropdown-item" href="NewHorizons/">Opcion 1</a></li>
-                       <li> <a class="dropdown-item" href="NewHorizons/">Opcion 2</a></li>
-                       <li> <a class="dropdown-item" href="NewHorizons/">Opcion 3</a></li>
-                       <?php if($contador == 0){
-                        echo  '<li> <a class="dropdown-item" href="views/login.php">Iniciar sesión</a></li>';
-                       }else{
-                        echo   '<li> <a class="dropdown-item" href="codes/logout.php">Cerrar sesión</a></li>';
-                       }?>
-                       
-                       
-                       </ul>
-                    </li>
-                 </ul>
-              </div>
-        </div>
-     </nav>
-     
+   <!-- Inicio del Navbar -->
+      <nav class="navbar  navbar-expand-md border-primary navbar-dark bg-primary largo ">
+         <div class="container-fluid">
+
+               <a href="index.php" class="navbar-brand"><img src="img/logo.png" class="logo"></a>
+               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav" >
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               
+               <div id="MenuNav" class="collapse navbar-collapse d-flex flex-row-reverse">
+                  <ul class="navbar-nav" ms-3>
+                     <!--  <li class="nav-item"> <a class="nav-link" href="perfil.php">Perfíl</a></li> -->
+                     
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                           Opciones de soporte
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="NewHorizons/">Opcion 1</a></li>
+                        <li> <a class="dropdown-item" href="NewHorizons/">Opcion 2</a></li>
+                        <li> <a class="dropdown-item" href="NewHorizons/">Opcion 3</a></li>
+                        <?php if($contador == 0){
+                           echo  '<li> <a class="dropdown-item" href="views/login.php">Iniciar sesión</a></li>';
+                        }else{
+                           echo   '<li> <a class="dropdown-item" href="codes/logout.php">Cerrar sesión</a></li>';
+                        }?>
+                        
+                        
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+         </div>
+      </nav>
+   <!-- Termino del Navbar  -->
+
+
+
+   <!-- HTML SLIDER  -->
+      <?php  
+         include 'slider_1/index.php';
+      ?>
+   <!-- HTML SLIDER  -->
+
+
+
   
-  <!-- Termino del Navbar  -->
 
-
+   
+  
 
 </body>
-
-
-<div class="foto">
-     <img src="images/colegio.jpg"  class="img_productos">                
-</div>
 </html>
 
 
