@@ -141,7 +141,7 @@ ORDER BY ID_PERIODO  DESC , ID_GRADO ");
                                     <td ><?php echo $fila['FECHA_FINAL']; ?></td>
                                     <td ><?php echo  '$' .$fila['PRECIO_MATRICULA']; ?></td>
 
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['matrid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>

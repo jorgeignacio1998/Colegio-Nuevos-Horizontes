@@ -1,7 +1,7 @@
 <?php
 require '../codes/connect.php';  //coneccion BD
     if(!isset($_GET['codigo'])){
-        header('Location: gestionarUsuarios.php?mensaje=error ');
+        echo "<script>location.href='gestionarUsuarios.php?mensaje=error';</script>";
         exit();
     }
 
@@ -13,8 +13,9 @@ $query = "DELETE FROM usuarios WHERE ID = $codigo ";
 
 
 if(mysqli_query($mysqli, $query)){
-    header('Location: gestionarUsuarios.php?mensaje=eliminado');
+    echo "<script>location.href='gestionarUsuarios.php?mensaje=eliminado';</script>";
 }else{
-    header('Location: gestionarUsuarios.php?mensaje=error');
+ 
+    echo "<script>location.href='gestionarUsuarios.php?mensaje=error';</script>";
 }
 ?>
