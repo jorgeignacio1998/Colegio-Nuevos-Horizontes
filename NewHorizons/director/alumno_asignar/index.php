@@ -27,19 +27,28 @@ $curso = $_GET['curso'];
     <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> <!-- Jquery -->
     
    
+
+    <!-- Funciion para obtener el ID seleccionado por el cliente -->
     <script>
         $(document).ready(function() {
 	    $("#id_alumno").change(function() {
 
 		// var selectedVal = $("#myselect option:selected").text();
 		var selectedVal = $("#id_alumno option:selected").val();
-        // alert($('#id_alumno').val());
+        //  alert($('#id_alumno').val());
+
 
         });
      });
         
      
     </script>
+    <!-- Funciion para obtener el ID seleccionado por el cliente -->
+
+   
+
+
+
     
 
     <style>
@@ -99,7 +108,7 @@ $curso = $_GET['curso'];
                                                     //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
                                                     while($data = mysqli_fetch_array($dataNivel)){ ?>
                                                 <option value="<?php echo $data["curid"]; ?>"><?php echo utf8_encode($data['graniv'] . ' ' .$data['curnom'] ); ?>
-        
+                                                        
                                                     <?php } ?>
                                             </select>  
                                         </div>   
@@ -210,12 +219,13 @@ $curso = $_GET['curso'];
                    <form action="c_asignar.php" method="POST" class="p-4" >
 
                         <div class="mb-3">
-                            <label for="id_alumno class="form-label">Alumno: </label>
-                            <select  class="form-control"  required id="id_alumno">
+                            <label for="id_alumno" class="form-label" >Alumno: </label>
+                            <select  name="alumno" class="form-control"  required id="id_alumno">
 
 
                             <!-- Este option es el dato del profesor -->
                          
+                           
 
                             <option value=""   >
 
@@ -239,9 +249,9 @@ $curso = $_GET['curso'];
 
                            </select>
 
-                           <div id="mensaje">
-                                <p><?php  echo $id_alumno ?></p>
-                            </div>
+                          
+                                
+                        
 
                         </div>
                             
@@ -265,7 +275,8 @@ $curso = $_GET['curso'];
 
                                     <?php } ?>
                             </select>  
-                        </div>   
+                        </div>  
+
                       
 
                         
