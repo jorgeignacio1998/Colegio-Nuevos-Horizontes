@@ -5,7 +5,7 @@ $error = array();
 $regexNombre = "/^[a-zA-Z\s]+$/";
 $regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
 $regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
-$regexTelefono = "/^[+56|9|56|2][0-9]{8,11}$/";
+$regexTelefono = "/^[+56|9][0-9]{8,11}$/";
 $regexDireccion = "/^[A-Za-z0-9'\.\-\s\,]+$/";
 
 

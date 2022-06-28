@@ -85,9 +85,8 @@ $curso = $_GET['curso'];
 
 
 
-               <div  class="card ">
-                   <div class=" card-header">
-                       
+                    <div  class="card ">
+                        <div class=" card-header">
                             <form action="">
                                 <div class="row">
                                     <div class="col-6">
@@ -120,25 +119,26 @@ $curso = $_GET['curso'];
                                 
                                 </div>
                             </form>
-                   </div>
+                        </div>
 
 
 
 
-
+                                                        
                     <?php 
 
 
-                        if(empty($curso)){
-                            $query =  "SELECT * FROM alumnos  ";
-                            } else{
+                        if(!empty($curso)){
+                          
                                 
                             $query = "SELECT *,
-                            apoderados.NOMBRE as nombrapo FROM alumnos
+                            apoderados.NOMBRE as nombrapo,
+                            apoderados.TELEFONO as telefono
+                            FROM alumnos
                             INNER JOIN apoderados
                             ON alumnos.ID_APODERADO = apoderados.ID
                             WHERE ID_CURSO LIKE $curso  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
-                            }
+                           
 
 
 
@@ -175,7 +175,8 @@ $curso = $_GET['curso'];
                                                         <td ><?php echo $fila['NOMBRE_1'] . ' ' . $fila['NOMBRE_2'] . ' ' .$fila['APELLIDO_1'] . ' ' . $fila['APELLIDO_2'] ; ?></td>
                                                         <td ><?php echo $fila['RUT'] ; ?></td>
                                                         <td ><?php echo $fila['nombrapo'] ; ?></td>
-                                                        <td ><?php echo $fila['nombrapo'] ; ?></td>
+                                                        <td ><?php echo $fila['telefono'] ; ?></td>
+                                                        
                                                     
 
                                                         <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
@@ -198,6 +199,8 @@ $curso = $_GET['curso'];
 
                     ?>
 
+
+                    <?php  } ?>
                </div>
                <br>  <br>
            </div> <!-- TERMINO PRIMER COL  --> 
