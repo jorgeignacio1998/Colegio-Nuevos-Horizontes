@@ -133,7 +133,11 @@ $curso = $_GET['curso'];
                             $query =  "SELECT * FROM alumnos  ";
                             } else{
                                 
-                            $query = "SELECT * FROM alumnos WHERE ID_CURSO LIKE '{$curso}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
+                            $query = "SELECT *,
+                            apoderados.NOMBRE as nombrapo FROM alumnos
+                            INNER JOIN apoderados
+                            ON alumnos.ID_APODERADO = apoderados.ID
+                            WHERE ID_CURSO LIKE $curso  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
                             }
 
 
@@ -149,10 +153,12 @@ $curso = $_GET['curso'];
                                                 <thead>
                                                     <tr>
                                                         
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Nombre completo</th>                              
-                                                        <th scope="col">Correo electrónico</th>
-                                                        <th scope="col">Nivel</th>
+                                                        
+                                                        <th scope="col">Nombre Alumno</th>                              
+                                                        <th scope="col">Rut</th>                              
+                                                        <th scope="col">Nombre Apoderado</th>                              
+                                                        <th scope="col">Telefono Apoderado</th>                              
+
 
                                                         <th scope="col" colspan="2">Opciones</th>
                                                     </tr>
@@ -165,10 +171,12 @@ $curso = $_GET['curso'];
                                                     ?>
                                                     <tr >
 
-                                                        <td scope="row"><?php echo $fila['ID']; ?></td>
-                                                        <td ><?php echo $fila['NOMBRE']; ?></td>
-                                                        <td ><?php echo $fila['EMAIL']; ?></td>
-                                                        <td ><?php echo $fila['NIVEL']; ?></td>
+                                                        
+                                                        <td ><?php echo $fila['NOMBRE_1'] . ' ' . $fila['NOMBRE_2'] . ' ' .$fila['APELLIDO_1'] . ' ' . $fila['APELLIDO_2'] ; ?></td>
+                                                        <td ><?php echo $fila['RUT'] ; ?></td>
+                                                        <td ><?php echo $fila['nombrapo'] ; ?></td>
+                                                        <td ><?php echo $fila['nombrapo'] ; ?></td>
+                                                    
 
                                                         <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                                         <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
@@ -185,7 +193,7 @@ $curso = $_GET['curso'];
                             <?php 
 
                         }else{
-                            echo'<h6 class="text-danger text-center mt-3">Datos no encontrados </h6>';
+                            echo'<h6 class="text-danger text-center mt-3">No hay datos para mostrar</h6>';
                         }
 
                     ?>

@@ -18,7 +18,10 @@ periodos.SEMESTRE as perise,
 matriculados.ID as matrid,
 apoderados.NOMBRE as aponom,
 apoderados.RUT as aporut,
-apoderados.EMAIL as apomail
+apoderados.EMAIL as apomail,
+apoderados.TELEFONO as telefono,
+apoderados.DIRECCION as direccion
+
 FROM matriculados 
 INNER JOIN grados 
 ON matriculados.ID_GRADO = grados.ID
@@ -221,6 +224,16 @@ $sen =mysqli_fetch_array($datos_matriculados);
                                 <label for="9" class="form-label">Email del Apoderado: </label>
                                 <input class="form-control" type="email" name="email" value="<?php echo $sen['apomail']; ?>"  autofocus required id="9" >
                             </div>
+                        </div>
+                        <div class="row">
+                                <div class="mb-3 col-6 ">
+                                    <label for="t1" class="form-label">Telefono Apoderado: </label>
+                                    <input  label="_rut" class="form-control" type="text" name="telefono"    value="<?php echo $sen['telefono']; ?>" autofocus required id="t1" >
+                                </div>
+                                <div class="mb-3 col-6 ">
+                                    <label for="d1" class="form-label">Dirección: </label>
+                                    <input class="form-control" type="text" name="direccion"  value="<?php echo $sen['direccion']; ?>"  autofocus required id="d1" >
+                                </div>
                         </div>
                         
 

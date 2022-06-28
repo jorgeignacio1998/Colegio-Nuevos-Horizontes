@@ -5,7 +5,8 @@ $error = array();
 $regexNombre = "/^[a-zA-Z\s]+$/";
 $regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
 $regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
-
+$regexTelefono = "/^[+56|9|56|2][0-9]{8,11}$/";
+$regexDireccion = "/^[A-Za-z0-9'\.\-\s\,]+$/";
 // $ruts = "SELECT RUT FROM profesores"; 
 // $sentencia1 = $mysqli->query($ruts);
 // $sentencia2 =mysqli_fetch_array($sentencia1);
@@ -20,6 +21,8 @@ $grado = $_POST['grado'];
 $nombre_apoderado = $_POST['nombre_apoderado'];
 $rut_apoderado = $_POST['rut_apoderado'];
 $email_apoderado = $_POST['email'];
+$telefono = $_POST['telefono'];
+$direccion = $_POST['direccion'];
 
 
 
@@ -27,34 +30,47 @@ $email_apoderado = $_POST['email'];
 // VALIDACIONES FORMATO DE LOS 5 NOMBRES                    
     if(!preg_match($regexNombre,$nombre1 )){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=nombre1';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=nombre1';</script>";
     } 
     if(!preg_match($regexNombre,$nombre2 )){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=nombre2';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=nombre2';</script>";
     } 
     if(!preg_match($regexNombre,$apellido1 )){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=apellido1';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=apellido1';</script>";
     } 
     if(!preg_match($regexNombre,$apellido2 )){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=apellido2';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=apellido2';</script>";
     } 
     if(!preg_match($regexNombre,$nombre_apoderado )){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=nombre_apoderado';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=nombre_apoderado';</script>";
     } 
 // VALIDACIONES FORMATO DE LOS 5 NOMBRES   
 
 
+//VALIDACIONES FORMATO DE TELEFONO
+if(!preg_match($regexTelefono,$telefono )){
+    array_push($error, "El formato es invalido");
+    echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=telefono_incorrecto';</script>";
+} 
+//VALIDACIONES FORMATO DE TELEFONO
 
+
+//VALIDACIONES FORMATO DE DIRECCION
+if(!preg_match($regexDireccion,$direccion )){
+    array_push($error, "El formato es invalido");
+    echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=direccion_incorrecta';</script>";
+} 
+//VALIDACIONES FORMATO DE DIRECCION
 
 
 //  FORMATO CORREO ELECTRONICO 
     if(!preg_match($regexEmail, $email_apoderado )){
         array_push($error, "El formato del correo es invalido");  //este mensaje no es visible al usuario, se llena en la lista error, la cual sí está vacia hara cambios en la base de datos.
-        echo "<script>location.href='index.php?mensaje=correo1';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=correo1';</script>";
     };
 //  FORMATO CORREO ELECTRONICO 
 
@@ -63,11 +79,11 @@ $email_apoderado = $_POST['email'];
 // VALIDACIONES FORMATO DE LOS 2 RUTS                  
     if(!preg_match($regexRut, $rut_alumno)){
         array_push($error, "El RUT del estudiante es invalido");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=rut1';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=rut1';</script>";
     }  
     if(!preg_match($regexRut, $rut_apoderado)){
         array_push($error, "El RUT del apoderado es invalido");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=rut2';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=rut2';</script>";
     }  
 // VALIDACIONES FORMATO DE LOS 2 RUTS    
 
@@ -76,7 +92,7 @@ $email_apoderado = $_POST['email'];
 // VALIDACIONES AMBOS RUT NO SEAN IGUALES  
     if($rut_alumno == $rut_apoderado){
         array_push($error, "ambos rut son iguales");
-        echo "<script>location.href='index.php?id_matriculado=$id_matriculado&mensaje=rut3';</script>";
+        echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=rut3';</script>";
     }
 // VALIDACIONES AMBOS RUT NO SEAN IGUALES  
 
@@ -171,7 +187,8 @@ if(count($error)==0){
 
 
 
-        $query3 = "UPDATE apoderados  SET RUT =  '{$rut_apoderado}' , NOMBRE  = '{$nombre_apoderado}' , EMAIL = '{$email_apoderado}', ID_MATRICULADO = '{$id_matriculado}' ";
+        $query3 = "UPDATE apoderados  SET RUT =  '{$rut_apoderado}' , NOMBRE  = '{$nombre_apoderado}' , 
+        EMAIL = '{$email_apoderado}',TELEFONO = '{$telefono}',DIRECCION = '{$direccion}', ID_MATRICULADO = '{$id_matriculado}' ";
         if(mysqli_query($mysqli, $query3)){
 
         echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=editado';</script>";

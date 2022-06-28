@@ -322,6 +322,18 @@ ORDER BY ID_GRADO ");
 
 
                             </div>
+                            <div class="row">
+                                <div class="mb-3 col-6 ">
+                                    <label for="t1" class="form-label">Telefono Apoderado: </label>
+                                    <input  label="_rut" class="form-control" type="text" name="telefono"  autofocus required id="t1" >
+                                </div>
+                                <div class="mb-3 col-6 ">
+                                    <label for="d1" class="form-label">Dirección: </label>
+                                    <input class="form-control" type="text" name="direccion"  autofocus required id="d1" >
+                                </div>
+
+
+                            </div>
                            
                        
                       

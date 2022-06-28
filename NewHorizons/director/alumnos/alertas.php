@@ -208,6 +208,35 @@
                 ?>
             <!-- La matricula No existe  -->
 
+
+            <!-- telefono_incorrecto -->
+              <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'telefono_incorrecto') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR DE FORMATO</strong> El numero telefonico ingresado no es valido.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+            <!-- telefono_incorrecto  -->
+
+            <!-- direccion_incorrecta-->
+              <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'direccion_incorrecta') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR DE FORMATO</strong> No se permiten caracteres de simbolos en la direccion.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+            <!-- direccion_incorrecta -->
+
             <!-- No hay cupos disponibles -->
               <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'no_cupos_disponibles') {

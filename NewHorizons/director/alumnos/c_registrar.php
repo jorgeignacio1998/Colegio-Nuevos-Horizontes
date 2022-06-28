@@ -5,6 +5,8 @@ $error = array();
 $regexNombre = "/^[a-zA-Z\s]+$/";
 $regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
 $regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
+$regexTelefono = "/^[+56|9|56|2][0-9]{8,11}$/";
+$regexDireccion = "/^[A-Za-z0-9'\.\-\s\,]+$/";
 
 
 $nombre1 = $_POST["nombre1"];
@@ -17,6 +19,8 @@ $nombre_apoderado = $_POST['nombre_apoderado'];
 $rut_apoderado = $_POST['rut_apoderado'];
 $periodo_id = $_POST['periodo_id'];
 $email_apoderado = $_POST['email'];
+$telefono = $_POST['telefono'];
+$direccion = $_POST['direccion'];
 
 
 
@@ -43,7 +47,20 @@ $email_apoderado = $_POST['email'];
     } 
 // VALIDACIONES FORMATO DE LOS 5 NOMBRES    
 
+//VALIDACIONES FORMATO DE TELEFONO
+    if(!preg_match($regexTelefono,$telefono )){
+        array_push($error, "El formato es invalido");
+        echo "<script>location.href='index.php?mensaje=telefono_incorrecto';</script>";
+    } 
+//VALIDACIONES FORMATO DE TELEFONO
 
+
+//VALIDACIONES FORMATO DE DIRECCION
+    if(!preg_match($regexDireccion,$direccion )){
+        array_push($error, "El formato es invalido");
+        echo "<script>location.href='index.php?mensaje=direccion_incorrecta';</script>";
+    } 
+//VALIDACIONES FORMATO DE DIRECCION
 
 
 // VALIDACIONES FORMATO DE LOS 2 RUTS                  
