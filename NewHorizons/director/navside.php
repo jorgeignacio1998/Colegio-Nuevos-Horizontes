@@ -381,7 +381,7 @@ navbar-toggle a {
                                 <a href="alumnos/index.php"  class=" nav__link nav__link__inside"  >Matricular alumno </a>
                             </li>
                             <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >Asignar curso </a>
+                                <a href="alumno_asignar/index.php"  class=" nav__link nav__link__inside"  >Asignar curso </a>
                             </li>
                         </ul>
                     </li>
