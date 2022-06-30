@@ -27,6 +27,19 @@
                     }
                     ?>
                  <!-- 2. alerta registrado  success -->
+                <!-- 2.  alerta  eliminado  success -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
+                    ?>
+
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>registro eliminado exitosamente</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                 <!-- 2. alerta eliminado  success -->
 
                      <!-- 3 alerta ERROR, seguridad.  -->
                      <?php

@@ -1,7 +1,7 @@
 <?php
 include '../seguridad_director.php';
-$id_asignacion = $_GET['id_asignacion'];
-if(!isset($_GET['id_asignacion'])) {
+$id_alumno = $_GET['id_alumno'];
+if(!isset($_GET['id_alumno'])) {
 
     header('Location: ../index.php?mensaje=error');
     exit();
