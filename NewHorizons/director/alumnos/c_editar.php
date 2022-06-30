@@ -11,8 +11,8 @@ $regexDireccion = "/^[A-Za-z0-9'\.\-\s\,]+$/";
 // $sentencia1 = $mysqli->query($ruts);
 // $sentencia2 =mysqli_fetch_array($sentencia1);
 
-$id_matriculado = $_POST["id_matriculado"];
-$nombre1 = $_POST["nombre1"];
+$id_matriculado = $_POST['id_matriculado'];
+$nombre1 = $_POST['nombre1'];
 $nombre2 = $_POST['nombre2'];
 $apellido1 = $_POST['apellido1'];
 $apellido2 = $_POST['apellido2'];
@@ -23,6 +23,7 @@ $rut_apoderado = $_POST['rut_apoderado'];
 $email_apoderado = $_POST['email'];
 $telefono = $_POST['telefono'];
 $direccion = $_POST['direccion'];
+
 
 
 
@@ -180,7 +181,7 @@ if(count($error)==0){
     
     $query = "UPDATE matriculados SET NOMBRE1_ALUMNO = '{$nombre1}', NOMBRE2_ALUMNO = '{$nombre2}', APELLIDO1_ALUMNO = '{$apellido1}', APELLIDO2_ALUMNO = '{$apellido2}', 
     RUT_ALUMNO = '{$rut_alumno}', ID_GRADO = '{$grado}'
-    WHERE ID  = $id_matriculado";
+    WHERE ID  LIKE $id_matriculado ";
 
 
     if(mysqli_query($mysqli, $query)){
@@ -188,7 +189,7 @@ if(count($error)==0){
 
 
         $query3 = "UPDATE apoderados  SET RUT =  '{$rut_apoderado}' , NOMBRE  = '{$nombre_apoderado}' , 
-        EMAIL = '{$email_apoderado}',TELEFONO = '{$telefono}',DIRECCION = '{$direccion}', ID_MATRICULADO = '{$id_matriculado}' ";
+        EMAIL = '{$email_apoderado}',TELEFONO = '{$telefono}',DIRECCION = '{$direccion}' WHERE ID_MATRICULADO = $id_matriculado ";
         if(mysqli_query($mysqli, $query3)){
 
         echo "<script>location.href='editar.php?id_matriculado=$id_matriculado&mensaje=editado';</script>";

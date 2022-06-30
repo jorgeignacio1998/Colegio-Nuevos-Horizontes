@@ -87,7 +87,7 @@ $inner = $mysqli->query("SELECT *,
 
  
 .col1{
-    height:580px; overflow-y:scroll;
+    Height:650px; overflow-y:scroll;
 }
         
 
@@ -100,7 +100,7 @@ $inner = $mysqli->query("SELECT *,
     <div class="row ">
 
            
-        <div  class="col-8">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
+        <div  class="col-md-8">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
 
 
 
@@ -278,7 +278,7 @@ $inner = $mysqli->query("SELECT *,
 
 
 
-           <div class="col-4  ">    <!-- INICIO SEGUNDO COL  -->
+           <div class="col-md-4  ">    <!-- INICIO SEGUNDO COL  -->
                <div class="card segundo">
                  
                    <div class="card-header">

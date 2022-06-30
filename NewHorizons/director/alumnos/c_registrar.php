@@ -139,8 +139,8 @@ if(count($error)==0){
                     $sentencia2 =mysqli_fetch_array($sentencia1);
                     $id_matriculado = $sentencia2['ID'];
                     
-                    $query3 = "INSERT INTO apoderados (RUT , NOMBRE , EMAIL, ID_MATRICULADO)
-                    VALUES ('{$rut_apoderado}', '{$nombre_apoderado}', '{$email_apoderado}',  '{$id_matriculado}')";
+                    $query3 = "INSERT INTO apoderados (RUT , NOMBRE , EMAIL, ID_MATRICULADO,TELEFONO,DIRECCION)
+                    VALUES ('{$rut_apoderado}', '{$nombre_apoderado}', '{$email_apoderado}',  '{$id_matriculado}',  '{$telefono}',  '{$direccion}')";
 
                     if(mysqli_query($mysqli, $query3)){
                         echo "<script>location.href='index.php?mensaje=registrado';</script>";

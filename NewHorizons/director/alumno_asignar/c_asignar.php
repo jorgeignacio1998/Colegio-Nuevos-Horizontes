@@ -4,7 +4,7 @@ $error = array();
 
 
 
-
+    // id matriculado
     $alumno = $_POST["alumno"];
     $id_curso = $_POST["curso"];
 
@@ -18,13 +18,18 @@ $error = array();
     $sentencia20 =mysqli_fetch_array($sentencia10);
 
 
+    
+    // echo '<script language="javascript">alert("' .  $variable   . '");</script>';
+  
+
 
     if($sentencia2['ID_GRADO'] != $sentencia20['ID_GRADO']){
         array_push($error, "el curso no es el indicado");  
         echo "<script>location.href='index.php?mensaje=curso_no_indicado';</script>";
+       
     }
 
-
+   
 
     $id_matriculado= $sentencia2['ID'];
     $n1= $sentencia2['NOMBRE1_ALUMNO'];
@@ -36,13 +41,18 @@ $error = array();
     
 
     
-    $query001 = "SELECT * FROM apoderados WHERE ID_MATRICULADO   LIKE $id_matriculado";
+    $query001 = "SELECT * FROM apoderados WHERE ID_MATRICULADO LIKE $id_matriculado";
     $sentencia101 = $mysqli->query($query001);
     $sentencia201 =mysqli_fetch_array($sentencia101);
 
     $id_apoderado = $sentencia201['ID'];
 
-  
+
+
+
+    
+    
+    //  echo '<script language="javascript">alert("' .  $id_apoderado   . '");</script>';
 
 
 
@@ -66,7 +76,7 @@ if(count($error)==0) {
 
         if(mysqli_query($mysqli, $query2)){
 
-            echo "<script>location.href='index.php?mensaje=registrado';</script>";
+            echo "<script>location.href='index.php?mensaje=asignado';</script>";
             die();
         }else{
             echo "<script>location.href='index.php?mensaje=error444';</script>";

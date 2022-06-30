@@ -83,10 +83,16 @@ $curso = $_GET['curso'];
        <div class="row justify-content-center">
            <div  class="col-md-7">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
 
+            
+            <?php 
+            include 'alertas.php';
+            ?>
 
 
                     <div  class="card ">
                         <div class=" card-header">
+
+                        
                             <form action="">
                                 <div class="row">
                                     <div class="col-6">
@@ -148,8 +154,9 @@ $curso = $_GET['curso'];
 
 
 
-                            <div  id="col1" class="p-4 ">
+                            <div class="p-4  col1">
                                         <table class="table align-middle">
+                                            
                                                 <thead>
                                                     <tr>
                                                         
@@ -241,7 +248,12 @@ $curso = $_GET['curso'];
                             <option value=""   >
 
                                         <?php
-                                        $sqlAlumno = "SELECT * FROM matriculados WHERE ASIGNADO LIKE '' order by ID";
+                                        $sqlAlumno = "SELECT *,
+                                        grados.NIVEL as grado,
+                                        matriculados.ID as matriculaid
+                                        FROM matriculados
+                                        INNER JOIN grados
+                                        ON matriculados.ID_GRADO = grados.ID  WHERE ASIGNADO LIKE '' order by matriculados.ID";
                                         $dataProfe = mysqli_query($mysqli, $sqlAlumno);
 
                                         
@@ -250,8 +262,8 @@ $curso = $_GET['curso'];
 
 
                                         <!-- y este option las opciones -->
-                                        <option  value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode( $data['NOMBRE1_ALUMNO'] . ' '. $data['NOMBRE2_ALUMNO'] . ' '. $data['APELLIDO1_ALUMNO'] 
-                                        . ' '. $data['APELLIDO2_ALUMNO'] ); ?>
+                                        <option  value="<?php echo $data["matriculaid"]; ?>"><?php echo utf8_encode( $data['NOMBRE1_ALUMNO'] . ' '. $data['NOMBRE2_ALUMNO'] . ' '. $data['APELLIDO1_ALUMNO'] 
+                                        . ' '. $data['APELLIDO2_ALUMNO'] . '  -  '. $data['grado'] ); ?>
 
     
                                         <?php } ?>

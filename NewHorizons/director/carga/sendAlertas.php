@@ -37,7 +37,6 @@
 
 
 
-
                 <!-- 4.  alerta    editado  success -->
                  <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
