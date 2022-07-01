@@ -1,37 +1,26 @@
 <?php
 include '../seguridad_director.php';
-$id_alumno = $_GET['id_alumno'];
-if(!isset($_GET['id_alumno'])) {
+$id_eva = $_GET['id_eva'];
+if(!isset($_GET['id_eva'])) {
 
     header('Location: ../index.php?mensaje=error');
     exit();
 }
+$grado = $_GET['grado'];
+if(!isset($_GET['grado'])) {
+
+    header('Location: ../index.php?mensaje=error2');
+    exit();
+}
+
+
+$datos_evaluaciones = $mysqli->query("SELECT *,asignaturas.NOMBRE AS asignombre, evaluaciones.ID AS evaid, evaluaciones.NOMBRE AS evanom FROM evaluaciones INNER JOIN asignaturas ON evaluaciones.ID_ASIGNATURA = asignaturas.ID_A 
+WHERE evaluaciones.ID = $id_eva "); 
+$sen =mysqli_fetch_array($datos_evaluaciones);
 
 
 
-$inner = $mysqli->query("SELECT *,
-alumnos.ID AS idalumno,
-cursos.NOMBRE AS nombrecur,
-grados.ID AS gradoid
 
-FROM  alumnos
-INNER JOIN cursos
-ON cursos.ID = alumnos.ID_CURSO
-INNER JOIN grados
-ON cursos.ID_GRADO = grados.ID
-
- WHERE alumnos.ID = $id_alumno
- ");
-
-
-$sen =mysqli_fetch_array($inner);
-
-
-$grado_id = $sen['gradoid']; 
-
-
-
-// $id_grado = $mysqli->query("SELECT * FROM usuarios WHERE EMAIL LIKE '{$email}' ");
 ?>
 
 
@@ -81,7 +70,6 @@ $grado_id = $sen['gradoid'];
 
 
 
-
 </style>
 
 
@@ -96,55 +84,95 @@ $grado_id = $sen['gradoid'];
             include 'alertas.php';
             ?>
 
-
-               <div class="card segundo">
+            
+          
+               <div class="card">
                  
                     <div class="card-header">
-                        <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
-                        <h3 id="_titulo">&nbsp; &nbsp; &nbsp; Editar Asignación:</h3>  
+                        <a href="index.php?grado=<?php echo $grado?>"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
+                        <h3 id="_titulo">&nbsp; &nbsp; &nbsp; Editar Evaluación:</h3>  
                    </div>
                    <form action="c_editar.php" method="POST" class="p-4" >
 
-                
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="2" class="form-label">Numero evaluacion </label>
+                                <input type="text" class="form-control" name="numero" value="<?php  echo $sen['NUMERO'] ; ?>" autofocus required id="2">
+                            </div> 
+                            <div class="mb-3 col-6">
+                                <label for="1" class="form-label">Nombre evaluación </label>
+                                <input type="text" class="form-control" name="nombre" value="<?php  echo $sen['evanom'] ; ?>" autofocus required id="1">
+                            </div>            
+                        </div>
+
+
+                    
+
+
+                        <div class="mb-3 ">
+                                <label class="form-label lab" for="6">Nombre Asignatura:</label > 
+                                <select name="asignatura" class="form-control"  required  id="6" >
+                                  
+                                       
+                                        <?php
+                                        $sqlAsi = "SELECT *,
+                                        grados.NIVEL AS nivelgrado,
+                                        asignaturas.ID_A AS asigid,
+                                        asignaturas.NOMBRE AS asignombr
+                                        FROM asignaturas INNER JOIN grados
+                                        ON asignaturas.ID_GRADO = grados.ID
+                                        WHERE asignaturas.ID_GRADO = $grado
+                                        order by grados.ID ";
+                                        $dataAsi = mysqli_query($mysqli, $sqlAsi);
+
+                                        
+                                        while($data = mysqli_fetch_array($dataAsi)){ 
+                                            
+                                            $selected=($sen['ID_A']==$data['asigid'])?'selected':false;  ?>
+
+                                        <option <?=$selected;?> value="<?php echo $data["asigid"]; ?>"><?php echo utf8_encode($data['asignombr']); ?>
+                                
+                                        <?php } ?>
+                                </select>  
+                            </div> 
+
+
+
+
+
+
+
+
                         
-                   <div class="mb-3">
-                            <label class="form-label lab" for="_6">Curso</label > 
-                            <select name="curso" class="form-control"  required  id="_6" >
-                                <option disabled selected value >  </option>
-                                    <?php
-                                    $sqlTipo = "SELECT *,
-                                    cursos.ID as curid,
-                                    cursos.NOMBRE as curnom,
-                                    grados.NIVEL as graniv
-                                    FROM cursos 
-                                    INNER JOIN grados 
-                                    ON cursos.ID_GRADO  = grados.ID
-                                    WHERE grados.ID = $grado_id ";
-                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
-                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                <option value="<?php echo $data["curid"]; ?>"><?php echo utf8_encode($data['graniv'] . ' ' .$data['curnom'] ); ?>
-
-                                    <?php } ?>
-                            </select>  
-                        </div>  
-
-
+                            <div class="mb-3 ">
+                                <label for="4" class="form-label">Descripción</label>
+                                <textarea class="form-control texta" name="descripcion"  id="4"><?php  echo $sen['DESCRIPCION']; ?></textarea   > 
+                            </div>     
+                        
+        
 
                       
-                                
 
                         
                         <div class="d-grid mt-5">
-                            <input type="hidden"  name="id_alumno" value="<?php echo $id_alumno;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
-                            <input type="submit" class="btn btn-primary" value="Guardar cambios">
+                            <input type="hidden" name="id_eva" value="<?php echo $id_eva?>" >
+                            <input type="hidden" name="grado" value="<?php echo $grado?>" >
+                            <input type="submit" class="btn btn-primary" value="Registrar">
                         </div>
 
                    </form>
 
+            
+                 
+
+
+
+
                </div>
-               <br>
+        
+
+
+              
            </div>
        </div>
    </div>

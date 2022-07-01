@@ -26,7 +26,7 @@ ON asignaturas.ID_GRADO = grados.ID";
             
         $query = "SELECT * FROM asignaturas
                     INNER JOIN grados
-                    ON asignaturas.ID_GRADO = grados.ID WHERE NOMBRE LIKE '{$input}%'  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
+                    ON asignaturas.ID_GRADO = grados.ID WHERE NOMBRE LIKE '{$input}%'OR NIVEL LIKE '{$input}%' ";  
         }
 
 

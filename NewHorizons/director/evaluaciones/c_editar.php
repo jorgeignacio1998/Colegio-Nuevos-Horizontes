@@ -1,32 +1,119 @@
 <?php
 require '../seguridad_director.php';
 $error = array();
-if(!isset($_POST['curso'])){
-    echo "<script>location.href='index.php?mensaje=error1';</script>";
-}
-if(!isset($_POST['id_alumno'])){
+
+$id_eva = $_POST['id_eva'];
+if(!isset($_POST['id_eva'])){
     echo "<script>location.href='index.php?mensaje=error2';</script>";
+    die();
 }
-$id_alumno = $_POST['id_alumno'];
-$id_curso = $_POST['curso'];
+$grado = $_POST['grado'];
+if(!isset($_POST['grado'])) {
+
+    header('Location: ../index.php?mensaje=error3');
+    die();
+}
+
+
+
+
+$descripcion = $_POST['descripcion'];
+$asignatura = $_POST['asignatura'];
+$nombre = $_POST['nombre'];
+$numero = $_POST['numero'];
+
+$regexNumeroNatural = "/^[1-9]*$/"; 
+
+
+
+
+//1.-  numero VALIDACIONES                     
+    if(!preg_match($regexNumeroNatural, $numero)){
+        array_push($error, "El formato es invalido");
+        echo "<script>location.href='index.php?mensaje=formato_numero&grado=$grado';</script>";  
+        die;  
+    }  
+//-   numero VALIDACIONES   
+
+//.-  Evaluaciones max 15                     
+    if($numero > 15){
+        array_push($error, "El formato es invalido");
+        echo "<script>location.href='index.php?mensaje=max&grado=$grado';</script>";  
+        die;  
+    }  
+//-   Evaluaciones max 15   
+
+
+
 
 
 // echo '<script language="javascript">alert("' .  $id_curso   . '");</script>';
 
 
+
+
+
+// 2.- Validacion evaluacion ya existe
+    $datos = $mysqli->query("SELECT * FROM evaluaciones WHERE ID LIKE '{$id_eva}' ");
+    $row =mysqli_fetch_array($datos);
+
+
+    if($row['NUMERO'] !== $numero ){
+        $query2 = $mysqli->query("SELECT * FROM evaluaciones WHERE NUMERO LIKE '{$numero}' AND ID_ASIGNATURA LIKE '{$asignatura}' ");
+        $res2 = mysqli_num_rows($query2);
+        if($res2 > 0){
+            array_push($error, "EVALUACION ya existe");
+            echo "<script>location.href='index.php?grado=$grado&mensaje=existe';</script>";
+        }
+    }
+// 2.- Validacion evaluacion ya existe
+
+
+
+// 3.- Validacion evaluacion ya existe pero si cambia la asignatura
+    $datos2 = $mysqli->query("SELECT * FROM evaluaciones WHERE ID LIKE '{$id_eva}' ");
+    $row =mysqli_fetch_array($datos2);
+
+
+    if($row['ID_ASIGNATURA'] !== $asignatura ){
+        $query2 = $mysqli->query("SELECT * FROM evaluaciones WHERE NUMERO LIKE '{$numero}' AND ID_ASIGNATURA LIKE '{$asignatura}' ");
+        $res2 = mysqli_num_rows($query2);
+        if($res2 > 0){
+            array_push($error, "EVALUACION ya existe");
+            echo "<script>location.href='index.php?grado=$grado&mensaje=existe';</script>";
+        }
+    }
+// 3.- Validacion evaluacion ya existe
+
+
+
+
+
+
+
+
+
+if(count($error)==0) {     
+
+  
+    //Editando los datos
+    $query = "UPDATE evaluaciones SET  NUMERO = '{$numero}', NOMBRE = '{$nombre}' , ID_ASIGNATURA ='{$asignatura}', DESCRIPCION = '{$descripcion}' 
+    WHERE ID = $id_eva ";
+    //$sentencia = $mysqli->query($query);
+
+    if(mysqli_query($mysqli, $query)){
+        
+        echo "<script>location.href='index.php?mensaje=editado&grado=$grado';</script>";
+
+        die();
+    }
+    else{
+        echo "<script>location.href='index.php?mensaje=error';</script>";
+
+        die();
     
-$query = "UPDATE alumnos SET ID_CURSO = '{$id_curso}'
-WHERE ID  LIKE $id_alumno ";
-
-
-if(mysqli_query($mysqli, $query)){
-// echo '<script language="javascript">alert(" listo ");</script>';
-echo "<script>location.href='editar.php?id_alumno=$id_alumno&mensaje=cambiado';</script>";
+    }
+   
 }
-else{
-    echo "<script>location.href='editar.php?id_alumno=$id_alumno&mensaje=error';</script>";
-
-    die();
     
-}
 

@@ -16,7 +16,7 @@
 
                 <!--cambios realizados exitosament -->
                     <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'cambiado') {
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
                     ?>
 
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -54,7 +54,7 @@
                     }
                     ?>
                 <!-- 3 alerta ERROR  -->
-                    <!-- 3 alerta ERROR, seguridad.  -->
+                    <!-- 3 alerta ERROR, error444.  -->
                     <?php
                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error444') {
                     ?>
@@ -67,9 +67,11 @@
                     }
                     ?>
                 <!-- 3 alerta ERROR  -->
-                    <!-- 3 alerta ERROR, seguridad.  -->
+
+
+                    <!-- 3 alerta formato_numero, .  -->
                     <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nombre') {
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_numero') {
                     ?>
 
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -79,4 +81,34 @@
                     <?php
                     }
                     ?>
-                <!-- 3 alerta ERROR  -->
+                <!-- 3 alerta formato_numero  -->
+           
+                    <!-- 3 alerta formato_numero, .  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'existe') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR </strong> la evualuacion que desea cambiar ya existe.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- 3 alerta formato_numero  -->
+                <!-- 3 alerta formato_numero  -->
+           
+                    <!-- 3 alerta formato_numero, .  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'max') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR </strong> El numero de la evaluacion no puede sobrepasar los 15.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- 3 alerta formato_numero  -->
+           
