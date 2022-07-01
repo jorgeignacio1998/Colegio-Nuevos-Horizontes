@@ -211,7 +211,7 @@ $id_grado = $_GET['grado'];
                                                     
 
                                                         <td><a class="text-primary" href="editar.php?id_eva=<?php echo $fila['evaid']; ?>">        <i class="bi bi-pencil-square boton"></i></a>  </td>
-                                                        <td><a onclick="return confirm('¿estas seguro que quieres desvincular al alumno del curso?')" class="text-danger" href="c_eliminar.php?id_eva=<?php echo $fila['evaid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                                        <td><a onclick="return confirm('¿estas seguro que quieres desvincular al alumno del curso?')" class="text-danger" href="c_eliminar.php?id_eva=<?php echo $fila['evaid']; ?>&grado=<?php echo $fila['ID_GRADO']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                                         <!-- le envia por la url el id del usuario al c_eliminar -->
                                                         
                                                     </tr>
