@@ -396,28 +396,22 @@ navbar-toggle a {
 
 
 
-                    <!-- Libro de clases -->
-                    <li class="list__item list__item--click" >
-                        <div class="list__button list__button__click">
-                           
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>libro de clases <i class="  fa-solid fa-angle-right list__arrow"></i>
-
-                               
-                         
+                    <!-- Evaluaciones -->
+                    <li class="list__item evaluaciones">
+                        <div class="list__button">
+                            <a href="../evaluaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Evaluaciones  </a >
                         </div>
-                        <!-- primer submenu -->
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >Gestionar calificaciones </a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class=" nav__link nav__link__inside" >Calendario de calificacioes</a >
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class=" nav__link nav__link__inside" >Registro academico</a >
-                            </li>
-                        </ul>
                     </li>
+                    <!-- Evaluaciones -->
+
+                    <!-- Gestionar apoderado -->
+                    <li class="list__item apoderados">
+                        <div class="list__button">
+                            <a href="../apoderados/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;apoderados  </a >
+                        </div>
+                    </li>
+                    <!-- Gestionar apoderado -->
+
 
                 </ul>
 

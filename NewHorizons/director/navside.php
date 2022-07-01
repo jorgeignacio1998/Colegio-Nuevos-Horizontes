@@ -237,6 +237,18 @@ navbar-toggle a {
     top: -10px;
     
 }
+.evaluaciones{
+    padding-left: 23px;
+    position: relative;
+    top: -50px;
+    
+}
+.apoderados{
+    padding-left: 23px;
+    position: relative;
+    top: -90px;
+    
+}
 
 </style>
 
@@ -279,27 +291,6 @@ navbar-toggle a {
 
 
 
-                    <!-- 1   ESTABLECIMIENTOS-->
-                    <li class="list__item list__item--click" >
-                        <div class="list__button list__button__click">
-                           
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Sede  <i class=" list__arrow fa-solid fa-angle-right"></i>
-                            
-                            
-                        </div>
-                        <!--  submenu -->
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1   </a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- 1   ESTABLECIMIENTOS-->
-
-
 
 
 
@@ -330,22 +321,7 @@ navbar-toggle a {
 
 
 
-                    <!-- APODERADOS -->
-                    <li class="list__item list__item--click" >
-                        <div class="list__button list__button__click">
-                           
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Apoderados <i class=" list__arrow fa-solid fa-angle-right"></i>
-                          
-                        </div>
-                        <!--  submenu -->
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >Gestionar apoderados</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- APODERADOS -->
-
+                   
 
 
 
@@ -395,6 +371,22 @@ navbar-toggle a {
                         </div>
                     </li>
                     <!-- Matriculas -->
+
+                    <!-- Evaluaciones -->
+                    <li class="list__item evaluaciones">
+                        <div class="list__button">
+                            <a href="evaluaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Evaluaciones  </a >
+                        </div>
+                    </li>
+                    <!-- Evaluaciones -->
+
+                    <!-- Gestionar apoderado -->
+                    <li class="list__item apoderados">
+                        <div class="list__button">
+                            <a href="apoderados/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;apoderados  </a >
+                        </div>
+                    </li>
+                    <!-- Gestionar apoderado -->
 
 
 

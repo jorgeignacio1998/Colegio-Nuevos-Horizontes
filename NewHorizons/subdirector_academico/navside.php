@@ -231,6 +231,24 @@ navbar-toggle a {
     top: 17px;
     
 }
+.matriculas{
+    padding-left: 23px;
+    position: relative;
+    top: -10px;
+    
+}
+.evaluaciones{
+    padding-left: 23px;
+    position: relative;
+    top: -50px;
+    
+}
+.apoderados{
+    padding-left: 23px;
+    position: relative;
+    top: -90px;
+    
+}
 
 </style>
 
