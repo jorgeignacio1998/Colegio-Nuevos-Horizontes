@@ -19,8 +19,7 @@ $error = array();
 
 
     
-    // echo '<script language="javascript">alert("' .  $variable   . '");</script>';
-  
+    // echo '<script language="javascript">alert("' .  $Alertavariable   . '");</script>';
 
 
     if($sentencia2['ID_GRADO'] != $sentencia20['ID_GRADO']){

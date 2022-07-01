@@ -8,20 +8,30 @@ if(!isset($_GET['id_alumno'])) {
 }
 
 
-//Pintando datos Del ID = GET
-$inner = $mysqli->query("SELECT *,
- profesores.NOMBRE as prono
 
- FROM asignaturas_profes
- INNER JOIN profesores                 
- ON asignaturas_profes.ID_PROFESOR = profesores.ID
- INNER JOIN asignaturas
- ON asignaturas.ID_A = asignaturas_profes.ID_ASIGNATURA WHERE ID_ASIGNACION = $id_asignacion ");
+$inner = $mysqli->query("SELECT *,
+alumnos.ID AS idalumno,
+cursos.NOMBRE AS nombrecur,
+grados.ID AS gradoid
+
+FROM  alumnos
+INNER JOIN cursos
+ON cursos.ID = alumnos.ID_CURSO
+INNER JOIN grados
+ON cursos.ID_GRADO = grados.ID
+
+ WHERE alumnos.ID = $id_alumno
+ ");
 
 
 $sen =mysqli_fetch_array($inner);
 
 
+$grado_id = $sen['gradoid']; 
+
+
+
+// $id_grado = $mysqli->query("SELECT * FROM usuarios WHERE EMAIL LIKE '{$email}' ");
 ?>
 
 
@@ -67,6 +77,10 @@ $sen =mysqli_fetch_array($inner);
 }
         
 
+#close { position:absolute; left:10px; top:10px; right:10px; font-size: 30px; cursor: pointer; color: black; }
+
+
+
 
 </style>
 
@@ -75,81 +89,55 @@ $sen =mysqli_fetch_array($inner);
 <div class="container-fluid moverabajo">
        <div class="row justify-content-center">
            <div class="col-md-4 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
+
+
+               
+           <?php 
+            include 'alertas.php';
+            ?>
+
+
                <div class="card segundo">
                  
-                   <div class="card-header">
-                       Editar asignación:
+               <div class="card-header">
+                        <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
+                        <h3 id="_titulo">&nbsp; &nbsp; &nbsp; Editar Asignación:</h3>  
                    </div>
-                   <form action="e_asignar.php" method="POST" class="p-4" >
+                   <form action="c_editar.php" method="POST" class="p-4" >
 
-                        <div class="mb-3">
-                                    <label for="_1" class="form-label">Nombre Asignatura: </label>
-                                    <select name="id_asignatura" class="form-control"  required id="_2">
-
-
-                                    <!-- Este option es el dato del profesor -->
-                                
-
-                                    <option value="<?php echo $sen["ID_ASIGNATURA"]; ?>"><?php echo utf8_encode($sen['NOMBRE']); ?>
-
-                                                <?php
-                                                $sqlAsi = "SELECT * FROM asignaturas order by ID_A";
-                                                $dataAsi = mysqli_query($mysqli, $sqlAsi);
-
-                                                
-                                                while($data = mysqli_fetch_array($dataAsi)){ 
-                                                ?>
-
-
-                                                <!-- y este option las opciones -->
-                                                <option value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode('ID: '. $data['ID_A']. ' - Nombre: '. $data['NOMBRE'] ); ?>
-                                                <?php } ?>
-
-                                </select>
-                                </div>     
-
-
-
-                                <div class="mb-3">
-                                    <label for="_2" class="form-label">Profesor: </label>
-                                    <select name="id_profesor" class="form-control"  required id="_2">
-
-
-                                    <!-- Este option es el dato del profesor -->
-                                
-
-                                                <option value="<?php echo $sen["ID_PROFESOR"]; ?>"><?php echo utf8_encode($sen['prono']); ?>   
-
-                                                <?php
-                                                $sqlProfe = "SELECT * FROM profesores order by ID";
-                                                $dataProfe = mysqli_query($mysqli, $sqlProfe);
-
-                                                
-                                                while($data = mysqli_fetch_array($dataProfe)){ 
-                                                ?>
-
-
-                                                <!-- y este option las opciones -->
-                                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - Nombre: '. $data['NOMBRE'] ); ?>
-                                                <?php } ?>
-
-                                     </select>
-                                </div>
-                   
-
-
-
-
-
+                
                         
-                        
+                   <div class="mb-3">
+                            <label class="form-label lab" for="_6">Curso</label > 
+                            <select name="curso" class="form-control"  required  id="_6" >
+                                <option disabled selected value >  </option>
+                                    <?php
+                                    $sqlTipo = "SELECT *,
+                                    cursos.ID as curid,
+                                    cursos.NOMBRE as curnom,
+                                    grados.NIVEL as graniv
+                                    FROM cursos 
+                                    INNER JOIN grados 
+                                    ON cursos.ID_GRADO  = grados.ID
+                                    WHERE grados.ID = $grado_id ";
+                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
+                                <option value="<?php echo $data["curid"]; ?>"><?php echo utf8_encode($data['graniv'] . ' ' .$data['curnom'] ); ?>
+
+                                    <?php } ?>
+                            </select>  
+                        </div>  
+
+
+
                       
                                 
 
                         
                         <div class="d-grid mt-5">
-                         
-                            <input type="hidden"  name="id_asignacion" value="<?php echo $id_asignacion;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
+                            <input type="hidden"  name="id_alumno" value="<?php echo $id_alumno;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
                             <input type="submit" class="btn btn-primary" value="Guardar cambios">
                         </div>
 

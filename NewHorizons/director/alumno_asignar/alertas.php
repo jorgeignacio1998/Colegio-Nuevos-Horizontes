@@ -27,6 +27,20 @@
                     }
                     ?>
                  <!-- 2. alerta registrado  success -->
+
+                <!--cambios realizados exitosament -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'cambiado') {
+                    ?>
+
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>cambios realizados exitosamente</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                 <!-- cambios realizados exitosament -->
                 <!-- 2.  alerta  eliminado  success -->
                     <?php
                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {

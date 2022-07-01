@@ -59,6 +59,17 @@ $curso = $_GET['curso'];
         .busc{
             margin-top: 31px;
         }
+
+
+
+
+
+
+
+
+
+
+
     </style>
 
 </head>
@@ -190,8 +201,8 @@ $curso = $_GET['curso'];
                                                         
                                                     
 
-                                                        <td><a class="text-primary" href="editar.php?id_alumno=<?php echo $fila['idalumno']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                                        <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?id_alumno=<?php echo $fila['idalumno']; ?>&rut=<?php echo $fila['rutalum']; ?>&curso=<?php echo $curso ; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                                        <td><a class="text-primary" href="editar.php?id_alumno=<?php echo $fila['idalumno']; ?>">        <i class="bi bi-pencil-square boton"></i></a>  </td>
+                                                        <td><a onclick="return confirm('¿estas seguro que quieres desvincular al alumno del curso?')" class="text-danger" href="c_eliminar.php?id_alumno=<?php echo $fila['idalumno']; ?>&rut=<?php echo $fila['rutalum']; ?>&curso=<?php echo $curso ; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                                         <!-- le envia por la url el id del usuario al c_eliminar -->
                                                         
                                                     </tr>
@@ -222,7 +233,7 @@ $curso = $_GET['curso'];
 
 
 
-
+                    
 
 
 
@@ -245,9 +256,8 @@ $curso = $_GET['curso'];
                             <select  name="alumno" class="form-control"  required id="id_alumno">
 
 
-                            <!-- Este option es el dato del profesor -->
-                         
-                           
+                       
+                    
 
                             <option value=""   >
 
@@ -266,19 +276,21 @@ $curso = $_GET['curso'];
 
 
                                         <!-- y este option las opciones -->
-                                        <option  value="<?php echo $data["matriculaid"]; ?>"><?php echo utf8_encode( $data['NOMBRE1_ALUMNO'] . ' '. $data['NOMBRE2_ALUMNO'] . ' '. $data['APELLIDO1_ALUMNO'] 
+                                        <option  
+
+                                        value="<?php   echo $data["matriculaid"]; ?>"><?php echo utf8_encode( $data['NOMBRE1_ALUMNO'] . ' '. $data['NOMBRE2_ALUMNO'] . ' '. $data['APELLIDO1_ALUMNO'] 
                                         . ' '. $data['APELLIDO2_ALUMNO'] . '  -  '. $data['grado'] ); ?>
 
-    
-                                        <?php } ?>
+                                        <?php } 
+                                        ?>
 
                                        
 
                            </select>
 
                           
-                                
-                        
+                           <!-- if(empty($validar_login->num_rows))     
+                         -->
 
                         </div>
                             
@@ -318,6 +330,12 @@ $curso = $_GET['curso'];
 
                    </form>
 
+            
+                 
+
+
+
+
                </div>
                <br>
            </div>
@@ -328,3 +346,6 @@ $curso = $_GET['curso'];
 
 </body>
 </html>
+
+
+     
