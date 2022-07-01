@@ -1,6 +1,7 @@
 <?php 
 include '../seguridad_director.php';    //BD, SEGURIDAD NIVEL, SESSION.
 $datos_cursos = $mysqli->query("SELECT * FROM cursos");
+
 $curso = '';
 if(isset($_GET['curso'])) {
 $curso = $_GET['curso'];

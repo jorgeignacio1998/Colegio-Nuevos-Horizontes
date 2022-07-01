@@ -62,7 +62,20 @@ $id_grado = $_GET['grado'];
 
 
 
-
+        .texta{
+    flex: auto;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:black;
+    min-height: 150px;
+    max-height: 150px ;
+    min-width: 250px;
+    max-width: 800px;   /* da igual el ancho ya que nunca se sobrepasara de la caja principal*/
+}
 
 
 
@@ -145,11 +158,16 @@ $id_grado = $_GET['grado'];
                                 
                             $query = "SELECT *,
                             evaluaciones.NOMBRE as nombreasigna,
-                            evaluaciones.ID_GRADO AS idgrado
+                            evaluaciones.ID_GRADO AS idgrado,
+                            asignaturas.NOMBRE as asignanom,
+                            evaluaciones.ID AS evaid
                             FROM evaluaciones
                             INNER JOIN asignaturas
                             ON asignaturas.ID_A = evaluaciones.ID_ASIGNATURA
-                            WHERE evaluaciones.ID_GRADO = $id_grado  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
+                            INNER JOIN grados
+                            ON grados.ID = evaluaciones.ID_GRADO
+                            WHERE evaluaciones.ID_GRADO = $id_grado 
+                            ORDER BY  asignaturas.NOMBRE , NUMERO   ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
                            
 
 
@@ -166,10 +184,9 @@ $id_grado = $_GET['grado'];
                                                 <thead>
                                                     <tr>
                                                         
-                                                        
-                                                        <th scope="col">NOMBRE </th>                              
-                                                        <th scope="col">NUMERO</th>                              
-                                                        <th scope="col">ASIGNATURA/th>                              
+                                                        <th scope="col">NUMERO</th>  
+                                                        <th scope="col">NOMBRE </th>                                                  
+                                                        <th scope="col">ASIGNATURA</th>                              
                                                         <th scope="col">GRADO</th>
                                                         <th scope="col">DESCRIPCION</th>                                 
 
@@ -185,13 +202,16 @@ $id_grado = $_GET['grado'];
                                                     ?>
                                                     <tr >
 
-                                                        
+                                                        <td ><?php echo $fila['NUMERO']; ?></td>
                                                         <td ><?php echo $fila['nombreasigna']; ?></td>
+                                                        <td ><?php echo $fila['asignanom']; ?></td>
+                                                        <td ><?php echo $fila['NIVEL']; ?></td>
+                                                        <td ><?php echo $fila['DESCRIPCION']; ?></td>
                                                    
                                                     
 
-                                                        <td><a class="text-primary" href="editar.php?id_alumno=<?php echo $fila['idalumno']; ?>">        <i class="bi bi-pencil-square boton"></i></a>  </td>
-                                                        <td><a onclick="return confirm('¿estas seguro que quieres desvincular al alumno del curso?')" class="text-danger" href="c_eliminar.php?id_alumno=<?php echo $fila['idalumno']; ?>&rut=<?php echo $fila['rutalum']; ?>&curso=<?php echo $curso ; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                                        <td><a class="text-primary" href="editar.php?id_eva=<?php echo $fila['evaid']; ?>">        <i class="bi bi-pencil-square boton"></i></a>  </td>
+                                                        <td><a onclick="return confirm('¿estas seguro que quieres desvincular al alumno del curso?')" class="text-danger" href="c_eliminar.php?id_eva=<?php echo $fila['evaid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                                         <!-- le envia por la url el id del usuario al c_eliminar -->
                                                         
                                                     </tr>
@@ -239,81 +259,60 @@ $id_grado = $_GET['grado'];
                <div class="card">
                  
                    <div class="card-header">
-                       Asignar alumno al curso:
+                       Crear evaluación:
                    </div>
-                   <form action="c_asignar.php" method="POST" class="p-4" >
+                   <form action="c_crear.php" method="POST" class="p-4" >
+
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="2" class="form-label">Numero evaluacion </label>
+                                <input type="text" class="form-control" name="numero" autofocus required id="2">
+                            </div> 
+                            <div class="mb-3 col-6">
+                                <label for="1" class="form-label">Nombre evaluación </label>
+                                <input type="text" class="form-control" name="nombre" autofocus required id="1">
+                            </div>            
+                        </div>
+
 
                         <div class="mb-3">
-                            <label for="id_alumno" class="form-label" >Alumno: </label>
-                            <select  name="alumno" class="form-control"  required id="id_alumno">
+                            <label for="3" class="form-label">Nombre Asignatura: </label>
+                            <select name="asignatura" class="form-control"  required id="3">
 
 
-                       
-                    
+                            <!-- Este option es el dato del profesor -->
+                         
 
-                            <option value=""   >
+                            <option value="">
 
                                         <?php
-                                        $sqlAlumno = "SELECT *,
-                                        grados.NIVEL as grado,
-                                        matriculados.ID as matriculaid
-                                        FROM matriculados
-                                        INNER JOIN grados
-                                        ON matriculados.ID_GRADO = grados.ID  WHERE ASIGNADO LIKE '' order by matriculados.ID";
-                                        $dataProfe = mysqli_query($mysqli, $sqlAlumno);
+                                        $sqlAsi = "SELECT *,
+                                        grados.NIVEL AS nivelgrado
+                                        FROM asignaturas INNER JOIN grados
+                                        ON asignaturas.ID_GRADO = grados.ID
+                                        order by grados.ID";
+                                        $dataAsi = mysqli_query($mysqli, $sqlAsi);
 
                                         
-                                        while($data = mysqli_fetch_array($dataProfe)){ 
+                                        while($data = mysqli_fetch_array($dataAsi)){ 
                                         ?>
 
 
                                         <!-- y este option las opciones -->
-                                        <option  
-
-                                        value="<?php   echo $data["matriculaid"]; ?>"><?php echo utf8_encode( $data['NOMBRE1_ALUMNO'] . ' '. $data['NOMBRE2_ALUMNO'] . ' '. $data['APELLIDO1_ALUMNO'] 
-                                        . ' '. $data['APELLIDO2_ALUMNO'] . '  -  '. $data['grado'] ); ?>
-
-                                        <?php } 
-                                        ?>
-
-                                       
+                                        <option value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode( $data['NOMBRE'] . ' - ' . $data['nivelgrado'] ); ?>
+                                        <?php } ?>
 
                            </select>
-
-                          
-                           <!-- if(empty($validar_login->num_rows))     
-                         -->
-
                         </div>
-                            
-                        <div class="mb-3">
-                            <label class="form-label lab" for="_6">Curso</label > 
-                            <select name="curso" class="form-control"  required  id="_6" >
-                                <option disabled selected value >  </option>
-                                    <?php
-                                    $sqlTipo = "SELECT *,
-                                    cursos.ID as curid,
-                                    cursos.NOMBRE as curnom,
-                                    grados.NIVEL as graniv
-                                    FROM cursos 
-                                    INNER JOIN grados 
-                                    ON cursos.ID_GRADO  = grados.ID";
-                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
-                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                <option value="<?php echo $data["curid"]; ?>"><?php echo utf8_encode($data['graniv'] . ' ' .$data['curnom'] ); ?>
-
-                                    <?php } ?>
-                            </select>  
-                        </div>  
+                        
+                            <div class="mb-3 ">
+                                <label for="4" class="form-label">Descripción</label>
+                                <textarea class="form-control texta" name="descripcion"  id="4"></textarea   > 
+                            </div>     
+                        
+        
 
                       
-
-                        
-                       
- 
-
 
                         
                         <div class="d-grid mt-5">

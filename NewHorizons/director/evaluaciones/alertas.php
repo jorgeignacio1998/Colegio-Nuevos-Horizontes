@@ -1,22 +1,8 @@
 
-                 <!-- 3 alerta ERROR, seguridad.  -->
-                    <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'curso_no_indicado') {
-                    ?>
-
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERROR</strong> El curso no es el indicado. 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                <!-- 3 alerta ERROR  -->
-
 
                 <!-- 2.  alerta  registrado  success -->
                     <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'asignado') {
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado') {
                     ?>
 
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -75,6 +61,19 @@
 
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>ERROR</strong> error 444
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                <!-- 3 alerta ERROR  -->
+                    <!-- 3 alerta ERROR, seguridad.  -->
+                    <?php
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nombre') {
+                    ?>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR DE FORMATO</strong> solo se permiten numeros naturales en el numero de evaluación
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <?php
