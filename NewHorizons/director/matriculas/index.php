@@ -104,7 +104,7 @@ ORDER BY ID_PERIODO  DESC , ID_GRADO ");
                 
                <div  class="card ">
                    <div class="card-header">
-                       Lista de usuarios                                     
+                       Lista de matrículas                                     
                        <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Buscar...">                          <!-- aca-->
                    </div>
 
@@ -176,7 +176,7 @@ ORDER BY ID_PERIODO  DESC , ID_GRADO ");
                <div class="card">
                  
                    <div class="card-header">
-                       Agregar matricula:
+                       Agregar matrícula:
                    </div>
                    <form action="c_registrar.php" method="POST" class="p-4" >
 

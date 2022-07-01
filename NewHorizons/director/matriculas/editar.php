@@ -59,6 +59,7 @@ if(!isset($_GET['codigo'])) {
 }
         
 
+#close { position:absolute; left:10px; top:10px; right:10px; font-size: 30px; cursor: pointer; color: black; }
 
 </style>
 
@@ -74,8 +75,9 @@ if(!isset($_GET['codigo'])) {
 
                <div class="card segundo">
                  
-                   <div class="card-header">
-                       Editar Matriculas:
+                    <div class="card-header">
+                        <a href="index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
+                        <h3 id="_titulo">&nbsp; &nbsp; &nbsp; Editar Matrícula:</h3>  
                    </div>
 
 
