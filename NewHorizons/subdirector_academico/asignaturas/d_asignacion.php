@@ -1,16 +1,16 @@
 <?php 
 include '../seguridad_subdirector.php';
 
-if(!isset($_GET['id_asignacion'])){
-    header('Location: index.php?mensaje=error');
+if(!isset($_GET['id_clase'])){
+    echo "<script>location.href='asignar_asignatura.php?mensaje=error';</script>";
 }
 
     //recibiendo id de la asignacion para borrarlo.
-    $id_asignacion = $_GET['id_asignacion'];
+    $id_clase = $_GET['id_clase'];
 
 
     //Eliminando los datos
-    $query = "DELETE FROM asignaturas_profes WHERE ID_ASIGNACION = $id_asignacion ";
+    $query = "DELETE FROM clases WHERE ID = $id_clase ";
 
 
 
