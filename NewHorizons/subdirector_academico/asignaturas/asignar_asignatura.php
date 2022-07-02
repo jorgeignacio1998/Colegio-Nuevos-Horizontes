@@ -1,18 +1,7 @@
 <?php
 include '../seguridad_subdirector.php';
 
-
-
-// $query10 = $mysqli->query("SELECT * FROM asignaturas_profes");
-
 ?>
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,46 +27,72 @@ include '../seguridad_subdirector.php';
 
 
 
- <!-- Funciion para obtener el ID seleccionado por el cliente -->
- <script>
-                                $(document).ready(function() {
+<!-- Funciion para obtener el ID seleccionado por el cliente -->
+  <script>
+    $(document).ready(function() {
                                 $("#id_curso").change(function() {
-                                //    alert($('#id_curso').val());
-                                // var selectedVal = $("#myselect option:selected").text();
-                                var selectedVal = $("#id_curso option:selected").val();
+    //    alert($('#id_curso').val());
+    // var selectedVal = $("#myselect option:selected").text();
+    var selectedVal = $("#id_curso option:selected").val();
                               
 
-                                // Enviar el id por get
+    // Enviar el id por get
                          
 
-                                    // var selectedVal = $("#myselect option:selected").text();
+        // var selectedVal = $("#myselect option:selected").text();
                                 
-                                    //   alert($('#id_curso').val());
-                                    //   alert(selectedVal);
-                                    // Enviar el id por get                            
-                                    //alert(input);   
-                                    $.ajax({
+        //   alert($('#id_curso').val());
+        //   alert(selectedVal);
+        // Enviar el id por get                            
+        //alert(input);   
+        $.ajax({
                                             
-                                            url:"2.php",
-                                            method: "POST",
-                                            data: {variable:selectedVal},
+                url:"2.php",
+                method: "POST",
+                data: {variable:selectedVal},
 
-                                            success:function(data){
-                                                $("#searchResult3").html(data);
-                                                $("#searchResult3").css("display","block");
-                                            }
-                                        });
-                                    // Enviar el id por get
-                                    });
+                success:function(data){
+                    $("#searchResult3").html(data);
+                    $("#searchResult3").css("display","block");
+                }
+            });
+        // Enviar el id por get
+        });
                                     
                                     
 
                                
-                                });
-                            </script>
-                        <!-- Funciion para obtener el ID seleccionado por el cliente -->
+    });
+  </script>
+<!-- Funciion para obtener el ID seleccionado por el cliente -->
 
 
+<!-- Inicio BUSQUEDA con Jquery -->   
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#live_search").keyup(function(){
+
+                var input = $(this).val();
+                //alert(input);   
+
+                    $.ajax({
+
+                        url:"liveSearch2.php",
+                        method: "POST",
+                        data: {input:input},
+
+                        success:function(data){
+                            $("#searchResult").html(data);
+                            $("#searchResult").css("display","block");
+                        }
+
+                    });
+            
+            });
+
+        });
+    </script>
+<!-- Termino BUSQUEDA con Jquery -->   
 
 
 
@@ -190,7 +205,7 @@ include '../seguridad_subdirector.php';
             <!-- siguiendo con la estructura de la tabla (primer col) -->
             <div  class="card ">
                 <div class="card-header">
-                    Lista de clases                                     
+                    Lista de clases no cabia                                    
                     <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Buscar...">                          <!-- aca-->
                 </div>
 
@@ -200,13 +215,20 @@ include '../seguridad_subdirector.php';
                             <tr>
 
                                 <?php
-                                    $inner = $mysqli->query("SELECT * FROM clases
-                                   
+                                    $inner = $mysqli->query("SELECT *, clases.NOMBRE AS nombrecla,
+                                    grados.NIVEL AS gradoniv,cursos.NOMBRE AS nombrecurs,
+                                    asignaturas.NOMBRE AS nombreasig, profesores.NOMBRE AS 
+                                    nombreprofe FROM clases INNER JOIN asignaturas ON
+                                    clases.ID_ASIGNATURA = asignaturas.ID_A INNER JOIN 
+                                    profesores ON profesores.ID = clases.ID_PROFESOR
+                                    INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
+                                    INNER JOIN grados ON grados.ID = cursos.ID_GRADO
                                     ");
                                 ?>
-                                
+
                                 <th scope="col">Clase</th>
                                 <th scope="col">Curso</th>
+                                <th scope="col">Asignatura</th>    
                                 <th scope="col">Profesor</th>                              
                              
                             
@@ -225,9 +247,10 @@ include '../seguridad_subdirector.php';
                             ?>
                             <tr >
 
-                                <td scope="row"><?php echo $fila['NOMBRE']; ?></td>
-                                <td ><?php echo $fila['ID_CURSO']; ?></td>
-                                <td ><?php echo $fila['ID_PROFESOR']; ?></td>
+                                <td scope="row"><?php echo $fila['nombrecla']; ?></td>
+                                <td ><?php echo $fila['gradoniv'] . ' ' . $fila['nombrecurs'] ?></td>
+                                <td ><?php echo $fila['nombreasig']; ?></td>
+                                <td ><?php echo $fila['nombreprofe']; ?></td>
                                
 
 
@@ -293,7 +316,16 @@ include '../seguridad_subdirector.php';
                        Registrar nueva clase:
                    </div>
                    <form action="c_asignar.php" method="POST" class="p-4" >
+                        
+                        
+                        <div class="mb-3">
+                            <label for="_2" class="form-label">Nombre de la clase: </label>
+                            <input type="text" class="form-control" name="nombre" autofocus required id="_2">
+                        </div>
 
+
+
+                            
     
                         <div class="mb-3">
                             <label class="form-label lab" for="id_curso">Curso</label > 
