@@ -16,6 +16,10 @@ $regexNumeroNatural = "/^[1-9]*$/";
  $grado = $sentencia2['ID_GRADO'];
  //INYECCIONSQL
 
+
+
+ 
+
 //1.-  NOMBRE VALIDACIONES                     
     if(!preg_match($regexNumeroNatural, $numero)){
         array_push($error, "El formato es invalido");

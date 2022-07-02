@@ -1,7 +1,7 @@
 <?php 
 
 include '../seguridad_director.php'; 
-$datos_usuario = $mysqli->query("SELECT * FROM usuarios ");  //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
+$datos_usuario = $mysqli->query("SELECT * FROM usuarios  ORDER BY NIVEL ");  //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
 
 //EXCEPT SELECT * FROM usuarios WHERE NIVEL = 1 
 
@@ -10,10 +10,10 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios ");  //obtiene datos de 
     $input = $_POST['input'];
 
     if(empty($input)){
-        $query =  "SELECT * FROM usuarios ";
+        $query =  "SELECT * FROM usuarios  ORDER BY NIVEL";
         } else{
             
-        $query = "SELECT * FROM usuarios WHERE NOMBRE LIKE '{$input}%'  OR EMAIL LIKE '{$input}%' OR RUT LIKE '{$input}%'     ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
+        $query = "SELECT * FROM usuarios WHERE NOMBRE LIKE '{$input}%'  OR EMAIL LIKE '{$input}%' OR RUT LIKE '{$input}%'  ORDER BY NIVEL    ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
         }
 
 

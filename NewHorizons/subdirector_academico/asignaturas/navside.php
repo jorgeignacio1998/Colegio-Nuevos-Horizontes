@@ -231,6 +231,19 @@ navbar-toggle a {
     top: 17px;
     
 }
+.evaluaciones{
+    padding-left: 23px;
+    position: relative;
+    top: -10px;
+    
+}
+.apoderados{
+    padding-left: 23px;
+    position: relative;
+    top: -6px;
+    
+}
+
 
 </style>
 
@@ -272,39 +285,14 @@ navbar-toggle a {
 
 
 
-
-                        <!-- 1 HAMBURGESA -->
-                    <li class="list__item list__item--click" >
-                        <div class="list__button list__button__click">
-                           
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Asignaturas  <i class=" list__arrow fa-solid fa-angle-right"></i>
-                            
-                            
-                        </div>
-                        <!-- primer submenu -->
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="index.php"  class=" nav__link nav__link__inside"  >Lista de asignaturas   </a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="asignar_asignatura.php" class=" nav__link nav__link__inside" >Asignar asignaturas  </a >
-                            </li>
-                        </ul>
-                    </li>
-
-
-
-
-
-
-                          <!-- 2 HAMBURGESA -->
+                <!-- 2 Cursos -->
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
                             <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Cursos <i class=" list__arrow fa-solid fa-angle-right"></i>
                             
                         </div>
-                        <!-- primer submenu -->
+                        <!--  submenu Cursos -->
                         <ul class="list__show">
                             <li class="list__inside">
                                 <a href="../cursos/index.php"  class=" nav__link nav__link__inside"  >Lista de Cursos   </a>
@@ -314,47 +302,29 @@ navbar-toggle a {
                             </li>
                         </ul>
                     </li>
+                <!-- 2 Cursos -->
 
 
-                        <!-- 3 HAMBURGESA -->
-                    <li class="list__item list__item--click" >
-                        <div class="list__button list__button__click">
-                           
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 3  <i class=" list__arrow fa-solid fa-angle-right"></i>
-                          
+                <!-- Clases -->
+                    <li class="list__item evaluaciones">
+                        <div class="list__button">
+                            <a href="asignar_asignatura.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
                         </div>
-                        <!-- primer submenu -->
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1   </a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
-                            </li>
-                        </ul>
                     </li>
+                <!-- Clases -->
 
-                        <!-- 4 HAMBURGESA -->
-                    <li class="list__item list__item--click" >
-                        <div class="list__button list__button__click">
-                           
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 4   <i class="  fa-solid fa-angle-right list__arrow"></i>
-
-                               
-                         
+                <!-- Gestionar apoderado -->
+                    <li class="list__item apoderados">
+                        <div class="list__button">
+                            <a href=""  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;otro  </a >
                         </div>
-                        <!-- primer submenu -->
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1  </a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
-                            </li>
-                        </ul>
                     </li>
+                <!-- Gestionar apoderado -->
 
-                </ul>
+
+
+
+                    
 
             </nav>
         </ul> 
