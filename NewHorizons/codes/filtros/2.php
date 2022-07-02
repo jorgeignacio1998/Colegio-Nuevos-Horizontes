@@ -2,7 +2,7 @@
 
 require '../seguridad_subdirector.php';
 $datos_usuario = $mysqli->query("SELECT * FROM usuarios"); //obtiene datos de todos los usuarios MENOS los tipos de usuario Nivel 1 (servirá para pintar los datos en la tabla (250 fila))
-
+$regexRut = "/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/";
     
 $variable = $_POST['variable'];
 $id_curso = $variable;
