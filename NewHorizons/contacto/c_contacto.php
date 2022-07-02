@@ -1,7 +1,7 @@
 <?php
 //  envio de datos del formulario al mi correo electronico
 use PHPMailer\PHPMailer\PHPMailer;
-//use PHPMailer\PHPMailer\Exception; la comente porque daba error con otro proyecto, no puede ser llamda dos veces.
+//ojo con las rutas
 require 'D:/XAMPP/htdocs/NewHorizons/PHPMailer/src/Exception.php';
 require 'D:/XAMPP/htdocs/NewHorizons/PHPMailer/src/PHPMailer.php';
 require 'D:/XAMPP/htdocs/NewHorizons/PHPMailer/src/SMTP.php';
@@ -18,12 +18,12 @@ isset($_POST['g-recaptcha-response'])
 
 
     $nombre = $_POST['nombre'];
-    $regexNombre = "/^[a-zA-Z\s]+$/";
+    $regexNombre2 = "/^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/";
     
     //NOMBRE VALIDACIONES                     
-        if(!preg_match($regexNombre, $nombre)){
+        if(!preg_match($regexNombre2, $nombre)){
             array_push($error, "El formato es invalido");
-            echo "<script>location.href='contacto.php?mensaje=formato1';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+            echo "<script>location.href='index.php?mensaje=formato1';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
             
         }  
     //NOMBRE VALIDACIONES   
@@ -35,7 +35,7 @@ isset($_POST['g-recaptcha-response'])
     //CORREO VALIDACIONES                     
         if(!preg_match($regexEmail, $email)){
             array_push($error, "El formato es invalido");
-            echo "<script>location.href='contacto.php?mensaje=formato2';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+            echo "<script>location.href='index.php?mensaje=formato2';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
             
         }  
     //CORREO VALIDACIONES
@@ -46,7 +46,7 @@ isset($_POST['g-recaptcha-response'])
     //CORREO VALIDACIONES                     
     if(!preg_match($regexMensaje, $mensaje)){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='contacto.php?mensaje=formato3';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+        echo "<script>location.href='index.php?mensaje=formato3';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
         
     }  
     //CORREO VALIDACIONES
@@ -71,7 +71,7 @@ isset($_POST['g-recaptcha-response'])
         $arr = json_decode($response, TRUE);
         if($arr['success']){
     
-            header('Location: ../views/contacto.php?mensaje=exito');
+            header('Location: index.php?mensaje=exito');
             
             //  INICIO ENVIO DEL CORREO
             $mail = new PHPMailer(true);
@@ -102,7 +102,7 @@ isset($_POST['g-recaptcha-response'])
                 //Content
                 $mail->isHTML(true);                                  
                 $mail->Subject = 'NOMBRE: '  .$_POST['nombre'] ;
-                $mail->Body    = 'DE:' .$_POST['nombre'] . ' ' .  'CORREO ELECTRONICO: '.$_POST['email'] .' MENSAJE: ' .$_POST['mensaje'] ;
+                $mail->Body    = 'DE: ' .$_POST['nombre'] . ' - ' .  'CORREO ELECTRONICO: '.$_POST['email'] .' MENSAJE: ' .$_POST['mensaje'] ;
                 $mail->AltBody  =  $_POST['nombre'] ;
                 $mail->send();
                 echo 'Message has been sent';
@@ -113,7 +113,7 @@ isset($_POST['g-recaptcha-response'])
     
             
         }else{
-            header('Location: ../views/contacto.php?mensaje=error');
+            header('Location: index.php?mensaje=error');
         }
             
     

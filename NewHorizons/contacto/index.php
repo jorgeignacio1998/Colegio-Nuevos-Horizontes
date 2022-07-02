@@ -56,7 +56,7 @@
                 <div class=" card-header">
 
         
-                <form  action="../codes/c_contacto.php" method="POST"  enctype="multipart/form-data "   class="form-register"  id="formid">
+                <form  action="c_contacto.php" method="POST"    class="form-register"  >
                     <h4  id="_titulo"  >Contacto</h4>
                     <div class="row">
                         <div class="mb-3 col-md-6 col-sm-12 ">
