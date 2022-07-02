@@ -36,33 +36,46 @@ include '../seguridad_subdirector.php';
     ?>
     
 
-    <!-- Inicio BUSQUEDA con Jquery -->   
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#live_search").keyup(function(){
 
-            var input = $(this).val();
-            //alert(input);   
 
-                $.ajax({
+ <!-- Funciion para obtener el ID seleccionado por el cliente -->
+ <script>
+                                $(document).ready(function() {
+                                $("#id_curso").change(function() {
+                                //    alert($('#id_curso').val());
+                                // var selectedVal = $("#myselect option:selected").text();
+                                var selectedVal = $("#id_curso option:selected").val();
+                              
 
-                    url:"liveSearch2.php",
-                    method: "POST",
-                    data: {input:input},
+                                // Enviar el id por get
+                         
 
-                    success:function(data){
-                        $("#searchResult").html(data);
-                        $("#searchResult").css("display","block");
-                    }
+                                    // var selectedVal = $("#myselect option:selected").text();
+                                
+                                    //   alert($('#id_curso').val());
+                                    //   alert(selectedVal);
+                                    // Enviar el id por get                            
+                                    //alert(input);   
+                                    $.ajax({
+                                            
+                                            url:"2.php",
+                                            method: "POST",
+                                            data: {variable:selectedVal},
 
-                });
-         
-        });
+                                            success:function(data){
+                                                $("#searchResult3").html(data);
+                                                $("#searchResult3").css("display","block");
+                                            }
+                                        });
+                                    // Enviar el id por get
+                                    });
+                                    
+                                    
 
-    });
-</script>
-<!-- Termino BUSQUEDA con Jquery -->   
-
+                               
+                                });
+                            </script>
+                        <!-- Funciion para obtener el ID seleccionado por el cliente -->
 
 
 
@@ -304,28 +317,12 @@ include '../seguridad_subdirector.php';
                             </select>  
                         </div>  
 
+                        <div id="searchResult3">
+                        
+                        </div>
 
-                        <!-- Funciion para obtener el ID seleccionado por el cliente -->
-                            <script>
-                                $(document).ready(function() {
-                                $("#id_curso").change(function() {
 
-                                // var selectedVal = $("#myselect option:selected").text();
-                                var selectedVal = $("#id_curso option:selected").val();
-                                //  alert($('#id_curso').val());
-
-                                // Enviar el id por get
-                                 
-
-                                    
-                                    
-
-                                // Enviar el id por get
-                                });
-                               
-                                });
-                            </script>
-                        <!-- Funciion para obtener el ID seleccionado por el cliente -->
+                       
 
                         
 
