@@ -205,7 +205,7 @@ include '../seguridad_subdirector.php';
             <!-- siguiendo con la estructura de la tabla (primer col) -->
             <div  class="card ">
                 <div class="card-header">
-                    Lista de clases no cabia                                    
+                    Lista de clases                                     
                     <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Buscar...">                          <!-- aca-->
                 </div>
 
@@ -223,6 +223,7 @@ include '../seguridad_subdirector.php';
                                     profesores ON profesores.ID = clases.ID_PROFESOR
                                     INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
                                     INNER JOIN grados ON grados.ID = cursos.ID_GRADO
+                                    ORDER BY grados.ID, cursos.NOMBRE
                                     ");
                                 ?>
 
@@ -313,13 +314,13 @@ include '../seguridad_subdirector.php';
                <div class="card segundo">
                  
                    <div class="card-header">
-                       Registrar nueva clase:
+                       Registrar Clase:
                    </div>
                    <form action="c_asignar.php" method="POST" class="p-4" >
                         
                         
                         <div class="mb-3">
-                            <label for="_2" class="form-label">Nombre de la clase: </label>
+                            <label for="_2" class="form-label">Nombre de la Clase: </label>
                             <input type="text" class="form-control" name="nombre" autofocus required id="_2">
                         </div>
 
@@ -389,8 +390,15 @@ include '../seguridad_subdirector.php';
                         
                         
                         <div class="d-grid mt-5">
-                         
-                            <input type="hidden"  name="codigo" value="<?php echo $codigo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
+                            <?php 
+                            //INYECCIONSQL
+                                $datita = $mysqli->query("SELECT * FROM  periodos WHERE ESTADO LIKE 'VIGENTE' ");
+                                $sentencia2 =mysqli_fetch_array($datita);
+                                $id_periodo = $sentencia2['ID'];
+                            //INYECCIONSQL
+                            ?>
+                                            
+                            <input type="hidden"  name="periodo" value="<?php echo $id_periodo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
                             <input type="submit" class="btn btn-primary" value="Asignar">
                         </div>
 

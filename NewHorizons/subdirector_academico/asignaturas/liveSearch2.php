@@ -4,14 +4,7 @@ include '../../codes/connect.php';
 
 
 
-$inner = $mysqli->query("SELECT *, clases.NOMBRE AS nombrecla,
-grados.NIVEL AS gradoniv,cursos.NOMBRE AS nombrecurs,
-asignaturas.NOMBRE AS nombreasig, profesores.NOMBRE AS 
-nombreprofe FROM clases INNER JOIN asignaturas ON
-clases.ID_ASIGNATURA = asignaturas.ID_A INNER JOIN 
-profesores ON profesores.ID = clases.ID_PROFESOR
-INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
-INNER JOIN grados ON grados.ID = cursos.ID_GRADO");
+
 
 
 
@@ -29,10 +22,12 @@ INNER JOIN grados ON grados.ID = cursos.ID_GRADO");
         clases.ID_ASIGNATURA = asignaturas.ID_A INNER JOIN 
         profesores ON profesores.ID = clases.ID_PROFESOR
         INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
-        INNER JOIN grados ON grados.ID = cursos.ID_GRADO";
+        INNER JOIN grados ON grados.ID = cursos.ID_GRADO
+        ORDER BY grados.ID";
 
         } else{
             
+        
         $query = "SELECT *, clases.NOMBRE AS nombrecla,
         grados.NIVEL AS gradoniv,cursos.NOMBRE AS nombrecurs,
         asignaturas.NOMBRE AS nombreasig, profesores.NOMBRE AS 
@@ -43,7 +38,8 @@ INNER JOIN grados ON grados.ID = cursos.ID_GRADO");
         INNER JOIN grados ON grados.ID = cursos.ID_GRADO 
         WHERE profesores.NOMBRE LIKE '{$input}%' OR 
         clases.NOMBRE LIKE '{$input}%' OR grados.NIVEL LIKE '{$input}%' 
-        OR asignaturas.NOMBRE LIKE '{$input}%' ORDER BY grados.ID 
+        OR asignaturas.NOMBRE LIKE '{$input}%' OR cursos.NOMBRE LIKE '{$input}%' OR LEEIBLE LIKE '{$input}%'
+        ORDER BY grados.ID, cursos.NOMBRE
          ";   
         }
 
@@ -59,17 +55,6 @@ INNER JOIN grados ON grados.ID = cursos.ID_GRADO");
                         <thead>
                             <tr>
 
-                                <?php
-                                    $inner = $mysqli->query("SELECT *, clases.NOMBRE AS nombrecla,
-                                    grados.NIVEL AS gradoniv,cursos.NOMBRE AS nombrecurs,
-                                    asignaturas.NOMBRE AS nombreasig, profesores.NOMBRE AS 
-                                    nombreprofe FROM clases INNER JOIN asignaturas ON
-                                    clases.ID_ASIGNATURA = asignaturas.ID_A INNER JOIN 
-                                    profesores ON profesores.ID = clases.ID_PROFESOR
-                                    INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
-                                    INNER JOIN grados ON grados.ID = cursos.ID_GRADO
-                                    ");
-                                ?>
 
                                 <th scope="col">Clase</th>
                                 <th scope="col">Curso</th>
@@ -83,7 +68,7 @@ INNER JOIN grados ON grados.ID = cursos.ID_GRADO");
                         <tbody >
                             <?php     //IMPRIMIR DATOS EN LOS td
 
-                            while($fila =mysqli_fetch_array($inner)  ) {
+                            while($fila =mysqli_fetch_array($result)  ) {
                             
                                 
                                 

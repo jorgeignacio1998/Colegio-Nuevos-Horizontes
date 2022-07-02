@@ -6,11 +6,20 @@ if(!isset($_POST['id_curso'])){
 }
 
 $grado = $_POST["grado"];
+
+//INYECCIONSQL
+$datita = $mysqli->query("SELECT * FROM  grados WHERE ID LIKE $grado");
+$sentencia2 =mysqli_fetch_array($datita);
+$nombre_grado = $sentencia2['NIVEL'];
+
+// echo '<script language="javascript">alert("' . 'ALERTO: ' .  $id_sala   . '");</script>';
+//INYECCIONSQL
+
 $nombre = $_POST["nombre"];
 $regexNombre = "/^[A-Za-z]+$/"; 
 //no espacios, no simbolos ni numeros, solo una palabra natural.
 $id_sala= $_POST["sala"];
-
+$leible = $nombre_grado . " " . $nombre;
 
 $id_curso= $_POST["id_curso"];
 
@@ -88,7 +97,7 @@ if(!preg_match($regexNombre, $nombre)){
 
 if(count($error)==0) {     
     
-    $query = "UPDATE cursos SET  NOMBRE = '{$nombre}', ID_GRADO = '{$grado}', ID_SALA = '{$id_sala}'  WHERE ID  = $id_curso ";
+    $query = "UPDATE cursos SET  NOMBRE = '{$nombre}', ID_GRADO = '{$grado}', ID_SALA = '{$id_sala}', LEEIBLE = '{$leible}'   WHERE ID  = $id_curso ";
 
     if(mysqli_query($mysqli, $query)){
         

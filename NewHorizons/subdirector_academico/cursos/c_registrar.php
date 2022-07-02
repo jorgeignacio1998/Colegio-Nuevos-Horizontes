@@ -9,7 +9,15 @@ $error = array();
     $nombre = $_POST["nombre"];
     $regexNombre = "/^[A-Za-z]+$/"; 
     $sala = $_POST["sala"];
-    
+
+    //INYECCIONSQL
+        $datita = $mysqli->query("SELECT * FROM  grados WHERE ID LIKE $grado");
+        $sentencia2 =mysqli_fetch_array($datita);
+        $nombre_grado = $sentencia2['NIVEL'];
+        $leible = $nombre_grado . " " . $nombre;
+        // echo '<script language="javascript">alert("' . 'ALERTO: ' .  $id_sala   . '");</script>';
+    //INYECCIONSQL
+
 
     // 3.- formato nombre                   
     if(!preg_match($regexNombre, $nombre)){
@@ -54,7 +62,7 @@ $error = array();
 
 
     
-    $query = "INSERT INTO cursos (NOMBRE,ID_GRADO,ID_SALA) VALUES ('{$nombre}','{$grado}','{$sala}') ";
+    $query = "INSERT INTO cursos (NOMBRE,ID_GRADO,ID_SALA,LEEIBLE) VALUES ('{$nombre}','{$grado}','{$sala}' ,'{$leible}'  ) ";
     
 
 
