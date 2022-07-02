@@ -2,23 +2,8 @@
 include '../seguridad_subdirector.php';
 
 
+
 // $query10 = $mysqli->query("SELECT * FROM asignaturas_profes");
-
-
-
-$inner = $mysqli->query("SELECT *,
- profesores.NOMBRE as prono
-
- FROM asignaturas_profes
- INNER JOIN profesores                 
- ON asignaturas_profes.ID_PROFESOR = profesores.ID
- INNER JOIN asignaturas
- ON asignaturas.ID_A = asignaturas_profes.ID_ASIGNATURA");
-
-
-
-
-
 
 ?>
 
@@ -79,6 +64,12 @@ $inner = $mysqli->query("SELECT *,
 <!-- Termino BUSQUEDA con Jquery -->   
 
 
+
+
+
+
+
+
 <style>
  .moverabajo{
      
@@ -103,8 +94,8 @@ $inner = $mysqli->query("SELECT *,
         <div  class="col-8">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
 
 
-
-        
+        <!-- ALERTAS  -->
+          
                  <!-- 1 alerta clonado  -->
                  <?php
                  if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'clonado') {
@@ -178,7 +169,7 @@ $inner = $mysqli->query("SELECT *,
                 ?> 
                 <!-- 5. alerta  EDITADO  success -->
 
-
+        <!-- ALERTAS  -->
 
 
 
@@ -186,7 +177,7 @@ $inner = $mysqli->query("SELECT *,
             <!-- siguiendo con la estructura de la tabla (primer col) -->
             <div  class="card ">
                 <div class="card-header">
-                    Lista de asignaciones                                     
+                    Lista de clases                                     
                     <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Buscar...">                          <!-- aca-->
                 </div>
 
@@ -194,10 +185,17 @@ $inner = $mysqli->query("SELECT *,
                     <table class="table align-middle">
                         <thead>
                             <tr>
+
+                                <?php
+                                    $inner = $mysqli->query("SELECT * FROM clases
+                                   
+                                    ");
+                                ?>
                                 
-                                <th scope="col">#</th>
+                                <th scope="col">Clase</th>
+                                <th scope="col">Curso</th>
                                 <th scope="col">Profesor</th>                              
-                                <th scope="col">Asignatura</th>
+                             
                             
                                 <th scope="col" colspan="2">Opciones</th>
                             </tr>
@@ -209,25 +207,22 @@ $inner = $mysqli->query("SELECT *,
                             
                                 
                                 
-
-
-                                
-
-
+                            
                                 
                             ?>
                             <tr >
 
-                                <td scope="row"><?php echo $fila['ID_ASIGNACION']; ?></td>
-                                <td ><?php echo $fila['prono']; ?></td>
-                                <td ><?php echo $fila['NOMBRE']; ?></td>
+                                <td scope="row"><?php echo $fila['NOMBRE']; ?></td>
+                                <td ><?php echo $fila['ID_CURSO']; ?></td>
+                                <td ><?php echo $fila['ID_PROFESOR']; ?></td>
+                               
 
 
 
                             
 
-                                <td><a class="text-primary" href="E_asignacion.php?id_asignacion=<?php echo $fila['ID_ASIGNACION']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asignacion.php?id_asignacion=<?php echo $fila['ID_ASIGNACION']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                <td><a class="text-primary" href="E_asignacion.php?=">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asignacion.php?id_asignacion=">   <i class="bi bi-trash"></i></a>  </td>  
                                 <!-- le envia por la url el id del usuario al c_eliminar -->
                                 
 
@@ -282,35 +277,56 @@ $inner = $mysqli->query("SELECT *,
                <div class="card segundo">
                  
                    <div class="card-header">
-                       Asignar asignaturas
+                       Registrar nueva clase:
                    </div>
                    <form action="c_asignar.php" method="POST" class="p-4" >
+
+    
                         <div class="mb-3">
-                            <label for="_1" class="form-label">Nombre Asignatura: </label>
-                            <select name="asignatura" class="form-control"  required id="_2">
+                            <label class="form-label lab" for="id_curso">Curso</label > 
+                            <select name="curso" class="form-control"  required  id="id_curso" >
+                                <option disabled selected value >  </option>
+                                    <?php
+                                    $sqlTipo = "SELECT *,
+                                    cursos.ID as curid,
+                                    cursos.NOMBRE as curnom,
+                                    grados.NIVEL as graniv
+                                    FROM cursos 
+                                    INNER JOIN grados 
+                                    ON cursos.ID_GRADO  = grados.ID";
+                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
+                                <option value="<?php echo $data["curid"]; ?>"><?php echo utf8_encode($data['graniv'] . ' ' .$data['curnom'] ); ?>
+
+                                    <?php } ?>
+                            </select>  
+                        </div>  
 
 
-                            <!-- Este option es el dato del profesor -->
-                         
+                        <!-- Funciion para obtener el ID seleccionado por el cliente -->
+                            <script>
+                                $(document).ready(function() {
+                                $("#id_curso").change(function() {
 
-                            <option value="">
+                                // var selectedVal = $("#myselect option:selected").text();
+                                var selectedVal = $("#id_curso option:selected").val();
+                                //  alert($('#id_curso').val());
 
-                                        <?php
-                                        $sqlAsi = "SELECT * FROM asignaturas order by ID_A";
-                                        $dataAsi = mysqli_query($mysqli, $sqlAsi);
+                                // Enviar el id por get
+                                 
 
-                                        
-                                        while($data = mysqli_fetch_array($dataAsi)){ 
-                                        ?>
+                                    
+                                    
 
+                                // Enviar el id por get
+                                });
+                               
+                                });
+                            </script>
+                        <!-- Funciion para obtener el ID seleccionado por el cliente -->
 
-                                        <!-- y este option las opciones -->
-                                        <option value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode('ID: '. $data['ID_A']. ' - Nombre: '. $data['NOMBRE'] ); ?>
-                                        <?php } ?>
-
-                           </select>
-                        </div>     
-                        
                         
 
                         <div class="mb-3">
@@ -354,7 +370,6 @@ $inner = $mysqli->query("SELECT *,
                </div>
                <br>
             </div>   <!--col 4 -->
-
 
 
 

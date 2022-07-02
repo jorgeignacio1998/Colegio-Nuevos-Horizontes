@@ -334,7 +334,7 @@ navbar-toggle a {
                 <!-- Clases -->
                 <li class="list__item evaluaciones">
                         <div class="list__button">
-                            <a href="../asignar_asignatura.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
+                            <a href="../asignaturas/asignar_asignatura.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
                         </div>
                     </li>
                 <!-- Clases -->
