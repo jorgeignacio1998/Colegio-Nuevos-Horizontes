@@ -7,7 +7,10 @@ if(!isset($_GET['id_clase'])) {
     exit();
 }
 //INYECCION FETCH ARRAY
-    $datos_clases = $mysqli->query("SELECT *, grados.ID AS gradoid, clases.NOMBRE AS nombreclass FROM clases INNER JOIN cursos ON clases.ID_CURSO = cursos.ID INNER JOIN grados ON cursos.ID_GRADO = grados.ID
+    $datos_clases = $mysqli->query("SELECT *, grados.ID AS gradoid, clases.NOMBRE AS nombreclass, cursos.ID AS cursid,
+    cursos.LEEIBLE AS leeible, profesores.NOMBRE AS profenom
+    FROM clases INNER JOIN cursos ON clases.ID_CURSO = cursos.ID INNER JOIN grados ON cursos.ID_GRADO = grados.ID
+    INNER JOIN profesores ON profesores.ID = clases.ID_PROFESOR
 
     WHERE clases.ID = $id_clase "); 
     $sen =mysqli_fetch_array($datos_clases);
@@ -57,6 +60,47 @@ if(!isset($_GET['id_clase'])) {
 </style>
 
 
+
+<!-- Funciion para obtener el ID seleccionado por el cliente -->
+<script>
+    $(document).ready(function() {
+        $("#id_curso").change(function() {
+    //    alert($('#id_curso').val());
+    // var selectedVal = $("#myselect option:selected").text();
+    var selectedVal = $("#id_curso option:selected").val();
+                              
+
+    // Enviar el id por get
+                         
+
+        // var selectedVal = $("#myselect option:selected").text();
+                                
+        //   alert($('#id_curso').val());
+        //   alert(selectedVal);
+        // Enviar el id por get                            
+        //alert(input);   
+        $.ajax({
+                                            
+                url:"4.php",
+                method: "POST",
+                data: {variable:selectedVal},
+
+                success:function(data){
+                    $("#divasig").html(data);
+                    $("#divasig").css("display","block");
+                }
+            });
+        // Enviar el id por get
+        });
+                                    
+                                    
+
+                               
+    });
+  </script>
+<!-- Funciion para obtener el ID seleccionado por el cliente -->
+
+
 <!-- Inicio Gestor de asignaturas--  academico -->   
 <div class="container-fluid moverabajo">
        <div class="row justify-content-center">
@@ -68,7 +112,7 @@ if(!isset($_GET['id_clase'])) {
                    <div class="card-header">
                        Registrar Clase:
                    </div>
-                   <form action="c_asigna.php" method="POST" class="p-4" >
+                   <form action="e_asigna.php" method="POST" class="p-4" >
                         
 
                    <div class="mb-3">
@@ -77,9 +121,33 @@ if(!isset($_GET['id_clase'])) {
                     </div> 
 
 
+
                             <div class="mb-3 ">
-                                <label class="form-label lab" for="id_asignatura">Nombre Asignatura:</label > 
-                                <select name="asignatura" class="form-control"  required  id="id_asignatura" >
+                                <label class="form-label lab" for="id_curso">Curso:</label > 
+                                <select name="curso" class="form-control"  required  id="id_curso" >
+                                  
+                                       
+                                        <?php
+                                        $sqlAsi = "SELECT * FROM cursos ";
+                                        $dataAsi = mysqli_query($mysqli, $sqlAsi);
+
+                                        
+                                        while($data = mysqli_fetch_array($dataAsi)){ 
+                                            
+                                            $selected=($sen['cursid']==$data['ID'])?'selected':false;  ?>
+
+                                        <option <?=$selected;?> value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['LEEIBLE']); ?>
+                                
+                                        <?php } ?>
+                                </select>  
+                            </div> 
+
+
+
+
+                            <div class="mb-3 "  id="divasig">
+                                <label class="form-label lab" for="12">Nombre Asignatura:</label > 
+                                <select name="asignatura" class="form-control" id="12"  required  >
                                   
                                        
                                         <?php
@@ -97,7 +165,27 @@ if(!isset($_GET['id_clase'])) {
                                         <?php } ?>
                                 </select>  
                             </div> 
-                       
+                            
+
+                            
+                        <div class="mb-3">
+                            <label for="_2" class="form-label">Profesor: </label>
+                            <select name="id_profesor" class="form-control"  required id="_2">
+                         
+                                        <?php
+                                        $sqlProfe = "SELECT * FROM profesores order by ID";
+                                        $dataProfe = mysqli_query($mysqli, $sqlProfe);
+
+                                        while($data = mysqli_fetch_array($dataProfe)){ 
+                                        $selected=($sen['profenom']==$data['NOMBRE'])?'selected':false;  ?>
+                                        
+                                        
+                                        <option <?=$selected;?> value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NOMBRE'] ); ?>
+                                       
+                                        <?php } ?>
+
+                           </select>
+                        </div>
                         
 
 
@@ -112,7 +200,7 @@ if(!isset($_GET['id_clase'])) {
                                 $id_periodo = $sentencia2['ID'];
                             //INYECCIONSQL
                             ?>
-                                            
+                            <input type="hidden"  name="id_clase" value="<?php echo $id_clase;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->               
                             <input type="hidden"  name="periodo" value="<?php echo $id_periodo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
                             <input type="submit" class="btn btn-primary" value="Asignar">
                         </div>
