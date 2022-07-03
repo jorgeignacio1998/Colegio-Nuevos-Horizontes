@@ -1,39 +1,25 @@
 <?php
 include '../seguridad_subdirector.php';
-$id_asignacion = $_GET['id_asignacion'];
-if(!isset($_GET['id_asignacion'])) {
+$id_clase = $_GET['id_clase'];
+if(!isset($_GET['id_clase'])) {
 
-    header('Location: ../index.php?mensaje=error');
+    header('Location: asignar_asignatura.php?mensaje=error');
     exit();
 }
+//INYECCION FETCH ARRAY
+    $datos_clases = $mysqli->query("SELECT *, grados.ID AS gradoid, clases.NOMBRE AS nombreclass FROM clases INNER JOIN cursos ON clases.ID_CURSO = cursos.ID INNER JOIN grados ON cursos.ID_GRADO = grados.ID
 
+    WHERE clases.ID = $id_clase "); 
+    $sen =mysqli_fetch_array($datos_clases);
 
-//Pintando datos Del ID = GET
-$inner = $mysqli->query("SELECT *,
- profesores.NOMBRE as prono
-
- FROM asignaturas_profes
- INNER JOIN profesores                 
- ON asignaturas_profes.ID_PROFESOR = profesores.ID
- INNER JOIN asignaturas
- ON asignaturas.ID_A = asignaturas_profes.ID_ASIGNATURA WHERE ID_ASIGNACION = $id_asignacion ");
-
-
-$sen =mysqli_fetch_array($inner);
-
+    $id_grado = $sen['gradoid'];
+  
+//INYECCION FETCH ARRAY 
 
 ?>
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,90 +60,68 @@ $sen =mysqli_fetch_array($inner);
 <!-- Inicio Gestor de asignaturas--  academico -->   
 <div class="container-fluid moverabajo">
        <div class="row justify-content-center">
-           <div class="col-md-4 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
+          
+
+       <div class="col-4  ">    <!-- INICIO SEGUNDO COL  -->
                <div class="card segundo">
                  
                    <div class="card-header">
-                       Editar asignación:
+                       Registrar Clase:
                    </div>
-                   <form action="e_asignar.php" method="POST" class="p-4" >
-
-                        <div class="mb-3">
-                                    <label for="_1" class="form-label">Nombre Asignatura: </label>
-                                    <select name="id_asignatura" class="form-control"  required id="_2">
-
-
-                                    <!-- Este option es el dato del profesor -->
-                                
-
-                                    <option value="<?php echo $sen["ID_ASIGNATURA"]; ?>"><?php echo utf8_encode($sen['NOMBRE']); ?>
-
-                                                <?php
-                                                $sqlAsi = "SELECT * FROM asignaturas order by ID_A";
-                                                $dataAsi = mysqli_query($mysqli, $sqlAsi);
-
-                                                
-                                                while($data = mysqli_fetch_array($dataAsi)){ 
-                                                ?>
-
-
-                                                <!-- y este option las opciones -->
-                                                <option value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode('ID: '. $data['ID_A']. ' - Nombre: '. $data['NOMBRE'] ); ?>
-                                                <?php } ?>
-
-                                </select>
-                                </div>     
-
-
-
-                                <div class="mb-3">
-                                    <label for="_2" class="form-label">Profesor: </label>
-                                    <select name="id_profesor" class="form-control"  required id="_2">
-
-
-                                    <!-- Este option es el dato del profesor -->
-                                
-
-                                                <option value="<?php echo $sen["ID_PROFESOR"]; ?>"><?php echo utf8_encode($sen['prono']); ?>   
-
-                                                <?php
-                                                $sqlProfe = "SELECT * FROM profesores order by ID";
-                                                $dataProfe = mysqli_query($mysqli, $sqlProfe);
-
-                                                
-                                                while($data = mysqli_fetch_array($dataProfe)){ 
-                                                ?>
-
-
-                                                <!-- y este option las opciones -->
-                                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode('ID: '. $data['ID']. ' - Nombre: '. $data['NOMBRE'] ); ?>
-                                                <?php } ?>
-
-                                     </select>
-                                </div>
-                   
-
-
-
-
-
+                   <form action="c_asigna.php" method="POST" class="p-4" >
                         
-                        
-                      
-                                
 
+                   <div class="mb-3">
+                        <label for="_1" class="form-label">Nombre de la Clase: </label>
+                        <input type="text" class="form-control" name="nombre" autofocus required id="_1" value="<?php echo $sen['nombreclass'];  ?>">
+                    </div> 
+
+
+                            <div class="mb-3 ">
+                                <label class="form-label lab" for="id_asignatura">Nombre Asignatura:</label > 
+                                <select name="asignatura" class="form-control"  required  id="id_asignatura" >
+                                  
+                                       
+                                        <?php
+                                        $sqlAsi = "SELECT * FROM asignaturas  
+                                        WHERE ID_GRADO LIKE $id_grado";
+                                        $dataAsi = mysqli_query($mysqli, $sqlAsi);
+
+                                        
+                                        while($data = mysqli_fetch_array($dataAsi)){ 
+                                            
+                                            $selected=($sen['ID_ASIGNATURA']==$data['ID_A'])?'selected':false;  ?>
+
+                                        <option <?=$selected;?> value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode($data['NOMBRE']); ?>
+                                
+                                        <?php } ?>
+                                </select>  
+                            </div> 
+                       
                         
+
+
+
+
+
                         <div class="d-grid mt-5">
-                         
-                            <input type="hidden"  name="id_asignacion" value="<?php echo $id_asignacion;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
-                            <input type="submit" class="btn btn-primary" value="Guardar cambios">
+                            <?php 
+                            //INYECCIONSQL
+                                $datita = $mysqli->query("SELECT * FROM  periodos WHERE ESTADO LIKE 'VIGENTE' ");
+                                $sentencia2 =mysqli_fetch_array($datita);
+                                $id_periodo = $sentencia2['ID'];
+                            //INYECCIONSQL
+                            ?>
+                                            
+                            <input type="hidden"  name="periodo" value="<?php echo $id_periodo;  ?>">  <!-- Enviando el ID por metodo post usando la variable codigo = get -->
+                            <input type="submit" class="btn btn-primary" value="Asignar">
                         </div>
 
                    </form>
 
                </div>
                <br>
-           </div>
+            </div>   <!--col 4 -->
        </div>
    </div>
 
