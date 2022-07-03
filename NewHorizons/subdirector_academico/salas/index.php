@@ -1,6 +1,5 @@
 <?php 
 include '../seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
-$datos_cursos = $mysqli->query("SELECT * FROM cursos");
 
 
 
@@ -117,7 +116,7 @@ $inner = $mysqli->query("SELECT *, sedes.NOMBRE_SEDE AS nombresede  FROM salas I
                                     
 
 
-                                    <td><a class="text-primary" href="E_curso.php?id_curso=">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a class="text-primary" href="editar.php?id_sala=<?php echo $fila['ID'] ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                     <td><a onclick="return confirm('¿estas seguro de eliminar a esta sala?')" class="text-danger" href="c_eliminar.php?id_sala=<?php echo $fila['ID'] ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
