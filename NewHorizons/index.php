@@ -11,120 +11,211 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
     echo $array['NOMBRE'];
     $contador = 1;
 }
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="slider_1/css/estilos.css?<?php echo time(); ?>" >  <!-- CSS  del SLIDER-->
-    <link rel="stylesheet" type="text/css" href="navbar_1/styles.css?<?php echo time(); ?>" >  <!-- CSS  del navbar-->
     <title>Nuevos Horizontes</title>
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
-    
 </head>
-
-
-<style>
-   .logo{
-      height: 6rem;
-      width: 6rem;
-   }
-
-   
-
-
-</style>
-
 
 <body>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+<!-- INICIO MENU -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid gx-5">
+    <a class="navbar-brand" href="#">
+        <img src="img/logo.png" width="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+          <a class="nav-link fw-bolder text-white" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bolder text-white" href="#">Quienes Somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bolder text-white" href="contacto/index.php">Contacto</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <button type="button" class="btn btn-warning fw-bold text-dark"><a class="text-decoration-none" href="views/login.php">INGRESAR</a></button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- FIN MENU -->
 
-   <!-- Navbar  -->
-      <header>
-         <div class="logo-header" >
-            <img src="img/logo.png"  >
-         </div>
-         <nav class="nav-menu">
-            <ul>
-               <li class="ingresar"><a href="views/login.php">INGRESAR</a></li>
-            </ul>
-         </nav>
-      </header>
-   <!-- Navbar  -->
+<!--  INICIO SLIDER  -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/img_1.png" class="d-block w-100" alt="img banner" >
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="shadow-xl fw-bold">FELICES VACACIONES DE INVIERNO</h5>
+        <p class="shadow-xl fw-bold">¡Nos volveremos a encontrar en la sala de clases!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/img_2.png" class="d-block w-100" alt="img banner">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="shadow-xl">CELEBRACIÓN CIERRE SEMESTRE</h5>
+        <p class="shadow-xl">El ciclo básico ha celebrado con un acto el cierre del semestre</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/img_3.png" class="d-block w-100" alt="img banner">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="shadow-xl">COVID-19</h5>
+        <p class="shadow-xl">Tenemos las medidas necesarias para combatir el Covid en las salas de clases</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!--  FINAL SLIDER  -->
+
+<!-- INICIO CUERPO -->
+<div class="container mx-auto">
+  <div class="row justify-content-center">
+
+    <div class="col-12 mb-5 mt-5"> <h2 class="text-center text-dark"> ¡Gracias por ser parte de Colegio Nuevos Horizontes! </h2>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row gx-4 justify-content-between mb-3">
+
+    <div class="col-lg-4 col-md-12 d-flex"> <div class="card w-80 mb-3">
+  <div class="card-body">
+    <h5 class="card-title text-primary text-primary">ADMISIÓN 2023</h5>
+    <p class="card-text">En el colegio Nuevos Horizontes estamos preparados para recibir a nuevos estudiantes en la comunidad educativa. Puedes encontrar más información en el sitio web del colegio para saber como continuar con las matriculas de alumnos ya ingresados.</p>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex"> <div class="card w-80 mb-3">
+  <div class="card-body">
+    <h5 class="card-title text-primary">PROTOCOLO COVID</h5>
+    <p class="card-text">En el colegio contamos con un protocolo respecto a las medidas sanitarias siguiendo el lineamiento del Gobierno de Chile en este año 2022 en el cual las clases serán presenciales.</p>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex"> <div class="card w-80 mb-3">
+  <div class="card-body">
+    <h5 class="card-title text-primary">CERTIFICADOS</h5>
+    <p class="card-text">Contamos con tramites en linea en el sitio web principal del colegio Nuevos Horizontes en el cual puedes solicitar certificados de Alumno Regular para este año 2022 para diversas necesidades.</p>
+  </div>
+</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row gx-4 justify-content-between mb-3">
+
+    <div class="col-lg-4 col-md-12 d-flex"><div class="card w-80 mb-3">
+  <div class="card-body">
+    <h5 class="card-title text-primary">INFRAESTRUCTURA</h5>
+    <p class="card-text">Somos una institucion preocupada de nuestros estudiantes, por lo cual cumplimos con todas las medidas de seguridad en la infraestructura del establecimiento además de contar con Laboratorios de computación, espacios recreativos amplios, casino, etc.</p>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex"> <div class="card w-80 mb-3">
+  <div class="card-body">
+    <h5 class="card-title text-primary">BIBLIOTECA</h5>
+    <p class="card-text">En el establecimiento tenemos una Biblioteca para nuestros estudiantes, en la cual existen fechas programadas en las cuales se realizaran actividades interactivas para los diferentes cursos y asignaturas. Además contamos con libros para prestamo de los estudiantes.</p>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex"><div class="card w-80 mb-3">
+  <div class="card-body">
+    <h5 class="card-title text-primary">NOTICIAS</h5>
+    <p class="card-text">En nuestro sitio web principal podrás revisar nuestras principales noticias actualizadas día a día contando nuestras actividades o comunicados del establecimiento disponible para todos.</p>
+  </div>
+</div>
+    </div>
+
+  </div>
+</div>
+<!-- TERMINO CUERPO -->
 
    
-   <!--  SLIDER  -->
-      <?php  
-         include 'slider_1/index.php';
-      ?>
-   <!--  SLIDER  -->
+<!-- INICIO FOOTER -->
+<div class="container-fluid">
 
+   <div class="row p-5 bg-dark text-white">
 
-   <!--  CUERPO  -->
-      <br> <br> <br> 
-      <div class="grid-layout-prin">
-         <h2>¡Gracias por ser parte de Colegio Nuevos Horizontes!</h2>
-      </div> <br>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+         <p class="h4 text-info">Colegio Nuevos Horizontes</p>
+         <p class="text-secondary"> eduCode 2022 </p>
+      </div>
 
-      <div class="row d-flex justify-content-center">
-         <div class="caja col-sm-3">
-               <h2>ADMISIÓN 2023</h2>
-               <p> En el colegio Nuevos Horizontes estamos preparados para recibir a nuevos estudiantes en la comunidad educativa. Puedes encontrar más información en el sitio web del colegio para saber como continuar con las matriculas de alumnos ya ingresados. </p>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+         <p class="h5 mb-3">Covid-19</p>
+         <div class="mb-2">
+         <a class="text-secondary text-decoration-none" href="https://www.gob.cl/pasoapaso/cifrasoficiales/" target="_blank">Casos diarios</a>
          </div>
-
-         <div class="caja col-sm-3">
-            
-               <h2>PROTOCOLO COVID</h2>
-               <p> En el colegio contamos con un protocolo respecto a las medidas sanitarias siguiendo el lineamiento del Gobierno de Chile en este año 2022 en el cual las clases serán presenciales. </p>
-         </div>
-
-         <div class="caja col-sm-3">
-               
-               <h2>CERTIFICADOS</h2>
-               <p> Contamos con tramites en linea en el sitio web principal del colegio Nuevos Horizontes en el cual puedes solicitar certificados de Alumno Regular para este año 2022 para diversas necesidades. </p>
+         <div class="mb-2">
+         <a class="text-secondary text-decoration-none" href="https://sigamosaprendiendo.mineduc.cl/wp-content/uploads/2022/02/ProtocoloMedidasSanitariasEE-2022.pdf" target="_blank">Protocolos</a>
          </div>
       </div>
-      <br> <br>
-      <div class="row d-flex justify-content-center">
-         <div class="caja col-sm-3">
-               
-               <h2>INFRAESTRUCTURA</h2>
-               <p> Somos una institucion preocupada de nuestros estudiantes, por lo cual cumplimos con todas las medidas de seguridad en la infraestructura del establecimiento además de contar con Laboratorios de computación, espacios recreativos amplios, casino, etc. </p>
-         </div>
 
-         <div class="caja col-sm-3">
-               
-               <h2>BIBLIOTECA</h2>
-               <p> En el establecimiento tenemos una Biblioteca para nuestros estudiantes, en la cual existen fechas programadas en las cuales se realizaran actividades interactivas para los diferentes cursos y asignaturas. Además contamos con libros para prestamo de los estudiantes. </p>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+      <p class="h5 mb-3">Links</p>
+         <div class="mb-2">
+         <a class="text-secondary text-decoration-none" href="https://www.jovenesprogramadores.cl/" target="_blank">Jovenes Programadores</a>
          </div>
-
-         <div class="caja col-sm-3">
-            
-               <h2>NOTICIAS</h2>
-               <p> En nuestro sitio web principal podrás revisar nuestras principales noticias actualizadas día a día contando nuestras actividades o comunicados del establecimiento disponible para todos. </p>
+         <div class="mb-2">
+         <a class="text-secondary text-decoration-none" href="https://eligecultura.gob.cl/cultural-sections/" target="_blank">Material Cultural</a>
          </div>
       </div>
-      <br> <br>
-      
 
-         
+      <div class="col-xs-12 col-md-6 col-lg-3">
+      <p class="h5 mb-3">Contacto</p>
+         <div class="mb-2">
+         <a class="text-secondary text-decoration-none" href="https://wa.me/56941773713" target="_blank">+569 4177 3713</a>
+         </div>
+         <div class="mb-2">
+         <a class="text-secondary text-decoration-none" href="https://wa.me/56988938757" target="_blank">+569 8893 8757</a>
+         </div>
+      </div>
 
-         
-     
-   <!--  CUERPO  -->
+   </div>
 
-   
-  
+</div>
+<!-- FIN FOOTER -->
 
 </body>
 </html>
-
-
