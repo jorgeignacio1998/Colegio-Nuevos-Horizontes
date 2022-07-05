@@ -137,15 +137,15 @@ if(!preg_match($regexRut, $rutalumno)){
 
 
 // 3.- Validacion apoderado_existe pero a travez del input del rut del niño
-    $datos = $mysqli->query("SELECT * FROM apoderados WHERE ID LIKE '{$id_apoderado}' ");
-    $row =mysqli_fetch_array($datos);
+    $datos2 = $mysqli->query("SELECT * FROM apoderados INNER JOIN  matriculados ON apoderados.ID_MATRICULADO = matriculados.ID WHERE apoderados.ID LIKE '{$id_apoderado}'  ");
+    $row2 =mysqli_fetch_array($datos2);
 
 
 
-    if($row['RUT'] !== $rut ){
-        $query0 = $mysqli->query("SELECT * FROM apoderados WHERE RUT LIKE '{$rut}' and ID_MATRICULADO LIKE '{$idmatriculado}'  ");
-        $res0 = mysqli_num_rows($query0);
-        if($res0 > 0){
+    if($row2['RUT_ALUMNO'] !== $rutalumno ){
+        $query02 = $mysqli->query("SELECT * FROM apoderados WHERE RUT LIKE '{$rut}' and ID_MATRICULADO LIKE '{$idmatriculado}'  ");
+        $res02 = mysqli_num_rows($query02);
+        if($res02 > 0){
             array_push($error, "EL APODERADO YA EXISTE");  
             echo "<script>location.href='index.php?mensaje=apoderado_existe';</script>";
         }

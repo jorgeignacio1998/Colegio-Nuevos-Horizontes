@@ -4,14 +4,14 @@ include '../../codes/connect.php';
 
 
 
-$inner = $mysqli->query("SELECT *, apoderados.ID AS idap FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID");
+$inner = $mysqli->query("SELECT *, apoderados.ID AS idap FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID  ORDER BY  apoderados.ID");
 
 
 
     $input = $_POST['input'];
 
     if(empty($input)){
-        $query =  "SELECT *, apoderados.ID AS idap FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID";
+        $query =  "SELECT *, apoderados.ID AS idap FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID  ORDER BY  apoderados.ID";
 
         } else{
             
@@ -23,7 +23,7 @@ $inner = $mysqli->query("SELECT *, apoderados.ID AS idap FROM apoderados INNER J
         CONCAT( matriculados.NOMBRE1_ALUMNO, ' ', matriculados.NOMBRE2_ALUMNO, ' ', matriculados.APELLIDO1_ALUMNO, ' ', matriculados.APELLIDO2_ALUMNO) LIKE '{$input}%' OR
         CONCAT( matriculados.APELLIDO1_ALUMNO, ' ', matriculados.APELLIDO2_ALUMNO, ' ', matriculados.NOMBRE1_ALUMNO) LIKE '{$input}%' OR
         CONCAT( matriculados.APELLIDO2_ALUMNO, ' ', matriculados.APELLIDO1_ALUMNO, ' ', matriculados.NOMBRE1_ALUMNO) LIKE '{$input}%' OR
-        CONCAT( matriculados.NOMBRE2_ALUMNO, ' ', matriculados.APELLIDO1_ALUMNO, ' ', matriculados.APELLIDO2_ALUMNO) LIKE '{$input}%'";
+        CONCAT( matriculados.NOMBRE2_ALUMNO, ' ', matriculados.APELLIDO1_ALUMNO, ' ', matriculados.APELLIDO2_ALUMNO) LIKE '{$input}%'  ORDER BY  apoderados.ID";
     }
 
 

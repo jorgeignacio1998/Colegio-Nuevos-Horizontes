@@ -3,7 +3,7 @@ include '../seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
 
 
-$inner = $mysqli->query("SELECT *, apoderados.ID AS idap FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID");
+$inner = $mysqli->query("SELECT *, apoderados.ID AS idap FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID ORDER BY  apoderados.ID");
 
 ?>
 
