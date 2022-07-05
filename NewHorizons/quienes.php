@@ -8,7 +8,7 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
     $usuario_logueado = $_SESSION['usuario'];
     $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1"); //obteniendo los datos
     $array = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);  //colocando los datos del usuario en un array para asi luego gestionarlos de mejor manera,
-    // echo $array['NOMBRE'];
+    
     $contador = 1;
 }
 ?>
@@ -19,30 +19,27 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevos Horizontes</title>
+    <title>Quienes somos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
-   
+  
 </head>
 <style>
 
-.navbar-nav .nav-item .nav-link {
+    .navbar-nav .nav-item .nav-link {
     color: white;
-}
+    }
 
-.navbar-nav .nav-item.active .nav-link,
-.navbar-nav .nav-item:hover .nav-link {
+    .navbar-nav .nav-item.active .nav-link,
+    .navbar-nav .nav-item:hover .nav-link {
     color: #efb85d;
-}
+    }
 
-.navbar-nav .nav-item.active .nav-link{
+    .navbar-nav .nav-item.active .nav-link{
     color: #f0ad4e;
 }
+
 </style>
-
-
-
-
 <body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -58,10 +55,10 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-      <li class="nav-item active">
+      <li class="nav-item">
           <a class="nav-link fw-bolder" href="index.php">Inicio</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link fw-bolder" href="quienes.php">Quienes Somos</a>
         </li>
         <li class="nav-item">
@@ -78,81 +75,15 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
 </nav>
 <!-- FIN MENU -->
 
-<!--  INICIO SLIDER  -->
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/img_banner_1.jpg" class="d-block w-100" alt="img banner" >
-      <div class="carousel-caption d-none d-md-block">
-        <h5 class="shadow-xl">FELICES VACACIONES DE INVIERNO</h5>
-        <p class="shadow-xl">¡Nos volveremos a encontrar en la sala de clases!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="img/img_banner_2.jpg" class="d-block w-100" alt="img banner">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 class="shadow-xl">COVID-19</h3>
-        <p class="shadow-xl">Tenemos las medidas necesarias para combatir el Covid en las salas de clases</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="img/img_banner_3.jpg" class="d-block w-100" alt="img banner">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 class="shadow-xl">GRADUACIONES DE CUARTOS MEDIOS</h5>
-        <p class="shadow-xl">Ahora es cuando empieza la verdadera aventura de la vida. ¡Adelante!</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!--  FINAL SLIDER  -->
-
 <!-- INICIO CUERPO -->
+<div class="d-flex justify-content-center align-items-center">
+<img src="img/img_4.jpg" class="img-fluid" alt="...">
+</div>
+
 <div class="container mx-auto">
   <div class="row justify-content-center">
 
-    <div class="col-12 mb-5 mt-5"> <h2 class="text-center text-dark"> ¡Gracias por ser parte de Colegio Nuevos Horizontes! </h2>
-    </div>
-
-  </div>
-</div>
-
-<div class="container">
-  <div class="row gx-4 justify-content-between mb-3">
-    <div class="col-lg-4 col-md-12 d-flex"> <div class="card w-80 mb-3">
-  <div class="card-body">
-    <h5 class="card-title text-primary text-primary">ADMISIÓN 2023</h5>
-    <p class="card-text">En el colegio Nuevos Horizontes estamos preparados para recibir a nuevos estudiantes en la comunidad educativa. Puedes encontrar más información en el sitio web del colegio para saber como continuar con las matriculas de alumnos ya ingresados.</p>
-  </div>
-</div>
-    </div>
-
-    <div class="col-lg-4 col-md-6 d-flex"> <div class="card w-80 mb-3">
-  <div class="card-body">
-    <h5 class="card-title text-primary">PROTOCOLO COVID</h5>
-    <p class="card-text">En el colegio contamos con un protocolo respecto a las medidas sanitarias siguiendo el lineamiento del Gobierno de Chile en este año 2022 en el cual las clases serán presenciales.</p>
-  </div>
-</div>
-    </div>
-
-    <div class="col-lg-4 col-md-6 d-flex"> <div class="card w-80 mb-3">
-  <div class="card-body">
-    <h5 class="card-title text-primary">CERTIFICADOS</h5>
-    <p class="card-text">Contamos con tramites en linea en el sitio web principal del colegio Nuevos Horizontes en el cual puedes solicitar certificados de Alumno Regular para este año 2022 para diversas necesidades.</p>
-  </div>
-</div>
+    <div class="col-12 mb-5 mt-5"> <h2 class="text-center text-dark"> Misión y Visión </h2>
     </div>
 
   </div>
@@ -163,30 +94,32 @@ if(isset($_SESSION['usuario'])){  //en el caso que exista alguien logueado va a 
 
     <div class="col-lg-4 col-md-12 d-flex"><div class="card w-80 mb-3">
   <div class="card-body">
-    <h5 class="card-title text-primary">INFRAESTRUCTURA</h5>
-    <p class="card-text">Somos una institucion preocupada de nuestros estudiantes, por lo cual cumplimos con todas las medidas de seguridad en la infraestructura del establecimiento además de contar con Laboratorios de computación, espacios recreativos amplios, casino, etc.</p>
+    <h5 class="card-title text-warning">COLEGIO NUEVOS HORIZONTES</h5>
+    <p class="card-text">El Colegio Nuevos Horizontes, es una comunidad educativa, en la cual, el respeto hacia sus tradiciones es primordial, formando parte de su historia y de su cultura. Las tradiciones nos identifican y corresponden a momentos significativos, verdaderos hitos, en medio del quehacer cotidiano.</p>
   </div>
 </div>
     </div>
 
     <div class="col-lg-4 col-md-6 d-flex"> <div class="card w-80 mb-3">
   <div class="card-body">
-    <h5 class="card-title text-primary">BIBLIOTECA</h5>
-    <p class="card-text">En el establecimiento tenemos una Biblioteca para nuestros estudiantes, en la cual existen fechas programadas en las cuales se realizaran actividades interactivas para los diferentes cursos y asignaturas. Además contamos con libros para prestamo de los estudiantes.</p>
+    <h5 class="card-title text-primary">MISIÓN</h5>
+    <p class="card-text">Los alumnos del Colegio Nuevos Horizontes serán formados como personas competentes, de acuerdo con el marco curricular nacional sugerido por el Ministerio de Educación y la propuesta curricular del colegio, que favorezcan el aprendizaje y un desarrollo humano permanentes que les permitan proseguir sus estudios en la educación media, además de formar competencias para resolver problemas y conflictos cotidianos en su vida e interacción social.</p>
   </div>
 </div>
     </div>
 
     <div class="col-lg-4 col-md-6 d-flex"><div class="card w-80 mb-3">
   <div class="card-body">
-    <h5 class="card-title text-primary">NOTICIAS</h5>
-    <p class="card-text">En nuestro sitio web principal podrás revisar nuestras principales noticias actualizadas día a día contando nuestras actividades o comunicados del establecimiento disponible para todos.</p>
+    <h5 class="card-title text-primary">VISIÓN</h5>
+    <p class="card-text">Asegurar una educación de calidad, basada en valores humanistas, orientada a la formación de personas competentes para continuar estudios en la enseñanza media, con un enfoque integral de carácter biopsicosocial y mediante metodologías innovadoras en el aspecto pedagógico, curricular y tecnológico, teniendo en cuenta el contexto comunitario, social y económico.</p>
   </div>
 </div>
     </div>
 
   </div>
 </div>
+
+
 <!-- TERMINO CUERPO -->
 
 <br><br><br><br>
