@@ -100,15 +100,31 @@ if(!preg_match($regexRut, $rutalumno)){
 }  
 //- formato rutalumno
     
-    // 2.- Validacion Apoderado duplicado
-        $query2 = $mysqli->query("SELECT * FROM apoderados WHERE RUT LIKE '{$rut}' AND ID_MATRICULADO LIKE '{$idmatriculado}' ");
-        $res2 = mysqli_num_rows($query2);
-        if($res2 > 0){
-            array_push($error, "Error, Apoderado duplicado");
-            echo "<script>location.href='index.php?mensaje=apoderadoduplicado';</script>";
-        }
-    // 2.- Validacion Apoderado duplicado
-  
+ 
+// 2.- Validacion apoderado_existe
+
+    $query2 = $mysqli->query("SELECT * FROM apoderados WHERE RUT LIKE '{$rut}'  AND ID_MATRICULADO LIKE '{$idmatriculado}'");
+    $res2 = mysqli_num_rows($query2);
+    if($res2 > 0){
+        array_push($error, "El mapoderado ya existe");
+        echo "<script>location.href='index.php?mensaje=apoderado_existe';</script>";
+    }
+
+// 2.- Validacion apoderado_existe
+
+
+
+// 2.- Validacion apoderado_existe
+
+$query3 = $mysqli->query("SELECT * FROM apoderados WHERE ID_MATRICULADO LIKE '{$idmatriculado}'");
+$res3 = mysqli_num_rows($query3);
+if($res3 > 1){
+    array_push($error, "exeso de apoderados");
+    echo "<script>location.href='index.php?mensaje=max_2Apoderados';</script>";
+}
+
+// 2.- Validacion apoderado_existe
+
 
 
 

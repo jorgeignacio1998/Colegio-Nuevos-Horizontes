@@ -117,11 +117,25 @@
 
 <!-- Apoderado duplicado -->
 <?php
-    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'apoderadoduplicado') {
+    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'apoderado_existe') {
     ?>
 
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>ERROR</strong> Registro duplicado.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php
+    }
+    ?>
+<!-- Apoderado duplicado  -->
+
+<!-- Apoderado duplicado -->
+<?php
+    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'max_2Apoderados') {
+    ?>
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>ERROR</strong> no se permiten mas de dos apoderados para los alumnos.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php

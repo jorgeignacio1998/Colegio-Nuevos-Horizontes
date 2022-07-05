@@ -56,7 +56,7 @@
 <!-- INICIO MENU -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid gx-5">
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="../index.php">
         <img src="../img/logo.png" width="100">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

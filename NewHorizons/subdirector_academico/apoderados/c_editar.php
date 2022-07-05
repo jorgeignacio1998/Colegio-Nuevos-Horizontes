@@ -3,7 +3,7 @@ require '../seguridad_subdirector.php';
 $error = array();
 
 $id_apoderado = $_POST['idapod'];
-echo '<script language="javascript">alert("' . 'ALERTO: ' .  $id_apoderado   . '");</script>';
+
 if(!isset($_POST['idapod'])) {
 
     header('Location: ../index.php?mensaje=error');
@@ -110,38 +110,89 @@ if(!preg_match($regexRut, $rutalumno)){
 
 
 
-    // 2.- Validacion Apoderado duplicado
-    $datos = $mysqli->query("SELECT * FROM apoderados WHERE ID_MATRICULADO LIKE '{$idmatriculado}' ");
-    $row =mysqli_fetch_array($datos);    
-    // echo '<script language="javascript">alert("' . 'ALERTO: ' .  $row['RUT']   . '");</script>';
 
-// 4  RUT DUPLICADO
-$alumno_existe = $mysqli->query("SELECT * FROM matriculados WHERE RUT_ALUMNO LIKE '{$rutalumno}' ");
-if(empty($alumno_existe->num_rows)){ 
-    array_push($error, "El rut ya esta en uso ");
-    echo "<script>location.href='index.php?mensaje=erroralumnoduplicado';</script>";
+// 2.- Validacion apoderado_existe
+    $datos = $mysqli->query("SELECT * FROM apoderados WHERE ID LIKE '{$id_apoderado}' ");
+    $row =mysqli_fetch_array($datos);
 
-}else{
-    //esta ok, el rut si está disponible para registar.
-}
 
-if($row['RUT'] !== $rut ){
-    $query2 = $mysqli->query("SELECT * FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID WHERE apoderados.RUT LIKE '{$rut}' AND matriculados.RUT_ALUMNO LIKE '{$rutalumno}'");
-    $res2 = mysqli_num_rows($query2);
-    if($res2 > 0){
-        array_push($error, "Error, Apoderado duplicado");
-        echo "<script>location.href='index.php?mensaje=apoderadoduplicado';</script>";
+
+    if($row['RUT'] !== $rut ){
+        $query0 = $mysqli->query("SELECT * FROM apoderados WHERE RUT LIKE '{$rut}' and ID_MATRICULADO LIKE '{$idmatriculado}'  ");
+        $res0 = mysqli_num_rows($query0);
+        if($res0 > 0){
+            array_push($error, "EL APODERADO YA EXISTE");  
+            echo "<script>location.href='index.php?mensaje=apoderado_existe';</script>";
+        }
     }
-}
+    // 0.- curso clonado
 
-if($row['RUT_ALUMNO'] !== $rutalumno ){
-    $query2 = $mysqli->query("SELECT * FROM apoderados INNER JOIN matriculados ON apoderados.ID_MATRICULADO = matriculados.ID WHERE apoderados.RUT LIKE '{$rut}' AND matriculados.RUT_ALUMNO LIKE '{$rutalumno}'");
-    $res2 = mysqli_num_rows($query2);
-    if($res2 > 0){
-        array_push($error, "Error, Apoderado duplicado");
-        echo "<script>location.href='index.php?mensaje=apoderadoduplicado';</script>";
+
+    // echo '<script language="javascript">alert("' . 'rut antes' .  $row['RUT']   . '");</script>';
+    // echo '<script language="javascript">alert("' . 'rut dsp' .  $rut  . '");</script>';
+// 2.- Validacion apoderado_existe
+
+
+
+
+
+// 3.- Validacion apoderado_existe pero a travez del input del rut del niño
+    $datos = $mysqli->query("SELECT * FROM apoderados WHERE ID LIKE '{$id_apoderado}' ");
+    $row =mysqli_fetch_array($datos);
+
+
+
+    if($row['RUT'] !== $rut ){
+        $query0 = $mysqli->query("SELECT * FROM apoderados WHERE RUT LIKE '{$rut}' and ID_MATRICULADO LIKE '{$idmatriculado}'  ");
+        $res0 = mysqli_num_rows($query0);
+        if($res0 > 0){
+            array_push($error, "EL APODERADO YA EXISTE");  
+            echo "<script>location.href='index.php?mensaje=apoderado_existe';</script>";
+        }
     }
-}
+    // 0.- curso clonado
+
+
+    // echo '<script language="javascript">alert("' . 'rut antes' .  $row['RUT']   . '");</script>';
+    // echo '<script language="javascript">alert("' . 'rut dsp' .  $rut  . '");</script>';
+
+// 3.- Validacion apoderado_existe pero a travez del input del rut del niño
+
+
+
+
+
+
+
+
+
+
+// 2.- Validacion max_2Apoderados
+
+// $query3 = $mysqli->query("SELECT * FROM apoderados WHERE ID_MATRICULADO LIKE '{$idmatriculado}'");
+// $res3 = mysqli_num_rows($query3);
+// if($res3 > 1){
+// array_push($error, "exeso de apoderados");
+// echo "<script>location.href='index.php?mensaje=max_2Apoderados';</script>";
+// }
+
+// 2.- Validacion max_2Apoderados
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
