@@ -1,5 +1,5 @@
 <?php
-require '../seguridad_subdirector.php';
+include '../seguridad_profesor.php';    //BD, SEGURIDAD NIVEL, SESSION.
 $error = array();
 
 if(!isset($_POST['numero'])){

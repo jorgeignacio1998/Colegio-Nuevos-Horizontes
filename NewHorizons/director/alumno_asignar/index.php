@@ -5,7 +5,15 @@ $datos_cursos = $mysqli->query("SELECT * FROM cursos");
 $curso = '';
 if(isset($_GET['curso'])) {
 $curso = $_GET['curso'];
+
 }
+
+
+
+
+
+
+
 
 
 
@@ -92,8 +100,14 @@ $curso = $_GET['curso'];
 
 <!-- Inicio Gestor de usuarios--  admin -->   
 <div class="container-fluid mt-5">
+   
+        
+    
        <div class="row justify-content-center">
+
+        
            <div  class="col-md-7">  <!-- Primer col, las siguientes ALERTAS tienen que estar entre medio de aca para que aparezcan dentro del primer col   -->
+   
 
             
             <?php 
@@ -131,7 +145,8 @@ $curso = $_GET['curso'];
                                         </div>   
                                         
                                     </div>
-                                    <div class="col-6">           
+                                    <div class="col-6">   
+                                        
                                         <input type="submit" class="btn btn-primary busc" value="buscar">
                                     </div>
                                 
@@ -153,12 +168,15 @@ $curso = $_GET['curso'];
                             apoderados.NOMBRE as nombrapo,
                             apoderados.TELEFONO as telefono,
                             alumnos.ID as idalumno,
-                            alumnos.RUT as rutalum
+                            alumnos.RUT as rutalum,
+                            cursos.LEEIBLE as leeible
                             
 
                             FROM alumnos
                             INNER JOIN apoderados
                             ON alumnos.ID_APODERADO = apoderados.ID
+                            INNER JOIN cursos ON alumnos.ID_CURSO = cursos.ID
+                       
                             WHERE ID_CURSO LIKE $curso  ";   //OR ID LIKE '{$input}%' OR EMAIL LIKE '{$input}%' OR NIVEL LIKE '{$input}%'
                            
 
@@ -181,6 +199,7 @@ $curso = $_GET['curso'];
                                                         <th scope="col">Rut</th>                              
                                                         <th scope="col">Nombre Apoderado</th>                              
                                                         <th scope="col">Telefono Apoderado</th>                              
+                                                        <th scope="col">Curso</th>                              
 
 
                                                         <th scope="col" colspan="2">Opciones</th>
@@ -199,6 +218,7 @@ $curso = $_GET['curso'];
                                                         <td ><?php echo $fila['rutalum'] ; ?></td>
                                                         <td ><?php echo $fila['nombrapo'] ; ?></td>
                                                         <td ><?php echo $fila['telefono'] ; ?></td>
+                                                        <td ><?php echo $fila['leeible'] ; ?></td>
                                                         
                                                     
 
