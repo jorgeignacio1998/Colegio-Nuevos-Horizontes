@@ -1,37 +1,37 @@
 <?php
 require '../seguridad_subdirector.php';
-if(!isset($_POST['id_clase'])){
-    header('Location: asignar_asignatura?mensaje=error');
+if(!isset($_POST['codigo'])){
+    header('Location: index.php?mensaje=error');
 }
-$id_clase = $_POST["id_clase"];
-
-
-echo '<script language="javascript">alert("' . 'ALERTO: ' .  $id_clase   . '");</script>';
-
-
-// $nombre = $_POST["nombre"];
-// $grado= $_POST["grado"];
-
-//Editando los datos
-// $query = "UPDATE asignaturas SET  NOMBRE = '{$nombre}', ID_GRADO = '{$grado}'  WHERE ID_A = $codigo ";
-//$sentencia = $mysqli->query($query);
+$codigo = $_POST["codigo"];
 
 
 
 
 
+$nombre = $_POST["nombre"];
+$grado= $_POST["grado"];
 
-// if(mysqli_query($mysqli, $query)){
+
+$query = "UPDATE asignaturas SET  NOMBRE = '{$nombre}', ID_GRADO = '{$grado}'  WHERE ID_A = $codigo ";
+$sentencia = $mysqli->query($query);
+
+
+
+
+
+
+if(mysqli_query($mysqli, $query)){
     
-//     echo "<script>location.href='index.php?mensaje=editado';</script>";
+    echo "<script>location.href='index.php?mensaje=editado';</script>";
 
-//     die();
-// }
-// else{
-//     echo "<script>location.href='index.php?mensaje=error';</script>";
+    die();
+}
+else{
+    echo "<script>location.href='index.php?mensaje=error';</script>";
 
-//     die();
+    die();
   
-// }
+}
 
 ?>

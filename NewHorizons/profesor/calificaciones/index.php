@@ -170,9 +170,13 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
                                 <option value="">
 
                                             <?php
+                                            
+
+
+
+
                                             $sqlAsi = "SELECT *, evaluaciones.NOMBRE AS nombreva, evaluaciones.ID AS evaid  FROM evaluaciones INNER JOIN grados ON 
-                                            evaluaciones.ID_GRADO = grados.ID INNER JOIN 
-                                            cursos ON grados.ID = cursos.ID_GRADO INNER JOIN clases ON clases.ID_CURSO = cursos.ID
+                                            evaluaciones.ID_GRADO = grados.ID 
                                             WHERE clases.ID = $id_clase
                                             order by NUMERO ";
                                             $dataAsi = mysqli_query($mysqli, $sqlAsi);

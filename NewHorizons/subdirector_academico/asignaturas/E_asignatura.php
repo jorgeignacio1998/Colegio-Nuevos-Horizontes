@@ -82,23 +82,23 @@ $sen =mysqli_fetch_array($inner);
                         </div>     
                         
                         
-                        <div class="mb-3">
-                            <label class="form-label lab" for="_6">Grado</label > 
-                                        <select name="grado" class="form-control"  required  id="_6" >          
-                                        <!-- este option es el dato visible seleccionado  -->
-                                        <option value="<?php echo $sen["ID"]; ?>"><?php echo utf8_encode($sen['NIVEL']); ?>
-                                                    <?php
-                                                    $sqlTipo = "SELECT * FROM grados order by ID";
-                                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
-                                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
-                                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
-                                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
-                                                    <!-- este option son las opciones disponibles para elegir -->
-                                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NIVEL']); ?>
+                        <div class="mb-3 ">
+                                <label class="form-label lab" for="6">Grado:</label > 
+                                <select name="grado" class="form-control"  required  id="6" >
+                                  
+                                        <?php
+                                        $sqlTipo = "SELECT * FROM grados order by ID";
+                                        $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                        //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                        //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                        while($data = mysqli_fetch_array($dataNivel)){ 
+                                            $selected=($sen['ID']==$data['ID'])?'selected':false;  ?>
 
-                                                    <?php } ?>
-                                        </select>  
-                        </div>         
+                                        <option <?=$selected;?> value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NIVEL']); ?>
+                                
+                                        <?php } ?>
+                                </select>  
+                            </div>      
 
 
                         

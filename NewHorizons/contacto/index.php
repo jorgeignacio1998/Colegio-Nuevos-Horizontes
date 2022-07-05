@@ -56,7 +56,7 @@
 <!-- INICIO MENU -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid gx-5">
-    <a class="navbar-brand" href="../index.php">
+    <a class="navbar-brand" href="index.php">
         <img src="../img/logo.png" width="100">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,8 +84,16 @@
 </nav>
 <!-- FIN MENU -->
 
+
+<div
+  class="bg-image"
+  style="
+    background-image: url(../img/ContactoFondoFinal.png);
+    height: 100vh;background-repeat: no-repeat;background-size: 100% 100%;">
+
+
    
-          <br><br>                             <!-- FORMULARIO DE CONTACTO -->
+          <br><br><br>                              <!-- FORMULARIO DE CONTACTO -->
 <div class="container-fluid mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-4  col-sm-12">
@@ -94,12 +102,12 @@
             include 'alertContact.php';
             ?>
 
-            <div  class="card">
+            <div  class="card" style="background-color: rgba(245, 245, 245, 0.8); ">
                 <div class=" card-header">
 
         
                 <form  action="c_contacto.php" method="POST"    class="form-register"  >
-                    <h4  id="_titulo"  >Contacto</h4>
+                    <h4 id="_titulo">Contacto</h4>
                     <div class="row">
                         <div class="mb-3 col-md-6 col-sm-12 ">
                             <label for="2" class="form-label">Nombre: </label>
@@ -127,11 +135,11 @@
 
                     
                         <center>
-                            <div class="d-grid gap-2 col-6 mx-auto ">
-                                <input type="submit" class="btn btn-primary " value="Enviar">
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <input type="submit" class="btn btn-primary" value="Enviar">
                             </div>
                         </center>       
-                        <br> 
+                        <br> <br> 
              
 
                     
@@ -142,11 +150,12 @@
         </div>
     </div>
 </div>
- <br><br><br><br>
-<!-- INICIO FOOTER -->
-<div class="container-fluid  ">
+</div>
 
-   <div class="row p-5 bg-dark text-white ">
+<!-- INICIO FOOTER -->
+<div class="container-fluid">
+
+   <div class="row p-5 bg-dark text-white">
 
       <div class="col-xs-12 col-md-6 col-lg-3">
          <p class="h4 text-info">Colegio Nuevos Horizontes</p>
@@ -186,6 +195,7 @@
    </div>
 
 </div>
+
 <!-- FIN FOOTER -->
 
 </body>

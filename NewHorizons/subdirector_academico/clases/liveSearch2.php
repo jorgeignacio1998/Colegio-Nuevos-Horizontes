@@ -18,7 +18,7 @@ include '../../codes/connect.php';
         $query = "SELECT *, clases.NOMBRE AS nombrecla,
         grados.NIVEL AS gradoniv,cursos.NOMBRE AS nombrecurs,
         asignaturas.NOMBRE AS nombreasig, profesores.NOMBRE AS 
-        nombreprofe FROM clases INNER JOIN asignaturas ON
+        nombreprofe, clases.ID AS claseid FROM clases INNER JOIN asignaturas ON
         clases.ID_ASIGNATURA = asignaturas.ID_A INNER JOIN 
         profesores ON profesores.ID = clases.ID_PROFESOR
         INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
@@ -31,7 +31,7 @@ include '../../codes/connect.php';
         $query = "SELECT *, clases.NOMBRE AS nombrecla,
         grados.NIVEL AS gradoniv,cursos.NOMBRE AS nombrecurs,
         asignaturas.NOMBRE AS nombreasig, profesores.NOMBRE AS 
-        nombreprofe FROM clases INNER JOIN asignaturas ON
+        nombreprofe, clases.ID AS claseid  FROM clases INNER JOIN asignaturas ON
         clases.ID_ASIGNATURA = asignaturas.ID_A INNER JOIN 
         profesores ON profesores.ID = clases.ID_PROFESOR
         INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
@@ -87,8 +87,8 @@ include '../../codes/connect.php';
 
                             
 
-                                <td><a class="text-primary" href="E_asignacion.php?=">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta asignatura?')" class="text-danger" href="d_asignacion.php?id_asignacion=">   <i class="bi bi-trash"></i></a>  </td>  
+                                <td><a class="text-primary" href="editar.php?=">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta clase?')" class="text-danger" href="c_eliminar.php?id_clase=<?php echo $fila['claseid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                 <!-- le envia por la url el id del usuario al c_eliminar -->
                                 
 

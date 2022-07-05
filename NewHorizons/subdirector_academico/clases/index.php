@@ -259,8 +259,8 @@ include '../seguridad_subdirector.php';
 
                             
 
-                                <td><a class="text-primary" href="E_asignacion.php?id_clase=<?php echo $fila['claseid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta clase?')" class="text-danger" href="d_asignacion.php?id_clase=<?php echo  $fila['claseid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                <td><a class="text-primary" href="editar.php?id_clase=<?php echo $fila['claseid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
+                                <td><a onclick="return confirm('¿estas seguro de eliminar a esta clase?')" class="text-danger" href="c_eliminar.php?id_clase=<?php echo $fila['claseid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                 <!-- le envia por la url el id del usuario al c_eliminar -->
                                 
 
@@ -317,7 +317,7 @@ include '../seguridad_subdirector.php';
                    <div class="card-header">
                        Registrar Clase:
                    </div>
-                   <form action="c_asignar.php" method="POST" class="p-4" >
+                   <form action="c_registrar.php" method="POST" class="p-4" >
                         
                         
                         <div class="mb-3">

@@ -3,7 +3,7 @@ include '../seguridad_subdirector.php';
 $id_clase = $_GET['id_clase'];
 if(!isset($_GET['id_clase'])) {
 
-    header('Location: asignar_asignatura.php?mensaje=error');
+    header('Location: index.php?mensaje=error');
     exit();
 }
 //INYECCION FETCH ARRAY
@@ -112,7 +112,7 @@ if(!isset($_GET['id_clase'])) {
                    <div class="card-header">
                        Registrar Clase:
                    </div>
-                   <form action="e_asigna.php" method="POST" class="p-4" >
+                   <form action="c_editar.php" method="POST" class="p-4" >
                         
 
                    <div class="mb-3">

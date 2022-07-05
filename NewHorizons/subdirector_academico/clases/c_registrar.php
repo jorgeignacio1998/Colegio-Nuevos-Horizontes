@@ -28,7 +28,7 @@ $id_sala = $sentencia22['ID_SALA'];
 
     if($res > 0){
         array_push($error, "Asignacion repetida");
-        echo "<script>location.href='asignar_asignatura.php?mensaje=clonado';</script>";
+        echo "<script>location.href='index.php?mensaje=clonado';</script>";
 
     }
 //1.- Asignaciones clonadas no permitidas.
@@ -37,7 +37,7 @@ $id_sala = $sentencia22['ID_SALA'];
     $regexNombreCurso = "/^[A-Za-zÁÉÍÓÚáéíóúñÑ0-9.\s\-]+$/";                   
     if(!preg_match($regexNombreCurso, $nombre)){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='asignar_asignatura.php?mensaje=formato_nombre';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
+        echo "<script>location.href='index.php?mensaje=formato_nombre';</script>";  //Enviandole ALERTA metodo GET(error1), REDIRECCION 
         
     }  
 //2.- FORMATO NOMBRE CURSO.
@@ -52,12 +52,12 @@ if(count($error)==0) {
     
     if(mysqli_query($mysqli, $query)){
     
-        echo "<script>location.href='asignar_asignatura.php?mensaje=registrado';</script>";
+        echo "<script>location.href='index.php?mensaje=registrado';</script>";
     
         die();
     }
     else{
-        echo "<script>location.href='asignar_asignatura.php?mensaje=error';</script>";
+        echo "<script>location.href='index.php?mensaje=error';</script>";
     
         die();
       
