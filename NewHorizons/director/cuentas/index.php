@@ -384,7 +384,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios ORDER BY NIVEL "); //obt
                         </div>   
                                 
                         <div class="mb-3">
-                            <label for="_1" class="form-label">Rut: </label>
+                            <label for="_rut" class="form-label">Rut: </label>
                             <input  label="_rut" class="form-control" type="text" name="rut"  autofocus required id="_rut" >
                         </div>
 
