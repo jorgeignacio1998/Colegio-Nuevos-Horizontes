@@ -6,7 +6,7 @@ $error = array();
 
 
 $id_clase = $_POST["id_clase"];
-echo '<script language="javascript">alert("' . 'ALERTO: ' .  $id_clase   . '");</script>';
+
 
 $evaID = $_POST["evaID"];
 $nota = $_POST["nota"];

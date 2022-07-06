@@ -126,11 +126,13 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
                                 <td ><?php echo $fila['cursoleible']; ?></td>
                                 <td ><?php echo $fila['nombreclass']; ?></td>
 
-                                <td><a class="text-primary" href="../calificaciones/index.php">  </a>  </td>
-                            
-                                
-                                
+
+
                                 <td><a class="text-primary" href="editar.php?id_calificacion=<?php echo $fila['id_nota']; ?>&id_clase=<?php echo $id_clase; ?>">   <i class="fa-solid fa-pen"></i></a>  </td>
+                                <td><a onclick="return confirm('¿estas seguro de eliminar esta calificación?')" class="text-danger" href="c_eliminar.php?id_calificacion=<?php echo $fila['id_nota']; ?>&id_clase=<?php echo $id_clase; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                
+                                
+                            
                             
 
 
@@ -226,7 +228,7 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
                             $id_cursooo = $sentencia11['idecur'];
                             // $sentencia11['idalum'] = array();
                             
-                            echo '<script language="javascript">alert("' . 'ARRAY: ' . $id_cursooo    . '");</script>';
+                          
 
                             // echo '<script language="javascript">alert("' . 'ALERTO: ' .  $sentencia11   . '");</script>';
                             // $id_alumno = $sentencia11['idalum'];

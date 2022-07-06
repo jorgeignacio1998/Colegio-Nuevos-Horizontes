@@ -1,30 +1,31 @@
 <?php
-require '../seguridad_subdirector.php';
+include '../seguridad_profesor.php';  
 
-if(!isset($_GET['id_sala'])){
-    echo "<script>location.href='index.php?mensaje=error';</script>";
-}
 
-$id_sala = $_GET["id_sala"];
 
+$id_calificacion = $_GET["id_calificacion"];
+$id_clase = $_GET["id_clase"];
 
 
 
 
 
 
-$query = "DELETE FROM salas WHERE ID = $id_sala ";
+
+$query = "DELETE FROM calificaciones WHERE ID LIKE '{$id_calificacion}' ";
 
 
 
 if(mysqli_query($mysqli, $query)){
     
-    echo "<script>location.href='index.php?mensaje=eliminado';</script>";
+    echo "<script>location.href='index.php?id_clase=$id_clase&mensaje=eliminado';</script>";
 
     die();
+    
+
 }
 else{
-    echo "<script>location.href='index.php?mensaje=error';</script>";
+    echo "<script>location.href='index.php?id_clase=$id_clase';</script>";
 
     die();
   

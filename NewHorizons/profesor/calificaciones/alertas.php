@@ -92,7 +92,7 @@
     ?>
 
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Sala eliminada exitosamente</strong> 
+        <strong>Nota eliminada con exito</strong> 
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php
