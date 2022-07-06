@@ -249,6 +249,23 @@ navbar-toggle a {
     top: -90px;
     
 }
+.l1{
+    padding-left: 23px;
+    position: relative;
+    top: -10px;
+    
+}
+.l2{
+    padding-left: 23px;
+    position: relative;
+    top: -2rem;
+    
+}
+.l3{
+    padding-left: 23px;
+    position: relative;
+    top: -3rem;
+}
 
 
 </style>
@@ -261,6 +278,11 @@ navbar-toggle a {
         <a href="#" class="menu-bars"  id="show-menu">
             <i class="fas fa-bars"></i>
        </a>
+       <div class="ml-5">
+            <a  href="../index.php">
+            <img src="../../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
+            </a>
+        </div>
        <div class="  collapse navbar-collapse d-flex flex-row-reverse ">
            <a  class = "cerrar" href="../../codes/logout.php">Cerrar Sesión</a>
        </div>
@@ -399,7 +421,7 @@ navbar-toggle a {
 
                     <!-- Matriculas -->
                     <li class="list__item matriculas">
-                        <div class="list__button">
+                        <div class="list__button ">
                             <a href="../matriculas/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Matriculas  </a >
                         </div>
                     </li>
@@ -409,15 +431,15 @@ navbar-toggle a {
 
 
                       <!-- Evaluaciones -->
-                      <li class="list__item evaluaciones">
+                      <li class="list__item evaluaciones l2">
                         <div class="list__button">
-                            <a href="../evaluaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Evaluaciones  </a >
+                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Evaluaciones  </a >
                         </div>
                     </li>
                     <!-- Evaluaciones -->
 
                     <!-- Gestionar apoderado -->
-                    <li class="list__item apoderados">
+                    <li class="list__item apoderados l3">
                         <div class="list__button">
                             <a href="../apoderados/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;apoderados  </a >
                         </div>
