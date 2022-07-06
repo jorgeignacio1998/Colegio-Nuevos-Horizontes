@@ -230,11 +230,11 @@ include 'seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
                              
                               <?php
                                  if(file_exists('../images/'.$array['FOTO'])){ 
-                                    echo '  <label for="input"  >      <img class="thumb" id="thumb"  src="../images/'.$array['FOTO'].'" style=" min-width:250px; max-height:250px; position: relative; top: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
+                                    echo '  <label for="input"  >      <img class="thumb" id="thumb"  src="../images/'.$array['FOTO'].'" style=" min-width:250px; max-width:250px; position: relative; top: 0px;  left: 0px;"  for="input1"         alt="avatar"    >  </label>'; 
                                  } 
                                  if($array['FOTO'] == ''){
                                     echo '<label for="input"   ><img class="thumb" id="thumb" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"  
-                                       style=" min-width:310px; position: relative; top: -50px; max-height: 250px;"  for="input1"         alt="avatar" ></label>';         
+                                       style=" min-width:310px; max-width:100%; position: relative; top: -50px;  left: -35px;"  for="input1"         alt="avatar" ></label>';         
                                  }      
                               ?>
                            </div>       
