@@ -294,12 +294,12 @@ navbar-toggle a {
             <i class="fas fa-bars"></i>
        </a>  
         <div class="ml-5">
-            <a  href="index.php">
-            <img src="../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
+            <a  href="../index.php">
+            <img src="../../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
             </a>
         </div>
        <div class="  collapse navbar-collapse d-flex flex-row-reverse ">
-           <a  class = "cerrar" href="../codes/logout.php">Cerrar Sesión</a>
+           <a  class = "cerrar" href="../../codes/logout.php">Cerrar Sesión</a>
        </div>
     </div>
 

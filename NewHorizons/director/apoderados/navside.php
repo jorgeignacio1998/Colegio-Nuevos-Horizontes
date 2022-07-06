@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navside del  subdirector</title>
+    <title>Navside del Director</title>
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> 
@@ -228,7 +228,7 @@ navbar-toggle a {
 .inicio{
     padding-left: 23px;
     position: relative;
-    top: 10px;
+    top: 17px;
     
 }
 .matriculas{
@@ -237,51 +237,18 @@ navbar-toggle a {
     top: -10px;
     
 }
-
-
-.l1{
+.evaluaciones{
     padding-left: 23px;
     position: relative;
-    top: -10px;
+    top: -50px;
     
 }
-.l2{
+.apoderados{
     padding-left: 23px;
     position: relative;
-    top: -2rem;
+    top: -90px;
     
 }
-.l3{
-    padding-left: 23px;
-    position: relative;
-    top: -3rem;
-    
-}
-.l4{
-    padding-left: 23px;
-    position: relative;
-    top: -4rem;
-    
-}
-.l5{
-    padding-left: 23px;
-    position: relative;
-    top: -5rem;
-    
-}
-.l6{
-    padding-left: 23px;
-    position: relative;
-    top: -6rem;
-    
-}
-.l7{
-    padding-left: 23px;
-    position: relative;
-    top: -7rem;
-    
-}
-
 
 </style>
 
@@ -292,12 +259,7 @@ navbar-toggle a {
     <div id="navbar">
         <a href="#" class="menu-bars"  id="show-menu">
             <i class="fas fa-bars"></i>
-       </a>  
-        <div class="ml-5">
-            <a  href="index.php">
-            <img src="../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
-            </a>
-        </div>
+       </a>
        <div class="  collapse navbar-collapse d-flex flex-row-reverse ">
            <a  class = "cerrar" href="../codes/logout.php">Cerrar Sesión</a>
        </div>
@@ -317,86 +279,146 @@ navbar-toggle a {
                 <ul class="list">
 
 
-
+                    <!-- 0   INICIO-->
                     <li class="list__item inicio">
                         <div class="list__button">
                             <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Inicio  </a >
                         </div>
                     </li>
+                    <!-- 0   INICIO-->
 
 
 
 
 
 
-                 
 
 
-
-
-
-
-                          <!-- 2 HAMBURGESA -->
+                    <!-- 2  PROFESORES -->
                     <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Cursos <i class=" list__arrow fa-solid fa-angle-right"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Profesores <i class=" list__arrow fa-solid fa-angle-right"></i>
                             
                         </div>
-                        <!-- primer submenu -->
+                        <!--  submenu -->
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="cursos/index.php"  class=" nav__link nav__link__inside"  >Lista de Cursos   </a>
+                                <a href="profesores/index.php"  class=" nav__link nav__link__inside"  >Gestionar profesores   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="jefaturas/index.php" class=" nav__link nav__link__inside" >Asignar profesor Jefe   </a >
+                                <a href="jefaturas/index.php" class=" nav__link nav__link__inside" >Gestionar Jefaturas </a >
+                            </li>
+                            <li class="list__inside">
+                                <a href="carga/index.php" class=" nav__link nav__link__inside" >Gestionar carga academica </a >
                             </li>
                         </ul>
                     </li>
+                    <!-- 2  PROFESORES -->
 
 
-                <!-- asignaturas -->
-                <li class="list__item l1">
+
+
+
+
+                   
+
+
+
+
+                    <!-- usuarios -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Cuentas<i class=" list__arrow fa-solid fa-angle-right"></i>
+                          
+                        </div>
+                        <!--  submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="cuentas/index.php"  class=" nav__link nav__link__inside"  >Gestionar Cuentas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- usuarios -->
+
+
+
+                    <!-- Alumnos -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i> Alumnos<i class=" list__arrow fa-solid fa-angle-right"></i>
+                          
+                        </div>
+                        <!--  submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="alumnos/index.php"  class=" nav__link nav__link__inside"  >Matricular alumno </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="alumno_asignar/index.php"  class=" nav__link nav__link__inside"  >Asignar curso </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Alumnos -->
+
+
+                    <!-- Matriculas -->
+                    <li class="list__item matriculas">
                         <div class="list__button">
-                            <a href="asignaturas/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Asignaturas  </a >
+                            <a href="matriculas/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Matriculas  </a >
                         </div>
                     </li>
-                <!-- asignaturas -->
+                    <!-- Matriculas -->
 
-
-                <!-- Clases -->
-                <li class="list__item l2">
-                        <div class="list__button">
-                            <a href="clases/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
-                        </div>
-                    </li>
-                <!-- Clases -->
-
-              
-
-                <!-- Gestionar apoderado -->
-                    <li class="list__item l3">
-                        <div class="list__button">
-                            <a href="apoderados/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Apoderados  </a >
-                        </div>
-                    </li>
-                <!-- Gestionar apoderado -->
-                <!-- Evaluaciones -->
-                    <li class="list__item l4">
+                    <!-- Evaluaciones -->
+                    <li class="list__item evaluaciones">
                         <div class="list__button">
                             <a href="evaluaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Evaluaciones  </a >
                         </div>
                     </li>
-                <!-- Evaluaciones -->
+                    <!-- Evaluaciones -->
 
-                <!-- Calificaciones -->
-                    <li class="list__item l5">
+                    <!-- Gestionar apoderado -->
+                    <li class="list__item apoderados">
                         <div class="list__button">
-                            <a href="calificaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Calificaciones  </a >
+                            <a href="apoderados/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;apoderados  </a >
                         </div>
                     </li>
-                <!-- Calificaciones -->
+                    <!-- Gestionar apoderado -->
 
+
+
+
+
+
+
+
+
+
+                    <!-- Libro de clases -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>Libro de clases<i class="  fa-solid fa-angle-right list__arrow"></i>
+
+                               
+                         
+                        </div>
+                        <!-- primer submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#"  class=" nav__link nav__link__inside"  >Gestionar calificaciones </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class=" nav__link nav__link__inside" >Calendario de calificacioes</a >
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class=" nav__link nav__link__inside" >Registro academico</a >
+                            </li>
+                        </ul>
+                    </li>
 
                 </ul>
 
