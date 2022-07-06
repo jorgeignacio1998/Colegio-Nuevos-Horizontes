@@ -2,71 +2,45 @@
 include '../seguridad_profesor.php';    //BD, SEGURIDAD NIVEL, SESSION.
 $error = array();
 
-if(!isset($_POST['numero'])){
-    array_push($error, "no esta el dato");
-    echo "<script>location.href='index.php?mensaje=error';</script>";
-    exit();
-}
-if(!isset($_POST['piso'])){
-    array_push($error, "no esta el dato");
-    echo "<script>location.href='index.php?mensaje=error';</script>";
-    exit();
-}
-if(!isset($_POST['sede'])){
-    array_push($error, "no esta el dato");
-    echo "<script>location.href='index.php?mensaje=error';</script>";
-    exit();
-}
 
 
 
-$numero = $_POST["numero"];
-$piso = $_POST["piso"];
-$id_sede = $_POST["sede"];
+$id_clase = $_POST["id_clase"];
+echo '<script language="javascript">alert("' . 'ALERTO: ' .  $id_clase   . '");</script>';
 
-$regexNumeroNatural = "/^[1-90]*$/"; 
+$evaID = $_POST["evaID"];
+$nota = $_POST["nota"];
+$id_alumno = $_POST["id_alumno"];
+$Regexnota = "/^(\d{1,7})(\.\d{1,2}){0,1}$/";
 
-//1.-formato numero                      
-if(!preg_match($regexNumeroNatural, $numero)){
-    array_push($error, "El formato es invalido");
-    echo "<script>location.href='index.php?mensaje=formato_numero';</script>";  
-    die;  
-}  
-//- formato numero       
-//1.-formato piso                    
-if(!preg_match($regexNumeroNatural, $piso)){
-    array_push($error, "El formato es invalido");
-    echo "<script>location.href='index.php?mensaje=formato_piso';</script>";  
-    die;  
-}  
-//- formato piso       
-   
+// VALIDACIONES
+    //1.-formato NOTA                      
+    if(!preg_match($Regexnota, $nota)){
+        array_push($error, "El formato es invalido");
+        echo "<script>location.href='index.php?mensaje=formato_nota&id_clase=$id_clase';</script>";  
+        die;  
+    }  
+    //- formato NOTA       
 
-    // 2.- Validacion SALA ya en uso
+
+    // 2.- VNOTA EXISTE
     
-        $query2 = $mysqli->query("SELECT * FROM salas WHERE NUMERO LIKE '{$numero}' AND ID_SEDE LIKE '{$id_sede}' ");
+        $query2 = $mysqli->query("SELECT * FROM calificaciones WHERE ID_ALUMNO LIKE '{$id_alumno}' AND ID_EVALUACION LIKE '{$evaID}' ");
         $res2 = mysqli_num_rows($query2);
         if($res2 > 0){
-            array_push($error, "La sala ya esta en uso");
-            echo "<script>location.href='index.php?mensaje=sala';</script>";
+            array_push($error, "Nota ya existe");
+            echo "<script>location.href='index.php?mensaje=nota_existe&id_clase=$id_clase';</script>";
+            die();
         }
     
-    // 2.- Validacion SALA ya en uso
-  
+    // 2.- VNOTA EXISTE
 
-
-
-
-   
-
-
-
-
-
-
-
+// VALIDACIONES
     
-     $query = "INSERT INTO salas (NUMERO,PISO,ID_SEDE) VALUES ('{$numero}','{$piso}','{$id_sede}'   ) ";
+
+
+
+$query = "INSERT INTO calificaciones (NOTA,ID_ALUMNO,ID_EVALUACION,ID_CLASE) VALUES ('{$nota}','{$id_alumno}','{$evaID}' , '{$id_clase}'   ) ";
     
 
 
@@ -74,12 +48,12 @@ if(count($error)==0) {
     
     if(mysqli_query($mysqli, $query)){
     
-        echo "<script>location.href='index.php?mensaje=registrado';</script>";
+        echo "<script>location.href='index.php?mensaje=registrado&id_clase=$id_clase';</script>";
     
         die();
     }
     else{
-        echo "<script>location.href='index.php?mensaje=error';</script>";
+        echo "<script>location.href='index.php?mensaje=error&d_clase=$id_clase';</script>";
     
         die();
       

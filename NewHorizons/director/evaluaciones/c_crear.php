@@ -23,7 +23,7 @@ $regexNumeroNatural = "/^[1-9]*$/";
 //1.-  NOMBRE VALIDACIONES                     
     if(!preg_match($regexNumeroNatural, $numero)){
         array_push($error, "El formato es invalido");
-        echo "<script>location.href='index.php?mensaje=formato_nombre';</script>";  
+        echo "<script>location.href='index.php?mensaje=formato_numero&grado=$grado';</script>";  
         die;  
     }  
 //-   NOMBRE VALIDACIONES   

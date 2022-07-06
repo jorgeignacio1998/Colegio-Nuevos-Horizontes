@@ -9,6 +9,7 @@ $id_clase = $_GET['id_clase'];
 
 
 
+
 $inner = $mysqli->query("SELECT *, alumnos.NOMBRE_1 AS nom1, alumnos.NOMBRE_2 AS nom2, alumnos.APELLIDO_1 AS nom3,alumnos.APELLIDO_2 AS nom4,
 clases.NOMBRE AS nombreclass, asignaturas.NOMBRE AS nomasig, cursos.LEEIBLE AS cursoleible,
 calificaciones.ID AS id_nota, evaluaciones.ID AS ideva
@@ -185,7 +186,7 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
                                 <select name="evaID" class="form-control"  required   >
                                     <option disabled selected value >  </option>
                                         <?php
-                                        $sql1 = "SELECT * FROM evaluaciones WHERE ID_ASIGNATURA LIKE '{$id_asignatura}'  ";
+                                        $sql1 = "SELECT * FROM evaluaciones WHERE ID_ASIGNATURA LIKE '{$id_asignatura}'   ";
                                         $sql2 = mysqli_query($mysqli, $sql1);
                                         //usar el $id_clase 
                                         // WHERE ID_GRADO = ID GRADO DE LA CLASE-..........  SACAR EL ID DE LA ASIGNATURA Y SACAR EL ID GRADO
@@ -199,6 +200,8 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
 
 
 
+
+
                             <div class="mb-3 col-6">
                                 <label for="1" class="form-label">NOTA: </label>
                                 <input type="text" class="form-control" name="nota" autofocus required id="1">
@@ -206,8 +209,59 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
                         </div>
 
 
-                      
+
+
+
+
+                        
+                        <?php 
+                        //INYECCIONSQL PARA 
+                            $datita11 = $mysqli->query("SELECT *,clases.ID AS id_clase, alumnos.ID_CURSO AS idecur  FROM  clases  INNER JOIN  asignaturas  ON asignaturas.ID_A = clases.ID_ASIGNATURA 
+                            INNER JOIN  cursos  ON cursos.ID = clases.ID_CURSO 
+                            INNER JOIN  alumnos  ON alumnos.ID_CURSO = cursos.ID 
                             
+                            
+                            WHERE clases.ID LIKE '{$id_clase }'");
+                            $sentencia11 =mysqli_fetch_array($datita11);
+                            $id_cursooo = $sentencia11['idecur'];
+                            // $sentencia11['idalum'] = array();
+                            
+                            echo '<script language="javascript">alert("' . 'ARRAY: ' . $id_cursooo    . '");</script>';
+
+                            // echo '<script language="javascript">alert("' . 'ALERTO: ' .  $sentencia11   . '");</script>';
+                            // $id_alumno = $sentencia11['idalum'];
+                            // 
+                            // $id_curso = $sentencia2['ID_CURSO'];
+                        //INYECCIONSQL PARA 
+
+                        ?>
+
+                        
+                      
+
+                
+
+
+
+                            <div class="mb-3 col-12">
+                                <label class="form-label lab" for="6">ALUMNO:</label > 
+                                <select name="id_alumno" class="form-control"  required   >
+                                    <option disabled selected value >  </option>
+                                        <?php
+                                        $sql10 = "SELECT * FROM alumnos  WHERE ID_CURSO LIKE '{$id_cursooo}'   ";
+                                        $sql20 = mysqli_query($mysqli, $sql10);
+                                            //usar el $id_clase 
+                                        // ID_CURSO DE alumnos          
+                                        // RESULTADO QUE SOLO APAREZCAN DE MATEMATICA Y DEL ID_GRADO  CORRESPONDIENTE
+                                        while($data = mysqli_fetch_array($sql20)){
+                                            
+                                            ?>
+                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode(   $data['NOMBRE_1'] .'  '  . $data['APELLIDO_1']); ?>
+
+                                        <?php } ?>
+                                </select>  
+                            </div> 
+
 
                            
                         
@@ -217,6 +271,8 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
 
                         
                         <div class="d-grid mt-5">
+                            <input type="hidden"  name="id_clase" value="<?php echo $id_clase;  ?>">  <!-- lo al c para que me lo envie de vuelta = get -->
+                            
                             <input type="submit" class="btn btn-primary" value="Registrar">
                         </div>
 

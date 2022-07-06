@@ -75,7 +75,7 @@ if(count($error)==0) {
 
         if(mysqli_query($mysqli, $query2)){
 
-            echo "<script>location.href='index.php?mensaje=asignado';</script>";
+            echo "<script>location.href='index.php?mensaje=asignado&grado=$id_grado';</script>";
             die();
         }else{
             echo "<script>location.href='index.php?mensaje=error444';</script>";
