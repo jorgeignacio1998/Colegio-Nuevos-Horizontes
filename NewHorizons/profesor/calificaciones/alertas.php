@@ -74,11 +74,11 @@
 
 <!-- fuera_rango -->
     <?php
-    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nota') {
+    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'fuera_rango') {
     ?>
 
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>ERROR DE RANGO </strong> Solo se notas del 1 al 7.
+        <strong>ERROR DE RANGO </strong> Solo se permiten notas del 1 al 7.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php
