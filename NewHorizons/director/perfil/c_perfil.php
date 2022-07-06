@@ -20,7 +20,10 @@ $rut = $_POST["rut"];
 $email = $_POST["email"];
 $telefono = $_POST["telefono"];
 
+
+
 $nombre_img = $_FILES['imagen']['name'];
+
 $contraseña1 = 0;
 
 //.- EDITAR CONTRASEÑA VALIDACIONES
@@ -110,6 +113,25 @@ if(count($error)==0) //NO ERRORES DE FORMATO
         $query6 = "UPDATE usuarios  SET  NOMBRE = '{$nombre}' , EMAIL = '{$email}' ,RUT = '{$rut}'  WHERE ID LIKE '{$usuario_logueado}' ";
 
                 if(mysqli_query($mysqli, $query6)){
+
+
+
+                    if(!empty($nombre_img)){
+
+                      
+                        if(move_uploaded_file($_FILES['imagen']['tmp_name'],"../../images/{$nombre_img}")){ 
+                            $query7 = "UPDATE usuarios  SET  FOTO = '{$nombre_img}'  WHERE ID LIKE '{$usuario_logueado}' ";
+                            if(mysqli_query($mysqli, $query7)){ 
+                               
+                            }
+
+                    
+                       
+                        }
+
+                    }
+
+                        
                    
                   
                     echo "<script>location.href='../index.php?mensaje=guardado';</script>";

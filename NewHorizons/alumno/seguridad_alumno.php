@@ -1,5 +1,5 @@
 <?php  //seguridad de sesiones 
-include '../codes/connect.php'; 
+include '../../codes/connect.php'; 
 session_start(); //Paso 1 para utilizar sesiones
 $usuario_logueado = $_SESSION['usuario'];
 if(!isset($_SESSION['usuario'])){
