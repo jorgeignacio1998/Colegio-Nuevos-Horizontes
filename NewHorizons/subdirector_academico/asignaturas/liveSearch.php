@@ -37,7 +37,7 @@ ON asignaturas.ID_GRADO = grados.ID";
 
 
 
-        <div  id="col1" class="p-4 ">
+       
                        <table class="table align-middle">
                             <thead>
                                 <tr>
@@ -74,7 +74,7 @@ ON asignaturas.ID_GRADO = grados.ID";
                                
                             </tbody>
                        </table>
-                   </div>
+                  
         <?php 
 
     }else{
