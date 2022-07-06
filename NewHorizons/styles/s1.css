@@ -5,10 +5,11 @@
 }
 
 body{
-    background: #7F7FD5;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background-image: url(../img/LoginFF.png);  /* fallback for old browsers */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 
@@ -17,11 +18,10 @@ body{
 
 .form-register {
     width: 400px;
-    background: #24303c;
+    background: rgba(255, 255, 255, 0.05);
     padding: 30px;
     margin: auto;
-    margin-top: 120px;
-    border-radius: 4px;
+    border-radius: 20px;
     font-family: 'calibri';
     color: white;
     box-shadow: 7px 13px 37px #000;
@@ -29,11 +29,13 @@ body{
 }
 
 #_titulo {
+    color: #f7f7f7;
     font-size: 28px;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #_nombre{
@@ -76,14 +78,14 @@ body{
 
 #_email{
     width: 100%;
-    background: #24303c;
+    background: rgba(255, 255, 255, 0.6);
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;   
-    border:1px solid #1f53c5;
+    border:1px solid #fff;
     font-family: 'calibri';
     font-size: 18px;
-    color:white;
+    color:rgb(0, 0, 0);
 }
 
 #_asunto{
@@ -145,12 +147,15 @@ body{
     border: none;
     margin: 16px 0;;
     margin-top: 1px;
-    font-size: 20px;
+    font-size: 19px;
     cursor:pointer; 
     font-family: 'Roboto', sans-serif;
+    border-radius: 25px;
+}
 
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-
+#submit:hover{
+    background:#f0ad4e;
+    color: #292b2c;
 }
 
 .error{
@@ -168,14 +173,14 @@ body{
 
 #_password{
     width: 100%;
-    background: #24303c;
+    background: rgba(255, 255, 255, 0.6);
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;   
-    border:1px solid #1f53c5;
+    border:1px solid #fff;
     font-family: 'calibri';
     font-size: 18px;
-    color:white;
+    color:rgb(0, 0, 0);
 }
 #_cpassword{
     width: 100%;
@@ -206,7 +211,9 @@ body{
     margin-bottom: 20px;
 }
 
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #000000;
+}
 
 
 
