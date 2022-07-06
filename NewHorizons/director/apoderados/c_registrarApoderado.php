@@ -50,6 +50,14 @@ $regexEmail = "/^[a-zA-Z\d\._]+@[a-zA-Z\d\._]+\.[a-zA-Z\d\.]{2,3}+$/";
 $datita = $mysqli->query("SELECT * FROM  matriculados WHERE RUT_ALUMNO LIKE '{$rutalumno}'");
 $sentencia2 =mysqli_fetch_array($datita);
 $idmatriculado = $sentencia2['ID'];
+
+if(empty($idmatriculado)){
+    array_push($error, "no hay registros del alumno");
+    echo "<script>location.href='index.php?mensaje=no_alumno';</script>";  
+    die;  
+}
+
+
 //INYECCIONSQL
 
 //1.-formato nombre                      
@@ -124,6 +132,18 @@ if($res3 > 1){
 }
 
 // 2.- Validacion max_2Apoderados
+
+
+// $query4 = $mysqli->query("SELECT * FROM alumnos WHERE RUT LIKE '{$rutalumno}'");
+// $res4 = mysqli_num_rows($query4);
+// if($res4 > 0){
+//     array_push($error, "NO EXISTE EL ALUMNO");
+//     echo "<script>location.href='index.php?mensaje=alumno_no_existe';</script>";
+// }
+
+
+
+
 
 
 

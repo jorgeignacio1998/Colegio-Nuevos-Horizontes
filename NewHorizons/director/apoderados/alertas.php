@@ -143,6 +143,20 @@
     ?>
 <!-- Apoderado duplicado  -->
 
+<!-- no existe el alumno error -->
+    <?php
+    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'no_alumno') {
+    ?>
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>ERROR</strong> El alumno no exite.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php
+    }
+    ?>
+<!--  no existe el alumno error  -->
+
 <!-- eliminado -->
     <?php
     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
