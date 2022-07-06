@@ -15,14 +15,11 @@ session_start(); //Paso 1 para utilizar sesiones
      
     if(empty($validar_login->num_rows)){ 
         array_push($error, "Las credenciales no coinciden ");
-        echo'
-            <script>
-            alert("Las credenciales no son validas");
-            window.location = "../index.php";
-            </script>
-        ';
-        
+        echo "<script>location.href='../views/login.php?mensaje=credenciales';</script>";
+        die();
+
         }else{ //si coinciden
+            
         $query = "SELECT * FROM usuarios  WHERE EMAIL LIKE '{$email}' and  CONTRASENA = '{$password}'";
         $sentencia1 = $mysqli->query($query);
         $sentencia2 =mysqli_fetch_array($sentencia1);

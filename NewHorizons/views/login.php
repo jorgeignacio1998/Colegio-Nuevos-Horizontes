@@ -19,17 +19,29 @@
 
 </style>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+   
     
 <div class="col-md-4 text-center mx-auto mt-5 mb-5">
+
+ 
+
     <a href="../index.php">
     <img src="../img/logoHorizontes.png" class="w-10" alt="...">
     </a>
     </div>
 
+
     <form action="../codes/c_login.php" method="POST"  class="form-register"  id="_formid">
         <div>
             <a href="../index.php"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a>
             <h4  id="_titulo">Iniciar Sesión</h4>
+
+            <?php 
+            include 'alertas.php';
+            ?>
+
         </div>
         
 

@@ -76,7 +76,7 @@
       </ul>
       <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <button type="button" class="btn btn-warning fw-bold text-dark"><a class="text-decoration-none" href="../views/login.php">INGRESAR</a></button>
+      <a class="text-decoration-none" href="../views/login.php"><button type="button" class="btn btn-warning fw-bold text-primary">INGRESAR</button></a>
         </li>
       </ul>
     </div>
