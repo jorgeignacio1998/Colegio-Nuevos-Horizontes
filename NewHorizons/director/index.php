@@ -38,6 +38,15 @@ include 'seguridad_director.php';    //BD, SEGURIDAD NIVEL, SESSION.
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>        <!-- jquery -->
+    <!-- Estos dos son para el rut verificador -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="../codes/jquery.rut.js"></script>  
+    <!-- Estos dos son para el rut verificador -->
+    
+
+
+
+
 
     <!-- Tipo de letra Manrope Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,11 +152,34 @@ include 'seguridad_director.php';    //BD, SEGURIDAD NIVEL, SESSION.
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
-   
 
 
 
 
+
+    <!-- Inicio RUT VERIFICADOR con Jquery -->   
+    <script>
+            $(function() {
+                $("#_rut").rut().on('rutValido', function(e, rut, dv) {
+                $('#_rut').attr('style','border-color:green');
+                $('#_boton').removeClass('estilo_deshabilitado').removeAttr('disabled')
+                });
+
+                $("#_rut").rut().on('rutInvalido', function(e) {
+                $('#_rut').val('').attr('style','border-color:red');
+                $('#_boton').addClass('estilo_deshabilitado').attr('disabled','disabled')
+                }); 
+
+                $('#_boton').click(function(){ 
+
+
+                })
+            })
+        </script>
+
+           
+
+        <!-- Termino RUT VERIFICADOR con Jquery -->  
 
 
 
