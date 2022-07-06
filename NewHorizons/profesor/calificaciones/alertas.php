@@ -44,33 +44,47 @@
 <!-- La sala ingresada ya esta en uso -->
 
 
-<!-- formato_piso -->
+<!-- nota_existe -->
     <?php
-    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_piso') {
+    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'nota_existe') {
     ?>
 
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>ERROR DE FORMATO</strong> Solo se permiten ingresar numeros en piso.
+        <strong>ERROR</strong> La calificacion ya existe.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php
     }
     ?>
-<!-- formato_piso  -->
+<!-- nota_existe  -->
 
-<!-- formato_numero -->
+<!-- formato_nota -->
     <?php
-    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_numero') {
+    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nota') {
     ?>
 
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>ERROR DE FORMATO</strong> Solo se permiten ingresar numeros en Numero de la sala.
+        <strong>ERROR DE FORMATO</strong> Solo se permiten ingresar numeros en la nota.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php
     }
     ?>
-<!-- formato_numero  -->
+<!-- formato_nota  -->
+
+<!-- fuera_rango -->
+    <?php
+    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_nota') {
+    ?>
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>ERROR DE RANGO </strong> Solo se notas del 1 al 7.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php
+    }
+    ?>
+<!-- fuera_rango  -->
 
 <!-- eliminado -->
     <?php

@@ -35,6 +35,17 @@ $Regexnota = "/^(\d{1,7})(\.\d{1,2}){0,1}$/";
     
     // 2.- VNOTA EXISTE
 
+
+    // 2.- noya menor 1 mayor 7
+    if($nota > 7 || $nota < 1 ){
+        array_push($error, " nota Fuera de rango");
+        echo "<script>location.href='index.php?mensaje=fuera_rango&id_clase=$id_clase';</script>";  
+        die;  
+    }
+    // 2.- noya menor 1 mayor 7
+
+
+
 // VALIDACIONES
     
 
