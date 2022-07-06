@@ -20,13 +20,13 @@ ON asignaturas.ID_GRADO = grados.ID";
     if(empty($input)){
         $query =  "SELECT * FROM asignaturas
         INNER JOIN grados
-        ON asignaturas.ID_GRADO = grados.ID  ";
+        ON asignaturas.ID_GRADO = grados.ID  order by grados.ID , asignaturas.NOMBRE  ";
 
         } else{
             
         $query = "SELECT * FROM asignaturas
                     INNER JOIN grados
-                    ON asignaturas.ID_GRADO = grados.ID WHERE NOMBRE LIKE '{$input}%'OR NIVEL LIKE '{$input}%' ";  
+                    ON asignaturas.ID_GRADO = grados.ID WHERE NOMBRE LIKE '{$input}%'OR NIVEL LIKE '{$input}%' OR ID_A LIKE '{$input}%' order by grados.ID , asignaturas.NOMBRE ";  
         }
 
 

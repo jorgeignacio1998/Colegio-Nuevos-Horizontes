@@ -33,6 +33,21 @@
                 <!-- 3 alerta ERROR  -->
 
 
+                 <!-- 4 asignatura_ya_existe.  -->
+                <?php
+                 if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'asignatura_ya_existe') {
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR</strong> La asignatura ya existe.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                }
+                ?>
+                <!-- 4 asignatura_ya_existe  -->
+
+
 
 
 

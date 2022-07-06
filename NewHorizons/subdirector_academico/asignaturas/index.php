@@ -11,7 +11,7 @@ include '../seguridad_subdirector.php';    //BD, SEGURIDAD NIVEL, SESSION.
     $inner = $mysqli->query("SELECT * FROM asignaturas
                         INNER JOIN grados
                         ON asignaturas.ID_GRADO = grados.ID
-                        order by grados.ID ");
+                        order by grados.ID , asignaturas.NOMBRE ");
 
 
 ?>
