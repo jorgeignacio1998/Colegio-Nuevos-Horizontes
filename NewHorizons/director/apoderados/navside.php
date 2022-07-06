@@ -386,7 +386,7 @@ navbar-toggle a {
                     <!-- Evaluaciones -->
                     <li class="list__item evaluaciones l2">
                         <div class="list__button">
-                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
+                            <a href="../clases/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
                         </div>
                     </li>
                     <!-- Evaluaciones -->
@@ -410,7 +410,7 @@ navbar-toggle a {
                     <!-- Gestionar apoderado -->
                     <li class="list__item apoderados l5">
                         <div class="list__button">
-                            <a href="../apoderados/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Apoderados  </a >
+                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Apoderados  </a >
                         </div>
                     </li>
                     <!-- Gestionar apoderado -->

@@ -159,39 +159,43 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
                    <form action="c_registrar.php" method="POST" class="p-4" >
 
                         <div class="row">
-                            <div class="mb-3 col-6">
-                                <label for="3" class="form-label">EVALUACIÓN: </label>
-                                <select name="asignatura" class="form-control"  required id="3">
+                         
+                            <?php 
 
 
-                                <!-- Este option es el dato del profesor -->
+
+
+                            //INYECCIONSQL PARA ASIGNATURA DEL ID CLASE
+                                $datita1 = $mysqli->query("SELECT * FROM  clases WHERE ID LIKE '{$id_clase }'");
+                                $sentencia1 =mysqli_fetch_array($datita1);
+                                $id_asignatura = $sentencia1['ID_ASIGNATURA'];
+                                // $id_curso = $sentencia2['ID_CURSO'];
+                            //INYECCIONSQL PARA ASIGNATURA DEL ID CLASE
+
+
+
+
+
                             
-
-                                <option value="">
-
-                                            <?php
-                                            
+                            ?>
 
 
+                            <div class="mb-3 col-6">
+                                <label class="form-label lab" for="6">Evaluacion:</label > 
+                                <select name="evaID" class="form-control"  required   >
+                                    <option disabled selected value >  </option>
+                                        <?php
+                                        $sql1 = "SELECT * FROM evaluaciones WHERE ID_ASIGNATURA LIKE '{$id_asignatura}'  ";
+                                        $sql2 = mysqli_query($mysqli, $sql1);
+                                        //usar el $id_clase 
+                                        // WHERE ID_GRADO = ID GRADO DE LA CLASE-..........  SACAR EL ID DE LA ASIGNATURA Y SACAR EL ID GRADO
+                                        // RESULTADO QUE SOLO APAREZCAN DE MATEMATICA Y DEL ID_GRADO  CORRESPONDIENTE
+                                        while($data = mysqli_fetch_array($sql2)){ ?>
+                                    <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode(    'EVALUACION NUMERO  ' . $data['NUMERO'] .'  '  . $data['NOMBRE']); ?>
 
-
-                                            $sqlAsi = "SELECT *, evaluaciones.NOMBRE AS nombreva, evaluaciones.ID AS evaid  FROM evaluaciones INNER JOIN grados ON 
-                                            evaluaciones.ID_GRADO = grados.ID 
-                                            WHERE clases.ID = $id_clase
-                                            order by NUMERO ";
-                                            $dataAsi = mysqli_query($mysqli, $sqlAsi);
-
-                                            
-                                            while($data = mysqli_fetch_array($dataAsi)){ 
-                                            ?>
-
-
-                                            <!-- y este option las opciones -->
-                                            <option value="<?php echo $data["evaid"]; ?>"><?php echo utf8_encode( $data['NUMERO'] . ' - ' . $data['nombreva'] ); ?>
-                                            <?php } ?>
-
-                            </select>
-                            </div>
+                                        <?php } ?>
+                                </select>  
+                            </div> 
 
 
 

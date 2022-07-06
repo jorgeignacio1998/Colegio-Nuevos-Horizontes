@@ -1,5 +1,5 @@
 <?php
-require '../seguridad_director.php';
+include '../seguridad_director.php';
 $id_clase = $_GET['id_clase'];
 if(!isset($_GET['id_clase'])) {
 

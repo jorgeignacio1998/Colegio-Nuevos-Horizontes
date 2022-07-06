@@ -1,5 +1,5 @@
 <?php
-require '../seguridad_director.php';
+include '../seguridad_director.php';
 
 ?>
 <!DOCTYPE html>

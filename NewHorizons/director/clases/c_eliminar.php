@@ -1,5 +1,5 @@
 <?php 
-require '../seguridad_director.php';
+include '../seguridad_director.php';
 
 if(!isset($_GET['id_clase'])){
     echo "<script>location.href='index.php?mensaje=error';</script>";
