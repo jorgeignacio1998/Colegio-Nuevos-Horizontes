@@ -21,6 +21,7 @@ $descripcion = $_POST['descripcion'];
 $asignatura = $_POST['asignatura'];
 $nombre = $_POST['nombre'];
 $numero = $_POST['numero'];
+$fecha = $_POST['fecha'];
 
 $regexNumeroNatural = "/^[1-9]*$/"; 
 
@@ -97,7 +98,7 @@ if(count($error)==0) {
 
   
     //Editando los datos
-    $query = "UPDATE evaluaciones SET  NUMERO = '{$numero}', NOMBRE = '{$nombre}' , ID_ASIGNATURA ='{$asignatura}', DESCRIPCION = '{$descripcion}' 
+    $query = "UPDATE evaluaciones SET  NUMERO = '{$numero}', NOMBRE = '{$nombre}' , ID_ASIGNATURA ='{$asignatura}', DESCRIPCION = '{$descripcion}' , FECHA = '{$fecha}'
     WHERE ID = $id_eva ";
     //$sentencia = $mysqli->query($query);
 

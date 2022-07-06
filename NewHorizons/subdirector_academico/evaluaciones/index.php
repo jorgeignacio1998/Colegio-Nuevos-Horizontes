@@ -188,6 +188,7 @@ $id_grado = $_GET['grado'];
                                                         <th scope="col">NOMBRE </th>                                                  
                                                         <th scope="col">ASIGNATURA</th>                              
                                                         <th scope="col">GRADO</th>
+                                                        <th scope="col">FECHA</th>                                 
                                                         <th scope="col">DESCRIPCION</th>                                 
 
 
@@ -206,6 +207,7 @@ $id_grado = $_GET['grado'];
                                                         <td ><?php echo $fila['nombreasigna']; ?></td>
                                                         <td ><?php echo $fila['asignanom']; ?></td>
                                                         <td ><?php echo $fila['NIVEL']; ?></td>
+                                                        <td ><?php echo $fila['FECHA']; ?></td>
                                                         <td ><?php echo $fila['DESCRIPCION']; ?></td>
                                                    
                                                     
@@ -274,41 +276,49 @@ $id_grado = $_GET['grado'];
                             </div>            
                         </div>
 
-
-                        <div class="mb-3">
-                            <label for="3" class="form-label">Nombre Asignatura: </label>
-                            <select name="asignatura" class="form-control"  required id="3">
-
-
-                            <!-- Este option es el dato del profesor -->
-                         
-
-                            <option value="">
-
-                                        <?php
-                                        $sqlAsi = "SELECT *,
-                                        grados.NIVEL AS nivelgrado
-                                        FROM asignaturas INNER JOIN grados
-                                        ON asignaturas.ID_GRADO = grados.ID
-                                        order by grados.ID";
-                                        $dataAsi = mysqli_query($mysqli, $sqlAsi);
-
-                                        
-                                        while($data = mysqli_fetch_array($dataAsi)){ 
-                                        ?>
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="3" class="form-label">Nombre Asignatura: </label>
+                                <select name="asignatura" class="form-control"  required id="3">
 
 
-                                        <!-- y este option las opciones -->
-                                        <option value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode( $data['NOMBRE'] . ' - ' . $data['nivelgrado'] ); ?>
-                                        <?php } ?>
+                                <!-- Este option es el dato del profesor -->
+                            
 
-                           </select>
+                                    <option value="">
+
+                                                <?php
+                                                $sqlAsi = "SELECT *,
+                                                grados.NIVEL AS nivelgrado
+                                                FROM asignaturas INNER JOIN grados
+                                                ON asignaturas.ID_GRADO = grados.ID
+                                                order by grados.ID";
+                                                $dataAsi = mysqli_query($mysqli, $sqlAsi);
+
+                                                
+                                                while($data = mysqli_fetch_array($dataAsi)){ 
+                                                ?>
+
+
+                                                <!-- y este option las opciones -->
+                                                <option value="<?php echo $data["ID_A"]; ?>"><?php echo utf8_encode( $data['NOMBRE'] . ' - ' . $data['nivelgrado'] ); ?>
+                                                <?php } ?>
+
+                                </select>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="9" class="form-label">Fecha: </label>
+                                <input class="form-control" type="date" name="fecha"  autofocus required id="9" >
+                            </div>
+
+
                         </div>
                         
                             <div class="mb-3 ">
                                 <label for="4" class="form-label">Descripción</label>
                                 <textarea class="form-control texta" name="descripcion"  id="4"></textarea   > 
                             </div>     
+                            
                         
         
 

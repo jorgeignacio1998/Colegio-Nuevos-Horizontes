@@ -108,8 +108,8 @@ $sen =mysqli_fetch_array($datos_evaluaciones);
 
                     
 
-
-                        <div class="mb-3 ">
+                    <div class="row">
+                        <div class="mb-3 col-6 ">
                                 <label class="form-label lab" for="6">Nombre Asignatura:</label > 
                                 <select name="asignatura" class="form-control"  required  id="6" >
                                   
@@ -135,6 +135,14 @@ $sen =mysqli_fetch_array($datos_evaluaciones);
                                         <?php } ?>
                                 </select>  
                             </div> 
+                            <div class="mb-3 col-6">
+                                <label for="9" class="form-label">Fecha: </label>
+                                <input class="form-control" type="date" name="fecha"  autofocus required id="9" >
+                            </div>
+
+
+
+                        </div> 
 
 
 

@@ -89,7 +89,7 @@
                     ?>
 
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERROR </strong> la evualuacion que desea cambiar ya existe.
+                        <strong>ERROR </strong> la evualuacion ya existe.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <?php

@@ -6,6 +6,7 @@ $numero = $_POST["numero"];
 $nombre = $_POST["nombre"];
 $asignatura = $_POST["asignatura"];
 $descripcion = $_POST["descripcion"];
+$fecha = $_POST["fecha"];
 
 $regexNumeroNatural = "/^[1-9]*$/"; 
 
@@ -54,7 +55,7 @@ if(count($error)==0) {
     
     
     //  echo '<script language="javascript">alert("' .  $grado   . '");</script>';
-    $query = "INSERT INTO evaluaciones (NUMERO , NOMBRE,ID_ASIGNATURA ,DESCRIPCION, ID_GRADO ) VALUES ('{$numero}','{$nombre}','{$asignatura}','{$descripcion}','{$grado}') ";
+    $query = "INSERT INTO evaluaciones (NUMERO , NOMBRE,ID_ASIGNATURA ,DESCRIPCION, ID_GRADO , FECHA ) VALUES ('{$numero}','{$nombre}','{$asignatura}','{$descripcion}','{$grado}','{$fecha}' )";
 
        
     if(mysqli_query($mysqli, $query)){
