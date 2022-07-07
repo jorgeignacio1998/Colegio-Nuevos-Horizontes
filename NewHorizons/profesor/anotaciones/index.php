@@ -1,8 +1,10 @@
 <?php 
 include '../seguridad_profesor.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
+    
+    $id_clase = $_GET['id_clase'];
 
- $id_clase = $_GET['id_clase']; 
+ 
 
 
 

@@ -42,7 +42,7 @@
                      <!-- MENSAJE  FORMATO MALO DEL TELEFONO-->
                    
                      <?php
-                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error4') {
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_telefono') {
                                     ?>
 
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">

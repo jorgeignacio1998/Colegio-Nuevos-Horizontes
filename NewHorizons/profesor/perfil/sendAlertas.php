@@ -42,7 +42,7 @@
                      <!-- MENSAJE  FORMATO MALO DEL TELEFONO-->
                    
                      <?php
-                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_telefono') {
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error4') {
                                     ?>
 
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -95,6 +95,23 @@
 
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                        <strong>ERROR, FORMATO INVALIDO.</strong> <br> El email NO cumple con el formato requerido.
+                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?> 
+
+                     <!-- MENSAJE  FORMATO MALO DEL EMAIL  -->   
+
+
+                     <!-- MENSAJE  FORMATO MALO DEL EMAIL -->
+                   
+                         <?php
+                                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'formato_telefono') {
+                                    ?>
+
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                       <strong>ERROR, FORMATO INVALIDO.</strong> <br> El numero Telefono NO cumple con el formato requerido.
                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                     <?php
