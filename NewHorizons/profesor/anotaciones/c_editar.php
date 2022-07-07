@@ -2,51 +2,46 @@
 include '../seguridad_profesor.php';    //BD, SEGURIDAD NIVEL, SESSION.
 $error = array();
 
-if(!isset($_POST['id_calificacion'])){
-    header('Location: index.php?mensaje=error3333');
-}
 
 
-$id_calificacion = $_POST["id_calificacion"];
+$descripcion = $_POST["descripcion"];
+$fecha = $_POST["fecha"];
+$alumno = $_POST["alumno"];
 $id_clase = $_POST["id_clase"];
-$nota = $_POST["nota"];
+$id_anotacion = $_POST["id_anotacion"];
 
 
-$Regexnota = "/^(\d{1,7})(\.\d{1,2}){0,1}$/";
 
 
-//1.-formato numero                      
-// if(!preg_match($regexNumeroNatural, $numero)){
-//     array_push($error, "El formato es invalido");
-//     echo "<script>location.href='index.php?mensaje=formato_numero';</script>";  
-//     die;  
-// }  
-//- formato numero       
+$regexDescripcion = "/^[A-Za-zÁÉÍÓÚáéíóúñÑ0-9?¿!\.\s\-\,]+$/";
 
+// VALIDACIONES
+    //1.-formato formato_descripcion                      
+    if(!preg_match($regexDescripcion, $descripcion)){
+        array_push($error, "El formato es invalido");
+        echo "<script>location.href='index.php?id_clase=$id_clase&mensaje=formato_descripcion';</script>";  
+        die;  
+    }  
+    //- formato formato_descripcion       
 
-  // 2.- noya menor 1 mayor 7
-  if($nota > 7 || $nota < 1 ){
-    array_push($error, " nota Fuera de rango");
-    echo "<script>location.href='index.php?mensaje=fuera_rango&id_clase=$id_clase';</script>";  
-    die;  
-}
-// 2.- noya menor 1 mayor 7
+// VALIDACIONES
+    
 
 
 
 
 if(count($error)==0) {     
     
-    $query = "UPDATE calificaciones SET  NOTA = '{$nota}' WHERE ID  = $id_calificacion ";
+    $query = "UPDATE anotaciones SET  FECHA = '{$fecha}' , ANOTACION = '{$descripcion}' WHERE ID  = $id_anotacion ";
 
     if(mysqli_query($mysqli, $query)){
         
-        echo "<script>location.href='index.php?id_clase=$id_clase';</script>";
+        echo "<script>location.href='index.php?id_clase=$id_clase&mensaje=editado';</script>";
 
         die();
     }
     else{
-        echo "<script>location.href='index.php?mensaje=error33';</script>";
+        echo "<script>location.href='index.php?id_clase=$id_clase&mensaje=error';</script>";
 
         die();
     

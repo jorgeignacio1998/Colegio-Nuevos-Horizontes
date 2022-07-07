@@ -215,6 +215,8 @@ $inner = $mysqli->query("SELECT *, anotaciones.ID AS anoid, alumnos.ID AS alumno
                             <input type="submit" class="btn btn-primary" value="Registrar">
                         </div>
 
+                      
+
                    </form>
 
             

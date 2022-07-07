@@ -1,18 +1,20 @@
 <?php
 include '../seguridad_profesor.php';    //BD, SEGURIDAD NIVEL, SESSION.
-if(!isset($_GET['id_calificacion'])) {
-    header('Location: ../index.php?mensaje=error');
-    exit();
-}
-if(!isset($_GET['id_clase'])) {
-    header('Location: ../index.php?mensaje=error');
-    exit();
-}
-$id_calificacion = $_GET['id_calificacion'];
-$id_clase = $_GET['id_clase'];
+
+
+
+$id_clase = $_GET["id_clase"];
+
+
+$id_anotacion = $_GET["id_anotacion"];
+
+
+
+$regexDescripcion = "/^[A-Za-zÁÉÍÓÚáéíóúñÑ0-9?¿!\.\s\-\,]+$/";
+
 
 //Pintando datos Del ID = GET
-$inner = $mysqli->query("SELECT * FROM calificaciones WHERE ID LIKE $id_calificacion");
+$inner = $mysqli->query("SELECT * FROM anotaciones WHERE ID LIKE $id_anotacion");
 $sentencia =mysqli_fetch_array($inner);
 
 
@@ -72,7 +74,7 @@ $sentencia =mysqli_fetch_array($inner);
 <!-- Inicio Gestor de asignaturas--  academico -->   
 <div class="container-fluid moverabajo">
        <div class="row justify-content-center">
-           <div class="col-md-2 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
+           <div class="col-md-3 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
            
                <?php 
                include 'alertas.php';
@@ -81,19 +83,25 @@ $sentencia =mysqli_fetch_array($inner);
                <div class="card segundo">
                  
                    <div class="card-header">
-                       Editar nota:
+                       Editar anotación:
                    </div>
                    <form action="c_editar.php" method="POST" class="p-4" >
 
                         <div class="mb-3">
-                            <label for="1" class="form-label">NOTA: </label>
-                            <input type="text" class="form-control" name="nota" autofocus required id="1" value="<?php echo $sentencia['NOTA'];  ?>">
+                            <label for="1" class="form-label">FECHA: </label>
+                            <input type="date" class="form-control" name="fecha" autofocus required id="1" value="<?php echo $sentencia['FECHA'];  ?>">
                         </div>     
                         
+                        <div class="mb-3 ">
+                                <label for="4" class="form-label">Descripción</label>
+                                <textarea class="form-control texta" name="descripcion"    id="4"><?php  echo $sentencia['ANOTACION']; ?></textarea   > 
+                        </div>    
                         
                         <div class="d-grid mt-5">
                             <input type="hidden"  name="id_clase" value="<?php echo $id_clase;  ?>">  <!-- Enviando el ID -->
-                            <input type="hidden"  name="id_calificacion" value="<?php echo $id_calificacion;  ?>">  <!-- Enviando el ID -->
+                            <input type="hidden"  name="id_anotacion" value="<?php echo $id_anotacion;  ?>">  <!-- Enviando el ID -->
+                          
+                         
                             <input type="submit" class="btn btn-primary" value="Guardar cambios">
                         </div>
 
@@ -112,7 +120,7 @@ $sentencia =mysqli_fetch_array($inner);
     <!-- Bootstrap JavaScript Libraries -->
     
 
-
+    
 
 
 
