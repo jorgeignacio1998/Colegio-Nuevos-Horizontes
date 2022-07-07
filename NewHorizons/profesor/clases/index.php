@@ -152,7 +152,7 @@ $id_profesor = $sentencia22['ID'];
                             
 
                                 <td><a class="text-primary" href="../calificaciones/index.php?id_clase=<?php echo $fila['claseid']; ?>">   <i class="fa-solid fa-book"></i> </a>  </td>
-                                <td><a class="text-success" href="../horarios/index.php?id_clase=<?php echo $fila['claseid']; ?>">   <i class="fa-solid fa-calendar-days"></i>  </a>  </td>
+                                <td><a class="text-success" href="../anotaciones/index.php?id_clase=<?php echo $fila['claseid']; ?>">  <i class="bi bi-journal-bookmark-fill"></i>  </a>  </td>
                               
                                 <!-- le envia por la url el id del usuario al c_eliminar -->
                                 
