@@ -259,6 +259,7 @@ include '../seguridad_director.php';
 
                             
 
+                                <td><a class="text-success" href="../horarios/index.php?id_clase=<?php echo $fila['claseid']; ?>">       <i class="bi bi-calendar-week"></i></a>  </td>
                                 <td><a class="text-primary" href="editar.php?id_clase=<?php echo $fila['claseid']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
                                 <td><a onclick="return confirm('¿estas seguro de eliminar a esta clase?')" class="text-danger" href="c_eliminar.php?id_clase=<?php echo $fila['claseid']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                 <!-- le envia por la url el id del usuario al c_eliminar -->
