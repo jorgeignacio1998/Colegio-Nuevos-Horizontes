@@ -1,17 +1,11 @@
 <?php
 // Aclarar, se eliminara el alumno de la tabla alumno pero sus datos seguiran en la base de datos por la tabla matriculados.
 require '../seguridad_director.php';
-$id_eva = $_GET['id_eva'];
-if(!isset($_GET['id_eva'])) {
-    header('Location: ../index.php?mensaje=error1');
-    exit();
-}
 
-$grado = $_GET['grado'];
-if(!isset($_GET['grado'])) {
-    header('Location: ../index.php?mensaje=error2');
-    exit();
-}
+
+
+
+$id_horario = $_GET['id_horario'];
 
 
 
@@ -19,14 +13,14 @@ if(!isset($_GET['grado'])) {
 // $query1 = "UPDATE matriculados SET ASIGNADO = '' WHERE RUT LIKE $rut";
 
 
-$query2 = "DELETE FROM evaluaciones WHERE ID = $id_eva ";
+$query2 = "DELETE FROM horarios_clases WHERE ID = $id_horario ";
         if(mysqli_query($mysqli, $query2)){
            
-                echo "<script>location.href='index.php?mensaje=eliminado&grado=$grado';</script>";
+            echo "<script>location.href='index.php?id_horario=$id_horario&mensaje=eliminado';</script>";
                 die();
                 
             }else{  
-                echo "<script>location.href='index.php?mensaje=error&grado=$grado';</script>";
+                echo "<script>location.href='index.php?id_horario=$id_horario&mensaje=error';</script>";
    
                 die();
             }

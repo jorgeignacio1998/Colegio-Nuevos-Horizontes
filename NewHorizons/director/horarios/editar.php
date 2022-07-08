@@ -1,24 +1,25 @@
 <?php
 include '../seguridad_director.php';
-$id_eva = $_GET['id_eva'];
-if(!isset($_GET['id_eva'])) {
-
-    header('Location: ../index.php?mensaje=error');
-    exit();
-}
-$grado = $_GET['grado'];
-if(!isset($_GET['grado'])) {
-
-    header('Location: ../index.php?mensaje=error2');
-    exit();
-}
 
 
-$datos_evaluaciones = $mysqli->query("SELECT *,asignaturas.NOMBRE AS asignombre, evaluaciones.ID AS evaid, evaluaciones.NOMBRE AS evanom FROM evaluaciones INNER JOIN asignaturas ON evaluaciones.ID_ASIGNATURA = asignaturas.ID_A 
-WHERE evaluaciones.ID = $id_eva "); 
-$sen =mysqli_fetch_array($datos_evaluaciones);
 
 
+$id_clase = $_GET['id_clase'];
+$id_horario = $_GET['id_horario'];
+
+
+//INYECCIONSQL 
+$datita = $mysqli->query("SELECT *, dias.ID as diasid  FROM dias INNER JOIN horarios_clases ON horarios_clases.ID_DIA = dias.ID  WHERE horarios_clases.ID  LIKE '{$id_horario}' ");
+$sen =mysqli_fetch_array($datita);
+//INYECCIONSQL
+
+
+
+
+//INYECCIONSQL 
+$datita2 = $mysqli->query("SELECT * FROM horarios_clases   WHERE ID  LIKE '{$id_horario}' ");
+$LosDatos =mysqli_fetch_array($datita2);
+//INYECCIONSQL
 
 
 ?>
@@ -36,7 +37,7 @@ $sen =mysqli_fetch_array($datos_evaluaciones);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Editando horarios</title>
     <link rel="stylesheet" type="text/css" href="../styles/navside.css?<?php echo time(); ?>" >  
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
@@ -76,7 +77,7 @@ $sen =mysqli_fetch_array($datos_evaluaciones);
 <!-- Inicio Gestor de asignaturas--  academico -->   
 <div class="container-fluid moverabajo">
        <div class="row justify-content-center">
-           <div class="col-md-4 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
+           <div class="col-md-3 col-sm-12 ">    <!-- INICIO SEGUNDO COL  -->
 
 
                
@@ -86,102 +87,67 @@ $sen =mysqli_fetch_array($datos_evaluaciones);
 
             
           
+
                <div class="card">
                  
-                    <div class="card-header">
-                        <a href="index.php?grado=<?php echo $grado?>"> <i  id="close"   class="fa-solid fa-circle-left" > </i> </a> 
-                        <h3 id="_titulo">&nbsp; &nbsp; &nbsp; Editar Evaluación:</h3>  
+                   <div class="card-header">
+                       Ingresar datos:
                    </div>
                    <form action="c_editar.php" method="POST" class="p-4" >
 
-                        <div class="row">
-                            <div class="mb-3 col-6">
-                                <label for="2" class="form-label">Numero evaluacion </label>
-                                <input type="text" class="form-control" name="numero" value="<?php  echo $sen['NUMERO'] ; ?>" autofocus required id="2">
-                            </div> 
-                            <div class="mb-3 col-6">
-                                <label for="1" class="form-label">Nombre evaluación </label>
-                                <input type="text" class="form-control" name="nombre" value="<?php  echo $sen['evanom'] ; ?>" autofocus required id="1">
-                            </div>            
-                        </div>
 
-
-                    
-
-                    <div class="row">
-                        <div class="mb-3 col-6 ">
-                                <label class="form-label lab" for="6">Nombre Asignatura:</label > 
-                                <select name="asignatura" class="form-control"  required  id="6" >
+                   <div class="mb-3 ">
+                             <label class="form-label lab" for="_6">Día:</label > 
+                                <select name="id_dia" class="form-control"  required  id="_6" >
                                   
                                        
                                         <?php
-                                        $sqlAsi = "SELECT *,
-                                        grados.NIVEL AS nivelgrado,
-                                        asignaturas.ID_A AS asigid,
-                                        asignaturas.NOMBRE AS asignombr
-                                        FROM asignaturas INNER JOIN grados
-                                        ON asignaturas.ID_GRADO = grados.ID
-                                        WHERE asignaturas.ID_GRADO = $grado
-                                        order by grados.ID ";
+                                        $sqlAsi = "SELECT * FROM dias ";
                                         $dataAsi = mysqli_query($mysqli, $sqlAsi);
 
                                         
                                         while($data = mysqli_fetch_array($dataAsi)){ 
                                             
-                                            $selected=($sen['ID_A']==$data['asigid'])?'selected':false;  ?>
+                                            $selected=($sen['diasid']==$data['ID'])?'selected':false;  ?>
 
-                                        <option <?=$selected;?> value="<?php echo $data["asigid"]; ?>"><?php echo utf8_encode($data['asignombr']); ?>
+                                        <option <?=$selected;?> value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NOMBRE_DIA']); ?>
                                 
                                         <?php } ?>
                                 </select>  
                             </div> 
-                            <div class="mb-3 col-6">
-                                <label for="9" class="form-label">Fecha: </label>
-                                <input class="form-control" type="date" name="fecha"  autofocus required id="9" >
-                            </div>
-
-
-
-                        </div> 
-
-
-
-
-
-
-
-
                         
-                            <div class="mb-3 ">
-                                <label for="4" class="form-label">Descripción</label>
-                                <textarea class="form-control texta" name="descripcion"  id="4"><?php  echo $sen['DESCRIPCION']; ?></textarea   > 
-                            </div>     
-                        
-        
-
                       
 
-                        
+                        <div class="mb-3">
+                            
+                            <p>Hora registrada anteriormente: <?php echo $LosDatos['HORA_INICIO'] ; ?></p>
+                            <label for="_2" class="form-label">Hora inicio: </label>
+                            <input type="time" class="form-control" name="inicio"  autofocus required id="_2">
+                        </div>
+                        <div class="mb-3">
+                         
+                            <p>Hora registrada anteriormente: <?php echo $LosDatos['HORA_TERMINO'] ; ?></p>
+                            <label for="_3" class="form-label">Hora Termino: </label>
+                            <input type="time" class="form-control" name="termino" autofocus required id="_3">
+                        </div>
+
                         <div class="d-grid mt-5">
-                            <input type="hidden" name="id_eva" value="<?php echo $id_eva?>" >
-                            <input type="hidden" name="grado" value="<?php echo $grado?>" >
-                            <input type="submit" class="btn btn-primary" value="Registrar">
+                            <input type="hidden" name="id_clase" value="<?php echo $id_clase; ?>" >
+                            <input type="hidden" name="id_horario" value="<?php echo $id_horario; ?>" >
+
+                            <input type="submit" class="btn btn-primary" value="Guardar cambios">
                         </div>
 
                    </form>
 
-            
-                 
-
-
-
-
                </div>
+               <br>
+           </div>
         
 
 
               
-           </div>
+      
        </div>
    </div>
 

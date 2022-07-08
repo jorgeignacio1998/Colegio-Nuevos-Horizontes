@@ -2,76 +2,36 @@
 require '../seguridad_director.php';
 $error = array();
 
-$numero = $_POST["numero"];
-$nombre = $_POST["nombre"];
-$asignatura = $_POST["asignatura"];
-$descripcion = $_POST["descripcion"];
-$fecha = $_POST["fecha"];
+$id_clase = $_POST["id_clase"];
 
-$regexNumeroNatural = "/^[1-9]*$/"; 
-
-
- //INYECCIONSQL
- $datita = $mysqli->query("SELECT * FROM  asignaturas WHERE ID_A LIKE '{$asignatura}'");
- $sentencia2 =mysqli_fetch_array($datita);
- $grado = $sentencia2['ID_GRADO'];
- //INYECCIONSQL
+$id_dia = $_POST["id_dia"];
+$inicio = $_POST["inicio"];
+$termino = $_POST["termino"];
 
 
 
- 
-
-//1.-  NOMBRE VALIDACIONES                     
-    if(!preg_match($regexNumeroNatural, $numero)){
-        array_push($error, "El formato es invalido");
-        echo "<script>location.href='index.php?mensaje=formato_numero&grado=$grado';</script>";  
-        die;  
-    }  
-//-   NOMBRE VALIDACIONES   
 
 
-//.-  Evaluaciones max 15                     
-if($numero > 15){
-    array_push($error, "El formato es invalido");
-    echo "<script>location.href='index.php?mensaje=max&grado=$grado';</script>";  
-    die;  
-}  
-//-   Evaluaciones max 15   
-
-
-
-//-   Validar evaluacion ya existe
-$query2 = $mysqli->query("SELECT * FROM evaluaciones WHERE NUMERO LIKE '{$numero}' AND ID_ASIGNATURA LIKE '{$asignatura}' ");
-$res2 = mysqli_num_rows($query2);
-if($res2 > 0){
-    array_push($error, "EVALUACION ya existe");
-    echo "<script>location.href='index.php?grado=$grado&mensaje=existe';</script>";
-}
-//-   Validar evaluacion ya existe
-
-if(count($error)==0) {     
-
-   
     
     
-    //  echo '<script language="javascript">alert("' .  $grado   . '");</script>';
-    $query = "INSERT INTO evaluaciones (NUMERO , NOMBRE,ID_ASIGNATURA ,DESCRIPCION, ID_GRADO , FECHA ) VALUES ('{$numero}','{$nombre}','{$asignatura}','{$descripcion}','{$grado}','{$fecha}' )";
+
+    $query = "INSERT INTO horarios_clases (ID_CLASE , ID_DIA,HORA_INICIO ,HORA_TERMINO) VALUES ('{$id_clase}','{$id_dia}','{$inicio}','{$termino}' )";
 
        
     if(mysqli_query($mysqli, $query)){
     
-        echo "<script>location.href='index.php?mensaje=registrado&grado=$grado';</script>";
+        echo "<script>location.href='index.php?id_clase=$id_clase&mensaje=registrado';</script>";
     
         die();
     }
     else{
-        echo "<script>location.href='index.php?mensaje=error';</script>";
+        echo "<script>location.href='index.php?id_clase=$id_clase&mensaje=error';</script>";
     
         die();
       
     }
    
-}
+
 
 
 

@@ -6,7 +6,12 @@ if(isset($_GET['id_clase'])) {
 $id_clase = $_GET['id_clase'];
 }
 
-$horarios = $mysqli->query("SELECT *,dias.ID AS iddia  FROM horarios_clases INNER JOIN clases ON horarios_clases.ID_CLASE = clases.ID 
+$id_horario = '';
+if(isset($_GET['id_horario'])) {
+$id_horario = $_GET['id_horario'];
+}
+
+$horarios = $mysqli->query("SELECT *,dias.ID AS iddia, horarios_clases.ID AS horid  FROM horarios_clases INNER JOIN clases ON horarios_clases.ID_CLASE = clases.ID 
 INNER JOIN dias ON dias.ID = horarios_clases.ID_DIA
 WHERE clases.ID LIKE '{$id_clase}' ");
 
@@ -164,7 +169,7 @@ WHERE clases.ID LIKE '{$id_clase}' ");
                                     
                                  
                                     <th scope="col">CLASE</th>
-                                    <th scope="col">DIA</th>
+                                    <th scope="col">DÍA</th>
                                     <th scope="col">HORA INICIO</th>
                                     <th scope="col">HORA TERMINO</th>
                                
@@ -189,8 +194,8 @@ WHERE clases.ID LIKE '{$id_clase}' ");
                                     <td scope="row"><?php echo $fila['HORA_TERMINO']; ?></td>
                                     
 
-                                    <td><a class="text-primary" href="editar.php?codigo=<?php echo $fila['ID']; ?>">        <i class="bi bi-pencil-square"></i></a>  </td>
-                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este usuario?')" class="text-danger" href="c_eliminar.php?codigo=<?php echo $fila['ID']; ?>">   <i class="bi bi-trash"></i></a>  </td>  
+                                    <td><a class="text-primary" href="editar.php?id_horario=<?php echo $fila['horid']; ?>&id_clase=<?php echo $id_clase ; ?>"><i class="bi bi-pencil-square"></i></a>  </td>
+                                    <td><a onclick="return confirm('¿estas seguro de eliminar a este horario?')" class="text-danger" href="c_eliminar.php?id_horario=<?php echo $fila['horid']; ?>&id_clase=<?php echo $id_clase ; ?>">   <i class="bi bi-trash"></i></a>  </td>  
                                     <!-- le envia por la url el id del usuario al c_eliminar -->
                                     
                                 </tr>
@@ -227,27 +232,35 @@ WHERE clases.ID LIKE '{$id_clase}' ");
                    <div class="card-header">
                        Ingresar datos:
                    </div>
-                   <form action="c_registrar.php" method="POST" class="p-4" >
-                        <div class="mb-3">
-                            <label for="_1" class="form-label">Nombre completo: </label>
-                            <input type="text" class="form-control" name="txtNombre" autofocus required id="_1">
-                        </div>   
+                   <form action="c_crear.php" method="POST" class="p-4" >
+                        
+                   <div class="mb-3">
+                            <label class="form-label lab" for="_6">Día:</label > 
+                            <select name="id_dia" class="form-control"  required  id="_6" >
+                                <option disabled selected value >  </option>
+                                    <?php
+                                    $sqlTipo = "SELECT * FROM dias order by ID";
+                                    $dataNivel = mysqli_query($mysqli, $sqlTipo);
+                                    //el siguiente codigo: El PRIMER ECHO ID es lo dato que se enviara, en este caso el ID, 
+                                    //el utf8_encode es el dato de referencia a mostrar, es decir el nombre JUNTO EL NUMERO DEL ID
+                                    while($data = mysqli_fetch_array($dataNivel)){ ?>
+                                <option value="<?php echo $data["ID"]; ?>"><?php echo utf8_encode($data['NOMBRE_DIA']); ?>
+
+                                    <?php } ?>
+                            </select>  
+                        </div>      
                                 
-                        <div class="mb-3">
-                            <label for="_rut" class="form-label">Rut: </label>
-                            <input  label="_rut" class="form-control" type="text" name="rut"  autofocus required id="_rut" >
-                        </div>
+                      
 
                         <div class="mb-3">
-                            <label for="_2" class="form-label">Correo electrónico: </label>
-                            <input type="email" class="form-control" name="txtCorreo" autofocus required id="_2">
+                            <label for="_2" class="form-label">Hora inicio: </label>
+                            <input type="time" class="form-control" name="inicio" autofocus required id="_2">
                         </div>
                         <div class="mb-3">
-                            <label for="_5" class="form-label">Contraseña: </label>
-                            <input type="password" class="form-control" name="txtPass" autofocus required id="_5">
+                            <label for="_2" class="form-label">Hora Termino: </label>
+                            <input type="time" class="form-control" name="termino" autofocus required id="_2">
                         </div>
-                        
-                        
+
                         <div class="d-grid mt-5">
                             <input type="hidden" name="id_clase" value="<?php echo $id_clase; ?>" >
                             <input type="submit" class="btn btn-primary" value="Registrar">
