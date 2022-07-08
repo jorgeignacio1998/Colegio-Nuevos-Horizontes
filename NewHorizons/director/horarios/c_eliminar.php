@@ -5,6 +5,7 @@ require '../seguridad_director.php';
 
 
 
+$id_clase = $_GET['id_clase'];
 $id_horario = $_GET['id_horario'];
 
 
@@ -16,11 +17,11 @@ $id_horario = $_GET['id_horario'];
 $query2 = "DELETE FROM horarios_clases WHERE ID = $id_horario ";
         if(mysqli_query($mysqli, $query2)){
            
-            echo "<script>location.href='index.php?id_horario=$id_horario&mensaje=eliminado';</script>";
+            echo "<script>location.href='index.php?id_horario=$id_horario&id_clase=$id_clase&mensaje=eliminado';</script>";
                 die();
                 
             }else{  
-                echo "<script>location.href='index.php?id_horario=$id_horario&mensaje=error';</script>";
+                echo "<script>location.href='index.php?id_horario=$id_horario&id_clase=$id_clase&mensaje=error';</script>";
    
                 die();
             }

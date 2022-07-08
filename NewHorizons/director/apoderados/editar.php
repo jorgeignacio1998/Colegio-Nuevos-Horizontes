@@ -154,12 +154,12 @@ $sentencia =mysqli_fetch_array($inner);
                         </div>
 
                         <div class="mb-3">
-                            <label for="4" class="form-label">Telefono: </label>
+                            <label for="4" class="form-label">Teléfono: </label>
                             <input type="text" class="form-control" name="telefono" value="<?php echo $sentencia['TELEFONO'];  ?>" autofocus required id="4">
                         </div>
 
                         <div class="mb-3">
-                            <label for="5" class="form-label">Direccion: </label>
+                            <label for="5" class="form-label">Dirección: </label>
                             <input type="text" class="form-control" name="direccion" value="<?php echo $sentencia['DIRECCION'];  ?>" autofocus required id="5">
                         </div>
 

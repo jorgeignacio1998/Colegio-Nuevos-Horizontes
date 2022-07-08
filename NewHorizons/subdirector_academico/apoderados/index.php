@@ -153,8 +153,8 @@ $inner = $mysqli->query("SELECT *, apoderados.ID AS idap FROM apoderados INNER J
                                     <th scope="col">NOMBRE</th>
                                     <th scope="col">RUT</th>                                        
                                     <th scope="col">EMAIL</th>
-                                    <th scope="col">TELEFONO</th>
-                                    <th scope="col">DIRECCION</th>
+                                    <th scope="col">TELÉFONO</th>
+                                    <th scope="col">DIRECCIÓN</th>
                                     <th scope="col">ALUMNO</th>
                                    
 
@@ -238,12 +238,12 @@ $inner = $mysqli->query("SELECT *, apoderados.ID AS idap FROM apoderados INNER J
                         </div>
 
                         <div class="mb-3">
-                            <label for="4" class="form-label">Telefono: </label>
+                            <label for="4" class="form-label">Teléfono: </label>
                             <input type="text" class="form-control" name="telefono" autofocus required id="4">
                         </div>
 
                         <div class="mb-3">
-                            <label for="5" class="form-label">Direccion: </label>
+                            <label for="5" class="form-label">Dirección: </label>
                             <input type="text" class="form-control" name="direccion" autofocus required id="5">
                         </div>
 

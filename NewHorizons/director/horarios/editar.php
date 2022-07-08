@@ -120,13 +120,13 @@ $LosDatos =mysqli_fetch_array($datita2);
 
                         <div class="mb-3">
                             
-                            <p>Hora registrada anteriormente: <?php echo $LosDatos['HORA_INICIO'] ; ?></p>
+                            <p  style="color:#0275d8;"  >Hora registrada anteriormente: <?php echo $LosDatos['HORA_INICIO'] ; ?></p>
                             <label for="_2" class="form-label">Hora inicio: </label>
                             <input type="time" class="form-control" name="inicio"  autofocus required id="_2">
                         </div>
                         <div class="mb-3">
                          
-                            <p>Hora registrada anteriormente: <?php echo $LosDatos['HORA_TERMINO'] ; ?></p>
+                            <p style="color:#0275d8;" >Hora registrada anteriormente: <?php echo $LosDatos['HORA_TERMINO'] ; ?></p> 
                             <label for="_3" class="form-label">Hora Termino: </label>
                             <input type="time" class="form-control" name="termino" autofocus required id="_3">
                         </div>
