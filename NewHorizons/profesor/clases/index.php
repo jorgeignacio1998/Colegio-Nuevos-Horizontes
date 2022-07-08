@@ -124,7 +124,9 @@ $id_profesor = $sentencia22['ID'];
                                                            
                              
                             
-                                <th scope="col" colspan="2">Opciones</th>
+                                <th scope="col" colspan="2">Calificaciones</th>
+                                <th scope="col" colspan="2">Anotaciones</th>
+                               
                             </tr>
                         </thead>
                         <tbody >

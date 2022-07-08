@@ -299,7 +299,45 @@ navbar-toggle a {
 
 
 
-                    
+                    <style>
+        .l1{
+        padding-left: 23px;
+        position: relative;
+        top: -10px;
+        
+    }
+    .l2{
+        padding-left: 23px;
+        position: relative;
+        top: -2rem;
+        
+    }
+    .l3{
+        padding-left: 23px;
+        position: relative;
+        top: -3rem;
+        
+    }
+    .l4{
+        padding-left: 23px;
+        position: relative;
+        top: -4rem;
+        
+    }
+    .l5{
+        padding-left: 23px;
+        position: relative;
+        top: -5rem;
+        
+    }
+    .l6{
+        padding-left: 23px;
+        position: relative;
+        top: -6rem;
+        
+    }
+</style>
+
 
 
                     
@@ -313,13 +351,13 @@ navbar-toggle a {
                 <!-- Clases -->
 
                 <!-- Gestionar apoderado -->
-                    <li class="list__item apoderados">
+                    <li class="list__item l2">
                         <div class="list__button">
-                            <a href=""  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;otro  </a >
+                            <a href="horarios/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Horarios</a >
                         </div>
                     </li>
                 <!-- Gestionar apoderado -->
-
+   
 
 
 
