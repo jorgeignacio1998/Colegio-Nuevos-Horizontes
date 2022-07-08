@@ -1,5 +1,5 @@
 <?php
-require '../seguridad_alumno.php';  //coneccion BD
+require '../seguridad_apoderado.php';  //coneccion BD
 
 
 $usuario_logueado = $_SESSION['usuario'];

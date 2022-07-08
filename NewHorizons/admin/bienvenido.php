@@ -1,6 +1,13 @@
 <?php   
 require '../codes/seguridadAdmin.php'; //BD, SESSION Y NIVEL==1
 
+$datos_usuarios = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+$datos = mysqli_fetch_array($datos_usuarios, MYSQLI_ASSOC); 
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +42,7 @@ require '../codes/seguridadAdmin.php'; //BD, SESSION Y NIVEL==1
                        </a>
                        <ul class="dropdown-menu">
                        <li> <a class="dropdown-item" href="../admin/gestionarUsuarios.php">Gestionar usuarios</a></li>
-                       <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
-                       <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
+                     
                        
                        <li> <a class="dropdown-item" href="../codes/logout.php">Cerrar sesión</a></li>
                        </ul>
@@ -48,6 +54,21 @@ require '../codes/seguridadAdmin.php'; //BD, SESSION Y NIVEL==1
      
   
   <!-- Termino del Navbar  admin -->
+
+
+<style>
+.color{
+   color:aqua;
+   margin-top: 5rem;
+ 
+  
+}
+</style>
+<center>
+   <div class="color">
+      <h4> Bienvenido <?php echo $datos['NOMBRE'] ;?> </h4>
+   </div>
+</center>
 
 
   

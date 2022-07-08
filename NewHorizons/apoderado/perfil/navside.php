@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navside  Principal del Subdirector</title>
+    <title>Navside del perfil</title>
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> 
@@ -58,7 +58,7 @@ color: #212121;
 .list{
     width: 70%;
     /* posicion altura */
-    height: 90vh;      
+    height: 80vh;      
      /* posicion altura */  
     display: flex;
     justify-content: center;
@@ -232,7 +232,6 @@ navbar-toggle a {
     
 }
 
-
 </style>
 
 
@@ -243,13 +242,8 @@ navbar-toggle a {
         <a href="#" class="menu-bars"  id="show-menu">
             <i class="fas fa-bars"></i>
        </a>
-       <div class="ml-5">
-            <a  href="index.php">
-            <img src="../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
-            </a>
-        </div>
        <div class="  collapse navbar-collapse d-flex flex-row-reverse ">
-           <a  class = "cerrar" href="../codes/logout.php">Cerrar Sesión</a>
+           <a  class = "cerrar" href="../../codes/logout.php">Cerrar Sesión</a>
        </div>
     </div>
 
@@ -267,105 +261,68 @@ navbar-toggle a {
                 <ul class="list">
 
 
-                    <!-- 0   INICIO-->
+
                     <li class="list__item inicio">
                         <div class="list__button">
-                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Inicio  </a >
+                            <a href="../index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Inicio  </a >
                         </div>
                     </li>
-                    <!-- 0   INICIO-->
 
 
 
 
 
 
+                    <li class="list__item inicio">
+                        <div class="list__button">
+                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Perfil  </a >
+                        </div>
+                    </li>
 
-                    <!-- Alumnos -->
-                    <!-- <li class="list__item list__item--click" >
+
+
+
+
+                   
+
+
+                        <!-- 3 HAMBURGESA -->
+                    <li class="list__item list__item--click" >
                         <div class="list__button list__button__click">
                            
-                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i> Alumnos<i class=" list__arrow fa-solid fa-angle-right"></i>
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 3  <i class=" list__arrow fa-solid fa-angle-right"></i>
                           
-                        </div> -->
-                        <!--  submenu -->
-                        <!-- <ul class="list__show">
+                        </div>
+                        <!-- primer submenu -->
+                        <ul class="list__show">
                             <li class="list__inside">
-                                <a href="alumnos/index.php"  class=" nav__link nav__link__inside"  >Matricular alumno </a>
+                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1   </a>
                             </li>
                             <li class="list__inside">
-                                <a href="alumno_asignar/index.php"  class=" nav__link nav__link__inside"  >Asignar curso </a>
+                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
                             </li>
                         </ul>
-                    </li> -->
-                    <!-- Alumnos -->
-
-
-
-
-
-
-<style>
-        .l1{
-        padding-left: 23px;
-        position: relative;
-        top: -10px;
-        
-    }
-    .l2{
-        padding-left: 23px;
-        position: relative;
-        top: -2rem;
-        
-    }
-    .l3{
-        padding-left: 23px;
-        position: relative;
-        top: -3rem;
-        
-    }
-    .l4{
-        padding-left: 23px;
-        position: relative;
-        top: -4rem;
-        
-    }
-    .l5{
-        padding-left: 23px;
-        position: relative;
-        top: -5rem;
-        
-    }
-    .l6{
-        padding-left: 23px;
-        position: relative;
-        top: -6rem;
-        
-    }
-    .l7{
-        padding-left: 23px;
-        position: relative;
-        top: -7rem;
-        
-    }
-</style>
-
-
-
-
-
-
-                    
-
-                    <!-- Matriculas -->
-                    <li class="list__item matriculas l1">
-                        <div class="list__button">
-                            <a href="alumnos/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Alumnos  </a >
-                        </div>
                     </li>
-                    <!-- Matriculas -->
 
+                        <!-- 4 HAMBURGESA -->
+                    <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i>menu 4   <i class="  fa-solid fa-angle-right list__arrow"></i>
 
+                               
+                         
+                        </div>
+                        <!-- primer submenu -->
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#"  class=" nav__link nav__link__inside"  >opcion 1  </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class=" nav__link nav__link__inside" >opcion 2  </a >
+                            </li>
+                        </ul>
+                    </li>
 
                 </ul>
 

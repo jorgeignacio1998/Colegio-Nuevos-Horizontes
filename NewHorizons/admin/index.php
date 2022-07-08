@@ -10,22 +10,36 @@
 <body>
 
 
-    <form action="../codes/c_loginAdmin.php" method="POST"  class="form-register"  id="_formid">
-       
+
+
+
+<style>
+.divprincipal{
+    margin-top: 5rem;
+}
+
+</style>
+
+    <div class="divprincipal">
+        <form action="../codes/c_loginAdmin.php" method="POST"  class="form-register"  id="_formid">
+        
         <h4  id="_titulo">Login</h4>
 
-           
+            
             <input   label="" type="email"    name="email"        placeholder= "Correo electronico"  id="_email" >
             <input   label="" type="password" name="password"     placeholder= "Contraseña"   id="_password">
-           
+            
             <br><br>
             <input type="submit" value="INGRESAR" id="submit" > 
             <div class='olvidaste'> 
-                <a href=''>¿Olvidaste tu contraseña?</a> <br>
+           
             </div>
 
             
     </form>
+    </div>
+
+ 
 
 
     

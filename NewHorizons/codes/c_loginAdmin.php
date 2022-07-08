@@ -18,7 +18,7 @@ session_start(); //Paso 1 para utilizar sesiones
         echo'
             <script>
             alert("Las credenciales no son validas");
-            window.location = "../views/index.php";
+            window.location = "../index.php";
             </script>
         ';
         

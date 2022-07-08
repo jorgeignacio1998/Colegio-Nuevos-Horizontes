@@ -78,8 +78,7 @@ $datos_usuario = $mysqli->query("SELECT * FROM usuarios ORDER BY NIVEL"); //obti
                        </a>
                        <ul class="dropdown-menu">
                        <li> <a class="dropdown-item" href="../admin/gestionarUsuarios.php">Gestionar usuarios</a></li>
-                       <li> <a class="dropdown-item" href="#">Opcion 2</a></li>
-                       <li> <a class="dropdown-item" href="#">Opcion 3</a></li>
+                    
                        
                        <li> <a class="dropdown-item" href="../codes/logout.php">Cerrar sesión</a></li>
                        </ul>

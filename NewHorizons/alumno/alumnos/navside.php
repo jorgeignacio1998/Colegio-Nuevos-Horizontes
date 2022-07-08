@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -244,12 +244,12 @@ navbar-toggle a {
             <i class="fas fa-bars"></i>
        </a>
        <div class="ml-5">
-            <a  href="index.php">
-            <img src="../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
+            <a  href="../index.php">
+            <img src="../../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
             </a>
         </div>
        <div class="  collapse navbar-collapse d-flex flex-row-reverse ">
-           <a  class = "cerrar" href="../codes/logout.php">Cerrar Sesión</a>
+           <a  class = "cerrar" href="../../codes/logout.php">Cerrar Sesión</a>
        </div>
     </div>
 
@@ -270,7 +270,7 @@ navbar-toggle a {
                     <!-- 0   INICIO-->
                     <li class="list__item inicio">
                         <div class="list__button">
-                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Inicio  </a >
+                            <a href="../index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Inicio  </a >
                         </div>
                     </li>
                     <!-- 0   INICIO-->
@@ -360,7 +360,7 @@ navbar-toggle a {
                     <!-- Matriculas -->
                     <li class="list__item matriculas l1">
                         <div class="list__button">
-                            <a href="alumnos/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Alumnos  </a >
+                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Alumnos  </a >
                         </div>
                     </li>
                     <!-- Matriculas -->
