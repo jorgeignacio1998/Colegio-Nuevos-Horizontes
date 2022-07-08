@@ -12,6 +12,11 @@ ON matriculas.ID_GRADO = grados.ID
 INNER JOIN periodos
 ON matriculas.ID_PERIODO = periodos.ID
 ORDER BY ID_PERIODO  DESC , ID_GRADO "); 
+
+
+$usuario_logueado = $_SESSION['usuario'];
+$datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+$nombre_usuario = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);
 ?>
 
 
@@ -46,7 +51,12 @@ ORDER BY ID_PERIODO  DESC , ID_GRADO ");
     <?php 
     include 'navside.php';
     ?>
-    
+ 
+<!-- TEXTO USUARIO PARTE 2 -->
+<div class="text-center mt-4">
+<p class="fs-6" style="color:steelblue"> <?php  echo $nombre_usuario['NOMBRE'];?> </p>
+</div>
+<!-- TEXTO USUARIO PARTE 2 --> 
 
 <!-- scripts para boostrap y popper -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

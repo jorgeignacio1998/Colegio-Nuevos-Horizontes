@@ -2,8 +2,11 @@
 require '../seguridad_subdirector.php';
 $profesores = $mysqli->query("SELECT * FROM profesores");
 
-
+$usuario_logueado = $_SESSION['usuario'];
+$datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+$nombre_usuario = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);
 ?>
+
 
 
 <!DOCTYPE html>
@@ -100,7 +103,9 @@ $profesores = $mysqli->query("SELECT * FROM profesores");
     include 'navside.php';
     ?>
 
-
+<div class="text-center mt-4">
+<p class="fs-6" style="color:steelblue"> <?php  echo $nombre_usuario['NOMBRE'];?> </p>
+</div>
 
 
 <!-- Inicio Gestor de usuarios--  admin -->   

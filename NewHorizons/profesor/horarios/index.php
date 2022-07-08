@@ -12,12 +12,20 @@ $rut_profesor = $sentencia2['RUT'];
 //INYECCIONSQL RUT PROFESOR
 
 
+//INYECCIONSQL2 
+$datita2 = $mysqli->query("SELECT * FROM  profesores WHERE RUT LIKE '{$rut_profesor}'");
+$res2 = mysqli_num_rows($datita2);
+$id_profesor = '';
+if($res2 > 0){ 
+    $sentencia22 =mysqli_fetch_array($datita2);
+    $id_profesor = $sentencia22['ID'];
+}else{
+    echo '<script language="javascript">alert("' . 'NO ESTÁ REGISTRADO EL PROFESOR EN LA TABLA DE PROFESORES.  RUT: ' .  $rut_profesor   . '");</script>';
+}
+
+ 
 
 
-//INYECCIONSQL DATOS PROFESOR
-$datita2 = $mysqli->query("SELECT * FROM profesores WHERE RUT LIKE '{$rut_profesor}'");
-$sentencia3 =mysqli_fetch_array($datita2);
-$id_profesor = $sentencia3['ID'];
 
 
 
@@ -56,8 +64,21 @@ $id_profesor = $sentencia3['ID'];
     
     
     <?php 
-    // include 'navside.php';
+    include 'navside.php';
     ?>
+    
+    <!-- TEXTO USUARIO PARTE 2 -->
+    <?php 
+    $usuario_logueado = $_SESSION['usuario'];
+    $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+    $array123 = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);
+    ?>
+                    
+
+    <div class="text-center mt-4">
+        <p class="fs-6" style="color:steelblue"> <?php  echo $array123['NOMBRE'];?> </p>
+    </div>
+<!-- TEXTO USUARIO PARTE 2 -->
     
 
     <!-- Estos dos son para el rut verificador -->
@@ -151,6 +172,7 @@ $id_profesor = $sentencia3['ID'];
             </thead>
             <tbody >
                 <?php     //IMPRIMIR DATOS EN LOS td
+
 
 
 

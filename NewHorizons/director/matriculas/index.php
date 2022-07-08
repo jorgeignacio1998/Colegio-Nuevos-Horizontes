@@ -48,6 +48,23 @@ ORDER BY ID_PERIODO  DESC , ID_GRADO ");
     ?>
     
 
+
+
+    <!-- TEXTO USUARIO PARTE 2 -->
+    <?php 
+        $usuario_logueado = $_SESSION['usuario'];
+        $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+        $array123 = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);
+        ?>
+                    
+
+        <div class="text-center mt-4">
+            <p class="fs-6" style="color:steelblue"> <?php  echo $array123['NOMBRE'];?> </p>
+        </div>
+    <!-- TEXTO USUARIO PARTE 2 -->
+
+
+
 <!-- scripts para boostrap y popper -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
@@ -99,6 +116,8 @@ ORDER BY ID_PERIODO  DESC , ID_GRADO ");
            <?php 
                 include 'alertas.php';
            ?>
+
+             
 
 
                 

@@ -22,10 +22,25 @@ $rut_alumno = $sentencia2['RUT'];
 
 //INYECCIONSQL
 
+
+
+$datita2 = $mysqli->query("SELECT * FROM  alumnos WHERE RUT LIKE '{$rut_alumno}'");
+$res2 = mysqli_num_rows($datita2);
+$id_alumno= '';
+
+if($res2 > 0){ 
+    $sentencia3 =mysqli_fetch_array($datita2);
+    $id_alumno = $sentencia3['ID'];
+}else{
+    echo '<script language="javascript">alert("' . 'NO ESTÁ REGISTRADO EL alumno EN LA TABLA DE Alumno.  RUT: ' .  $rut_alumno   . '");</script>';
+}
+
+
+
 //INYECCIONSQL
 $datita2 = $mysqli->query("SELECT * FROM alumnos WHERE RUT LIKE '{$rut_alumno}'");
-$sentencia3 =mysqli_fetch_array($datita2);
-$id_alumno = $sentencia3['ID'];
+
+
 
 //INYECCIONSQL
 
@@ -62,13 +77,15 @@ $inner = $mysqli->query("SELECT * FROM alumnos WHERE ID LIKE '{$id_alumno}'")
     ?>
 
 
+  <!-- TEXTO USUARIO PARTE 2 -->
 
+  
     <!-- $usuario_logueado = $_SESSION['usuario'];
     $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
     $array = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC); -->
 
 
-    <!-- TEXTO USUARIO PARTE 2 -->
+  
     <div class="text-center mt-4">
     <p class="fs-6" style="color:steelblue"> <?php  echo $nombre_usuario['NOMBRE'];?> </p>
     </div>

@@ -360,7 +360,7 @@ navbar-toggle a {
                     <!-- Matriculas -->
                     <li class="list__item matriculas l1">
                         <div class="list__button">
-                            <a href="../alumnos/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Alumnos  </a >
+                            <a href="../alumnos/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Libro de clases  </a >
                         </div>
                     </li>
                     <!-- Matriculas -->

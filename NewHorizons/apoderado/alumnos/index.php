@@ -139,7 +139,7 @@ WHERE RUT_ALUMNO LIKE '{$rut_alumno}'")
                             <tr>
                                 
                             
-                                <th scope="col">ID ALUMNO</th>
+                           
                                 <th scope="col">NOMBRE DEL ALUMNO</th>
                                 <th scope="col">NOTAS</th>
                                 <th scope="col">HORARIO</th>
@@ -183,7 +183,7 @@ WHERE RUT_ALUMNO LIKE '{$rut_alumno}'")
                             <tr >
 
                                 <td scope="row"><?php echo $fila['nom1'] . ' '. $fila['nom2'] . ' '. $fila['nom3'] . ' '. $fila['nom4']; ?></td>
-                                <td ><?php echo $fila['NOMBRE']; ?></td>
+                            
 
 
                                 

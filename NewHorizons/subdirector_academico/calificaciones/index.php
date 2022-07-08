@@ -11,6 +11,10 @@ INNER JOIN asignaturas ON clases.ID_ASIGNATURA = asignaturas.ID_A
 INNER JOIN cursos ON clases.ID_CURSO = cursos.ID
 ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NUMERO   ");
 
+$usuario_logueado = $_SESSION['usuario'];
+$datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+$nombre_usuario = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);
+
 ?>
 
 
@@ -72,7 +76,11 @@ ORDER BY clases.ID, cursos.ID, alumnos.ID,   alumnos.APELLIDO_1, evaluaciones.NU
     include 'navside.php';
     ?>
 
-
+<!-- TEXTO USUARIO PARTE 2 -->
+<div class="text-center mt-4">
+<p class="fs-6" style="color:steelblue"> <?php  echo $nombre_usuario['NOMBRE'];?> </p>
+</div>
+<!-- TEXTO USUARIO PARTE 2 -->
 
 
 <!-- Inicio Gestor de usuarios--  admin -->   

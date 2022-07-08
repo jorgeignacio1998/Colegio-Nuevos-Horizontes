@@ -270,7 +270,7 @@ navbar-toggle a {
                     <!-- 0   INICIO-->
                     <li class="list__item inicio">
                         <div class="list__button">
-                            <a href="../index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Libro de clases  </a >
+                            <a href="../index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Inicio  </a >
                         </div>
                     </li>
                     <!-- 0   INICIO-->
@@ -360,10 +360,35 @@ navbar-toggle a {
                     <!-- Matriculas -->
                     <li class="list__item matriculas l1">
                         <div class="list__button">
-                            <a href="../alumnos/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Alumnos  </a >
+                            <a href="../anotaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Anotaciones  </a >
                         </div>
                     </li>
                     <!-- Matriculas -->
+
+                    <!-- Matriculas -->
+                    <li class="list__item matriculas l2">
+                        <div class="list__button">
+                            <a href="../calificaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Calificaciones  </a >
+                        </div>
+                    </li>
+                    <!-- Matriculas -->          
+                    
+                    <!-- Matriculas -->
+                    <li class="list__item matriculas l3">
+                        <div class="list__button">
+                            <a href="../clases/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
+                        </div>
+                    </li>
+                    <!-- Matriculas -->        
+                    
+                    <!-- Matriculas -->
+                    <li class="list__item matriculas l4">
+                        <div class="list__button">
+                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Horarios  </a >
+                        </div>
+                    </li>
+                    <!-- Matriculas -->     
+
 
 
 

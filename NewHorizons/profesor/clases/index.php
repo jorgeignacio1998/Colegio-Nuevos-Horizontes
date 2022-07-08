@@ -9,12 +9,22 @@ $rut_profesor = $sentencia2['RUT'];
 //INYECCIONSQL
 
 
-//INYECCIONSQL2 
+
+
+
 $datita2 = $mysqli->query("SELECT * FROM  profesores WHERE RUT LIKE '{$rut_profesor}'");
-$sentencia22 =mysqli_fetch_array($datita2);
-$id_profesor = $sentencia22['ID'];
-//  echo '<script language="javascript">alert("' . 'ALERTO: ' .  $id_profesor   . '");</script>';
-//INYECCIONSQL2
+$res2 = mysqli_num_rows($datita2);
+$id_profesor= '';
+
+if($res2 > 0){ 
+    $sentencia22 =mysqli_fetch_array($datita2);
+    $id_profesor = $sentencia22['ID'];
+}else{
+    echo '<script language="javascript">alert("' . 'NO ESTÁ REGISTRADO EL PROFESOR EN LA TABLA DE PROFESORES.  RUT: ' .  $rut_profesor   . '");</script>';
+}
+
+ 
+
 
 
 ?>
@@ -41,12 +51,24 @@ $id_profesor = $sentencia22['ID'];
     
     
     <?php 
-    // include 'navside.php';
+    include 'navside.php';
     ?>
     
 
 
+<!-- TEXTO USUARIO PARTE 2 -->
+<?php 
+    $usuario_logueado = $_SESSION['usuario'];
+    $datos_usuario = $mysqli->query("SELECT * FROM usuarios WHERE ID LIKE '{$usuario_logueado}' LIMIT 1");
+    $array123 = mysqli_fetch_array($datos_usuario, MYSQLI_ASSOC);
+    ?>
+                    
 
+    <div class="text-center mt-4">
+        <p class="fs-6" style="color:steelblue"> <?php  echo $array123['NOMBRE'];?> </p>
+    </div>
+<!-- TEXTO USUARIO PARTE 2 -->
+    
 
 
 
@@ -111,7 +133,7 @@ $id_profesor = $sentencia22['ID'];
                                     INNER JOIN cursos ON cursos.ID = clases.ID_CURSO
                                     INNER JOIN grados ON grados.ID = cursos.ID_GRADO
                                     INNER JOIN salas ON clases.ID_SALA = salas.ID
-                                    WHERE clases.ID_PROFESOR LIKE $id_profesor
+                                    WHERE clases.ID_PROFESOR LIKE '{$id_profesor}'
                                     ORDER BY grados.ID, cursos.NOMBRE 
                                     ");
                                 ?>
