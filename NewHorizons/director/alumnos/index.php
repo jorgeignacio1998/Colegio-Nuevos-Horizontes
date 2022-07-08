@@ -185,7 +185,7 @@ ORDER BY ID_GRADO ");
                 <!-- siguiendo con la estructura de la tabla (primer col) -->
                <div  class="card ">
                    <div class="card-header">
-                       Lista de usuarios                                     
+                       Lista de Alumnos                                     
                        <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Buscar...">                          <!-- aca-->
                    </div>
 
@@ -194,7 +194,7 @@ ORDER BY ID_GRADO ");
                             <thead>
                                 <tr>
                                     
-                                    <th scope="col">#</th>
+                                    <th scope="col">ID ALUMNO</th>
                                     <th scope="col">Nombre alumno</th>       
                                     <th scope="col">Rut alumno</th>    
                                     <th scope="col">Grado</th>    
