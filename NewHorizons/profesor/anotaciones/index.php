@@ -2,11 +2,22 @@
 include '../seguridad_profesor.php';    //BD, SEGURIDAD NIVEL, SESSION.
 
     
+
+
+$id_clase = '';
+
+
+if(isset($_GET['id_clase'])){
+
     $id_clase = $_GET['id_clase'];
+ 
+}
+
+
+
+
 
  
-
-
 
 
 
@@ -105,7 +116,7 @@ $inner = $mysqli->query("SELECT *, anotaciones.ID AS anoid, alumnos.ID AS alumno
                                
                                 <th scope="col">ALUMNO</th>    
                                 <th scope="col">FECHA</th>    
-                                <th scope="col">ANOTACION</th>                                   
+                                <th scope="col">ANOTACIÓN</th>                                   
                                
                             
 

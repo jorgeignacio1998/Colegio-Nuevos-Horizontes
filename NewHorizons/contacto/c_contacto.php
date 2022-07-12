@@ -71,7 +71,7 @@ isset($_POST['g-recaptcha-response'])
         $arr = json_decode($response, TRUE);
         if($arr['success']){
     
-            header('Location: index.php?mensaje=exito');
+           
             
             //  INICIO ENVIO DEL CORREO
             $mail = new PHPMailer(true);
@@ -83,7 +83,7 @@ isset($_POST['g-recaptcha-response'])
                 $mail->Host       = 'mail.dois.cl';                         //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mail->Username   = 'diego.franco@dois.cl';                     //SMTP username
-                $mail->Password   = 'GnXL}%[x]X70';                               //SMTP password
+                $mail->Password   = 'Wo9vf%Bt+9I]';                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
@@ -101,11 +101,12 @@ isset($_POST['g-recaptcha-response'])
                 
                 //Content
                 $mail->isHTML(true);                                  
-                $mail->Subject = 'NOMBRE: '  .$_POST['nombre'] ;
+                $mail->Subject = 'CONTACTO Nuevos Horizontes ' ;
                 $mail->Body    = 'DE: ' .$_POST['nombre'] . ' - ' .  'CORREO ELECTRONICO: '.$_POST['email'] .' MENSAJE: ' .$_POST['mensaje'] ;
                 $mail->AltBody  =  $_POST['nombre'] ;
                 $mail->send();
-                echo 'Message has been sent';
+                echo "<script>location.href='index.php?mensaje=exito';</script>";
+              
             } catch (Exception $e) {
                 echo `<script language="javascript">alert("juas"); </script>`;
             } 
@@ -113,30 +114,17 @@ isset($_POST['g-recaptcha-response'])
     
             
         }else{
-            header('Location: index.php?mensaje=error');
+            echo "<script>location.href='index.php?mensaje=error';</script>";
         }
             
     
 
     }else{
-        echo '<script language="javascript">alert("ERROR");</script>';
+        echo "<script>location.href='index.php?mensaje=error';</script>";
     }
 
  
 }
 
-        
-
-
-
- 
     
-
-
-
-
-
-
-
-
 ?>

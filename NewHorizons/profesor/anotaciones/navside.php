@@ -357,37 +357,22 @@ navbar-toggle a {
 
                     
 
-                    <!-- Matriculas -->
+                    <!-- Mis Clases -->
                     <li class="list__item matriculas l1">
                         <div class="list__button">
-                            <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Anotaciones  </a >
+                            <a href="../clases/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Mis Clases  </a >
                         </div>
                     </li>
-                    <!-- Matriculas -->
+                    <!-- Mis Clases -->
 
-                    <!-- Matriculas -->
+                    <!-- Horarios -->
                     <li class="list__item matriculas l2">
-                        <div class="list__button">
-                            <a href="../calificaciones/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Calificaciones  </a >
-                        </div>
-                    </li>
-                    <!-- Matriculas -->          
-                    
-                    <!-- Matriculas -->
-                    <li class="list__item matriculas l3">
-                        <div class="list__button">
-                            <a href="../clases/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Clases  </a >
-                        </div>
-                    </li>
-                    <!-- Matriculas -->        
-                    
-                    <!-- Matriculas -->
-                    <li class="list__item matriculas l4">
                         <div class="list__button">
                             <a href="../horarios/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Horarios  </a >
                         </div>
                     </li>
-                    <!-- Matriculas -->     
+                    <!-- Horarios -->          
+                
 
 
 

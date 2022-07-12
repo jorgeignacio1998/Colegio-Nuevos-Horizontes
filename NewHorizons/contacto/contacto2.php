@@ -1,18 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- BOOSTRAP -->
+   
 </head>
-<body> 
-    <!-- scripts para boostrap y popper -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>   
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>    <!-- captcha -->
-
 <style>
 body{
     background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
@@ -100,7 +96,7 @@ body{
                               <input type="text" class="form-control" name="nombre" autofocus required id="2">
                           </div> 
                           <div class="mb-3 col-md-6 col-sm-12">
-                              <label for="1" class="form-label">Correo electrónico: </label>
+                              <label for="1" class="form-label">Creo electronico: </label>
                               <input type="email" class="form-control" name="email" autofocus required id="1">
                           </div>            
                       </div>

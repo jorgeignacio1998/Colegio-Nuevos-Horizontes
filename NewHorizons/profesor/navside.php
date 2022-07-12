@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navside del  subdirector</title>
+    <title>Navside  Principal del Subdirector</title>
     <script src="https://kit.fontawesome.com/d8159ea47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> 
@@ -58,7 +58,7 @@ color: #212121;
 .list{
     width: 70%;
     /* posicion altura */
-    height: 80vh;      
+    height: 90vh;      
      /* posicion altura */  
     display: flex;
     justify-content: center;
@@ -231,18 +231,7 @@ navbar-toggle a {
     top: 17px;
     
 }
-.evaluaciones{
-    padding-left: 23px;
-    position: relative;
-    top: -10px;
-    
-}
-.apoderados{
-    padding-left: 23px;
-    position: relative;
-    top: -6px;
-    
-}
+
 
 </style>
 
@@ -254,27 +243,15 @@ navbar-toggle a {
         <a href="#" class="menu-bars"  id="show-menu">
             <i class="fas fa-bars"></i>
        </a>
+       <div class="ml-5">
+            <a  href="index.php">
+            <img src="../img/logo-educode-in.png" class="d-block ml-5" style="width: 30%;margin-left: 20px">
+            </a>
+        </div>
        <div class="  collapse navbar-collapse d-flex flex-row-reverse ">
            <a  class = "cerrar" href="../codes/logout.php">Cerrar Sesión</a>
        </div>
     </div>
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     
@@ -290,16 +267,45 @@ navbar-toggle a {
                 <ul class="list">
 
 
-
+                    <!-- 0   INICIO-->
                     <li class="list__item inicio">
                         <div class="list__button">
                             <a href="index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Inicio  </a >
                         </div>
                     </li>
+                    <!-- 0   INICIO-->
 
 
 
-                    <style>
+
+
+
+
+                    <!-- Alumnos -->
+                    <!-- <li class="list__item list__item--click" >
+                        <div class="list__button list__button__click">
+                           
+                            <a href="#" class="nav__link" > </a >    <i class="fa-solid fa-book-open-reader"></i> Alumnos<i class=" list__arrow fa-solid fa-angle-right"></i>
+                          
+                        </div> -->
+                        <!--  submenu -->
+                        <!-- <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="alumnos/index.php"  class=" nav__link nav__link__inside"  >Matricular alumno </a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="alumno_asignar/index.php"  class=" nav__link nav__link__inside"  >Asignar curso </a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <!-- Alumnos -->
+
+
+
+
+
+
+<style>
         .l1{
         padding-left: 23px;
         position: relative;
@@ -336,35 +342,37 @@ navbar-toggle a {
         top: -6rem;
         
     }
+    .l7{
+        padding-left: 23px;
+        position: relative;
+        top: -7rem;
+        
+    }
 </style>
+
+
+
 
 
 
                     
 
-                <!-- Clases -->
-                <li class="list__item evaluaciones">
+                    <!-- Mis Clases -->
+                    <li class="list__item matriculas l1">
                         <div class="list__button">
-                            <a href="clases/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp; Mis Clases  </a >
+                            <a href="clases/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Mis Clases  </a >
                         </div>
                     </li>
-                <!-- Clases -->
+                    <!-- Mis Clases -->
 
-                <!-- Gestionar apoderado -->
-                    <li class="list__item l2">
+                    <!-- Horarios -->
+                    <li class="list__item matriculas l2">
                         <div class="list__button">
-                            <a href="horarios/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Horarios</a >
+                            <a href="horarios/index.php"  class="nav__link" >   <i class="fa-solid fa-book-bookmark">  </i> &nbsp; &nbsp;Horarios  </a >
                         </div>
                     </li>
-                <!-- Gestionar apoderado -->
-   
-
-
-
-
-
-
-
+                    <!-- Horarios -->   
+                
 
 
 

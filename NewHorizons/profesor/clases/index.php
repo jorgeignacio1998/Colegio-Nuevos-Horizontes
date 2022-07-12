@@ -146,8 +146,8 @@ if($res2 > 0){
                                                            
                              
                             
-                                <th scope="col" colspan="2">Calificaciones</th>
-                                <th scope="col" colspan="2">Anotaciones</th>
+                                <th scope="col" colspan="1">Calificaciones</th>
+                                <th scope="col" colspan="1">Anotaciones</th>
                                
                             </tr>
                         </thead>
@@ -168,15 +168,10 @@ if($res2 > 0){
                                 <td ><?php echo $fila['leeible']; ?></td>
                                 <td ><?php echo  'SALA ' .$fila['nsala'] ?></td>
                                 
-                                
-                               
+            
 
-
-
-                            
-
-                                <td><a class="text-primary" href="../calificaciones/index.php?id_clase=<?php echo $fila['claseid']; ?>">   <i class="fa-solid fa-book"></i> </a>  </td>
-                                <td><a class="text-success" href="../anotaciones/index.php?id_clase=<?php echo $fila['claseid']; ?>">  <i class="bi bi-journal-bookmark-fill"></i>  </a>  </td>
+                                <td><a class="text-primary" href="../calificaciones/index.php?id_clase=<?php echo $fila['claseid']; ?>">  <i class="bi bi-journal-bookmark-fill"></i> </a>  </td>
+                                <td><a class="text-danger" href="../anotaciones/index.php?id_clase=<?php echo $fila['claseid']; ?>">  <i class="bi bi-journal-bookmark-fill"></i>  </a>  </td>
                               
                            
                                 
