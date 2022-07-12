@@ -8,7 +8,8 @@ $asignatura = $_POST["asignatura"];
 $descripcion = $_POST["descripcion"];
 $fecha = $_POST["fecha"];
 
-$regexNumeroNatural = "/^[1-9]*$/"; 
+
+$regexNumeroNatural = "/^[1234567890]*$/"; 
 
 
  //INYECCIONSQL

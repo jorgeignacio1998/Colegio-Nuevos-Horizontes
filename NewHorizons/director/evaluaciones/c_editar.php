@@ -23,7 +23,8 @@ $nombre = $_POST['nombre'];
 $numero = $_POST['numero'];
 $fecha = $_POST['fecha'];
 
-$regexNumeroNatural = "/^[1-9]*$/"; 
+
+$regexNumeroNatural = "/^[1234567890]*$/"; 
 
 
 

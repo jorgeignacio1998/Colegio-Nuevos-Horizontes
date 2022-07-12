@@ -30,7 +30,8 @@ $piso = $_POST["piso"];
 $id_sede = $_POST["id_sede"];
 
 
-$regexNumeroNatural = "/^[1-90]*$/"; 
+
+$regexNumeroNatural = "/^[1234567890]*$/"; 
 
 //1.-formato numero                      
 if(!preg_match($regexNumeroNatural, $numero)){

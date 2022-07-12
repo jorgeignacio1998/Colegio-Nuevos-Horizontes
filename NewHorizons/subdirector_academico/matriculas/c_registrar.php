@@ -17,7 +17,8 @@ $f_final=$_POST['f_final'];
 
 
 // $regexNombre = "/^[A-Za-z]+$/"; 
-$regexNumeroNatural = "/^[1-9]*$/"; 
+
+$regexNumeroNatural = "/^[1234567890]*$/"; 
 
 
 

@@ -5,7 +5,7 @@ if(!isset($_POST['id_matricula'])){
     header('Location: index.php?mensaje=error');
 }
 
-$regexNumeroNatural = "/^[0-9]*$/"; 
+$regexNumeroNatural = "/^[1234567890]*$/"; 
 $id_grado = $_POST["grado"];
 $id_periodo= $_POST["id_periodo"];
 $cupos= $_POST["cupos"];
